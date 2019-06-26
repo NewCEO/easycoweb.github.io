@@ -30,3 +30,18 @@
 #label1{
 	float: none !important;
 }
+
+.tabs{
+	margin-top: 5px;
+}
+
+.panel-body{
+	margin-top: 10px;
+}
+
+#side-info{
+	padding-right: -15px;
+}
+#btn-last{
+	margin-left: 500px;
+}
