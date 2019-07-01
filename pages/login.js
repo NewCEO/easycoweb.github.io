@@ -1,6 +1,6 @@
 import React from 'react';
 import StaticLayout from '../layouts/StaticLayOut';
-import SignUpFormComp from "./signup";
+import LogInFormComp from "../components/loginForm";
 
 class AboutUs extends React.Component{
 
@@ -138,7 +138,7 @@ class AboutUs extends React.Component{
                 <div className="container">
                   <div className="row">
                     <div className="moduletable   col-sm-12">
-                      <div className="module_container"><span className="breadcrumb_title">User registration</span>
+                      <div className="module_container"><span className="breadcrumb_title">Login</span>
 
                         <ul className="breadcrumb">
                           <li><a href="../index-2.html" className="pathway">Home</a><span
@@ -165,13 +165,12 @@ class AboutUs extends React.Component{
                         <div className="page-registration page-registration__">
                           <div className="page_header">
                             <h2 id="head"><span
-                              className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">User</span>
-                              <span
-                                className="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">registration</span>
+                              className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">User Login</span>
+
                             </h2>
                           </div>
 
-                          <SignUpFormComp />
+                          <LogInFormComp />
 
                         </div>
                       </main>

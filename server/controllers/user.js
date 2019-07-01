@@ -47,9 +47,8 @@ module.exports = class  user {
   
   static login(req,res){
 
-    let query   = "SELECT users.*,status.name as status_name,status.id as status_idco FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ? AND users.status = ?";
-
-      let values  = [req.query.email,statuses.active];
+    let query   = "SELECT users.*,status.name as status_name,status.id as status_id FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ? AND users.status = ?";
+      let values  = [req.body.email,statuses.active];
       let userDet;
       
       db.query(query, values).then((userResult)=>{
@@ -57,7 +56,7 @@ module.exports = class  user {
 
           userDet = userResult[0];
           //Check if the passwords matches
-          return passwordHelper.isSame(req.query.password,userResult[0].password)
+          return passwordHelper.isSame(req.body.password,userResult[0].password)
         } 
       }).then(function (result) {
         //if they match
@@ -70,10 +69,10 @@ module.exports = class  user {
             //set session cookie
           req.session.email = userDet.email;
 
-          res.status(200).json({status: 200, message: "user exists",data:userDet});
+          res.status(200).json({status: 200, message: "success", data:userDet});
 
         }else{
-          res.status(400).json({status: 400, message: "could not find user"});
+          res.status(200).json({status: 200, message: "failed"});
 
         }
       }).catch(function (error) {

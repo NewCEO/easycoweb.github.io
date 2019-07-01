@@ -38,7 +38,7 @@ module.exports.apiV1 =  function (app) {
   router.options('/email/exists',cors());
   router.get('/email/exists', cors(), (req,res)=> {user.validateEmail(req,res)});
   router.post('/sign-up',cors(),  (req,res)=> {user.create(req,res)});
-  router.post('/login', (req,res)=> {user.login(req,res)});
+  router.post('/login', cors(), (req,res)=> {user.login(req,res)});
 
 
 
