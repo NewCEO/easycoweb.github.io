@@ -1,7 +1,7 @@
 {
-  "name": "chatapp",
+  "name": "easycow",
   "version": "1.0.0",
-  "description": "chat application",
+  "description": "easycow application",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,9 @@
     "connect-memcached": "^1.0.0",
     "connect-redis": "^3.4.0",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-form-data": "^2.0.8",
     "express-mysql-session": "^2.1.0",
     "express-session": "^1.15.6",
     "express-validator": "^6.0.1",

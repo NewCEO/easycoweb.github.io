@@ -1,14 +1,19 @@
-const app      	= require('express')();
-let {apiV1} 		= require('../routes/api.v1');
+const express      	= require('express');
+const app           = express();
+let {apiV1} 		    = require('../routes/api.v1');
+var cors        = require('cors');
+
 
 
 module.exports = class server{
 
   constructor(){
-    this.port   =   3008;
+    this.port   =   3009;
   }
 
   start(){
+    //middlewares
+
     //routes
     apiV1(app);
 

@@ -4,19 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "next": "^8.1.0",
+    "nodemailer": "^6.2.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
-  "scripts": {
-   "dev": "next",
-   "build": "next build",
-   "start": "next start"
- }
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1"
+  }
 }

@@ -1,36 +1,216 @@
 import React from 'react';
 import HttpHelper from '../helpers/httpHelper';
+import FormHelpText from '../components/FormHelpText';
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   Link,
+//   Redirect,
+//   withRouter
+// } from "react-router-dom";
+import Router from 'next/router'
 
  class  SignUpFormComp extends React.Component{
    constructor(props){
      super(props);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+
       this.state = {
         name:'',
-        
+        redirect:false,
+        emailHelpText :{
+          state:false,
+          error:false,
+          text:''
+        },
+        passwordHelpText:{
+          state:false,
+          error:false,
+          text:''
+        },
+        confirmPasswordHelpText:{
+          state:false,
+          error:false,
+          text:''
+        },
+        nameHelpText:{
+          state:false,
+          error:false,
+          text:''
+        },
+        TOSHelpText:{
+          state:false,
+          error:false,
+          text:''
+        }
       }
    }
 
+   helpFormText(){
+
+   }
+
+   validateName(input){
+     if (input.trim() === ''){
+       this.setState({nameHelpText:{
+           state:true,
+           error:true,
+           text:'Name is required'
+         }});
+       return false;
+     }else{
+       this.setState({nameHelpText:{
+           state:false,
+           error:false,
+           text:'Name is required'
+         }});
+       return true;
+     }
+   }
+
+   validatePassword(password){
+     if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password))){
+       this.setState({passwordHelpText:{
+           state:true,
+           error:true,
+           text:'Password must be more than length of atleast 8  and contain a lower case , uppercase character and numerical character'
+         }});
+       return false
+     }else{
+       this.setState({
+         passwordHelpText:{
+           state:true,
+           error:false,
+           text:'Password OK'
+         }
+       })
+       return true;
+     }
+   }
+
+   validateConfPassword(confPassword,password){
+     if (password !== confPassword){
+       this.setState({
+         confirmPasswordHelpText:{
+           state:true,
+           error:true,
+           text:'Passwords do not match'
+         }
+       })
+       return false;
+     }else{
+       this.setState({
+         confirmPasswordHelpText:{
+           state:true,
+           error:false,
+           text:'Passwords matches'
+         }
+       });
+       return true;
+     }
+   }
+
+   validateEmail(email){
+     if (email !== 'undefined'){
+       return new Promise( (resolve,reject)=> {
+         HttpHelper.httpReq('http://localhost:3009/api/v1/email/exists?email='+email,'','GET')
+           .then((result)=>{
+             console.log(result,'result');
+             // console.log(JSON.stringify(result),'does email exist');
+             if (result.message === true){
+               this.setState({
+                 emailHelpText:{
+                   state:true,
+                   error:true,
+                   text:'Email already exist'
+                 }
+               });
+             }else{
+               this.setState({
+                 emailHelpText:{
+                   state:false,
+                   error:false,
+                   text:' '
+                 }
+               });
+             }
+             resolve(this.state.emailHelpText.error);
+           }).catch((error)=>{console.log(error)});
+       })
+     }else{
+       this.setState({
+         emailHelpText:{
+           state:true,
+           error:true,
+           text:'Email already exist'
+         }
+       })
+     }
+
+
+   }
+
    handleChange(e){
+
      const target = event.target;
      const value = target.type === 'checkbox' ? target.checked : target.value;
      const name = target.name;
      this.setState({
-         [name]: value
+       [name]: value
      });
+     switch (target.name) {
+       case 'name':
+          this.validateName(target.value);
+         break;
+       case 'password' :
+         this.validatePassword(target.value);
+         this.validateConfPassword(target.value,this.state.confirmPassword);
+
+         break;
+       case 'confirmPassword':
+          this.validateConfPassword(target.value,this.state.password);
+         break;
+       case 'email':
+         this.validateEmail(target.value);
+         break;
+     }
+
    }
 
    handleSubmit(e){
      e.preventDefault();
-     HttpHelper.HttpReq('',this.state,'POST')
-       .then()
+
+     this.validateEmail(this.state.email).then( (emailExists)=> {
+
+       if (this.validateName(this.state.name) && this.validatePassword(this.state.password) && this.validateConfPassword(this.state.password,this.state.confirmPassword) && (emailExists  === false) ){
+
+         let formData = new FormData();
+         formData.append('name',this.state.name);
+         formData.append('password',this.state.password);
+         formData.append('confirmPassword',this.state.confirmPassword);
+         formData.append('email',this.state.email);
+
+
+         HttpHelper.httpReq('http://localhost:3009/api/v1/sign-up',formData,'POST')
+           .then((result)=>{
+             if(result.message === 'success'){
+
+              this.setState({redirectTo:true})
+               return   Router.push('/login')
+             }
+             
+             console.log(result)
+           }).catch((error)=>{console.log(error)});
+       }
+     })
+
    }
 
 
    render() {
+``
     return (
-
       <form id="member-registration" onSubmit={this.handleSubmit} className="form-horizontal">
         <fieldset>
           <div className="control-group">
@@ -42,6 +222,12 @@ import HttpHelper from '../helpers/httpHelper';
             <div className="controls">
               <input type="text"  name="name" id="jform_name"  className="required"
                      size="30" required aria-required="true" value={this.state.name} onChange={this.handleChange} />
+
+                     {
+
+                       this.state.nameHelpText.state?<FormHelpText type={this.state.nameHelpText.error} text={this.state.nameHelpText.text} />:''
+                     }
+
             </div>
           </div>
 
@@ -53,9 +239,13 @@ import HttpHelper from '../helpers/httpHelper';
                 Password<span className="star">&#160;*</span></label>
             </div>
             <div className="controls">
-              <input type="password" name="password" id="jform_password1"
+              <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
                      autoComplete="off" className="validate-password required" size="30"
-                     maxLength="10" value={this.state.password} required aria-required="true"/></div>
+                     value={this.state.password} required aria-required="true"/></div>
+            {
+
+              this.state.passwordHelpText.state?<FormHelpText type={this.state.passwordHelpText.error} text={this.state.passwordHelpText.text} />:''
+            }
           </div>
           <div className="control-group">
             <div className="control-label">
@@ -65,9 +255,13 @@ import HttpHelper from '../helpers/httpHelper';
                 Confirm Password<span className="star">&#160;*</span></label>
             </div>
             <div className="controls">
-              <input type="password" name="password2" id="jform_password2"
+              <input type="password" name="confirmPassword" onChange={this.handleChange} id="jform_password2"
                      autoComplete="off" className="validate-password required" size="30"
-                     maxLength="10" value={this.state.password2} required aria-required="true"/></div>
+                     value={this.state.password2} required aria-required="true"/></div>
+            {
+
+              this.state.confirmPasswordHelpText.state?<FormHelpText type={this.state.confirmPasswordHelpText.error} text={this.state.confirmPasswordHelpText.text} />:''
+            }
           </div>
           <div className="control-group">
             <div className="control-label">
@@ -76,9 +270,12 @@ import HttpHelper from '../helpers/httpHelper';
                 Email Address<span className="star">&#160;*</span></label>
             </div>
             <div className="controls">
-              <input type="email" name="email" className="validate-email required"
+              <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
                      id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
                      aria-required="true"/></div>
+            {
+              this.state.emailHelpText.state?<FormHelpText type={this.state.emailHelpText.error} text={this.state.emailHelpText.text} />:''
+            }
           </div>
 
         </fieldset>
