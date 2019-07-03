@@ -64,7 +64,7 @@ class LogInFormComp extends React.Component{
               error:false,
               text:'Login Successful'
             }});
-          return   Router.push('/dashboard')
+          return   Router.push('/user/dashboard')
         }else{
           this.setState({ loginHelpBlock:{
               state:true,

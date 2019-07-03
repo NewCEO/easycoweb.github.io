@@ -22,56 +22,40 @@ class StaticLayout extends React.Component {
         <title>EasyCowFunding | Home</title>
         <link href="indexc0d0.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0"/>
         <link href="index7b17.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0"/>
-        <link href="static/templates/theme3489/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+        <link href="templates/theme3489/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
         <link
           href="index.php/component/search/indexd6e7.html?layout=theme3489:category&amp;id=8&amp;Itemid=101&amp;format=opensearch"
           rel="search" title="Search Agriculture" type="application/opensearchdescription+xml"/>
-        <link href="static/media/jui/css/chosen3467.css?454a96ddb3b4e077fcfb532ca7c3d5eb" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/css/template.css" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="media/jui/css/chosen3467.css?454a96ddb3b4e077fcfb532ca7c3d5eb" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/css/template.css" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link
           href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
           rel="stylesheet" type="text/css"/>
         <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet"
               type="text/css"/>
-        <link href="static/templates/theme3489/css/komento.css" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/css/color_schemes/color_scheme_1.css" rel="stylesheet" type="text/css"
+        <link href="templates/theme3489/css/komento.css" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/css/color_schemes/color_scheme_1.css" rel="stylesheet" type="text/css"
               id="color_scheme"/>
-        <link href="static/components/com_virtuemart/assets/css/facebox48de.css?vmver=3b73dab7" rel="stylesheet" type="text/css"/>
-        <link href="static/modules/mod_tm_product_tabs/assets/responsive-tabs.css" rel="stylesheet" type="text/css"/>
-        <link href="static/modules/mod_tm_parallax/css/rd-parallax.css" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/css/swiper.css" rel="stylesheet" type="text/css"/>
-        <link href="static/modules/mod_swiper/css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/html/mod_icemegamenu/css/navbar.css" rel="stylesheet" type="text/css"/>
-        <link href="static/templates/theme3489/css/color_schemes/mine.css" rel="stylesheet" type="text/css"/>
-        <script src="static/media/jui/js/jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb" type="text/javascript"></script>
-        <script src="static/media/jui/js/jquery-noconflict3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
+        <link href="components/com_virtuemart/assets/css/facebox48de.css?vmver=3b73dab7" rel="stylesheet" type="text/css"/>
+        <link href="modules/mod_tm_product_tabs/assets/responsive-tabs.css" rel="stylesheet" type="text/css"/>
+        <link href="modules/mod_tm_parallax/css/rd-parallax.css" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/css/swiper.css" rel="stylesheet" type="text/css"/>
+        <link href="modules/mod_swiper/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/html/mod_icemegamenu/css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link href="templates/theme3489/css/color_schemes/mine.css" rel="stylesheet" type="text/css"/>
+        <script src="media/jui/js/jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb" type="text/javascript"></script>
+        <script src="media/jui/js/jquery-noconflict3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="static/media/jui/js/jquery-migrate.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
+        <script src="media/jui/js/jquery-migrate.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="static/plugins/system/bootstrap_3/assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="plugins/system/bootstrap_3/assets/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="media/jui/js/chosen.jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="static/templates/theme3489/js/scripts.js" type="text/javascript"></script>
-        <script src="static/modules/mod_slogin/media/slogin.min3860.js?v=1" type="text/javascript"></script>
-        <script src="static/media/system/js/core55a3.js?v=1543272676" type="text/javascript"></script>
-        <script src="static/media/com_acymailing/js/acymailing_moduled756.js?v=580" type="text/javascript" async="async"></script>
-        <script src="static/modules/mod_tm_product_tabs/assets/responsiveTabs.min.js" type="text/javascript"></script>
-        <script src="static/components/com_virtuemart/assets/js/jquery-ui.mine17e.js?vmver=1.9.2" type="text/javascript"></script>
-        <script src="static/components/com_virtuemart/assets/js/jquery.ui.autocomplete.html.js" type="text/javascript"></script>
-        <script src="static/components/com_virtuemart/assets/js/jquery.noconflict.js" type="text/javascript"
-                async="async"></script>
-        <script src="static/components/com_virtuemart/assets/js/vmsite48de.js?vmver=3b73dab7" type="text/javascript"></script>
-        <script src="static/components/com_virtuemart/assets/js/facebox.js" type="text/javascript"></script>
-        <script src="static/components/com_virtuemart/assets/js/vmprices48de.js?vmver=3b73dab7" type="text/javascript"></script>
-        <script src="static/components/com_tmbox/assets/scripts/tmbox48de.js?vmver=3b73dab7" type="text/javascript"></script>
-        <script src="static/modules/mod_tm_parallax/js/jquery.rd-parallax.js" type="text/javascript"></script>
-        <script src="static/modules/mod_swiper/js/swiper.min.js" type="text/javascript"></script>
-        <script src="static/templates/theme3489/html/mod_icemegamenu/js/menu.js" type="text/javascript" defer="defer"></script>
-        <script src="static/templates/theme3489/html/mod_icemegamenu/js/jquery.rd-navbar.js" type="text/javascript"
-                defer="defer"></script>
-        <script src="static/modules/mod_virtuemart_cart_tm/assets/js/update_cart48de.js?vmver=3b73dab7"
-                type="text/javascript"></script>
+        <script src="templates/theme3489/js/scripts.js" type="text/javascript"></script>
+        <script src="modules/mod_slogin/media/slogin.min3860.js?v=1" type="text/javascript"></script>
+        <script src="media/system/js/core55a3.js?v=1543272676" type="text/javascript"></script>
+
       </Head>
       <body className="body__home option-com_content view-category task- itemid-101 option-com_virtuemart">
       {this.prop.children}
