@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Neon Admin Panel" />
+	<meta name="author" content="" />
+
+	<link rel="icon" href="assets/images/favicon.ico">
+
+	<title>Neon | Forms</title>
+
+	<link rel="stylesheet" href="../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="../assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+	<link rel="stylesheet" href="../assets/css/admin.css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/css/admin.css/neon-core.css">
+	<link rel="stylesheet" href="../assets/css/admin.css/neon-theme.css">
+	<link rel="stylesheet" href="../assets/css/admin.css/assets/css/admin.css/neon-forms.css">
+	<link rel="stylesheet" href="../assets/css/admin.css/custom.css">
+
+
+	<script src="../assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+	<div class="page-container">
+		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+		<div class="sidebar-menu">
+
+			<div class="sidebar-menu-inner">
+
+				<header class="logo-env">
+
+					<!-- logo -->
+					<div class="logo">
+						<a href="index.html">
+						<img src="assets/images/logo@2x.png" width="120" alt="" />
+					</a>
+					</div>
+
+					<!-- logo collapse icon -->
+					<div class="sidebar-collapse">
+						<a href="#" class="sidebar-collapse-icon">
+							<!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+							<i class="entypo-menu"></i>
+						</a>
+					</div>
+
+
+					<!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+					<div class="sidebar-mobile-menu visible-xs">
+						<a href="#" class="with-animation">
+							<!-- add class "with-animation" to support animation -->
+							<i class="entypo-menu"></i>
+						</a>
+					</div>
+
+				</header>
+
+				<ul id="main-menu" class="main-menu">
+					<li class="active opened active ">
+						<a href="index.admin.html">
+						<i class="entypo-menu"></i>
+						<span class="title">Dashboard Overview</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="all-farms.html">
+						<i class="entypo-gauge"></i>
+						<span class="title">All Farms</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="Investors.html">
+						<i class="entypo-users"></i>
+						<span class="title">Total Investors</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="active%20farms.html">
+						<i class="entypo-check"></i>
+						<span class="title">Active Farms</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="soldout.html">
+						<i class="entypo-erase"></i>
+						<span class="title">Soldout Farms</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="add.farm.html">
+						<i class="entypo-leaf"></i>
+						<span class="title">Add Farm</span>
+					</a>
+					</li>
+
+					<li class="active opened active ">
+						<a href="adduser.html">
+						<i class="entypo-user-add"></i>
+						<span class="title">Add Admin</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="main-content">
+			<div class="row">
+				<nav class="navbar navbar-default" id="nav" role="navigation">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+						<a class="navbar-brand" href="#">Admin Panel</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav" id="nav-li">
+							<li class="active"><a href="#">All Farms</a>
+							</li>
+							<li><a href="#">Total Investors</a>
+							</li>
+							<li><a href="#">Active Farms</a>
+							</li>
+							<li><a href="#">Soldout Farms</a>
+							</li>
+							<li><a href="#">Add Farm</a>
+							</li>
+
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome Current Admin<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Switch Admin</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="extra-login.html">
+							Log Out <i class="entypo-logout right"></i>
+						</a>
+									</li>
+								</ul>
+							</li>
+
+
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+
+			</div>
+
+			<!-- Profile Info and Notifications -->
+
+			<hr />
+			<h2 id="form-head">Add Admin</h2>
+			<br />
+
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="panel panel-primary" data-collapsed="0" id="form">
+						<div class="panel-body">
+
+							<form role="form" class="form-horizontal form-groups-bordered">
+
+								<div class="form-group">
+									<label for="field-1" class="col-sm-3 control-label">Farm  Name</label>
+
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="field-1" placeholder="Placeholder">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="field-2" class="col-sm-3 control-label">Location</label>
+
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="field-2" placeholder="Placeholder">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Price Per Unit</label>
+
+									<div class="col-sm-5">
+										<div class="input-group">
+											<input type="text" class="form-control">
+											<span class="input-group-addon">.00</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Returns Percentage</label>
+
+									<div class="col-sm-5">
+										<div class="input-group">
+											<input type="text" class="form-control">
+											<span class="input-group-addon">%</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Units available</label>
+
+									<div class="col-sm-5">
+										<div class="input-group">
+											<input type="text" class="form-control">
+											<span class="input-group-addon">.00</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Farm Category</label>
+
+									<div class="col-sm-5">
+										<div class="checkbox checkbox-replace">
+											<input type="checkbox" id="chk-1" checked>
+											<label>Cow Farm</label>
+										</div>
+
+										<div class="checkbox checkbox-replace">
+											<input type="checkbox" id="chk-2">
+											<label>Goat Farm</label>
+										</div>
+
+										<div class="checkbox checkbox-replace">
+											<input type="checkbox" id="chk-3">
+											<label>Lamb Farm</label>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label for="field-1" class="col-sm-3 control-label">Farm photo Thumbnail</label>
+
+									<div class="col-sm-5">
+										<input type="file" class="form-control" id="field-file" placeholder="Placeholder">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<!-- Footer -->
+			<footer class="main">
+
+				&copy; 2019 <strong>EasyCow Funding</strong>
+			</footer>
+		</div>
+	</div>
+
+
+	<!-- Bottom scripts (common) -->
+	<script src="../assets/js/gsap/TweenMax.min.js"></script>
+	<script src="../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="../assets/js/bootstrap.js"></script>
+	<script src="../assets/js/joinable.js"></script>
+	<script src="../assets/js/resizeable.js"></script>
+	<script src="../assets/js/neon-api.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="../assets/js/bootstrap-switch.min.js"></script>
+	<script src="../assets/js/neon-chat.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="../assets/js/neon-custom.js"></script>
+
+
+	<!-- Demo Settings -->
+	<script src="../assets/js/neon-demo.js"></script>
+
+</body>
+
+</html>

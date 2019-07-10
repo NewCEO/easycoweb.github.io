@@ -5,6 +5,12 @@
   -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(203, 208, 217, 0.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(203, 208, 217, 0.6);
 }
+
+#pad{
+	padding: 20px;
+
+}
+
 .form-control::-moz-placeholder {
   color: #999999;
   opacity: 1;
@@ -5447,7 +5453,8 @@ body {
 }
 .page-container .sidebar-menu .logo-env {
   width: 100%;
-  padding: 35px;
+  padding-top: 35px;
+	padding-right: 35px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -5504,7 +5511,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-bottom: 20px;
+  margin-top: 55px;
 }
 .page-container .sidebar-menu #main-menu li {
   position: relative;
@@ -9786,8 +9793,7 @@ table {
   position: relative;
   display: block;
   background: #303641;
-  padding: 20px;
-  margin-bottom: 10px;
+  padding: 10px;
   overflow: hidden;
   -webkit-border-radius: 5px;
   -webkit-background-clip: padding-box;
@@ -11572,6 +11578,7 @@ table {
   width: 250px;
   margin: 0 auto;
 }
+/*
 body.page-fade {
   background: #303641;
   -webkit-transition: 400ms all ease-in-out;
@@ -11600,6 +11607,7 @@ body.page-fade > .page-container {
   -moz-opacity: 0;
   opacity: 0;
 }
+*/
 body.page-fade-init {
   background: #ffffff;
 }

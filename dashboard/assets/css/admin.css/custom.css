@@ -1,0 +1,44 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+#page{
+	padding-left: 36px;
+}
+
+
+#inv-table{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+#nav{
+	margin-bottom: -20px;
+}
+
+
+#nav-li a:active{
+	text-decoration: underline;
+	
+}
+#nav-li a:hover{
+	text-decoration: underline;
+	text-decoration-color: green;
+	text-decoration-style: solid;
+}
+
+
+#form{
+	;
+
+	
+}
+
+#form-head{
+	text-align: center;
+}
+
+
+
