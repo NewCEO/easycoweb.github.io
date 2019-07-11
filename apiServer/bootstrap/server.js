@@ -1,7 +1,7 @@
 const express      	= require('express');
 const app           = express();
 let {apiV1} 		    = require('../routes/api.v1');
-var cors        = require('cors');
+var cors            = require('cors');
 
 
 

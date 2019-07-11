@@ -35,13 +35,14 @@ module.exports = class  user {
       //
       // })
         .then( (result)=> {
-        res.status(200).json({status: 200, message: 'success'});
+        res.withSuccess(201).reply();
 
       }).catch((error) => {
-        console.log(error);
-        res.status(400).json({status: 400, message: "could not create user"});
+       res.withServerError(500).reply();
       })
-    }).catch(()=>{return false})
+    }).catch(()=>{
+      res.withServerError(500).reply();
+    })
 
   }
   
@@ -69,14 +70,15 @@ module.exports = class  user {
             //set session cookie
           req.session.email = userDet.email;
 
-          res.status(200).json({status: 200, message: "success", data:userDet});
+          res.withSuccess(200).withData({validation:true}).reply();
 
         }else{
-          res.status(200).json({status: 200, message: "failed"});
+          res.withClientError(404).reply();
 
         }
       }).catch(function (error) {
         console.log(error);
+        res.withServerError(500).reply();
       })
     
   }
@@ -84,22 +86,43 @@ module.exports = class  user {
   static validateEmail(req,res){
     checkUser(req.query.email).then((result)=>{
       if (Object.keys(result).length  > 0){
-        res.status(200).send(
-          {
-            status: 200,
-            statusText:'ok',
-            message: true
-          });
+        res.withSuccess(200).withData('true').reply();
       }else{
-        res.status(200).send(
-          { status: 200,
-            statusText:'ok',
-            message: false
-          });
+        res.withSuccess(200).withData('false').reply();
       }
     }).catch(function (e) {
-      res.status(500).json('Internal Server Error');
+      res.withServerError(500).reply();
     })
   }
-  
+
+  static getUser(req,res){
+
+    let query   = "SELECT users.*,status.name as status_name,status.id as status_id FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ? AND users.status = ?";
+    let values  = [req.session.email,statuses.active];
+    db.query(query, values).then((userResult)=>{
+      if (Object.keys(userResult).length > 0){
+
+        let userDet = userResult[0];
+
+        delete userDet.password;
+        delete userDet.reset_key;
+
+        res.withSuccess(200).withData(userDet).reply();
+
+      }else{
+       res.withClientError(404).reply()
+
+      }
+    }).catch(()=>{
+      res.withServerError(500).reply();
+    })
+
+  }
+
+  static  userDet(req,res){
+    let query   = "SELECT users.*,status.name as status_name,status.id as status_id FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ? AND users.status = ?";
+    let values  = [req.session.email,statuses.active];
+    return db.query(query, values)
+  }
+
 }

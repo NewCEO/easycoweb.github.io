@@ -1,13 +1,27 @@
 import Head from 'next/head';
 import React from 'react';
 import {appStatic} from '../helpers/static';
+import HttpHelper from '../helpers/httpHelper';
+import ContentLoader from "react-content-loader";
 
 class DashboardLayOut extends React.Component {
 
   constructor(prop) {
     super(prop);
+    this.state = {userDetails:''}
   }
 
+  componentDidMount() {
+    this.userDetails();
+  }
+
+  userDetails(){
+    HttpHelper.httpReq('http://localhost:3009/api/v1/user','','GET').then( (userDet)=> {
+      if(userDet.success.data){
+        this.setState({userDetails:userDet.success.data});
+      }
+    })
+  }
 
   render() {
     return (
@@ -74,7 +88,7 @@ class DashboardLayOut extends React.Component {
 
                   <div className="logo">
                     <a href="index.html">
-                      <img src="assets/images/logo@2x.png" width="120" alt=""/>
+                      <img src="/dashboard/assets/images/logo@2x.png" width="120" alt=""/>
                     </a>
                   </div>
 
@@ -95,15 +109,27 @@ class DashboardLayOut extends React.Component {
                 </header>
 
                 <div className="sidebar-user-info">
+                  {
+                    this.state.userDetails?
+                      <div className="sui-normal">
+                      <a href="#" className="user-link">
+                        <img src={this.state.userDetails.profile_pics?this.state.userDetails.profile_pics:"/images/default_profile_pics.png"} width="55" alt="" className="img-circle"/>
 
-                  <div className="sui-normal">
-                    <a href="#" className="user-link">
-                      <img src="assets/images/thumb-1@2x.png" width="55" alt="" className="img-circle"/>
-
-                      <span>Welcome,</span>
-                      <strong>User Name Here</strong>
-                    </a>
-                  </div>
+                        <span>Welcome,</span>
+                        <strong>{this.state.userDetails.name}</strong>
+                      </a>
+                    </div>: <ContentLoader
+                      height={80}
+                      width={200}
+                      speed={2}
+                      primaryColor="#f3f3f3"
+                      secondaryColor="#ecebeb"
+                    >
+                      <rect x="70" y="15" rx="4" ry="4" width="117" height="6" />
+                      <rect x="70" y="35" rx="3" ry="3" width="85" height="6" />
+                      <circle cx="30" cy="30" r="30" />
+                    </ContentLoader>
+                  }
 
                   <div className="sui-hover inline-links animate-in">
 

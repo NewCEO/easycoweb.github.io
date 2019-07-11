@@ -1,13 +1,8 @@
 class HttpHelper {
   static httpReq(url = '', data,method) {
-      let contentType;
-      if (data instanceof  FormData){
-         contentType = 'multipart/form-data; boundary=???';
-      }else{
-         contentType = 'application/json';
-      }
 
      let parameters = {
+       credentials:'include',
        method: (method !== "undefined" ?method:'GET'), // *GET, POST, PUT, DELETE, etc.
        body: data !== 'application/json'?data:JSON.stringify(data), // body data type must match "Content-Type" header
      }

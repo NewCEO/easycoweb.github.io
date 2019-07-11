@@ -1,12 +1,13 @@
 {
-  "name": "easycow",
+  "name": "easycowapi",
   "version": "1.0.0",
   "description": "easycow application",
   "main": "app.js",
   "scripts": {
+    "dev": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Chiemeke Ifeanyi",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
