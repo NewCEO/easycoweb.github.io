@@ -19,6 +19,7 @@ module.exports = function(){
             req.query[query] = {eql:queryObj};
             queryObj = req.query[query];
           }
+
           for (var element in queryObj){
             if (acceptedOperators.indexOf(element)){
               constructedString += (constructedString !== ''?"OR ":'') +  `${query} ${this.translate(queryObj,element)}`;
@@ -37,26 +38,27 @@ module.exports = function(){
     translate:    function (query,queryOperator) {
      switch (queryOperator) {
        case 'eql':
-         return ` =  ${mysql.escape(query[queryOperator])}`;
+
+         return ` = ${ this.build(mysql.escape(query[queryOperator]))}`;
          break;
        case 'gte':
-         return ` > ${ mysql.escape(query[queryOperator])}`;
+         return ` >  ${this.build( mysql.escape(query[queryOperator]))}`;
         break;
 
        case 'lte':
-         return ` < ${mysql.escape(query[queryOperator])}`;
+         return ` < ${this.build(mysql.escape(query[queryOperator]))} `;
          break;
 
        case 'gteOReqlTo':
-         return `>= ${mysql.escape(query[queryOperator])}`;
+         return `>= ${this.build(mysql.escape(query[queryOperator]))}`;
         break;
 
        case 'lteOReqlTo':
-         return `<= ${mysql.escape(query[queryOperator])}`;
+         return `<= ${this.build(mysql.escape(query[queryOperator]))}`;
           break;
 
        case 'like':
-         return `LIKE ${mysql.escape(query[queryOperator])}`;
+         return `LIKE ${this.build(mysql.escape(query[queryOperator]))}`;
          break;
 
        case  'btw':
@@ -68,15 +70,22 @@ module.exports = function(){
          break;
 
        case 'notEqlTo':
-         return `!= ${mysql.escape(query[queryOperator])}`;
+         return `!= ${this.build(mysql.escape(query[queryOperator]))}`;
          break;
      }
 
    },
     operate:      function (req) {
-      return new sortOn("WHERE 1=1 ",req.query);
+      return new sortOn("WHERE 1=1 ",req);
+    },
+    build:        function (string) {
+      let arrayedString = string.replace(',','OR');
+      return arrayedString;
     }
   }
+
   objects.queryFilter = objects.queryFilter.bind(objects);
+  objects.translate   = objects.translate.bind(objects);
+
   return objects;
 }

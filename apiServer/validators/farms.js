@@ -37,7 +37,7 @@ module.exports = {
     let stage         = check('stage').exists().isNumeric();
     let weeks         = check('weeks').exists().isNumeric();
     let date          = check('date').exists().isISO8601();
-    let farmId        = check('farm_id').exists().isNumeric();
+    let farmId        = check('farmId').exists().isNumeric();
 
     validators.push(information, summary, activity, stage, weeks, date, farmId,validationHandler());
 
@@ -118,7 +118,7 @@ module.exports = {
 
     let stage                 = queryFilter(['eql','gte','lte','gteOReqlTo','lteOReqlTo','notEqlTo'],'stage');
     let weeks                 = queryFilter(['eql','gte','lte','gteOReqlTo','lteOReqlTo','notEqlTo'],'weeks');
-    let activityUpdate        = queryFilter(['eql','gte','lte','gteOReqlTo','lteOReqlTo','notEqlTo'],'activity');
+    let date                  = queryFilter(['eql','gte','lte','gteOReqlTo','lteOReqlTo','notEqlTo'],'date');
     let farmStatus            = queryFilter(['eql'],'farm_status');
     let farmLocation          = queryFilter(['eql'],'farm_location');
 
