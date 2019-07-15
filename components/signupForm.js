@@ -209,7 +209,6 @@ import Router from 'next/router'
 
 
    render() {
-``
     return (
       <form id="member-registration" onSubmit={this.handleSubmit} className="form-horizontal">
         <fieldset>

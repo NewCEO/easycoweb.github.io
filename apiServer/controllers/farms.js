@@ -58,6 +58,16 @@ module.exports = class farms {
     return db.query(query,values);
   }
 
+  static categories(req,res){
+    let query = "SELECT * FROM categories";
+    let values = [];
+    return db.query(query,values).then((result)=>{
+      res.withSuccess(200).withData(result).reply();
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
+  }
+
   static all(req,res){
 
     let values  = [];

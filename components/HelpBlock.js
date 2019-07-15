@@ -10,7 +10,7 @@ class  HelpBlock extends React.Component{
   render() {
     return (
 
-      <div style={{'background-color':this.props.type?'red':'green',font:12+'px',color:'white',width:'100%',padding:'8px'}} >{this.props.text}</div>
+      <div style={{'backgroundColor':this.props.type?'red':'green',font:12+'px',color:'white',width:'100%',padding:'8px'}} >{this.props.text}</div>
 
     );
   }

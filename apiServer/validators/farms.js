@@ -20,9 +20,8 @@ module.exports = {
     let roi = check('roi').exists().isNumeric();
     let location = check('location').exists().isString();
     let description = check('description').exists().isString();
-    let status = check('status').exists().isNumeric();
 
-    validators.push(title, category, totalUnits, pricePerUnits, roi, location, description, status, validationHandler());
+    validators.push(title, category, totalUnits, pricePerUnits, roi, location, description, validationHandler());
 
     return validators;
   },

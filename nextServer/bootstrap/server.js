@@ -1,6 +1,7 @@
 const express      	= require('express');
 const app           = express();
 let {users} 		    = require('../routes/users');
+let {admin} 		    = require('../routes/admin');
 
 
 
@@ -19,6 +20,8 @@ module.exports = class server{
 
     //routes
     users(app,nextApp);
+    admin(app,nextApp);
+
     app.get('/login', (req,res)=> {
      nextApp.render(req,res,'/login',req.query);
    })
