@@ -14,7 +14,14 @@ let router      = express.Router();
     nextApp.render(req, res, '/admin/create-farm', {host:req.headers.host});
 
   });
+   router.get('/farms',(req,res)=> {
+     nextApp.render(req, res, '/admin/all-farms', {host:req.headers.host});
 
+   });
+   router.get('/farms/edit/:farmId',(req,res)=> {
+     nextApp.render(req, res, '/admin/create-farm', {host:req.headers.host});
+
+   });
 
   app.use("/admin",router);
 

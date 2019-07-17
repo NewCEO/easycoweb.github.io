@@ -32,7 +32,7 @@ module.exports = class farms {
     body.title? values.push(body.title):'';
     body.category? values.push(body.category):'';
     body.total_units? values.push(body.total_units):'';
-    body.price_per_units? values.push(body.price_per_units):'';
+    body.price_per_unit? values.push(body.price_per_unit):'';
     body.funding_starts? values.push(body.funding_starts):'';
     body.funding_ends? values.push(body.funding_ends):'';
     body.farm_starts? values.push(body.farm_starts):'';
@@ -44,7 +44,7 @@ module.exports = class farms {
     values.push(req.params.farmId);
 
 
-    let query = `UPDATE farms SET ${body.title?"title = ?":""},${body.category?"category=?":""} ,${body.total_units?"total_units=?":""} ,${body.price_per_units?"price_per_unit=?":""},${body.funding_starts?"funding_starts=?":""},${body.funding_ends?"funding_ends=?":""},${body.farm_starts?"farm_starts=?":""},${body.farm_ends?"farm_ends=?":""},${body.roi?"roi=?":""},${body.location?"location=?":""},${body.description?"description=?":""},${body.status?"status=?":""} WHERE farms.id = ?`;
+    let query = `UPDATE farms SET ${body.title?"title = ?":""},${body.category?"category=?":""} ,${body.total_units?"total_units=?":""} ,${body.price_per_unit?"price_per_unit=?":""},${body.funding_starts?"funding_starts=?":""},${body.funding_ends?"funding_ends=?":""},${body.farm_starts?"farm_starts=?":""},${body.farm_ends?"farm_ends=?":""},${body.roi?"roi=?":""},${body.location?"location=?":""},${body.description?"description=?":""},${body.status?"status=?":""} WHERE farms.id = ?`;
 
     return db.query(query, values).then((result)=>{
       res.withSuccess(201,"update").reply();
@@ -73,7 +73,7 @@ module.exports = class farms {
     let values  = [];
     let body = req.query;
 
-    let query   = `SELECT farms.*,status.name as status_name,states.name as location_name FROM farms INNER JOIN status ON status.id = farms.status INNER JOIN states on states.id = farms.location ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
+    let query   = `SELECT farms.*,status.name as status_name,states.name as location_name, (SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out  FROM farms INNER JOIN status ON status.id = farms.status INNER JOIN states on states.id = farms.location ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
 
     return db.query(query,values,true,req).then(function (result) {
       res.withSuccess(200).withData(result).reply();
@@ -82,7 +82,20 @@ module.exports = class farms {
     })
 
   }
+  static singleFarm(req,res){
 
+    let values  = [req.params.farmId];
+
+    let query   = `SELECT * FROM farms WHERE id = ?`;
+
+
+    return db.query(query,values,true,req).then(function (result) {
+      res.withSuccess(200).withData(result[0]).reply();
+    }).catch(function () {
+      res.withServerError(500).reply();
+    })
+
+  }
   static activity(req,res){
     let query = "INSERT INTO farm_updates (information,summary,activity,stage,weeks,image_updates,date,farm_id) VALUES (?,?,?,?,?,?,?,?)";
     let values = [
@@ -141,6 +154,31 @@ module.exports = class farms {
       res.withServerError(500).reply();
     })
 
+  }
+
+  static  status(req,res){
+    let status;
+    switch (req.params.farmStatus) {
+      case 'activate':
+         status = 1;
+      break;
+      case 'de-activate':
+        status = 2;
+      break;
+    }
+    if (status){
+
+      let query = "UPDATE farms SET status = ? WHERE id = ?";
+      let values = [status,req.params.farmId];
+      return db.query(query,values).then((result)=>{
+        res.withSuccess(200).withData(result).reply();
+      }).catch(function (error) {
+        res.withServerError(500).reply();
+      })
+    } else{
+
+      res.withClientError(400).reply();
+    }
   }
 
 }

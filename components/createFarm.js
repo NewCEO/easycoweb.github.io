@@ -9,8 +9,10 @@ class createFarmFormComponent extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.editFarmId = props.farmId;
     this.state ={location:''
     };
+
     this.state = {formValues:{status:'1'},
       farmNotification:{
         state:false,
@@ -24,6 +26,24 @@ class createFarmFormComponent extends React.Component{
   componentDidMount() {
     this.getLocations();
     this.getCategories();
+    if (this.editFarmId){
+      httpHelper.serverReq('http://localhost:3009/api/v1/farms/'+this.editFarmId).then( (data)=>{
+        if (data.success){
+          let formValues = {};
+          for (var key in data.success.data){
+            if (key === "funding_starts" || key === "funding_ends" || key === "farm_starts" || key === "farm_ends"){
+              let date = new Date(data.success.data[key]);
+              formValues[key] = `${date.getFullYear().toString()}-${date.getMonth()<11?"0"+date.getMonth().toString():date.getMonth().toString()}-${date.getDate() < 11?"0"+date.getDate().toString():date.getDate().toString()}`
+
+              console.log(formValues[key],'date')
+            }else{
+              formValues[key] = data.success.data[key];
+            }
+          }
+          this.setState( {formValues:formValues})
+        }
+      })
+    }
   }
 
   handleChange(event){
@@ -64,22 +84,30 @@ class createFarmFormComponent extends React.Component{
     let values = this.state.formValues;
     let formData = new FormData();
     for (var key in values){
-      console.log(key,values[key]);
       formData.append(key,values[key])
     }
     this.setState({btnDisabled:false});
-    this.setState({formValues:{title:''}})
-
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/create',formData,'Post').then( (result)=> {
+    let url;
+    if (this.props.farmId){
+      url = 'http://localhost:3009/api/v1/farms/update/'+this.props.farmId;
+    }else{
+      url = 'http://localhost:3009/api/v1/farms/create'
+    }
+    httpHelper.serverReq(url,formData,'Post').then( (result)=> {
       if (result.success){
         let temp = {};
-        for (var key in values){
-          temp[key] = ""
+        if (!this.props.farmId){
+
+          for (var key in values){
+            temp[key] = ""
+          }
+          this.setState({formValues:temp})
         }
+
         this.setState({ farmNotification:{
             state:true,
             error:false,
-            text:'Farm created successfully'
+            text:`Farm ${this.props.farmId?'edited':'created'} successfully`
           }});
       }
     })
@@ -123,7 +151,7 @@ class createFarmFormComponent extends React.Component{
 
           <div className="col-sm-5">
             <div className="input-group">
-              <input type="number" min="0" value={this.state.formValues.price_per_units}  onChange={this.handleChange} required="required" name="price_per_units" className="form-control" />
+              <input type="number" min="0" value={this.state.formValues.price_per_unit}  onChange={this.handleChange} required="required" name="price_per_units" className="form-control" />
               <span className="input-group-addon">.00</span>
             </div>
           </div>
@@ -135,7 +163,7 @@ class createFarmFormComponent extends React.Component{
 
           <div className="col-sm-5">
             <div className="input-group">
-              <input type="number" name="roi" min="0" max="100" onChange={this.handleChange} className="form-control" />
+              <input type="number" name="roi" min="0" max="100" value={this.state.formValues.roi} onChange={this.handleChange} className="form-control" />
               <span className="input-group-addon">%</span>
             </div>
           </div>
@@ -167,7 +195,7 @@ class createFarmFormComponent extends React.Component{
 
           <div className="col-sm-5">
             <div className="input-group">
-              <input type="date" value={this.state.formValues.funding_ends}  onChange={this.handleChange} required="required" name="funding_ends" className="form-control" />
+              <input type="date" onChange={this.handleChange} value={this.state.formValues.funding_ends} required="required" name="funding_ends" className="form-control" />
             </div>
           </div>
         </div>

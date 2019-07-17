@@ -57,8 +57,12 @@ class DashboardLayOut extends React.Component {
         <link rel="stylesheet" href="/templates/theme3489/css/color_schemes/mine.css"/>
         <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet" type="text/css"/>
 
+
         <link rel="stylesheet" href="/dashboard/assets/js/jvectormap/jquery-jvectormap-1.2.2.css" />
         <link rel="stylesheet" href="/dashboard/assets/js/rickshaw/rickshaw.min.css"/>
+        <link rel="stylesheet" href="/dashboard/assets/js/datatables/datatables.css" />
+          <link rel="stylesheet" href="/dashboard/assets/js/select2/select2-bootstrap.css" />
+            <link rel="stylesheet" href="/dashboard/assets/js/select2/select2.css" />
         <script src="/dashboard/assets/js/jquery-1.11.3.min.js"></script>
 
 
@@ -74,6 +78,8 @@ class DashboardLayOut extends React.Component {
 
 
         <script src="/dashboard/assets/js/neon-demo.js"></script>
+        <script src="/dashboard/assets/js/datatables/datatables.js"></script>
+        <script src="/dashboard/assets/js/select2/select2.min.js"></script>
 
 
       </Head>

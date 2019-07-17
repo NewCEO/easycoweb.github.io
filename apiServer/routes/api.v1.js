@@ -48,13 +48,16 @@ module.exports.apiV1 =  function (app) {
   router.get('/user', cors(corsOptions), (req,res)=> {user.getUser(req,res)});
   //farm api
   router.post('/farms/create',[cors(corsOptions),isLoggedIn(),admin()].concat(farmCreationValidator()),(req,res)=>{farm.create(req,res)});
-  router.put('/farms/update/:farmId',[isLoggedIn(),admin()].concat(farmUpdateValidator()),(req,res)=>{farm.update(req,res)});
-  router.get('/farms/all', [].concat(allFarmsValidator()), (req,res)=> {farm.all(req,res)});
+  router.post('/farms/update/:farmId',[cors(corsOptions),isLoggedIn(),admin()].concat(farmUpdateValidator()),(req,res)=>{farm.update(req,res)});
+  router.get('/farms/all', [cors(corsOptions)].concat(allFarmsValidator()), (req,res)=> {farm.all(req,res)});
   router.post('/farms/activities/create/:farmId',[isLoggedIn(),admin()].concat(farmActivityValidator()),(req,res)=>{farm.activity(req,res)});
-  router.put('/farms/activities/update/:updateId',[isLoggedIn(),admin()].concat(farmUpdateActivityValidator()),(req,res)=>{farm.updateActivity(req,res)});
+  router.post('/farms/activities/update/:updateId',[isLoggedIn(),admin()].concat(farmUpdateActivityValidator()),(req,res)=>{farm.updateActivity(req,res)});
   router.post('/farms/activities/all',[isLoggedIn(),admin()].concat(farmActivityValidator()),(req,res)=>{farm.allActivity(req,res)});
   router.post('/farms/activities/:activitiesId',[isLoggedIn(),admin()].concat(farmActivityValidator()),(req,res)=>{farm.allActivity(req,res)});
-  router.get('/farms/categories',cors(corsOptions), (req,res)=> {farm.categories(req,res)});
+  router.get('/farms/categories', cors(corsOptions), (req,res)=> {farm.categories(req,res)});
+  router.get('/farms/status/:farmId/:farmStatus',[isLoggedIn(),admin(),cors(corsOptions)], (req,res)=> {farm.status(req,res)});
+  router.get('/farms/:farmId',[isLoggedIn(),admin(),cors(corsOptions)], (req,res)=> {farm.singleFarm(req,res)});
+
 
   //Anonymous api Calls
 

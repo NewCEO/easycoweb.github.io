@@ -7,7 +7,7 @@ import $ from 'jquery';
 class createFarm extends React.Component{
 
   static async getInitialProps({ req }) {
-    return {};
+    return {farmId:req.params.farmId};
   }
 
   componentDidMount() {
@@ -19,13 +19,13 @@ class createFarm extends React.Component{
     return(
       <DashBoardLayOut>
         <hr/>
-        <h2 id="form-head">Add a Farm</h2>
+        <h2 id="form-head">{this.props.farmId?"Edit ":"Add a "}Farm</h2>
         <br/>
         <div className="row">
           <div className="col-md-12">
             <div className="panel panel-primary" data-collapsed="0" id="form">
               <div className="panel-body">
-                <CreateFarmForm />
+                <CreateFarmForm farmId={this.props.farmId} />
               </div>
             </div>
           </div>

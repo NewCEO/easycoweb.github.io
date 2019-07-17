@@ -83,11 +83,15 @@ let smooch = function (options) {
     };
     let paginationHelper = {
       paginate: function (perPage) {
-        req.query.nextPage?"":req.query.nextPage  = 1;
-        typeof perPage !== "number"? new Error("number of pages must be an integer"):'';
-        req.query.nextPage = parseInt(req.query.nextPage,10);
-        let nextRecords = (req.query.nextPage - 1) * perPage;
-        return `LIMIT ${perPage} OFFSET ${mysql.escape(nextRecords)}`;
+        if (req.query.paginate) {
+
+          req.query.nextPage?"":req.query.nextPage  = 1;
+          typeof perPage !== "number"? new Error("number of pages must be an integer"):'';
+          req.query.nextPage = parseInt(req.query.nextPage,10);
+          let nextRecords = (req.query.nextPage - 1) * perPage;
+          return `LIMIT ${perPage} OFFSET ${mysql.escape(nextRecords)}`;
+        }
+        return '';
       }
     };
     Object.assign(res,smoochObj);
