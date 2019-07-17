@@ -5512,6 +5512,7 @@ body {
   margin: 0;
   font-size: 20px;
   border-bottom: 1px solid rgba(69, 74, 84, 0.7);
+	text-decoration: none;
 }
 .page-container .sidebar-menu #main-menu li#search {
   background: #262b34;
@@ -5591,6 +5592,7 @@ body {
   -moz-transition: 350ms opacity ease-in-out;
   -o-transition: 350ms opacity ease-in-out;
   transition: 350ms opacity ease-in-out;
+	font-family: dosis;
 }
 .page-container .sidebar-menu #main-menu li a:hover {
   background-color: rgba(69, 74, 84, 0.3);

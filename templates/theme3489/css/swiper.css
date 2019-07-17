@@ -402,7 +402,7 @@
 .swiper-slide h4,
 .swiper-slide h5,
 .swiper-slide h6 {
-  color: #ffffff;
+  color: #77b112;
 }
 .swiper-slide h1 {
   font-size: 60px;
@@ -411,6 +411,7 @@
 }
 .swiper-slide h1.title {
   font-weight: bold;
+	color:#77b112;
 }
 .swiper-slide h1.title .item_title_part_0,
 .swiper-slide h1.title .item_title_part_1,
