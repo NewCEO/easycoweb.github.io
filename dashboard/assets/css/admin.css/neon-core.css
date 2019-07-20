@@ -5420,7 +5420,7 @@ body {
 .page-container .sidebar-menu {
   display: table-cell;
   vertical-align: top;
-  background: #303641;
+  background: #77b112;
   width: 280px;
   position: relative;
   z-index: 100;
@@ -5485,7 +5485,8 @@ body {
 .page-container .sidebar-menu .logo-env > div.sidebar-collapse a,
 .page-container .sidebar-menu .logo-env > div.sidebar-mobile-menu a {
   display: inline-block;
-  border: 1px solid #454a54;
+  border: 1px solid white;
+	color: white;
   text-align: center;
   padding: 0;
   line-height: 1;
@@ -5511,7 +5512,6 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: 55px;
 }
 .page-container .sidebar-menu #main-menu li {
   position: relative;
@@ -5613,7 +5613,7 @@ body {
   top: -1px;
 }
 .page-container .sidebar-menu #main-menu li.active > a {
-  background-color: #2b303a;
+  background-color: #77b112;
   color: #fff;
 }
 .page-container .sidebar-menu #main-menu li.has-sub > a:before {

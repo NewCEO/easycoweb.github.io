@@ -37,13 +37,6 @@
 
 				<header class="logo-env">
 
-					<!-- logo -->
-					<div class="logo">
-						<a href="index.html">
-						<img src="assets/images/logo@2x.png" width="120" alt="" />
-					</a>
-					</div>
-
 					<!-- logo collapse icon -->
 					<div class="sidebar-collapse">
 						<a href="#" class="sidebar-collapse-icon">
@@ -51,17 +44,23 @@
 							<i class="entypo-menu"></i>
 						</a>
 					</div>
-
+					
+					<!-- logo -->
+					<div class="logo">
+						<a href="index.html">
+						<img class="myimg" src="../assets/images/2%20-%20Copy.png" width="120" alt="" />
+					</a>
+					</div>
 
 					<!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
 					<div class="sidebar-mobile-menu visible-xs">
-						<a href="#" class="with-animation">
+						<a href="#main-menu">
 							<!-- add class "with-animation" to support animation -->
 							<i class="entypo-menu"></i>
 						</a>
 					</div>
-
 				</header>
+
 
 				<ul id="main-menu" class="main-menu">
 					<li class="active opened active ">
@@ -116,9 +115,11 @@
 			</div>
 
 		</div>
+
 		<div class="main-content">
+
 			<div class="row">
-				<nav class="navbar navbar-default" id="nav" role="navigation">
+				<nav class="navbar navbar-default" id="mynavi" role="navigation">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -127,22 +128,28 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="#">Admin Panel</a>
+						<div class="navbar-brand">
+						</div>
 					</div>
+
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav" id="nav-li">
-							<li class="active"><a href="#">All Farms</a>
+							<li><a href="#">All Farms</a>
 							</li>
 							<li><a href="#">Total Investors</a>
 							</li>
-							<li><a href="#">Active Farms</a>
+							<li class="active"><a href="#">Active farms</a>
 							</li>
-							<li><a href="#">Soldout Farms</a>
+							<li><a href="#">Sold out farms</a>
 							</li>
 							<li><a href="#">Add Farm</a>
 							</li>
+							<li><a href="#">Add Admin</a>
+							</li>
+
+
 
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
@@ -165,9 +172,7 @@
 					</div>
 					<!-- /.navbar-collapse -->
 				</nav>
-
 			</div>
-
 			<!-- Profile Info and Notifications -->
 
 			<hr />
