@@ -3507,6 +3507,7 @@ hr + .mail-env {
   -webkit-transition: all 550ms ease-in-out;
   -o-transition: all 550ms ease-in-out;
   transition: all 550ms ease-in-out;
+	color: white;
 }
 .login-page .login-header.login-caret:after {
   position: absolute;

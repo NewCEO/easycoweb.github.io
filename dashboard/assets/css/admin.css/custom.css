@@ -22,6 +22,7 @@
 
 #form-head{
 	text-align: center;
+	color: #77b112;
 }
 
 
@@ -51,6 +52,10 @@
 .myimg{
 	width: 100%;
 	margin-top: -60px;
+}
+
+.login{
+	background-color: #77b112;
 }
 
 
