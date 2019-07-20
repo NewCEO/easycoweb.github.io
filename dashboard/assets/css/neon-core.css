@@ -1949,7 +1949,7 @@ lesshat-selector {
 	margin-left: 20px;
 }
 .panel-primary > .panel-heading {
-  color: #373e4a;
+  color: #77b112;
   background-color: #ffffff;
   border-color: #ebebeb;
   padding: 0;
@@ -3083,10 +3083,10 @@ table {
 th {
   text-align: left;
   font-weight: 400;
-  color: #303641;
+  color: #77b112;
 }
 .table-bordered {
-  border: 1px solid #ebebeb;
+  border: 1px solid #77b112;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -3175,10 +3175,10 @@ table > tbody > tr.highlight > th {
 .nav-tabs.bordered {
   margin-bottom: 0;
 }
-.nav-tabs.bordered > li:first-child > a {
+.nav-tabs.bordered > li:first-child > a:active {
   margin-left: 0;
 }
-.nav-tabs.bordered > li:last-child > a {
+.nav-tabs.bordered > li:last-child > a:active {
   margin-right: 0;
 }
 .nav-tabs.bordered + .tab-content {
@@ -5609,8 +5609,8 @@ body {
   top: -1px;
 }
 .page-container .sidebar-menu #main-menu li.active > a {
-  background-color: #2b303a;
-  color: #fff;
+  background-color: white;
+  color: white;
 }
 .page-container .sidebar-menu #main-menu li.has-sub > a:before {
   position: relative;
@@ -7855,6 +7855,8 @@ footer.main {
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid #ebebeb;
+	color: #77b112;
+	font-family: dosis;
 }
 footer.main:before,
 footer.main:after {
@@ -8835,7 +8837,7 @@ blockquote.blockquote-danger small strong {
   clear: both;
 }
 .dataTables_wrapper {
-  border: 1px solid #ebebeb;
+  border: 1px solid #77b112;
   -webkit-border-radius: 3px;
   -webkit-background-clip: padding-box;
   -moz-border-radius: 3px;

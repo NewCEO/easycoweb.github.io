@@ -2425,8 +2425,8 @@ fieldset[disabled] .btn-danger.focus {
 .btn-success,
 .btn-green {
   color: #fff;
-  background-color: #00a651;
-  border-color: #008d45;
+  background-color: #77b112;
+  border-color: transparent;
 }
 .btn-success:focus,
 .btn-green:focus,
