@@ -4,6 +4,7 @@ import httpHelper from '../../helpers/httpHelper';
 import SingleFarm from '../../components/singleFarm';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
+import Router from "next/router";
 
 class allFarms extends React.Component{
 
@@ -26,9 +27,12 @@ class allFarms extends React.Component{
 
   componentDidMount() {
    httpHelper.serverReq("http://localhost:3009/api/v1/farms/"+this.props.farmId).then( (data)=> {
-     if (data.success){
+     if (data.success && data.success.data){
 
        this.setState({farmDetails:data.success.data});
+     }else{
+       return   Router.push('/404')
+
      }
    })
   }
