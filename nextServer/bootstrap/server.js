@@ -9,7 +9,8 @@ let {admin} 		    = require('../routes/admin');
 module.exports = class server{
 
   constructor(){
-    this.port   =   3000;
+    this.port = process.env.__port  =   3000 ;
+
   }
 
   start(nextApp){

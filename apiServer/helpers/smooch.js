@@ -81,6 +81,9 @@ let smooch = function (options) {
       }
 
     };
+
+
+
     let paginationHelper = {
       paginate: function (perPage) {
         if (req.query.paginate) {
@@ -96,6 +99,7 @@ let smooch = function (options) {
     };
     Object.assign(res,smoochObj);
     Object.assign(req,paginationHelper);
+
     next();
   }
 }

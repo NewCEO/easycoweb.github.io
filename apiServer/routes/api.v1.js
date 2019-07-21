@@ -8,11 +8,13 @@ let farm        = require('../controllers/farms');
 let anonymous   = require('../controllers/anonymous');
 let session     = require('../middlewares/session');
 let admin       = require('../middlewares/admin');
+let fileUpload  = require('../middlewares/fileUploader');
 let isLoggedIn                                     = require('../middlewares/isLoggedIn');
 let acceptedHeader                                 = require('../middlewares/acceptedHeader');
 let validationHandler                              = require('../middlewares/errorHandler');
 let smooch                                         = require('../helpers/smooch');
 let {farmCreationValidator,farmUpdateValidator,allFarmsValidator,farmActivityValidator,farmUpdateActivityValidator}    = require('../validators/farms');
+let multer = require('multer');
 
 
 
@@ -32,10 +34,6 @@ module.exports.apiV1 =  function (app) {
   // parse data with connect-multiparty.
    app.use(formData.parse(options));
    app.use(formData.format());
-  // change file objects to stream.Readable
-   app.use(formData.stream());
-  // union body and files
-   app.use(formData.union());
    app.use(express.urlencoded({extended:true}));
    //smooch middleware for helping in api response
    app.use(smooch());

@@ -8,11 +8,13 @@ var cors            = require('cors');
 module.exports = class server{
 
   constructor(){
-    this.port   =   3009;
+    this.port = process.env.__port  =   3009;
   }
 
   start(){
     //middlewares
+    app.use(express.static('static'));
+
 
     //routes
     apiV1(app);

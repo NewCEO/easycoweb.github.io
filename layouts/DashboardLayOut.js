@@ -26,7 +26,7 @@ class DashboardLayOut extends React.Component {
   render() {
     return (
       <html>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta httpEquiv="content-type" content="text/html;charset=utf-8"/>
         <Head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
@@ -217,8 +217,8 @@ class DashboardLayOut extends React.Component {
                 </div>
 
               </div>
+              {this.props.children}
             </div>
-            {this.props.children}
           </div>
         </body>
       </html>

@@ -1,25 +1,43 @@
 const db                          = require("../helpers/db");
 let {operate}                     = require('../helpers/qSorta')();
+let fileUploader                  = require('../helpers/fileUploader');
+let anonymous                     = require('../controllers/anonymous');
 module.exports = class farms {
   static create(req,res){
-    let query = "INSERT INTO farms (title,category,total_units,price_per_unit,funding_starts,funding_ends,farm_starts,farm_ends,roi,location,description,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    let filePath;
+    let farmSlug;
     let values = [
-                  req.body.title,
-                  req.body.category,
-                  req.body.total_units,
-                  req.body.price_per_units,
-                  req.body.funding_starts,
-                  req.body.funding_ends,
-                  req.body.farm_starts,
-                  req.body.farm_ends,
-                  req.body.roi,
-                  req.body.location,
-                  req.body.description,
-                  req.body.status
-                  ];
-    return db.query(query, values).then((result)=>{
+      req.body.title,
+      req.body.category,
+      req.body.total_units,
+      req.body.price_per_unit,
+      req.body.funding_starts,
+      req.body.funding_ends,
+      req.body.farm_starts,
+      req.body.farm_ends,
+      req.body.roi,
+      req.body.location,
+      req.body.description,
+      req.body.status
+    ];
+    let query = "INSERT INTO farms (title,category,total_units,price_per_unit,funding_starts,funding_ends,farm_starts,farm_ends,roi,location,description,status,images,slug) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    new fileUploader(req.files.farmThumbNail)
+      .saveTo('static/somepath')
+      .upload()
+      .then((path)=>{
+      filePath = path;
+      values.push(JSON.stringify([filePath]));
+      return anonymous.slugOn('farms','slug')
+    }).then((slug)=>{
+       farmSlug = slug;
+      values.push(slug);
+      return db.query(query, values);
+
+    }).then((result)=>{
        res.withSuccess(201,"creation").reply();
     }).catch(function (error) {
+          console.log(error)
        res.withServerError(500).reply();
     })
   }
@@ -75,9 +93,20 @@ module.exports = class farms {
 
     let query   = `SELECT farms.*,status.name as status_name,states.name as location_name, (SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out  FROM farms INNER JOIN status ON status.id = farms.status INNER JOIN states on states.id = farms.location ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
 
-    return db.query(query,values,true,req).then(function (result) {
-      res.withSuccess(200).withData(result).reply();
-    }).catch(function () {
+    return db.query(query,values,req).then( (farms)=> {
+      res.withSuccess(200).withData(farms.map( (farm)=> {
+        let parsedImages = [];
+        if ( Array.isArray( JSON.parse(farm.images))){
+          JSON.parse(farm.images).forEach( (image)=> {
+            parsedImages.push(`${req.protocol}\\${req.hostname}:${process.env.__port}\\${image}`);
+          });
+          console.log(parsedImages,'parsed images');
+          farm.images = parsedImages;
+        }
+        return farm;
+      })).reply();
+    }).catch(function (er) {
+      console.log(er,'error')
       res.withServerError(500).reply();
     })
 
@@ -86,12 +115,25 @@ module.exports = class farms {
 
     let values  = [req.params.farmId];
 
-    let query   = `SELECT * FROM farms WHERE id = ?`;
+    let query   = `SELECT *,(SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out FROM farms WHERE slug = ?`;
 
 
-    return db.query(query,values,true,req).then(function (result) {
-      res.withSuccess(200).withData(result[0]).reply();
-    }).catch(function () {
+
+    return db.query(query,values).then(function (result) {
+
+      let parsedImages = [];
+      let farm = result[0];
+      if ( Array.isArray( JSON.parse(farm.images))){
+        JSON.parse(farm.images).forEach( (image)=> {
+          parsedImages.push(`${req.protocol}\:\\\\${req.hostname}:${process.env.__port}\\${image}`);
+        });
+
+        farm.images = JSON.stringify(parsedImages);
+      }
+
+      res.withSuccess(200).withData(farm).reply();
+    }).catch(function (err) {
+      console.log(err);
       res.withServerError(500).reply();
     })
 

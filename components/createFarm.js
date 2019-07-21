@@ -9,6 +9,10 @@ class createFarmFormComponent extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFileUpload = this.handleFileUpload.bind(this);
+    this.fileInput = React.createRef();
+    this.form      = React.createRef();
+
     this.editFarmId = props.farmId;
     this.state ={location:''
     };
@@ -113,9 +117,23 @@ class createFarmFormComponent extends React.Component{
     })
   }
 
+  handleFileUpload() {
+    let file = this.fileInput.current.files[0];
+    let name = this.fileInput.current.name;
+    let values;
+    console.log(this.fileInput.current);
+
+    this.state.formValues?values = this.state.formValues:values={};
+    values[name] = file;
+    this.setState({
+      formValues: values
+    });
+   // console.log(this.fileInput,'file input');
+  }
+
   render() {
     return(
-      <form role="form" id="farmForm" onSubmit={this.handleSubmit} className="form-horizontal  form-groups-bordered">
+      <form role="form" id="farmForm" ref={this.form} onSubmit={this.handleSubmit} className="form-horizontal  form-groups-bordered">
         {
 
           this.state.farmNotification.state?<HelpBlock type={this.state.farmNotification.error} text={this.state.farmNotification.text} />:''
@@ -151,7 +169,7 @@ class createFarmFormComponent extends React.Component{
 
           <div className="col-sm-5">
             <div className="input-group">
-              <input type="number" min="0" value={this.state.formValues.price_per_unit}  onChange={this.handleChange} required="required" name="price_per_units" className="form-control" />
+              <input type="number" min="0" value={this.state.formValues.price_per_unit}  onChange={this.handleChange} required="required" name="price_per_unit" className="form-control" />
               <span className="input-group-addon">.00</span>
             </div>
           </div>
@@ -238,7 +256,7 @@ class createFarmFormComponent extends React.Component{
           <label htmlFor="field-1" className="col-sm-3 control-label">Farm photo Thumbnail</label>
 
           <div className="col-sm-5">
-            <input type="file" className="form-control" id="field-file" placeholder="Placeholder" />
+            <input type="file" className="form-control" multiple="multiple" ref={this.fileInput} onChange={this.handleFileUpload} name="farmThumbNail" id="field-file" placeholder="Placeholder" />
           </div>
         </div>
         <div className="form-group">
