@@ -8852,6 +8852,7 @@ blockquote.blockquote-danger small strong {
   margin-bottom: 0;
   font-weight: normal;
   color: #949494;
+	font-family: dosis
 }
 .dataTables_wrapper > div.dataTables_length,
 .dataTables_wrapper > div.dataTables_filter,
@@ -8885,6 +8886,7 @@ blockquote.blockquote-danger small strong {
 .dataTables_wrapper > table.dataTable {
   border-left: 0;
   border-right: 0;
+	font-family: dosis;
 }
 .dataTables_wrapper > table.dataTable.no-footer {
   border-bottom: 1px solid #ebebeb;
@@ -8959,7 +8961,7 @@ blockquote.blockquote-danger small strong {
   border-right: 1px solid #ebebeb !important;
 }
 .dataTables_wrapper .dataTables_paginate span .paginate_button.current {
-  background: #262b34 !important;
+  background: #77b112 !important;
   color: #fff !important;
 }
 .page-body .dataTables_wrapper .dataTables_paginate span .paginate_button.current:hover {

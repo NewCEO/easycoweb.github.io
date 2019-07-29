@@ -4079,7 +4079,7 @@ hr + .mail-env {
   }
 }
 .login-page {
-  background: #303641;
+  background: white;
 }
 .login-page .login-content {
   position: relative;
@@ -4097,7 +4097,7 @@ hr + .mail-env {
 }
 .login-page .login-header {
   position: relative;
-  background: #373e4a;
+  background: #77b112;
   padding: 100px 0;
   -moz-transition: all 550ms ease-in-out;
   -webkit-transition: all 550ms ease-in-out;
@@ -4146,7 +4146,7 @@ hr + .mail-env {
   transition: all 550ms ease-in-out;
 }
 .login-page .login-form .form-group .input-group {
-  background: #373e4a;
+  background: #77b112;
   border: 1px solid #373e4a;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -4273,6 +4273,7 @@ hr + .mail-env {
   -webkit-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
+	background-color: #77b112
 }
 .login-page .login-form .form-group .btn-login i {
   float: right;
