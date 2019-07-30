@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Neon Admin Panel" />
+	<meta name="author" content="" />
+
+	<link rel="icon" href="assets/images/favicon.ico">
+
+	<title>CowFunding | User Dashboard</title>
+<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="assets/css/font-icons/font-awesome/css/font-awesome.css">
+	<link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/neon-core.css">
+	<link rel="stylesheet" href="assets/css/neon-theme.css">
+	<link rel="stylesheet" href="assets/css/neon-forms.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+	<link rel="stylesheet" href="assets/css/skins/green.css">
+	<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet" type="text/css">
+
+
+	<script src="./assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body class="page-body" data-url="http://neon.dev">
+
+	<div class="page-container">
+		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+		<div class="sidebar-menu">
+
+			<div class="sidebar-menu-inner">
+
+				<header class="logo-env">
+
+					<!-- logo collapse icon -->
+					<div class="sidebar-collapse">
+						<a href="#" class="sidebar-collapse-icon with-animations">
+							<!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+							<i class="entypo-menu"></i>
+						</a>
+					</div>
+
+					<!-- logo -->
+					<div class="logo">
+						<a href="index.user.html">
+						<img class="myimg" src="../images/2%20-%20Copy.png" width="120" alt="" />
+					</a>
+					</div>
+					<!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+					<div class="sidebar-mobile-menu visible-xs">
+						<a href="#" class="with-animation">
+							<!-- add class "with-animation" to support animation -->
+							<i class="entypo-menu"></i>
+						</a>
+					</div>
+
+				</header>
+				<ul id="main-menu" class="main-menu">
+					<li class="opened active ">
+						<a href="index.user.html">
+						<i class="entypo-home"></i>
+						<span class="title">Dashboard</span>
+					</a>
+					</li>
+
+					<li class="opened active ">
+						<a href="your-farms.html">
+						<i class="entypo-gauge"></i>
+						<span class="title">All farms</span>
+					</a>
+					</li>
+
+					<li class="opened active ">
+						<a href="tranactions.html">
+						<i class="fa fa-money"></i>
+						<span class="title">Transactions</span>
+					</a>
+					</li>
+
+
+					<li class="opened active ">
+						<a href="profile.html">
+						<i class="entypo-user"></i>
+						<span class="title">Profile</span>
+					</a>
+					</li>
+
+					<li class="opened active ">
+						<a href="history.html">
+						<i class="entypo-flow-tree"></i>
+						<span class="title">History</span>
+					</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="main-content">
+			<div class="row">
+				<nav class="navbar navbar-default" id="mynavi" role="navigation">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+						<div class="navbar-brand">
+						</div>
+					</div>
+
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav" id="nav-li">
+							<li><a href="#">Home</a>
+							</li>
+							<li><a href="#">About Us</a>
+							</li>
+							<li class="active"><a href="#">Ranch</a>
+							</li>
+							<li><a href="#">Contact Us</a>
+							</li>
+
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#">Log Out</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+			
+
+			<hr />
+
+
+			<h2 class="text-center" id="form-head">Transactions</h2>
+			<br />
+
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					var $table3 = jQuery("#table-3");
+
+					var table3 = $table3.DataTable({
+						"aLengthMenu": [
+							[10, 25, 50, -1],
+							[10, 25, 50, "All"]
+						]
+					});
+
+					// Initalize Select Dropdown after DataTables is created
+					$table3.closest('.dataTables_wrapper').find('select').select2({
+						minimumResultsForSearch: -1
+					});
+
+					// Setup - add a text input to each footer cell
+					$('#table-3 tfoot th').each(function() {
+						var title = $('#table-3 thead th').eq($(this).index()).text();
+						$(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" />');
+					});
+
+					// Apply the search
+					table3.columns().every(function() {
+						var that = this;
+
+						$('input', this.footer()).on('keyup change', function() {
+							if (that.search() !== this.value) {
+								that
+									.search(this.value)
+									.draw();
+							}
+						});
+					});
+				});
+			</script>
+
+			<table class="table table-bordered datatable" id="table-3">
+				<thead>
+					<tr class="replace-inputs">
+						<th>Farm Name</th>
+						<th>Units Price</th>
+						<th>Units Funded</th>
+						<th>Return Percentage</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>N'dama Cow Farm</td>
+						<td>₦60,000</td>
+						<td>100 Units</td>
+						<td>30%</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Farm Name</th>
+						<th>Followed</th>
+						<th>Units Funded</th>
+						<th>Return Percentage</th>
+					</tr>
+				</tfoot>
+			</table>
+
+			<br />
+			<br />
+			<!-- Footer -->
+			<footer class="main">
+
+				&copy; 2019 <strong>CowFunding</strong>
+
+			</footer>
+		</div>
+	</div>
+
+
+	<!-- Modal 6 (Long Modal)-->
+	<div class="modal fade" id="modal-6">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Modal Content is Responsive</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label for="field-1" class="control-label">Name</label>
+
+								<input type="text" class="form-control" id="field-1" placeholder="John">
+							</div>
+
+						</div>
+
+						<div class="col-md-6">
+
+							<div class="form-group">
+								<label for="field-2" class="control-label">Surname</label>
+
+								<input type="text" class="form-control" id="field-2" placeholder="Doe">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="form-group">
+								<label for="field-3" class="control-label">Address</label>
+
+								<input type="text" class="form-control" id="field-3" placeholder="Address">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4">
+
+							<div class="form-group">
+								<label for="field-4" class="control-label">City</label>
+
+								<input type="text" class="form-control" id="field-4" placeholder="Boston">
+							</div>
+
+						</div>
+
+						<div class="col-md-4">
+
+							<div class="form-group">
+								<label for="field-5" class="control-label">Country</label>
+
+								<input type="text" class="form-control" id="field-5" placeholder="United States">
+							</div>
+
+						</div>
+
+						<div class="col-md-4">
+
+							<div class="form-group">
+								<label for="field-6" class="control-label">Zip</label>
+
+								<input type="text" class="form-control" id="field-6" placeholder="123456">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="form-group no-margin">
+								<label for="field-7" class="control-label">Personal Info</label>
+
+								<textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself"></textarea>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Imported styles on this page -->
+	<link rel="stylesheet" href="./assets/js/datatables/datatables.css">
+	<link rel="stylesheet" href="./assets/js/select2/select2-bootstrap.css">
+	<link rel="stylesheet" href="./assets/js/select2/select2.css">
+
+	<!-- Bottom scripts (common) -->
+	<script src="./assets/js/gsap/TweenMax.min.js"></script>
+	<script src="./assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="./assets/js/bootstrap.js"></script>
+	<script src="./assets/js/joinable.js"></script>
+	<script src="./assets/js/resizeable.js"></script>
+	<script src="./assets/js/neon-api.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="./assets/js/datatables/datatables.js"></script>
+	<script src="./assets/js/select2/select2.min.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="./assets/js/neon-custom.js"></script>
+	<script src="./assets/js/bootstrap-switch.min.js"></script>
+
+
+	<!-- Demo Settings -->
+	<script src="./assets/js/neon-demo.js"></script>
+
+</body>
+
+</html>

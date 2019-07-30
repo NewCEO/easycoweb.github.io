@@ -1,0 +1,106 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+.navbar {
+	font-family: 'Dosis', sans-serif;
+	font-size: 13px;
+}
+
+#no {
+	text-decoration: none;
+}
+
+
+.ptag {
+	font-size: 15px;
+	font-weight: bolder;
+	color: #77B112;
+}
+
+#badge {
+	padding: 5px;
+	background-color: #77b112
+}
+
+.details {
+	width: 50%
+}
+
+.describe {
+	padding: 5px;
+}
+
+.insured {
+	padding: 20px;
+}
+
+.alert {
+	font-size: 30px;
+	color: #77b112
+}
+
+.p-alert {
+	padding: 15px;
+}
+
+.welcome {
+	padding-left: 50px;
+	margin-top: -15px;
+}
+
+#mynavi {
+	background-color: #77b112;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #77b112;
+	background-color: transparent;
+	text-decoration-line: underline;
+}
+
+.myimg{
+	width: 100%;
+	margin-top: -60px;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: white !important
+}
+
+#farm-h2{
+	color: #77b112
+}
+
+.followed{
+	color: #77b112
+}
+
+#form-head{
+	color: #77b112
+}
+
+.lst-btn{
+	margin-left: 50px;
+}
+
+.fundh2{
+	font-size: 26px;
+	font-family: dosis;
+	color: #77b112;
+	margin-bottom: 10px;
+}
+
+.fundh21{
+	margin-bottom: 40px;
+	color: #77b112;
+}
+
+#row2{
+	margin-top: 10px;
+}
