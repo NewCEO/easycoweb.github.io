@@ -1,5 +1,13 @@
+
+@font-face {
+font-family: 'Aller Display';
+font-style: normal;
+font-weight: normal;
+src: local('Aller Display'), url('AllerDisplay.woff') format('woff');
+}
+
 html {
-	font-family: 'dosis',sans-serif;
+	font-family: 'Aller Display';
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
@@ -1379,7 +1387,7 @@ html {
 }
 
 body {
-	font-family: 'dosis', sans-serif;
+	font-family: 'Aller';
 	font-size: 18px;
 	line-height: 24px;
 	color: #32393e;
@@ -19985,7 +19993,7 @@ body:not(.modal-open) .stuck {
 #component {
 	min-height: 0;
 	margin-top: 40px;
-		padding: 50px;
+/*		padding: 50px;*/
 }
 
 .item {
