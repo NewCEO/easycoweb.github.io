@@ -7,7 +7,7 @@ let paystackConf                  = require('../config/paystack');
 let paystack                      = require('paystack')(paystackConf.sk);
 let passwordHelper                = require("../helpers/passwordHelper");
 let Mailer                        = require("../helpers/mailer");
-let {duration,payBackDate}        = require("../helpers/investment");
+let {duration,payBackDate,interest}        = require("../helpers/investment");
 
 module.exports = class farms {
   static create(req,res){
@@ -393,7 +393,7 @@ module.exports = class farms {
                                         <a href="www-dev.easycow.com:3000/user/farms" >click here to view your investments</a>
                                      </html>
                         `).subject("Farm Investments - Easy Cow")
-                          .recipient(details.email)
+                          .recipient(details.investor_email)
                           .send("",3);
 
             })
