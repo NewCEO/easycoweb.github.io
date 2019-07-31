@@ -1,5 +1,6 @@
-import React from 'react';
-import DashBoardLayOut from '../../layouts/DashboardLayOut';
+import React            from 'react';
+import DashBoardLayOut  from '../../layouts/DashboardLayOut';
+import Link             from "next/link";
 import $ from 'jquery';
 
 class Dashboard extends React.Component{
@@ -30,9 +31,11 @@ class Dashboard extends React.Component{
                     <h3 style={{color: "#77b112"}}>You haven't made any investments!</h3>
                     <p>Go to All Farms,Click Fund button on an open farm,Enter number of units you want to buy,Pay using
                       your preferred payment channel<br/>At the farm period, returns are made to your bank account</p>
-                    <a href="your-farms.html">
+                    <Link href="/user/farms">
+                    <a >
                       <button type="button" className="btn btn-success">Invest Now</button>
                     </a>
+                    </Link>
                   </div>
 
                 </div>
@@ -59,9 +62,11 @@ class Dashboard extends React.Component{
               <div className="panel-body">
 
                 <h3>You don't follow any farms</h3>
-                <a href="your-farms.html">
-                  <button type="button" className="btn btn-success">View all our farms</button>
-                </a>
+                <Link href="/user/farms">
+                  <a >
+                    <button type="button" className="btn btn-success">View all our farms</button>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -82,9 +87,11 @@ class Dashboard extends React.Component{
                 <p>You can pay with mobile money, bank or credit card.<br/>Transactions are processed through PayStack's
                   secure system. When its time to get paid, we send the money to your bank account. Set up Banking
                   details under the Profile page</p>
-                <a href="Profile.html">
-                  <button type="button" className="btn btn-success">Profile Page</button>
-                </a>
+                <Link href="/user/profile">
+                  <a >
+                    <button type="button" className="btn btn-success">Profile page</button>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

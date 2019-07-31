@@ -6,6 +6,9 @@ let status                        = require('../config/status');
 let paystackConf                  = require('../config/paystack');
 let paystack                      = require('paystack')(paystackConf.sk);
 let passwordHelper                = require("../helpers/passwordHelper");
+let Mailer                        = require("../helpers/mailer");
+let {duration,payBackDate}        = require("../helpers/investment");
+
 module.exports = class farms {
   static create(req,res){
     let filePath;
@@ -353,9 +356,50 @@ module.exports = class farms {
       if (result.data.status === "success"){
         let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ?";
         let values = [status.invested,req.body.reference,req.session.userId];
-        return db.query(query,values).then((result)=>{
+         db.query(query,values).then((result)=>{
           let resData;
           if (result.affectedRows > 0) {
+
+            let query = `SELECT farms.*,
+                 purchased_farms.date as invested_date,
+                 users.email as investor_email,
+                 users.name as investor_name,
+                 farms.title as invested_farm,
+                 purchased_farms.quantity as purchased_quantity,
+                 status.name as investment_status,
+                 (purchased_farms.quantity * farms.price_per_unit) AS invested_amount
+                 FROM purchased_farms 
+                 INNER JOIN farms ON farms.id = purchased_farms.farm_id
+                 INNER JOIN status ON status.id = purchased_farms.status 
+                 INNER JOIN users ON users.id = purchased_farms.user_id 
+                 WHERE purchased_farms.slug = ? AND purchased_farms.user_id = ?
+                 `;
+            let values  = [req.body.reference,req.session.userId];
+             db.query(query, values).then( (result)=> {
+              let details = result[0];
+              let mail = new Mailer();
+              mail.html(`<!DOCTYPE html>
+                                    <html>
+                                        <h4>Investment Successful</h4>
+                                        <p><b>Hi, ${details.investor_name}</b></p>
+                                        <p>Congratulations your payment was received by us here is the detail of your investment:</p>
+                                        <p><b>Farm Name: </b> ${details.invested_farm}</p>
+                                        <p><b>Price per Unit: </b> ${details.price_per_unit}</p>
+                                        <p><b>Units Bought: </b> ${details.purchased_quantity}</p>
+                                        <p><b>Investment Value: </b>N${details.invested_amount}</p>
+                                        <p><b>Investment Duration:</b>${duration(details.farm_starts,details.farm_ends)} Months</p>
+                                        <p><b>Payback Date:</b>${payBackDate(details.invested_date,duration(details.farm_starts,details.farm_ends))}</p>
+                                        <p><b>Amount PayAble:</b>${interest(details.roi,details.invested_amount) + details.invested_amount }</p>
+                                        <a href="www-dev.easycow.com:3000/user/farms" >click here to view your investments</a>
+                                     </html>
+                        `).subject("Farm Investments - Easy Cow")
+                          .recipient(details.email)
+                          .send("",3);
+
+            })
+
+
+
 
              resData = {
               slug: req.body.reference,

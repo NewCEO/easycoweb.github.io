@@ -76,9 +76,9 @@ class investments extends React.Component{
           </tr>
         });
         this.setState({investmentsRows:rows});
-        this.initDataTable();
-
       }
+
+      this.initDataTable();
     })
   }
 
