@@ -149,7 +149,7 @@ span.radio input[type="radio"]:checked + label.radio_inner:before {
 /* Allow for input prepend/append in search forms */
 .btn,
 .kbutton {
-  color: #000000;
+  color: #77b112;
 }
 .btn:hover,
 .kbutton:hover,

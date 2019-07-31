@@ -1550,6 +1550,7 @@ h6.heading-style-2 {
 	text-transform: uppercase;
 	margin-top: 40px;
 	text-align: center;
+	font: bolder;
 }
 
 h1.heading-style-2.title,
@@ -2021,7 +2022,7 @@ pre code {
 	margin-left: auto;
 	padding-left: 15px;
 	padding-right: 15px;
-	/*@media (min-width: 768px) {
+	@media (min-width: 768px) {
     width: @container-sm;
   }
   @media (min-width: 992px) {
@@ -2029,9 +2030,9 @@ pre code {
   }
   @media (min-width: 1200px) {
     width: @container-lg;
-  }*/
+  }
 	width: 100%;
-	max-width: 1200px;
+/*	max-width: 1200px;*/
 }
 
 .container-fluid {
@@ -3272,7 +3273,7 @@ input[type="color"],
 	max-width: 100%;
 	height: 42px;
 	background: transparent;
-	border: 1px solid #000000;
+	border: 2px solid #77b112;
 	color: #000000;
 	font-family: 'Dosis', sans-serif;
 	font-size: 14px;
@@ -4536,7 +4537,7 @@ legend + .control-group {
 	touch-action: manipulation;
 	cursor: pointer;
 	background-image: none;
-	border: 1px solid #000000;
+	border: 1px solid #77b112;
 	max-width: 100%;
 	padding: 8px 14px;
 	text-transform: uppercase;
@@ -14476,7 +14477,7 @@ div.moduletable.currency_selector .module_container header {
 	width: auto;
 	height: auto;
 	padding: 4px 10px;
-	background: #000000;
+	background: #77B112;
 	display: inline-block;
 	color: #fff;
 	position: absolute;
@@ -19854,7 +19855,7 @@ body:not(.modal-open) .stuck {
 }
 
 .headerContent {
-	background: url(../images/headerbg.jpg) center 0 no-repeat;
+	background: url(../../../images/slider-Image-1.png) center 0 no-repeat;
 	background-size: cover;
 	/*  margin-bottom: 66px;*/
 	position: relative;
@@ -19984,6 +19985,7 @@ body:not(.modal-open) .stuck {
 #component {
 	min-height: 0;
 	margin-top: 40px;
+		padding: 50px;
 }
 
 .item {
@@ -20045,7 +20047,7 @@ body:not(.modal-open) .stuck {
 }
 
 #footer {
-	background: url(../images/.png) right 0 no-repeat;
+	background: url(../../../images/EasyCow-Footer.png) right 0 no-repeat;
 	background-size: cover;
 }
 
