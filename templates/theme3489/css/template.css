@@ -7,7 +7,7 @@ src: local('Aller Display'), url('AllerDisplay.woff') format('woff');
 }
 
 html {
-	font-family: 'Aller Display';
+	font-family: Aller Display;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }

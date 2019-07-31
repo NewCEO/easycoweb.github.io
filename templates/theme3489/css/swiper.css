@@ -425,9 +425,10 @@
   content: '';
 }
 .swiper-slide .mod-newsflash-adv {
-  font: bold 12px/14px 'Dosis', sans-serif;
+  font: bold 12px/14px 
   letter-spacing: 2px;
   text-transform: uppercase;
+	font-family: Aller
 }
 .swiper-slide .mod-newsflash-adv .item_img {
   margin-top: 29px;
