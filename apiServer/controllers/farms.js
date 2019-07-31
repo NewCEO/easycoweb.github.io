@@ -317,9 +317,9 @@ module.exports = class farms {
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
         anonymous.slugOn("purchased_farms","slug").then(function (slug) {
           genSlug = slug;
-
-          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
-          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
+          let date = new Date(Date.now()).toISOString();
+          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid,date];
+          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status,date) VALUES (?,?,?,?,?,?)";
           return db.query(query,values);
         }).then((result)=>{
           let amount = singleFarm.price_per_unit * req.body.units *100;
@@ -341,6 +341,7 @@ module.exports = class farms {
         res.withClientError(400).reply();
       }
     }).catch(function (err) {
+      console.log(err,)
       res.withServerError(500).reply();
     })
   }

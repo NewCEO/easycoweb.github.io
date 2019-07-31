@@ -134,14 +134,15 @@ module.exports = class  user {
     let query = `SELECT farms.*,
                  purchased_farms.date as invested_date,
                  status.name as investment_status,
-                 SUM(purchased_farms.quantity * farms.price_per_unit) AS invested_amount, 
-                 SUM(purchased_farms.quantity) AS invested_quantity 
+                 (purchased_farms.quantity * farms.price_per_unit) AS invested_amount, 
+                 purchased_farms.quantity AS invested_quantity 
                  FROM purchased_farms 
                  INNER JOIN farms ON farms.id = purchased_farms.farm_id
                  INNER JOIN status ON status.id = purchased_farms.status  
-                 WHERE purchased_farms.user_id = ? AND purchased_farms.status = ? 
-                 GROUP BY purchased_farms.farm_id`;
-    let values  = [req.session.userId,statuses.invested];
+                 WHERE purchased_farms.user_id = ? 
+                 AND ( purchased_farms.status = ? OR purchased_farms.status = ?)
+                 `;
+    let values  = [req.session.userId,statuses.invested,statuses.reimbursed];
     return db.query(query, values).then(function (data) {
       if (Object.keys(data).length > 0) {
         res.withSuccess(200).withData(data).reply();
