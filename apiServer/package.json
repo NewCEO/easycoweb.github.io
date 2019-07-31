@@ -21,6 +21,7 @@
     "express-session": "^1.15.6",
     "express-validator": "^6.0.1",
     "mysql": "^2.16.0",
+    "paystack": "^2.0.1",
     "php-unserialize": "0.0.1",
     "pug": "^2.0.3",
     "redis": "^2.8.0",

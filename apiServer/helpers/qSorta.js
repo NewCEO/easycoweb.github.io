@@ -10,18 +10,22 @@ module.exports = function(){
 
         let constructedString = '';
 
+        //the query object we are checking E.g ?farmId[eql] = 4
         let queryObj = req.query[query];
 
         //{gte:4,lte:5}
+        //confirm it exist
         if (queryObj){
 
+          //confirm its an object that can be operated on
           if (typeof queryObj  !== 'object'){
-            req.query[query] = {eql:queryObj};
+            //
             queryObj = req.query[query];
-          }
 
+          }
+          //run through all elements in the array
           for (var element in queryObj){
-            if (acceptedOperators.indexOf(element)){
+            if (acceptedOperators.indexOf(element) > -1){
               constructedString += (constructedString !== ''?"OR ":'') +  `${query} ${this.translate(queryObj,element)}`;
             }
           }
@@ -36,9 +40,9 @@ module.exports = function(){
 
     },
     translate:    function (query,queryOperator) {
+
      switch (queryOperator) {
        case 'eql':
-
          return ` = ${ this.build(mysql.escape(query[queryOperator]))}`;
          break;
        case 'gte':
@@ -76,7 +80,7 @@ module.exports = function(){
 
    },
     operate:      function (req) {
-      return new sortOn("WHERE 1=1 ",req);
+      return new sortOn(req);
     },
     build:        function (string) {
       let arrayedString = string.replace(',','OR');

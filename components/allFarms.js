@@ -27,7 +27,6 @@ class allFarmTableComponent extends React.Component{
     months = (d2.getFullYear() - d1.getFullYear()) * 12;
     months -= d1.getMonth();
     months += d2.getMonth();
-    console.log(months,months);
     return months <= 0 ? 0 : months;
   }
   initDataTable(){
@@ -70,7 +69,7 @@ class allFarmTableComponent extends React.Component{
     httpHelper.serverReq('http://localhost:3009/api/v1/farms/all').then( (data)=> {
       console.log(data);
       if (data.success){
-        let farms = data.success.data;
+        let farms = data.success.data.farms;
         let editedFarms =  farms.map(farm=>
          <FarmTR key={farm.id} farmDetails={farm} />
         );
@@ -105,10 +104,11 @@ class allFarmTableComponent extends React.Component{
           <th>Farm Name</th>
           <th>Duration</th>
           <th>Price</th>
-          <th>Returns Percentage</th>
-          <th>Units Available</th>
-          <th>Units Bought</th>
-          <th>Actions</th>
+          <th>Interest</th>
+          <th>Total Units Available</th>
+          <th>Total Units Bought</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
         </tfoot>
       </table>

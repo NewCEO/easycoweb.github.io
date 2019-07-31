@@ -1,4 +1,5 @@
 const db                          = require("../helpers/db");
+const status                      = require("../config/status");
 
 module.exports = class anonymous{
 
@@ -30,9 +31,9 @@ module.exports = class anonymous{
 
   static slugOn (table,column){
       var result           = '';
-      var characters       = 'ABCDEFGHabcdefghijIJKLMNOPQRSTUVWXYZklmnopqrstuvwxyz';
-      var charactersLength = 10;
-      for ( var i = 0; i < charactersLength; i++ ) {
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890=.';
+      var charactersLength = characters.length;
+      for ( var i = 0; i < 20; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
       }
 
@@ -45,6 +46,30 @@ module.exports = class anonymous{
     })
 
 
+  }
+
+  static  createFarmInvoice(req,res){
+    let slug;
+    this.slugOn("purchased_farms","slug").then(function (slug) {
+       slug = slug;
+
+    })
+    let values = [slug,req.body.farm_id,req.session.userId,status.unpaid];
+    let query = "INSERT INTO purchased_farms (slug,farm_id,user_id,quantity,status) VALUES (?,?,?,?,?)";
+    return db.query(query,values).then((result)=>{
+      res.withSuccess(200).withData(result).reply();
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
+  }
+
+  static banks(req,res){
+    let query = "SELECT * FROM banks";
+    return  db.query(query,[]).then(function (result) {
+      res.withSuccess(200).withData(result).reply();
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
   }
 
 }

@@ -78,6 +78,7 @@ let smooch = function (options) {
       reply:function () {
 
         message.success?res.status(message.success.code).json(message):res.status(message.error.code).json(message);
+        return;
       }
 
     };
@@ -87,11 +88,11 @@ let smooch = function (options) {
     let paginationHelper = {
       paginate: function (perPage) {
         if (req.query.paginate) {
-
-          req.query.nextPage?"":req.query.nextPage  = 1;
+          req.query.page?"":req.query.page  = 1;
           typeof perPage !== "number"? new Error("number of pages must be an integer"):'';
-          req.query.nextPage = parseInt(req.query.nextPage,10);
-          let nextRecords = (req.query.nextPage - 1) * perPage;
+          req.query.page = parseInt(req.query.page,10);
+          let nextRecords = (req.query.page - 1) * perPage;
+          req.paginate.nextPage = req.query.page + 1;
           return `LIMIT ${perPage} OFFSET ${mysql.escape(nextRecords)}`;
         }
         return '';

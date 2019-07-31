@@ -14,20 +14,6 @@
 	padding-right: 30px;
 }
 
-#nav{
-	margin-bottom: -20px;
-}
-
-
-#nav-li a:active{
-	text-decoration: underline;
-	
-}
-#nav-li a:hover{
-	text-decoration: underline;
-	text-decoration-color: green;
-	text-decoration-style: solid;
-}
 
 
 #tabs{
@@ -36,6 +22,40 @@
 
 #form-head{
 	text-align: center;
+	color: #77b112;
+}
+
+
+.navbar {
+	font-family: 'Dosis', sans-serif;
+	font-size: 16px;
+}
+
+#mynavi {
+	background-color: #77b112;
+	border-color: transparent;
+	height: 30px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #77b112;
+	background-color: transparent;
+	text-decoration-line: underline;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: white !important
+}
+
+.myimg{
+	width: 100%;
+	margin-top: -60px;
+}
+
+.login{
+	background-color: #77b112;
 }
 
 

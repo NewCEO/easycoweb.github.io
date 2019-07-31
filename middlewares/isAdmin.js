@@ -1,18 +1,19 @@
 import http from '../helpers/httpHelper'
+import  userType from '../config/userTypes'
 import Router from "next/dist/client/router";
 let isAdmin =  function(res){
 
 
     http.httpReq('http://localhost:3009/api/v1/user').then(function (data) {
-      if (data.success.data.user_type === 2){
+      if (data.success.data.user_type === userType.admin || data.success.data.user_type === userType.superAdmin ){
 
         return true
       }
-       return   Router.push('/login')
+       return   Router.push('/')
 
 
     }).catch(function (reason) {
-      return   Router.push('/login');
+      return   Router.push('/');
 
     })
 

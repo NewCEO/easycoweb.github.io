@@ -17,8 +17,8 @@ body .profile-info.dropdown .dropdown-menu li a:hover {
   background: #009549;
 }
 body .page-container .sidebar-menu {
-  background: #00a651;
-  color: #009549;
+  background:#77b112;
+  color: white;
 }
 body .page-container.sidebar-collapsed .sidebar-menu #main-menu > li#search .search-input {
   background-color: #009549 !important;
@@ -38,14 +38,14 @@ body .page-container .sidebar-menu #main-menu li ul > li > a {
   background-color: #00a651;
 }
 body .page-container .sidebar-menu #main-menu li.active > a {
-  background: #009549;
+  background: #77b112;
 }
 body .page-container .sidebar-menu #main-menu li ul > li > a {
   background-color: #009549;
 }
 body .page-container .sidebar-menu .logo-env > div.sidebar-collapse a,
 body .page-container .sidebar-menu .logo-env > div.sidebar-mobile-menu a {
-  border-color: #00b458;
+  border-color: #ebebeb;
 }
 body .page-container .sidebar-menu .logo-env > div.sidebar-collapse a:hover {
   background: #009549;
@@ -57,7 +57,7 @@ body .page-container .sidebar-menu .sidebar-user-info .sui-hover {
   background-color: #00a651;
 }
 body .page-container .sidebar-menu #main-menu li {
-  border-color: #00b458;
+  border-color: #ebebeb;
 }
 body .page-container .sidebar-menu #main-menu li a {
   color: #ddefe3;
@@ -187,8 +187,8 @@ body .tile-white-primary p {
   color: #00b458;
 }
 body .btn-primary {
-  background: #00a651;
-  border-color: #00a651;
+  background: #77b112;
+  border-color: #ebebeb;
 }
 body .panel-invert {
   background: #00a651;
@@ -240,7 +240,7 @@ body.login-page .login-content a {
   color: #ddefe3;
 }
 body .input-group-addon {
-  color: #ddefe3;
+  color: #77b112;
 }
 body.page-left-in,
 body.page-right-in,

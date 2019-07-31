@@ -8,6 +8,7 @@ module.exports = class mailer {
     this.to;
     this.subject;
     this.config = mailConfig.connection;
+    this.connect(this.config);
 
   }
 
@@ -25,7 +26,7 @@ module.exports = class mailer {
     return this;
   }
   subject(subject){
-    typeof subject === 'string'?this.text = text:undefined;
+    typeof subject === 'string'?this.subject = subject:this.subject = "Easycow Email";
     return this;
   }
 
@@ -49,12 +50,13 @@ module.exports = class mailer {
     let defaultMessage = {};
     defaultMessage.to = this.to||'';
     defaultMessage.from = this.from||mailConfig.message.from;
+    defaultMessage.subject = this.subject;
     defaultMessage.html = (this.html !== 'undefined'?this.html:message);
-    console.log(defaultMessage,'default message settings');
 
    return new Promise( (resolve,reject) => {
      console.log("sending mail...")
       this.mailConnection.sendMail(defaultMessage).then(function (result) {
+        console.log("mail sent")
         resolve(result);
       }).catch( (error)=> {
         if (retry !== 'undefined' && retries <= retry  ){

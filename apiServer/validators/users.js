@@ -82,6 +82,8 @@ let userValidator = function  (req,res) {
 
 };
 
+
+
 let checkUser = function (email) {
   let query = "SELECT email FROM users WHERE email = ?";
   let values = [email];

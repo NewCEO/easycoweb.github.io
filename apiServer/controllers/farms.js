@@ -2,6 +2,10 @@ const db                          = require("../helpers/db");
 let {operate}                     = require('../helpers/qSorta')();
 let fileUploader                  = require('../helpers/fileUploader');
 let anonymous                     = require('../controllers/anonymous');
+let status                        = require('../config/status');
+let paystackConf                  = require('../config/paystack');
+let paystack                      = require('paystack')(paystackConf.sk);
+let passwordHelper                = require("../helpers/passwordHelper");
 module.exports = class farms {
   static create(req,res){
     let filePath;
@@ -46,11 +50,11 @@ module.exports = class farms {
     let body = req.body;
 
     let values = [];
-
+    let filePath;
+    let  farmSlug;
     body.title? values.push(body.title):'';
     body.category? values.push(body.category):'';
     body.total_units? values.push(body.total_units):'';
-    body.price_per_unit? values.push(body.price_per_unit):'';
     body.funding_starts? values.push(body.funding_starts):'';
     body.funding_ends? values.push(body.funding_ends):'';
     body.farm_starts? values.push(body.farm_starts):'';
@@ -59,16 +63,30 @@ module.exports = class farms {
     body.location? values.push(body.location):'';
     body.description? values.push(body.description):'';
     body.status? values.push(body.status):'';
-    values.push(req.params.farmId);
-
-
-    let query = `UPDATE farms SET ${body.title?"title = ?":""},${body.category?"category=?":""} ,${body.total_units?"total_units=?":""} ,${body.price_per_unit?"price_per_unit=?":""},${body.funding_starts?"funding_starts=?":""},${body.funding_ends?"funding_ends=?":""},${body.farm_starts?"farm_starts=?":""},${body.farm_ends?"farm_ends=?":""},${body.roi?"roi=?":""},${body.location?"location=?":""},${body.description?"description=?":""},${body.status?"status=?":""} WHERE farms.id = ?`;
-
-    return db.query(query, values).then((result)=>{
-      res.withSuccess(201,"update").reply();
-    }).catch(function (error) {
-      res.withServerError(500).reply();
-    })
+    let query = `UPDATE farms SET ${body.title ? "title = ?" : ""},${body.category ? "category=?" : ""} ,${body.total_units ? "total_units=?" : ""} ,${body.funding_starts ? "funding_starts=?" : ""},${body.funding_ends ? "funding_ends=?" : ""},${body.farm_starts ? "farm_starts=?" : ""},${body.farm_ends ? "farm_ends=?" : ""},${body.roi ? "roi=?" : ""},${body.location ? "location=?" : ""},${body.description ? "description=?" : ""},${body.status ? "status=?" : ""}${ req.files.length > 0 ? ",images=?" : ""} WHERE farms.slug = ?`;
+    if (req.files.length > 0){
+      new fileUploader(req.files.farmThumbNail)
+        .saveTo('static/somepath')
+        .upload()
+        .then((path)=>{
+          filePath = path;
+          values.push(JSON.stringify([filePath]));
+          values.push(req.params.farmId);
+          return db.query(query, values)
+        }).then((result) => {
+            res.withSuccess(201, "update").reply();
+          }).catch(function (error) {
+            res.withServerError(500).reply();
+          })
+    }else {
+      values.push(req.params.farmId);
+      return db.query(query, values)
+        .then((result) => {
+          res.withSuccess(201, "update").reply();
+        }).catch(function (error) {
+          res.withServerError(500).reply();
+        })
+    }
   }
   static exists(req){
     let query = "SELECT id FROM farms WHERE id = ?";
@@ -90,45 +108,58 @@ module.exports = class farms {
 
     let values  = [];
     let body = req.query;
+    let followFarmJoin = (req.session.userId?`followed_farms.user_id = ${req.session.userId} AND `:"")+"followed_farms.farm_id = farms.id";
 
-    let query   = `SELECT farms.*,status.name as status_name,states.name as location_name, (SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out  FROM farms INNER JOIN status ON status.id = farms.status INNER JOIN states on states.id = farms.location ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
+    let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,
+      IF (ISNULL(followed_farms.user_id ),"false","true") AS followed, 
+     (SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out 
+      FROM farms 
+      INNER JOIN status ON status.id = farms.status 
+      INNER JOIN states on states.id = farms.location 
+      ${req.params.follow === "followed"?"INNER":"LEFT"} JOIN followed_farms ON  ( ${followFarmJoin})  
+      ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
 
     return db.query(query,values,req).then( (farms)=> {
-      res.withSuccess(200).withData(farms.map( (farm)=> {
+      let data = {};
+      let parsedFarms = farms.map( (farm)=> {
         let parsedImages = [];
         if ( Array.isArray( JSON.parse(farm.images))){
           JSON.parse(farm.images).forEach( (image)=> {
-            parsedImages.push(`${req.protocol}\\${req.hostname}:${process.env.__port}\\${image}`);
+            parsedImages.push(`${req.protocol}\:\/\/${req.hostname}\:${process.env.__port}\/${image}`);
           });
-          console.log(parsedImages,'parsed images');
-          farm.images = parsedImages;
+          farm.images = JSON.stringify(parsedImages);;
         }
         return farm;
-      })).reply();
+      });
+      data.farms    = parsedFarms;
+      data.nextPage = req.paginate.nextPage;
+
+      res.withSuccess(200).withData(data).reply();
     }).catch(function (er) {
       console.log(er,'error')
       res.withServerError(500).reply();
     })
 
   }
-  static singleFarm(req,res){
-
-    let values  = [req.params.farmId];
+  static getSingleFarm(slug){
+    let values  = [slug];
 
     let query   = `SELECT *,(SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out FROM farms WHERE slug = ?`;
-
-
-
-    return db.query(query,values).then(function (result) {
-
+    return db.query(query,values)
+  }
+  static singleFarm(req,res){
+   this.getSingleFarm(req.params.farmId)
+    .then(function (result) {
       let parsedImages = [];
-      let farm = result[0];
-      if ( Array.isArray( JSON.parse(farm.images))){
-        JSON.parse(farm.images).forEach( (image)=> {
-          parsedImages.push(`${req.protocol}\:\/\/${req.hostname}\:${process.env.__port}\/${image}`);
-        });
+      let farm = result[0]||res.withClientError(404).reply();
+      if (farm){
+        if ( Array.isArray( JSON.parse(farm.images))){
+          JSON.parse(farm.images).forEach( (image)=> {
+            parsedImages.push(`${req.protocol}\:\/\/${req.hostname}\:${process.env.__port}\/${image}`);
+          });
 
-        farm.images = JSON.stringify(parsedImages);
+          farm.images = JSON.stringify(parsedImages);
+        }
       }
 
       res.withSuccess(200).withData(farm).reply();
@@ -139,23 +170,52 @@ module.exports = class farms {
 
   }
   static activity(req,res){
-    let query = "INSERT INTO farm_updates (information,summary,activity,stage,weeks,image_updates,date,farm_id) VALUES (?,?,?,?,?,?,?,?)";
-    let values = [
+
+    let values;
+    let query = "INSERT INTO farm_updates (information,summary,activity,stage,weeks,date,image_updates,farm_id)  SELECT ?,?,?,?,?,?,?,id FROM farms WHERE slug = ?";
+
+
+  this.saveFileUpdates(req.files.image_update,0,[]).then(function (files) {
+     values = [
       req.body.information,
       req.body.summary,
       req.body.activity,
       req.body.stage,
       req.body.weeks,
-      req.body.image_updates,
-      req.body.date,
+      new Date(Date.now()).toISOString(),
+       JSON.stringify(files),
       req.params.farmId
     ];
-
-    return db.query(query, values).then((result)=>{
+    return db.query(query, values)
+  }).then((result)=>{
       res.withSuccess(201,"creation").reply();
     }).catch(function (error) {
       res.withServerError(500).reply();
     })
+  }
+  static saveFileUpdates(files,index,values,promise){
+    let self = this;
+  return new Promise(function (resolve,reject) {
+    (function name (files,index,values){
+      new fileUploader(files[index])
+        .saveTo('farm_updates')
+        .upload()
+        .then( (data)=> {
+          values.push(data);
+          if (files.length - 1 > index){
+
+            index += index + 1;
+             name(files,index,values);
+          }else{
+           resolve(values);
+          }
+        })
+    }(files,index,values));
+
+    })
+
+
+
   }
 
   static updateActivity(req,res){
@@ -187,12 +247,29 @@ module.exports = class farms {
 
     let values  = [];
     let body = req;
+    let data = {};
 
-    let query   = `SELECT farm_activities.*,farm_status.name as farm_status_name,states.name as farm_location_name,farms.* FROM farms INNER JOIN farms on farms.id = farm_activities.farm_id INNER JOIN status AS farm_status ON status.id = farms.status ${operate(req).on('weeks').on('date').on('farm_status','farms.status').on('farm_location','farms.location').on('farm_status','farms.status').onParam('farmId','farms.id').done()} ${req.paginate(20)}`;
-
-    return db.query(query,values,true,req).then(function (result) {
-      res.withSuccess(200).withData(result).reply();
-    }).catch(function () {
+    let query   = `SELECT farm_activities.*,
+                   farm_status.name as farm_status_name,states.name as farm_location_name,farms.*,farm_activities.id as id 
+                   FROM farm_updates AS farm_activities
+                   JOIN farms on farms.id = farm_activities.farm_id 
+                   INNER JOIN states on states.id = farms.location 
+                   INNER JOIN status AS farm_status ON farm_status.id = farms.status 
+                   ${operate(req).on('weeks')
+                                  .on('date')
+                                  .on('farm_status','farms.status')
+                                  .on('farm_location','farms.location')
+                                  .on('farm_status','farms.status')
+                                  .on("farm_id","farms.slug")
+                                  .done()+` AND farm_activities.status = ${status.active} `
+                    }
+                    
+                    ${req.paginate(20)}`;
+    return db.query(query,values,req).then(function (result) {
+      data.activities    = result;
+      data.nextPage      = req.paginate.nextPage;
+      res.withSuccess(200).withData(data).reply();
+    }).catch(function (err) {
       res.withServerError(500).reply();
     })
 
@@ -221,6 +298,168 @@ module.exports = class farms {
 
       res.withClientError(400).reply();
     }
+  }
+  static deleteFarmActivity(req,res){
+
+      let query = "UPDATE farm_updates SET status = ? WHERE id = ?";
+      let values = [status.deleted,req.params.activitiesId];
+      return db.query(query,values).then((result)=>{
+        res.withSuccess(200).withData(result).reply();
+      }).catch(function (error) {
+        res.withServerError(500).reply();
+      })
+  }
+  static  createInvoice(req,res){
+    let genSlug;
+    this.getSingleFarm(req.body.farmId).then((result)=>{
+      let singleFarm = result[0];
+      //check if farm is open,check if the farm is sold out
+      if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
+        anonymous.slugOn("purchased_farms","slug").then(function (slug) {
+          genSlug = slug;
+
+          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
+          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
+          return db.query(query,values);
+        }).then((result)=>{
+          let amount = singleFarm.price_per_unit * req.body.units *100;
+          //paystack stuff going on here
+          return paystack.transaction.initialize({
+            amount:amount,
+            email:req.session.email,
+            reference:genSlug,
+            callback_url:req.body.paystack_cb
+          });
+        }).then(function (payStackResp) {
+          //add farm slug to the paystack response
+          payStackResp.data['farmId'] = req.body.farmId;
+          res.withSuccess(200).withData(payStackResp.data).reply();
+        }).catch(function (error) {
+          res.withServerError(500).reply();
+        })
+      }else{
+        res.withClientError(400).reply();
+      }
+    }).catch(function (err) {
+      res.withServerError(500).reply();
+    })
+  }
+
+  static payInvoice(req,res){
+
+    paystack.transaction.verify(req.body.reference).then((result)=>{
+
+      if (result.data.status === "success"){
+        let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ?";
+        let values = [status.invested,req.body.reference,req.session.userId];
+        return db.query(query,values).then((result)=>{
+          let resData;
+          if (result.affectedRows > 0) {
+
+             resData = {
+              slug: req.body.reference,
+              invoice: {
+                status: "paid"
+              }
+            }
+          }else{
+             resData = {
+              slug: req.body.reference,
+              invoice: {
+                status: "unpaid"
+              }
+            }
+          }
+          res.withSuccess(200).withData(resData).reply();
+        }).catch(function (error) {
+          res.withServerError(500).reply();
+        })
+      }else{
+        res.withServerError(500).reply();
+      }
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
+  }
+
+  static follow(req,res){
+    let query;
+    switch (req.params.relType) {
+      case "follow":
+         query = "INSERT INTO followed_farms (user_id,farm_id) SELECT ?,id FROM farms WHERE slug = ?";
+        break;
+      case "un-follow":
+         query = "DELETE followed_farms FROM followed_farms INNER JOIN farms ON farms.id = followed_farms.farm_id WHERE user_id = ? AND farms.slug = ?";
+      break;
+    }
+    let values = [
+      req.session.userId,
+      req.params.farmSlug,
+    ];
+    if (query){
+
+      return db.query(query,values).then((data)=>{
+        res.withSuccess(200).reply();
+      }).catch(function () {
+        res.withServerError(500).reply();
+      })
+    }else{
+      res.withServerError(500).reply();
+    }
+  }
+
+  static investments(req,res){
+    let query     = `SELECT *, investor.name as investor_name, purchased_farms.date as invested_date,investor.id as investor_id ,
+                     purchased_farms.slug as id,investment_status.name as investment_status,investment_status.id as investment_status_id
+                     FROM purchased_farms 
+                     INNER JOIN users AS investor ON investor.id = purchased_farms.user_id 
+                     INNER JOIN farms on farms.id = purchased_farms.farm_id
+                     INNER JOIN status AS investment_status ON investment_status.id = purchased_farms.status
+                     WHERE farms.slug = ?
+                     AND (purchased_farms.status = ? OR purchased_farms.status = ?)`;
+    let values    = [req.params.farmId,status.invested,status.reimbursed];
+    let data      = {};
+    return db.query(query,values).then((result)=>{
+      data['investments'] = result;
+      let query = "SELECT * FROM farms WHERE id = ?";
+      return db.query(query,values);
+    }).then((result)=>{
+      data["farm"] = result[0];
+      res.withSuccess(200).withData(data).reply();
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
+  }
+  static checkPassword(req){
+
+    return new Promise((resolve,reject)=>{
+      let query  = "SELECT password FROM users WHERE users.id = ?";
+      let values =  [req.session.userId];
+       db.query(query,values).then((userResult)=>{
+
+           if (passwordHelper.isSame(req.body.password,userResult[0].password)){
+             resolve(true);
+           } else{
+             reject(false);
+           }
+
+      })
+    })
+  }
+  static payInvestment(req,res){
+    this.checkPassword(req).then(function (result) {
+      let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND status = ?";
+      let values = [status.reimbursed,req.params.investmentId,status.ripe];
+     return db.query(query,values)
+    }).then( (result)=> {
+      if (result){
+        res.withSuccess(200).reply();
+      }else{
+        res.withClientError(422).reply();
+      }
+    }).catch((err)=>{
+      res.withServerError(500).reply();
+    })
   }
 
 }

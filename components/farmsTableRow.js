@@ -71,13 +71,17 @@ class farmsTableRow extends React.Component{
              this.state.farmState === 1? <button onClick={this.handleClick} type="button" className="btn btn-danger" >De-Activate</button>:this.state.farmState === 2? <button onClick={this.handleClick} type="button" className="btn btn-success">Activate</button>:''
           }
 
-
-
-
-
-
-          <Link href= {"/admin/farms/edit/"+farm.id.toString()}>
+          <Link href= {"/admin/farms/edit/"+farm.slug.toString()}>
             <button type="button" style={{marginLeft:'10px'}} className="btn btn-info">edit</button>
+          </Link>
+          <Link href={`/admin/farms/${farm.slug.toString()}/activities`}>
+            <button className="btn btn-primary">Activities</button>
+          </Link>
+          <Link href={"/admin/farms/"+farm.slug+"/activity/create"}>
+            <button className="btn info">Add Activity</button>
+          </Link>
+          <Link href={"/admin/farms/"+farm.slug+"/investments"}>
+            <button className="btn info">Investments</button>
           </Link>
 
         </td>

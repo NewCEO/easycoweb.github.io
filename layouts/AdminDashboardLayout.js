@@ -2,13 +2,16 @@ import Head from 'next/head';
 import React from 'react';
 import {appStatic} from '../helpers/static';
 import HttpHelper from '../helpers/httpHelper';
+import userTypes from "../config/userTypes";
+import Link from 'next/link';
+
 import ContentLoader from "react-content-loader";
 
 class DashboardLayOut extends React.Component {
 
   constructor(prop) {
     super(prop);
-    this.state = {userDetails:''}
+    this.state = {userDetails:'',userTypes:false}
   }
 
   componentDidMount() {
@@ -17,7 +20,7 @@ class DashboardLayOut extends React.Component {
   }
 
   userDetails(){
-    HttpHelper.httpReq('http://localhost:3009/api/v1/user','','GET').then( (userDet)=> {
+    HttpHelper.serverReq('http://localhost:3009/api/v1/user','','GET').then( (userDet)=> {
       if(userDet.success.data){
         this.setState({userDetails:userDet.success.data});
       }
@@ -93,20 +96,17 @@ class DashboardLayOut extends React.Component {
 
             <header className="logo-env">
 
-              <div className="logo">
-                <a href="index.html">
-                  <img src="/dashboard/assets/images/logo@2x.png" width="120" alt=""/>
-                </a>
-              </div>
-
-
               <div className="sidebar-collapse">
                 <a href="#" className="sidebar-collapse-icon with-animations">
                   <i className="entypo-menu"></i>
                 </a>
               </div>
 
-
+              <div className="logo">
+                <a href="index.user.html">
+                  <img className="myimg" src="/dashboard/assets/images/logo.png" width="120" alt=""/>
+                </a>
+              </div>
               <div className="sidebar-mobile-menu visible-xs">
                 <a href="#" className="with-animation">
                   <i className="entypo-menu"></i>
@@ -114,102 +114,59 @@ class DashboardLayOut extends React.Component {
               </div>
 
             </header>
-
-            <div className="sidebar-user-info">
+            <ul id="main-menu" className="main-menu">
+              <li className="opened active ">
+                <Link href="/admin/dashboard">
+                <a>
+                  <i className="entypo-home"></i>
+                  <span className="title">Dashboard</span>
+                </a>
+                </Link>
+              </li>
+              <li className="opened active ">
+                <Link href="/admin/farm/create">
+                  <a>
+                    <i className="entypo-gauge"></i>
+                    <span className="title">New Farm</span>
+                  </a>
+                </Link>
+              </li>
+              <li className="opened active ">
+               <Link href="/admin/farms">
+                <a>
+                  <i className="entypo-leaf"></i>
+                  <span className="title">All farms</span>
+                </a>
+               </Link>
+              </li>
               {
-                this.state.userDetails?
-                  <div className="sui-normal">
-                    <a href="#" className="user-link">
-                      <img src={this.state.userDetails.profile_pics?this.state.userDetails.profile_pics:"/images/default_profile_pics.png"} width="55" alt="" className="img-circle"/>
+                this.state.userDetails.user_type === userTypes.superAdmin?
+                  <li className="opened active ">
+                    <Link href="/admin/create">
+                      <a>
+                        <i className="entypo-user-add"></i>
+                        <span className="title">Add User</span>
+                      </a>
+                    </Link>
+                  </li>:
+                  ""
 
-                      <span>Welcome,</span>
-                      <strong>{this.state.userDetails.name}</strong>
-                    </a>
-                  </div>: <ContentLoader
-                    height={80}
-                    width={200}
-                    speed={2}
-                    primaryColor="#f3f3f3"
-                    secondaryColor="#ecebeb"
-                  >
-                    <rect x="70" y="15" rx="4" ry="4" width="117" height="6" />
-                    <rect x="70" y="35" rx="3" ry="3" width="85" height="6" />
-                    <circle cx="30" cy="30" r="30" />
-                  </ContentLoader>
               }
 
-              <div className="sui-hover inline-links animate-in">
+              {
+                this.state.userDetails.user_type === userTypes.superAdmin?
+                  <li className="opened active ">
+                    <Link href="/admin/users/manage">
+                      <a>
+                        <i className="entypo-home"></i>
+                        <span className="title">Manage Users</span>
+                      </a>
+                    </Link>
+                  </li>:
+                  ""
 
+              }
 
-                <a href="#">
-                  <i className="entypo-pencil"></i>
-                  New Page
-                </a>
-
-                <a href="mailbox.html">
-                  <i className="entypo-mail"></i>
-                  Inbox
-                </a>
-
-                <a href="extra-lockscreen.html">
-                  <i className="entypo-lock"></i>
-                  Log Off
-                </a>
-
-                <span className="close-sui-popup">&times;</span>
-              </div>
-            </div>
-
-
-            <ul id="main-menu" className="main-menu">
-              <li className="active opened active ">
-                <a href="index.admin.html">
-                  <i className="entypo-menu"></i>
-                  <span className="title">Dashboard Overview</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="all-farms.html">
-                  <i className="entypo-gauge"></i>
-                  <span className="title">All Farms</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="Investors.html">
-                  <i className="entypo-users"></i>
-                  <span className="title">Total Investors</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="active%20farms.html">
-                  <i className="entypo-check"></i>
-                  <span className="title">Active Farms</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="soldout.html">
-                  <i className="entypo-erase"></i>
-                  <span className="title">Soldout Farms</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="add.farm.html">
-                  <i className="entypo-leaf"></i>
-                  <span className="title">Add Farm</span>
-                </a>
-              </li>
-
-              <li className="active opened active ">
-                <a href="adduser.html">
-                  <i className="entypo-user-add"></i>
-                  <span className="title">Add Admin</span>
-                </a>
-              </li>
             </ul>
           </div>
 

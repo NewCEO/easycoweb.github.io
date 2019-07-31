@@ -4,45 +4,205 @@
  *
 */
 
-
-
-.navbar{
+.navbar {
 	font-family: 'Dosis', sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 }
 
-#no{
+#no {
 	text-decoration: none;
 }
 
 
-.ptag{
+.ptag {
 	font-size: 15px;
 	font-weight: bolder;
 	color: #77B112;
 }
 
-#badge{
+#badge {
 	padding: 5px;
+	background-color: #77b112
 }
 
-.details{
+.details {
 	width: 50%
 }
 
-.describe{
+.describe {
 	padding: 5px;
 }
 
-.insured{
+.insured {
 	padding: 20px;
 }
 
-.alert{
+.alert {
 	font-size: 30px;
 	color: #77b112
 }
 
-.p-alert{
+.p-alert {
 	padding: 15px;
+}
+
+.welcome {
+	padding-left: 50px;
+	margin-top: -15px;
+}
+
+#mynavi {
+	background-color: #77b112;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #77b112;
+	background-color: transparent;
+	text-decoration-line: underline;
+}
+
+.myimg{
+	width: 100%;
+	margin-top: -60px;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: white !important
+}
+
+#farm-h2{
+	color: #77b112
+}
+
+.followed{
+	color: #77b112
+}
+
+#form-head{
+	color: #77b112
+}
+
+.lst-btn{
+	margin-left: 50px;
+}
+
+.fundh2{
+	font-size: 26px;
+	font-family: dosis;
+	color: #77b112;
+	margin-bottom: 10px;
+}
+
+.fundh21{
+	margin-bottom: 40px;
+	color: #77b112;
+}
+
+#row2{
+	margin-top: 10px;
+}
+.cus-flex-row{
+	display:flex
+}
+.cus-flex-8{
+	flex-basis: 80%;
+}
+.cus-flex-2{
+	flex-basis:20%
+}
+.cus-flex-align-top{
+	align-items: flex-start;
+}
+.cus-flex-align-center{
+	align-items: center;
+}
+.cus-flex-justify-around{
+	justify-content:space-around;
+}
+.cus-background-grey{
+	background-color:lightgrey;
+}
+.cus-background-white{
+	background-color:white;
+}
+.cus-flex-justify-space-btw{
+	justify-content: space-between;
+}
+.cus-zero-padding{
+	padding:0px !important;
+}
+.cus-align-center{
+	text-align:center;
+}
+.cus-thumbnail-contents{
+	padding:0px 10px;
+}
+.cus-thumbnail-contents h4{
+	margin-bottom:5px;
+}
+.cus-text-right{
+	text-align: right;
+}
+.cus-block-btn{
+	width:100%;
+}
+.cus-invest-btn-container:hover > .cus-invest-btn-text{
+	-webkit-animation-name: cusinvestbtntextanimation; /* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: cusinvestbtntextanimation;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+.cus-invest-btn-container{
+	display:block;
+	overflow: hidden;
+}
+.cus-invest-btn-container:hover{
+	max-height: 46px;
+
+}
+.cus-invest-btn-container:hover > .cus-invest-icon{
+	display: inherit;
+	-webkit-animation-name: cusinvestbtniconanimation; /* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+	animation-name: cusinvestbtniconanimation;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.cus-invest-icon{
+	display:none;
+}
+.cus-invest-icon img{
+	width:20%;
+}
+@keyframes cusinvestbtntextanimation {
+	from {
+		  margin-top: initial;
+		  margin-bottom: initial;
+	}
+	to {
+		margin-top: -50px;
+	}
+}
+@keyframes cusinvestbtniconanimation {
+	from {
+		margin-top: initial;
+		margin-bottom: initial;
+	}
+	to {
+		margin-top: 24px;
+	}
+}
+.cus-thumbnail-image-container{
+	height: 200px;
+	overflow: hidden;
+}
+.cus-sticky{
+	position: -webkit-sticky !important;
+	position: sticky !important;
+	top: 0;
 }

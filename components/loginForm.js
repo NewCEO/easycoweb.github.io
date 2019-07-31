@@ -1,6 +1,7 @@
 import React from 'react';
 import HttpHelper from '../helpers/httpHelper';
-import HelpBlock from '../components/HelpBlock';
+import userTypes     from "../config/userTypes";
+import HelpBlock  from '../components/HelpBlock';
 
 import Router from 'next/router'
 
@@ -52,14 +53,18 @@ class LogInFormComp extends React.Component{
 
     HttpHelper.httpReq('http://localhost:3009/api/v1/login',formData,'POST')
       .then((result)=>{
-        if(result.success.data.validation === true){
+        if(result.success){
 
           this.setState({ loginHelpBlock:{
               state:true,
               error:false,
               text:'Login Successful'
             }});
-          return   Router.push('/user/dashboard')
+          if (result.success.data.userDet.user_type === userTypes.admin) {
+            Router.push('/admin/dashboard')
+          }else if(result.success.data.userDet.user_type === userTypes.user){
+            Router.push('/user/dashboard')
+          }
         }else{
           this.setState({ loginHelpBlock:{
               state:true,

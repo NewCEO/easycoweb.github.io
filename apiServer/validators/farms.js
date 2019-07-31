@@ -35,10 +35,9 @@ module.exports = {
     let activity      = check('activity').exists().isString();
     let stage         = check('stage').exists().isNumeric();
     let weeks         = check('weeks').exists().isNumeric();
-    let date          = check('date').exists().isISO8601();
-    let farmId        = check('farmId').exists().isNumeric();
+    let farmId        = check('farmId').exists().isString();
 
-    validators.push(information, summary, activity, stage, weeks, date, farmId,validationHandler());
+    validators.push(information, summary, activity, stage, weeks, farmId,validationHandler());
 
     return validators;
   },
@@ -120,8 +119,16 @@ module.exports = {
     let date                  = queryFilter(['eql','gte','lte','gteOReqlTo','lteOReqlTo','notEqlTo'],'date');
     let farmStatus            = queryFilter(['eql'],'farm_status');
     let farmLocation          = queryFilter(['eql'],'farm_location');
+    let farmId                = queryFilter(['eql'],'farm_id');
 
-    validators.push(stage, weeks, activityUpdate, farmStatus,farmLocation);
+    validators.push(stage, weeks,date, farmStatus,farmLocation,farmId);
+    return validators;
+  },
+  deleteFarmActivityValidator:function () {
+    let validators = [];
+
+    let activityId   = check('activity').exists().isNumeric();
+    validators.push(activityId);
     return validators;
   }
 }

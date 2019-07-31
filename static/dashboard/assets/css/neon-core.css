@@ -1949,7 +1949,7 @@ lesshat-selector {
 	margin-left: 20px;
 }
 .panel-primary > .panel-heading {
-  color: #373e4a;
+  color: #77b112;
   background-color: #ffffff;
   border-color: #ebebeb;
   padding: 0;
@@ -3083,10 +3083,10 @@ table {
 th {
   text-align: left;
   font-weight: 400;
-  color: #303641;
+  color: #77b112;
 }
 .table-bordered {
-  border: 1px solid #ebebeb;
+  border: 1px solid #77b112;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -3175,10 +3175,10 @@ table > tbody > tr.highlight > th {
 .nav-tabs.bordered {
   margin-bottom: 0;
 }
-.nav-tabs.bordered > li:first-child > a {
+.nav-tabs.bordered > li:first-child > a:active {
   margin-left: 0;
 }
-.nav-tabs.bordered > li:last-child > a {
+.nav-tabs.bordered > li:last-child > a:active {
   margin-right: 0;
 }
 .nav-tabs.bordered + .tab-content {
@@ -5609,8 +5609,8 @@ body {
   top: -1px;
 }
 .page-container .sidebar-menu #main-menu li.active > a {
-  background-color: #2b303a;
-  color: #fff;
+  background-color: white;
+  color: white;
 }
 .page-container .sidebar-menu #main-menu li.has-sub > a:before {
   position: relative;
@@ -7855,6 +7855,8 @@ footer.main {
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid #ebebeb;
+	color: #77b112;
+	font-family: dosis;
 }
 footer.main:before,
 footer.main:after {
@@ -8835,7 +8837,7 @@ blockquote.blockquote-danger small strong {
   clear: both;
 }
 .dataTables_wrapper {
-  border: 1px solid #ebebeb;
+  border: 1px solid #77b112;
   -webkit-border-radius: 3px;
   -webkit-background-clip: padding-box;
   -moz-border-radius: 3px;
@@ -8850,6 +8852,7 @@ blockquote.blockquote-danger small strong {
   margin-bottom: 0;
   font-weight: normal;
   color: #949494;
+	font-family: dosis
 }
 .dataTables_wrapper > div.dataTables_length,
 .dataTables_wrapper > div.dataTables_filter,
@@ -8883,6 +8886,7 @@ blockquote.blockquote-danger small strong {
 .dataTables_wrapper > table.dataTable {
   border-left: 0;
   border-right: 0;
+	font-family: dosis;
 }
 .dataTables_wrapper > table.dataTable.no-footer {
   border-bottom: 1px solid #ebebeb;
@@ -8957,7 +8961,7 @@ blockquote.blockquote-danger small strong {
   border-right: 1px solid #ebebeb !important;
 }
 .dataTables_wrapper .dataTables_paginate span .paginate_button.current {
-  background: #262b34 !important;
+  background: #77b112 !important;
   color: #fff !important;
 }
 .page-body .dataTables_wrapper .dataTables_paginate span .paginate_button.current:hover {

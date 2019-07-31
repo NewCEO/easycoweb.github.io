@@ -1,10 +1,8 @@
 import React from 'react';
 import DashBoardLayOut from '../../layouts/AdminDashboardLayout';
+import isAdmin from '../../middlewares/isAdmin'
 import AllFarms from '../../components/allFarms'
-import CreateFarmForm from '../../components/createFarm';
-import isAdmin from  '../../middlewares/isAdmin';
-import $ from 'jquery';
-import httpHelper from "../../helpers/httpHelper";
+
 
 class createFarm extends React.Component{
 
@@ -12,7 +10,9 @@ class createFarm extends React.Component{
     return {};
   }
 
-
+  componentDidMount() {
+    isAdmin();
+  }
 
 
   render() {
