@@ -6,8 +6,8 @@ module.exports = class Database{
 
     this.settings =  {
       host: 'localhost',
-      user: 'fxtoolzc_fx',
-      password: 'myname1234',
+      user: 'root',
+      password: '',
       database: 'easy_cow'
     };
 
