@@ -60,11 +60,12 @@ class LogInFormComp extends React.Component{
               error:false,
               text:'Login Successful'
             }});
-          if (result.success.data.userDet.user_type === userTypes.admin) {
+          if (result.success.data.userDet.user_type === userTypes.admin || result.success.data.userDet.user_type === userTypes.superAdmin) {
             Router.push('/admin/dashboard')
           }else if(result.success.data.userDet.user_type === userTypes.user){
             Router.push('/user/dashboard')
           }
+
         }else{
           this.setState({ loginHelpBlock:{
               state:true,

@@ -67,12 +67,12 @@ let userValidator = function  (req,res) {
 
       if (errors.length > 0){
 
-        res.json({status:400,message:errors});
+        res.withClientError(401).reply();
         reject(false);
       }
       resolve(true)
     }).catch(function (e) {
-      res.status(500).send('internal server error')
+      res.withServerError(500).reply();
 
     })
 

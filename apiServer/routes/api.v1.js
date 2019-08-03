@@ -45,6 +45,7 @@ module.exports.apiV1 =  function (app) {
   router.get('/email/exists', cors(corsOptions), (req,res)=> {user.validateEmail(req,res)});
   router.post('/sign-up',cors(corsOptions),  (req,res)=> {user.create(req,res)});
   router.post('/login', cors(corsOptions), (req,res)=> {user.login(req,res)});
+  router.post('/logout', cors(corsOptions), (req,res)=> {user.logout(req,res)});
   router.get('/user', isLoggedIn(),cors(corsOptions), (req,res)=> {user.getUser(req,res)});
   router.get('/user/:userId/status/:userStatus', isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.status(req,res)});
 
@@ -53,6 +54,8 @@ module.exports.apiV1 =  function (app) {
   router.post('/user/update', isLoggedIn(),cors(corsOptions), (req,res)=> {user.update(req,res)});
   router.get('/user/investments',isLoggedIn(), cors(corsOptions), (req,res)=> {user.investments(req,res)});
   router.post('/user/admin/create',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {user.createAdmin(req,res)});
+  router.get('/user/summary',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.summary(req,res)});
+
 
 
   //farm api

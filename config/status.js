@@ -5,5 +5,6 @@ module.exports = {
   unpaid:4,
   deleted:5,
   ripe:6,
-  reimbursed:7
+  reimbursed:7,
+  status:8
 };

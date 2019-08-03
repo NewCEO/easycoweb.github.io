@@ -15,36 +15,32 @@ module.exports = class  user {
     let validationKey;
     let hashedPassword;
     //Validator
-    userValidator(req,res).then(function () {
+    userValidator(req,res).then(()=>{
+      return randomKey(15)
 
-      passwordHelper.hash(req.body.password).then((hash) => {
-        hashedPassword = hash;
-        //generate random string for email verification
-        return randomKey(15)
+    }).then((key)=>{
+      validationKey   = key;
+      hashedPassword  = passwordHelper.hash(req.body.password);
 
-      }).then(function (result) {
-        validationKey = result;
-        let query = "INSERT INTO users (name,email,password,reset_key) VALUES (?,?,?,?)";
-        let values = [req.body.name, req.body.email, hashedPassword,validationKey];
-        return db.query(query, values)
-      })
-      //   .then((result) => {
-      //   console.log(validationKey,'validation key');
-      //   //send mail to user to confirm email address
-      //   let mail = new mailer();
+      let query = "INSERT INTO users (name,email,password,reset_key) VALUES (?,?,?,?)";
+      let values = [req.body.name, req.body.email, hashedPassword,validationKey];
+      return db.query(query, values)
+    }).then((result)=>{
+      res.withSuccess(201,"creation").reply();
+      // let mail = new mailer();
       //   //TODO change url from hardcoded to soft coded
-      //   return mail.recipient(req.body.email).connect().html(`<html>Registration Successful.  <a href="localhost:3000/account/activate?email=${req.body.email}&key=${validationKey}">click here to verify</a></html>`)
-      //                                 .send(undefined,3)
-      //
-      // })
-        .then( (result)=> {
-        res.withSuccess(201).reply();
-
-      }).catch((error) => {
-       res.withServerError(500).reply();
-      })
-    }).catch(()=>{
-      res.withServerError(500).reply();
+      // return mail.recipient(req.body.email)
+      //             .html(`<!DOCTYPE html>
+      //                    <html>
+      //                       <body>Registration Successful.
+      //                           <a href="http://localhost:3000/account/activate?email=${req.body.email}&key=${validationKey}">click here to              verify
+      //                           </a>
+      //                       </body>
+      //                     </html>`)
+      //             .send(undefined,3)
+    }).catch(function (data) {
+      console.log(data);
+      return res.withServerError(500).reply();
     })
 
   }
@@ -232,6 +228,51 @@ module.exports = class  user {
     }).catch( ()=> {
       res.withServerError(500).reply();
     })
+  }
+
+  static logout(req,res){
+    req.session.destroy(function (err) {
+      if (err){
+        res.withServerError(500).reply();
+      }else{
+        res.withSuccess(200).reply();
+      }
+    })
+  }
+
+  static summary(req,res){
+    let farms,users,activeFarms,soldOutFarms;
+    let values = [];
+    let query = "SELECT id FROM farms";
+    return db.query(query,values).then(function (data) {
+      farms = data.length;
+      let query = `SELECT id FROM farms WHERE status = ?`;
+      let values = [statuses.active];
+      return db.query(query,values)
+    }).then((data)=>{
+      activeFarms = data.length;
+      let query = "SELECT id FROM users";
+      let values = [];
+      return db.query(query,values);
+    }).then((data)=>{
+      users = data.length;
+      let query = "SELECt id FROM farms WHERE status = ?";
+      let values = [statuses.soldout];
+      return db.query(query,values);
+    }).then((data)=>{
+      soldOutFarms = data.length;
+      let result = {
+        active_farms:activeFarms,
+        users: users,
+        soldout_farms:soldOutFarms,
+        farms:farms
+      };
+      res.withSuccess(200).withData(result).reply();
+    }).catch(function (reason) {
+      console.log(reason);
+      res.withServerError(500).reply();
+    })
+
   }
 
 }

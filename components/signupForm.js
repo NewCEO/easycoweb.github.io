@@ -9,14 +9,17 @@ import FormHelpText from '../components/FormHelpText';
 //   withRouter
 // } from "react-router-dom";
 import Router from 'next/router'
+import HelpBlock from "../components/HelpBlock";
 
  class  SignUpFormComp extends React.Component{
    constructor(props){
      super(props);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.form      = React.createRef();
 
-      this.state = {
+
+     this.state = {
         name:'',
         redirect:false,
         emailHelpText :{
@@ -40,6 +43,11 @@ import Router from 'next/router'
           text:''
         },
         TOSHelpText:{
+          state:false,
+          error:false,
+          text:''
+        },
+        signUpHelpBlock:{
           state:false,
           error:false,
           text:''
@@ -194,14 +202,29 @@ import Router from 'next/router'
 
          HttpHelper.httpReq('http://localhost:3009/api/v1/sign-up',formData,'POST')
            .then((result)=>{
-             if(result.message === 'success'){
+             if(result.success){
 
-              this.setState({redirectTo:true})
-               return   Router.push('/login')
+              this.setState({signUpHelpBlock:{
+                  state:true,
+                  error:false,
+                  text:'Registration Successful. You would receive a link in your email to activate your Account'
+                }});
+               this.form.current.reset(); ;
+               return   true
              }
-             
+             this.setState({signUpHelpBlock:{
+                 state:true,
+                 error:true,
+                 text:'An error occcured while creating your account'
+               }});
              console.log(result)
-           }).catch((error)=>{console.log(error)});
+           }).catch((error)=>{
+           this.setState({signUpHelpBlock:{
+               state:true,
+               error:true,
+               text:'An error occured while creating your account'
+             }});
+         });
        }
      })
 
@@ -210,7 +233,11 @@ import Router from 'next/router'
 
    render() {
     return (
-      <form id="member-registration" onSubmit={this.handleSubmit} className="form-horizontal">
+      <form id="member-registration" onSubmit={this.handleSubmit} ref={this.form} className="form-horizontal">
+        {
+
+          this.state.signUpHelpBlock.state?<HelpBlock type={this.state.signUpHelpBlock.error} text={this.state.signUpHelpBlock.text} />:''
+        }
         <fieldset>
           <div className="control-group">
             <div className="control-label">
