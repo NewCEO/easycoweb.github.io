@@ -402,7 +402,7 @@
 .swiper-slide h4,
 .swiper-slide h5,
 .swiper-slide h6 {
-  color: #ffffff;
+  color: #77b112;
 }
 .swiper-slide h1 {
   font-size: 60px;
@@ -411,6 +411,7 @@
 }
 .swiper-slide h1.title {
   font-weight: bold;
+	color:#77b112;
 }
 .swiper-slide h1.title .item_title_part_0,
 .swiper-slide h1.title .item_title_part_1,
@@ -424,9 +425,10 @@
   content: '';
 }
 .swiper-slide .mod-newsflash-adv {
-  font: bold 12px/14px 'Dosis', sans-serif;
+  font: bold 12px/14px 
   letter-spacing: 2px;
   text-transform: uppercase;
+	font-family: Aller
 }
 .swiper-slide .mod-newsflash-adv .item_img {
   margin-top: 29px;

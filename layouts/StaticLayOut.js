@@ -19,44 +19,45 @@ class StaticLayout extends React.Component {
         <base/>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <meta name="generator" content="Joomla! - Open Source Content Management"/>
-        <title>EasyCowFunding | Home</title>
+        <title>CowFunding | Home</title>
         <link href="indexc0d0.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0"/>
         <link href="index7b17.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0"/>
         <link href="templates/theme3489/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
         <link
           href="index.php/component/search/indexd6e7.html?layout=theme3489:category&amp;id=8&amp;Itemid=101&amp;format=opensearch"
           rel="search" title="Search Agriculture" type="application/opensearchdescription+xml"/>
-        <link href="media/jui/css/chosen3467.css?454a96ddb3b4e077fcfb532ca7c3d5eb" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/template.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="/media/jui/css/chosen3467.css?454a96ddb3b4e077fcfb532ca7c3d5eb" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/css/template.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link
           href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
           rel="stylesheet" type="text/css"/>
         <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet"
               type="text/css"/>
-        <link href="templates/theme3489/css/komento.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/color_schemes/color_scheme_1.css" rel="stylesheet" type="text/css"
+        <link href="/templates/theme3489/css/komento.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/css/color_schemes/color_scheme_1.css" rel="stylesheet" type="text/css"
               id="color_scheme"/>
-        <link href="components/com_virtuemart/assets/css/facebox48de.css?vmver=3b73dab7" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_tm_product_tabs/assets/responsive-tabs.css" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_tm_parallax/css/rd-parallax.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/swiper.css" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_swiper/css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/html/mod_icemegamenu/css/navbar.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/color_schemes/mine.css" rel="stylesheet" type="text/css"/>
-        <script src="media/jui/js/jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb" type="text/javascript"></script>
-        <script src="media/jui/js/jquery-noconflict3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
+        <link href="/components/com_virtuemart/assets/css/facebox48de.css?vmver=3b73dab7" rel="stylesheet" type="text/css"/>
+        <link href="/modules/mod_tm_product_tabs/assets/responsive-tabs.css" rel="stylesheet" type="text/css"/>
+        <link href="/modules/mod_tm_parallax/css/rd-parallax.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/css/swiper.css" rel="stylesheet" type="text/css"/>
+        <link href="/modules/mod_swiper/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/html/mod_icemegamenu/css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/theme3489/css/color_schemes/mine.css" rel="stylesheet" type="text/css"/>
+        <script src="/media/jui/js/jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb" type="text/javascript"></script>
+        <script src="/media/jui/js/jquery-noconflict3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="media/jui/js/jquery-migrate.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
+        <script src="/media/jui/js/jquery-migrate.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="plugins/system/bootstrap_3/assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="media/jui/js/chosen.jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
+        <script src="/plugins/system/bootstrap_3/assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/media/jui/js/chosen.jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
                 type="text/javascript"></script>
-        <script src="templates/theme3489/js/scripts.js" type="text/javascript"></script>
-        <script src="modules/mod_slogin/media/slogin.min3860.js?v=1" type="text/javascript"></script>
-        <script src="media/system/js/core55a3.js?v=1543272676" type="text/javascript"></script>
-
+        <script src="/templates/theme3489/js/scripts.js" type="text/javascript"></script>
+        <script src="/modules/mod_slogin/media/slogin.min3860.js?v=1" type="text/javascript"></script>
+        <script src="/media/system/js/core55a3.js?v=1543272676" type="text/javascript"></script>
+        <script src="/media/system/js/added.js" type="text/javascript"></script>
       </Head>
+
       <body className="body__home option-com_content view-category task- itemid-101 option-com_virtuemart">
       {this.prop.children}
       <div id="footer-wrapper">

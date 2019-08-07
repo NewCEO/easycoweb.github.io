@@ -14,7 +14,7 @@ var public_vars = public_vars || {};
 	{
 		// Sidebar Menu var
 		public_vars.$body	 	 	= $("body");
-		public_vars.$pageContainer  = $(".page-container");
+		public_vars.$pageContainer  = public_vars.$body.find(".page-container");
 		public_vars.$chat 			= public_vars.$pageContainer.find('#chat');
 		public_vars.$horizontalMenu = public_vars.$pageContainer.find('header.navbar');
 		public_vars.$sidebarMenu	= public_vars.$pageContainer.find('.sidebar-menu');
@@ -53,16 +53,14 @@ var public_vars = public_vars || {};
 
 
 		// Sidebar Collapse icon
-		$(document).on('click','.sidebar-collapse-icon', function(ev)
+		public_vars.$sidebarMenu.find(".sidebar-collapse-icon").on('click', function(ev)
 		{
-
 			ev.preventDefault();
-			console.log('asdfsdf')
+
 			var with_animation = $(this).hasClass('with-animation');
 
 			toggle_sidebar_menu(with_animation);
-		})
-
+		});
 
 
 

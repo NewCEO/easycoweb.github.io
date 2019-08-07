@@ -86,7 +86,7 @@
 }
 .acymailing_form td .btn,
 .acymailing_form td .kbutton {
-  background: #000000;
+  background: white;
 }
 .acymailing_form td .btn:focus,
 .acymailing_form td .kbutton:focus,
@@ -149,7 +149,7 @@ span.radio input[type="radio"]:checked + label.radio_inner:before {
 /* Allow for input prepend/append in search forms */
 .btn,
 .kbutton {
-  color: #000000;
+  color: #77b112;
 }
 .btn:hover,
 .kbutton:hover,
@@ -260,7 +260,7 @@ span.radio input[type="radio"]:checked + label.radio_inner:before {
 */
 ul li a,
 ol li a {
-  color: #000000;
+  color: #77b112;
 }
 ol li:before {
   background: #000000;
@@ -327,7 +327,7 @@ ol li:before {
   color: #000000;
 }
 div#fixed-sidebar-right .moduletable.login > i.fa-user {
-  background: #000000;
+  background: white;
 }
 div#fixed-sidebar-right .moduletable.login .mod_login_wrapper .input-prepend .add-on:hover i {
   color: #000000;
