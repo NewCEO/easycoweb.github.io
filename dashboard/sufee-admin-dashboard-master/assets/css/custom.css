@@ -1,0 +1,149 @@
+.mynav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+
+}
+
+.mynav li {
+	float: left;
+	display: inline;
+	font-family: 'Work Sans';
+}
+
+.mynav li a {
+	display: block;
+	color: #77b112;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	background-color: white;
+}
+
+/* Change the link color to #111 (black) on hover */
+
+.mynav li a:hover {
+	text-decoration: underline;
+	text-decoration-color: #77b112;
+	text-decoration-line: underline solid #77b112;
+}
+
+.mynav {
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#head {
+	margin-bottom: 0px;
+	background-color: white;
+}
+
+
+.navbar {
+	margin: 0px !important;
+	background-color: transparent !important;
+}
+
+.card-header {
+	text-align: center;
+	color: #77b112;
+	font-family: 'Work Sans';
+	background-color: white;
+}
+
+.price {
+	list-style: none;
+	float: none;
+	font-family: 'Work Sans';
+}
+
+.right {
+	float: right;
+}
+
+.button {
+	position: relative;
+	display: inline-block;
+	font-size: 15px;
+	font-family: 'Work Sans', sans-serif;
+	padding: 4px 25px 6px 25px;
+	color: #222222;
+	text-transform: capitalize;
+	background: transparent;
+	border: 2px solid #dedede;
+	cursor: pointer;
+	border-radius: 30px !important;
+	transition: all 500ms ease;
+}
+
+.button:hover {
+	background: #77b112;
+	border: 2px solid #77b112;
+	color: #ffffff;
+}
+
+.but {
+	justify-content: center;
+}
+
+.ptag {
+	color: #77b112;
+	font-weight: 700;
+}
+
+.card-body h4 {
+	color: #77b112;
+	font-family: 'Work Sans';
+
+}
+
+.col {
+	color: #77b112;
+	padding-top: 10px;
+	font-family: 'Work Sans';
+}
+
+.right {
+	float: right;
+	cursor: pointer;
+}
+
+.Col {
+	color: #77b112 !important;
+	font-family: 'Work Sans';
+}
+
+.li {
+	position: relative;
+	display: inline-block;
+	font-family: 'Work Sans';
+}
+
+#right {
+	float: right;
+}
+
+.ptag {
+	font-size: 24px;
+	color: #77b112;
+}
+
+.bare {
+	color: #d0ff7e;
+	font-family: 'Work Sans';
+	margin-top: 10px;
+	font-weight: 900;
+}
+
+.ground {
+	padding: 10px;
+	background-color: transparent;
+}
+
+#right-panel {
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+}
