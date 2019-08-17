@@ -11,24 +11,17 @@ class DashboardLayOut extends React.Component {
 
   constructor(prop) {
     super(prop);
-    this.state = {userDetails:'',userTypes:false}
+    this.state = {userDetails:'',mounted:false}
   }
 
   componentDidMount() {
-    this.userDetails();
-
   }
 
-  userDetails(){
-    HttpHelper.serverReq('http://localhost:3009/api/v1/user','','GET').then( (userDet)=> {
-      if(userDet.success.data){
-        this.setState({userDetails:userDet.success.data});
-      }
-    })
-  }
+
 
   render() {
     return (
+
       <html>
       <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
       <Head>
@@ -181,6 +174,7 @@ class DashboardLayOut extends React.Component {
       </div>
       </body>
       </html>
+   
     )
   }
 }

@@ -26,6 +26,9 @@ module.exports = class server{
     app.get('/login', (req,res)=> {
      nextApp.render(req,res,'/login',req.query);
    })
+    app.get('/logout', (req,res)=> {
+      nextApp.render(req,res,'/logout',req.query);
+    })
 
     app.listen(this.port,(err)=>{
       console.log('> server started on port '+this.port);

@@ -62,7 +62,7 @@ class LogInFormComp extends React.Component{
             }});
           if (result.success.data.userDet.user_type === userTypes.admin || result.success.data.userDet.user_type === userTypes.superAdmin) {
             Router.push('/admin/dashboard')
-          }else if(result.success.data.userDet.user_type === userTypes.user){
+          }else if(result.success.data.userDet.user_type === userTypes.regular){
             Router.push('/user/dashboard')
           }
 
