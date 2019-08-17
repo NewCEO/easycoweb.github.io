@@ -23,9 +23,9 @@ class DashboardLayOut extends React.Component {
     return (
 
       <html>
-      <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+      <meta httpEquiv="content-type" content="text/html;charset=utf-8"/>
       <Head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
 
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -118,7 +118,7 @@ class DashboardLayOut extends React.Component {
               </li>
 
               <li className="opened active ">
-                <Link href="/user/farms" >
+                <Link href="/user/farms" replace>
                   <a>
                     <i className="entypo-leaf"></i>
                     <span className="title">All farms</span>
@@ -174,7 +174,7 @@ class DashboardLayOut extends React.Component {
       </div>
       </body>
       </html>
-   
+
     )
   }
 }

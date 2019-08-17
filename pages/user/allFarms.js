@@ -10,14 +10,6 @@ class allFarms extends React.Component{
     isUser();
   }
 
-  static async getInitialProps({ req }) {
-
-    return {};
-  }
-
-
-
-
   render() {
 
     return(
