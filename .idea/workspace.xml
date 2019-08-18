@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45cecc1-2397-4820-83ce-9a50361e11a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/allUserFarms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/isUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/0af89f9b4aeed70d052bfb5b4f0203fb.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/11759fafc6da7dc55734b29d6b051da8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1e6d8e18814ef61c819af24f4b297054.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/1f32a3e10e3441a129dde55a60703be2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/2874d9817363f60ce299e6a4aba1a913.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/29febab2ccc6d8e2eb2c0bc6334e87a3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/32b123a67cafe0ce6593442f12e5e596.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/3ab0985c4d8ac0ba7fc12a1710f2c731.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/41fb9a21bcaa9fbff4cb32ddcebcd065.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/52d582b52c7ee882f4feb96bda77e7c5.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/65ba058ffc529932adda873f737f4b4a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/711750270837c3fd763a0dd15dae5c11.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/75157490ee3f058a7b91af5e9965d8d0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/8ea7a954f06a12ff9bad38c5fbbc0745.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/91b556af471409c4e0bcda145b1a92d2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/92efa9e36a8f593e0c5da64c0089141e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/96b3d375bbce2e74b9b3da5a449390a3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/9b0e7377bc79ecfdb0150e80cab4b1ce.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a322722af0576663df7e4538a81ddac6.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a5acfa516894c42111fdf0e63552a449.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/a6a1deccc8c5d3c047b38ec940855496.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/b89ee5179c30e6c09eed50732ca9b038.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/bd3d1df2b13be685a6995713ce5ab82c.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/bec8d10c0577654170e5d18200df6db8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/c9e8418f9d2479fb371f57273ddb817d.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/e0370cb05f22cddd3890539df376a7ab.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.cache/babel-loader/fe56850dc083fa4306be743f24438c9d.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/logout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/DashboardLayOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DashboardLayOut.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextServer/bootstrap/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/nextServer/bootstrap/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about-us.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/allFarms.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/allFarms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiServer/controllers/farms.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/controllers/farms.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apiServer/controllers/farms.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="117" column="47" lean-forward="true" selection-start-line="117" selection-end-line="118" />
+            <state relative-caret-position="341">
+              <caret line="446" column="19" selection-start-line="446" selection-start-column="19" selection-end-line="446" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -278,7 +244,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="100" />
     <option name="y" value="18" />
     <option name="width" value="1260" />
@@ -329,7 +295,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.8.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../waterExpress" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -437,11 +403,13 @@
       <workItem from="1565332686694" duration="720000" />
       <workItem from="1565463475245" duration="407000" />
       <workItem from="1565665097946" duration="74000" />
+      <workItem from="1566057389896" duration="1510000" />
+      <workItem from="1566072602487" duration="58000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="813835000" />
+    <option name="totallyTimeSpent" value="815403000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,9 +421,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13169643" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13169643" />
       <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
@@ -470,7 +438,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.3993559" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
-      <window_info anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" weight="0.3188406" />
+      <window_info active="true" anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" visible="true" weight="0.3188406" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
@@ -952,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apiServer/controllers/farms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="117" column="47" lean-forward="true" selection-start-line="117" selection-end-line="118" />
+        <state relative-caret-position="341">
+          <caret line="446" column="19" selection-start-line="446" selection-start-column="19" selection-end-line="446" selection-end-column="19" />
         </state>
       </provider>
     </entry>

@@ -438,15 +438,13 @@ module.exports = class farms {
          query = "DELETE followed_farms FROM followed_farms INNER JOIN farms ON farms.id = followed_farms.farm_id WHERE user_id = ? AND farms.slug = ?";
       break;
     }
-    let values = [F
-      req.session.userId,
-      req.params.farmSlug,
+    let values = [req.session.userId,req.params.farmSlug,
     ];
     if (query){
 
       return db.query(query,values).then((data)=>{
         res.withSuccess(200).reply();
-      }).catch(funcFtion () {
+      }).catch(function () {
         res.withServerError(500).reply();
       })
     }else{
