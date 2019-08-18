@@ -69,7 +69,7 @@
 
 	<!-- Right Panel -->
 
-	<div id="right-panel" class="right-panel"style="background-image: url(images/IMG-20190711-WA0010.jpg);">
+	<div id="right-panel" class="right-panel" style="background-image: url(images/IMG-20190711-WA0010.jpg);">
 
 		<!-- Header-->
 		<header id="header" class="header">
@@ -103,7 +103,7 @@
 
 						<div class="col-sm-2">
 							<div class="user-area float-right">
-<!--								<a href="#" class="Col dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout</a>-->
+								<!--								<a href="#" class="Col dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logout</a>-->
 								<div class="text-center"><a href="funded.html"><button class="button">LogOut</button></a></div>
 							</div>
 						</div>
@@ -115,37 +115,40 @@
 		<!-- Header-->
 
 		<div class="content mt-3">
-			<div class="animated fadeIn">
-
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="card">
-							<div class="card-header">
-								<h4>Farms Funded</h4>
-							</div>
-							<div class="card-body">
-								<h3 class="text-muted m-b-15 Col">You haven't made any investments!</h3>
-								<p>Go to <a class="Col" href="all-farms.html">All Farms</a>, Click Fund button on an open farm,Enter number of units you want to buy,Pay using your preferred payment channel.<br> At the farm period, returns are made to your bank account</p>
-
-							</div>
-						</div>
+			<div class="row text-center count">
+				<div class="col">
+					<div class="counter">
+						<i class="fa fa-folder-open fa-2x"></i>
+						<h2 class="timer count-title count-number" data-to="2" data-speed="1500"></h2>
+						<p class="count-text ">Farms Funded</p>
 					</div>
-					<!-- /# column -->
-
-					<div class="col-lg-4">
-						<div class="card">
-							<div class="card-header">
-								<h4>Farms You Follow</h4>
-							</div>
-							<div class="card-body">
-								<p class="text-muted m-b-15">You don't follow any farms</p>
-							</div>
-						</div>
-					</div>
-					<!-- /# column -->
 				</div>
+				<div class="col">
+					<div class="counter">
+						<i class="fa fa-heart fa-2x"></i>
+						<h2 class="timer count-title count-number" data-to="5" data-speed="1500"></h2>
+						<p class="count-text ">Farms you follow</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="counter">
+						<i class="fa fa-money fa-2x"></i>
+						<h2 class="timer count-title count-number" data-to="60900" data-speed="1500"></h2>
+						<p class="count-text ">Amount Invested</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="counter">
+						<i class="fa fa-clock-o fa-2x"></i>
+						<h2 class="timer count-title count-number" data-to="10" data-speed="1500"></h2>
+						<p class="count-text ">Payment Due (months)</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
+		<div class="content mt-3">
+			<div class="animated fadeIn">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card">
@@ -176,6 +179,7 @@
 	<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 	<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/countme.js"></script>
 
 
 </body>
