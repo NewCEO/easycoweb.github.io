@@ -30,7 +30,7 @@ class followBtn extends React.Component{
 
   render() {
     return(
-      <a onClick={this.handleClick} style={{"font-size":"25px"}}><i className={this.props.followed === "true"?"fa fa-heart":"fa fa-heart-o"}></i><br/></a>
+      <i onClick={this.handleClick} className={this.props.followed === "true"?"fa fa-heart right":"fa fa-heart-o right"}></i>
     )
   }
 }

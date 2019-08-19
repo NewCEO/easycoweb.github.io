@@ -1,7 +1,8 @@
 import React from 'react';
 import {duration} from '../helpers/date';
-import FollowBtn from "../components/followBtn"
+import FollowBtn from "../components/followBtn";
 import httpHelper from '../helpers/httpHelper';
+import Link from 'next/link';
 
 
 
@@ -37,71 +38,33 @@ class singleFarm extends React.Component{
   render() {
 
     return(
-      <div className="col-sm-6 col-md-4">
-        <div className="thumbnail cus-background-grey cus-zero-padding">
-          <div className="cus-thumbnail-image-container">
 
-            <img src={this.state.details.images?JSON.parse(this.state.details.images)[0]:""} alt="" className="img-responsive"/>
-          </div>
-          <div className="cus-flex-row container-fluid cus-flex-align-center cus-background-white">
-            <div className="cus-flex-8" style={{"text-align":"left"}} >
-              <a href={"/user/farm/"+this.state.details.slug}><h3>{this.state.details.title}</h3></a>
-            </div>
-            <div className="cus-flex-2 cus-align-center">
-              <FollowBtn followed={this.state.followed} onClickFollowBtn={this.handleFollowBtn} />
-              <div>
-                <span className="badge badge-success badge-roundless" id="">Open</span>
+      <div className="col-md-4">
+        <div className="card">
+          <img className="card-img-top" src={this.state.details.images?JSON.parse(this.state.details.images)[0]:""} alt="Card image cap"/>
+            <div className="card-body">
+              <h4>
+                <a href={"/user/farm/"+this.state.details.slug}>{this.state.details.title}</a>
+                <FollowBtn followed={this.state.followed} onClickFollowBtn={this.handleFollowBtn} />
+              </h4>
+              <p className="card-text">{this.state.details.description}</p>
+              <ul className="price clearfix">
+                <li className="li">Price: <span><h3>₦{this.state.details.price_per_unit}</h3></span></li>
+                <li className="li" id="right">Return: <span><h2>{this.state.details.roi}% </h2></span></li>
+              </ul>
+              <ul className="price clearfix">
+                <li>Duration:<span><h3>{duration( new Date(this.state.details.farm_starts),new Date(this.state.details.farm_ends))} months</h3></span></li>
+              </ul>
+              <div className="text-center">
+                <Link href={"/user/farm/"+this.state.details.slug+"/fund"}>
+                <button className="button">Invest Now</button>
+                </Link>
               </div>
             </div>
-          </div>
-          <div className=" container-fluid caption">
-
-            <div className="cus-thumbnail-contents">
-              <div className="row">
-                <div className="col-md-5">
-                  <h4>Price/unit</h4>
-                  <p className="ptag">₦{this.state.details.price_per_unit}</p>
-                </div>
-                <div className="col-md-7 cus-text-right">
-                  {/*<p className="">Returns</p>*/}
-                  <p className="ptag" style={{"font-size":"35px"}}>{this.state.details.roi}% <span style={{"font-size":"15px",color:'grey'}}>ROI</span></p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-6">
-                  <h4>Duration</h4>
-                  <p className="ptag">{duration( new Date(this.state.details.farm_starts),new Date(this.state.details.farm_ends))} Months</p>
-                </div>
-                <div className="col-md-6 cus-text-right" >
-                  <h4 className="">Units Available</h4>
-                  <p className="ptag">{this.state.details.total_units - this.state.details.sold_out}</p>
-                </div>
-              </div>
-              <div className="row">
-                {/*<div className="col-md-6">*/}
-                  {/*<a href="#" className="btn btn-primary" role="button">Details</a>*/}
-                {/*</div>*/}
-                <div className="col-md-8 col-md-offset-2">
-                  <a href={"/user/farm/"+this.state.details.slug+"/fund"} className="btn btn-primary btn-lg cus-block-btn cus-invest-btn-container" role="button">
-                    <div className="cus-invest-btn-text">
-                      Invest <i
-                        className="fa fa-long-arrow-right"></i>
-                    </div>
-                    <div className="cus-invest-icon">
-                      <img src="https://library.kissclipart.com/20180830/bow/kissclipart-save-money-flat-icon-clipart-saving-money-computer-9834d44646c66b72.png" />
-                    </div>
-
-
-                  </a>
-                </div>
-              </div>
-            </div>
-
-
-
-          </div>
         </div>
       </div>
+
+
     )
   }
 }

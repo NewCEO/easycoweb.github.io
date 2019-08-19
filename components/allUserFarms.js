@@ -74,27 +74,26 @@ class allFarmTableComponent extends React.Component{
 
   render() {
     return(
-      <div className="col-md-12">
-        <div className="row">
-          <ul className="nav nav-tabs bordered col-md-12 text-center" style={{marginBottom:"10px"}}>
-            <li className="active col-sm-6">
-              <a href="#open" data-toggle="tab">
-                <span className="visible-xs"><i className="entypo-home"></i></span>
-                <span className="hidden-xs"><h3>All Farms</h3></span>
-              </a>
+
+
+
+
+      <div class="card ground">
+        <div class="card-header">
+          <h4>All Farms</h4>
+        </div>
+        <div class="card-body">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item col-sm-6">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All Farms</a>
             </li>
-            <li className="col-sm-6" onClick={this.handleFollowedTab}>
-              <a href="#follow" data-toggle="tab">
-                <span className="visible-xs"><i className="entypo-user"></i></span>
-                <span className="hidden-xs"><h3>Followed</h3></span>
-              </a>
+            <li class="nav-item col-sm-6"  onClick={this.handleFollowedTab}>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Followed</a>
             </li>
           </ul>
-        </div>
+          <div class="tab-content pl-3 p-1" id="myTabContent">
 
-        <div className="tab-content">
-          <div className="tab-pane active" id="open">
-            <div className="row">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <InfiniteScroll
                 dataLength={this.state.farmsUI.length}
                 next={this.loadMoreFarms}
@@ -110,33 +109,18 @@ class allFarmTableComponent extends React.Component{
                 {this.state.farmsUI}
               </InfiniteScroll>
             </div>
-
-          </div>
-
-          <div className="tab-pane" id="follow">
-            <div className="row">
-              <InfiniteScroll
-                dataLength={this.state.followedFarmsUI.length}
-                next={this.loadMoreFarms}
-                hasMore={this.state.followedHasMore}
-                scrollThreshold={0.8}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                  <p style={{textAlign: 'center'}}>
-                    <b>Yay! You have seen it all</b>
-                  </p>
-                }
-              >
-
-                {this.state.followedFarmsUI}
-              </InfiniteScroll>
+            <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              {this.state.followedFarmsUI}
             </div>
 
           </div>
-
         </div>
       </div>
-    )
+
+
+
+
+  )
   }
 }
 
