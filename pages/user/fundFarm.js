@@ -1,6 +1,7 @@
 import React from 'react';
 import DashBoardLayOut from '../../layouts/DashboardLayOut';
 import httpHelper from '../../helpers/httpHelper';
+import FollowBtn from "../../components/followBtn";
 import SingleFarm from '../../components/singleFarm';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
@@ -13,10 +14,28 @@ class fundFarm extends React.Component{
     this.state = {farmDetails:''};
     this.handleChange = this.handleChange.bind(this);
     this.fundNow      = this.fundNow.bind(this);
+    this.handleFollowBtn = this.handleFollowBtn.bind(this)
+
   }
 
   static async getInitialProps({ req }) {
     return {farmId:req.params.farmId};
+  }
+
+  handleFollowBtn(value){
+    let type;
+    if (this.state.followed === "true"){
+      type = "un-follow";
+    }else{
+      type = "follow";
+    }
+    let data = new FormData();
+    httpHelper.httpReq("http://localhost:3009/api/v1/farms/relationship/"+this.state.farmDetails.slug+"/"+type,"","POST").then((response)=>{
+      if (response.success){
+        let state = this.state.followed === "true"?"false":"true";
+        this.setState({followed:state});
+      }
+    })
   }
 
   handleChange(e){
@@ -83,113 +102,102 @@ class fundFarm extends React.Component{
   render() {
     return(
       <DashBoardLayOut>
+        <div className="content mt-3">
+          <div className="animated fadeIn">
 
-        <section className="tabs" id="tabs">
-          <div className="col-sm-12">
-            <div className="panel panel-primary" data-collapsed="0">
-              <div className="panel-body">
-                <div className="row">
-                  <h2 className="alert">You are about to fund this farm !</h2>
-                  <p className="p-alert"> You can fund this farm by increasing or reducing the number of units to suit
-                    what you’d love to fund. As your number of farms changes, The Total Price, Total Returns and Total
-                    Payout are automatically calculated for you to see. Satisfied? Click on Pay Now.</p>
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card">
+                  <div className="card-header">
+                    <h4>Farms Funded</h4>
+                  </div>
+                  <div className="card-body">
+                    <h3 className="text-muted m-b-15 text-center Col">You are about to fund this farm!</h3>
+                    <p className="text-muted m-b-15">You can fund this farm by increasing or reducing the number of
+                      units to suit what you’d love to fund. As your number of farms changes, The Total Price, Total
+                      Returns and Total Payout are automatically calculated for you to see. Satisfied? Click on Fund
+                      Now.</p>
+
+                  </div>
                 </div>
               </div>
+
             </div>
-          </div>
 
-          <div className="col-sm-12">
-            <div className="panel panel-primary" data-collapsed="0">
-              <div className="panel-body">
-                <div className="col-md-6">
-                  <div className="row">
-                    <div className="col-md-8 fundh2 text-center">
-                      <p>Selected Farm</p>
-                      <strong>{this.state.farmDetails.title}</strong>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <p>Price Per Unit</p>
-                      <p className="ptag">₦{this.state.farmDetails.price_per_unit}</p>
-                    </div>
-                    <div className="col-md-6">
-                      <p className="">Returns</p>
-                      <p className="ptag">{this.state.farmDetails.roi}%</p>
-                    </div>
-                  </div>
 
-                  <div className="row" id="row2">
-                    <div className="col-md-">
-                      <div className="col-md-6">
-                        <p>Total units</p>
-                        <p className="ptag">{this.state.farmDetails.total_units}</p>
-                      </div>
-                      <div className="col-md-6">
-                        <p className="">Available</p>
-                        <p className="ptag">{this.state.farmDetails.total_units - this.state.farmDetails.sold_out}</p>
-                      </div>
-                    </div>
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="card">
+                  <div className="card-header">
+                    <h4>Selected Farm</h4>
                   </div>
-
-                  <div className="row">
-                    <div className="col-md-">
-                      <div className="col-md-6">
-                        <p>Duration</p>
-                        <p className="ptag">{this.calculateMonth( new Date(this.state.farmDetails.funding_starts),new Date(this.state.farmDetails.funding_ends))} month(s)</p>
-                      </div>
+                  <div className="col-md-12">
+                    <div className="card">
+                      <img className="card-img-top"  src={this.state.farmDetails.images?JSON.parse(this.state.farmDetails.images)[0]:""} alt="Card image cap"/>
+                        <div className="card-body">
+                          <h4><a href="causes-details.html">{this.state.farmDetails.title}</a><FollowBtn followed={this.state.followed} onClickFollowBtn={this.handleFollowBtn} />
+                          </h4>
+                          <p className="card-text">{this.state.farmDetails.description}</p>
+                        </div>
                     </div>
                   </div>
                 </div>
-
-                <div className="col-md-6">
-                  <div className="row">
+              </div>
+              <div className="col-lg-6">
+                <div className="card">
+                  <div className="card-header">
+                    <h4>Confirmation</h4>
+                  </div>
+                  <div className="card-body">
                     <div className="col-md-12">
-                      <h2 className="fundh21 text-center"><strong>Confirmation</strong></h2>
-                    </div>
-                    <br/>
-                      <div className="row text-center">
-                        <div className="col-md-4">
-                          <p className="">No of units</p>
-                          <input name="units" type="number" className="col-sm-2 form-control input-unit"
-                                 placeholder={'1 to '+(this.state.farmDetails.total_units - this.state.farmDetails.sold_out)} value={this.state.totalUnitsInput} min="1"  max={this.state.farmDetails.total_units - this.state.farmDetails.sold_out} onChange={this.handleChange} />
-                        </div>
-                        <div className="col-md-4">
-                          <p className="">Unit Price</p>
-                          <p className="ptag">	&#8358;{this.state.farmDetails.price_per_unit}</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p className="">Return & duration</p>
-                          <p className="ptag">{this.state.farmDetails.roi}% in {this.calculateMonth( new Date(this.state.farmDetails.funding_starts),new Date(this.state.farmDetails.funding_ends))} month(s)</p>
-                        </div>
-                      </div>
-                      <div className="row text-center" id="row2">
-                        <div className="col-md-4">
-                          <p className="">Total Price</p>
-                          <p className="ptag">	&#8358;{this.state.calcTotalPrice}</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p className="">Total Returns</p>
-                          <p className="ptag">	&#8358;{this.state.calcTotalReturns}</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p className="">Total Payout</p>
-                          <p className="ptag">	&#8358;{this.state.calcTotalPayOut}</p>
-                        </div>
-                      </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-sm-2">
 
-                        <button type="button" onClick={this.fundNow} disabled={this.state.isEnabled?"":"disabled"} className="btn btn-success">Fund Now</button>
+                      <br/>
+                        <div className="row text-center">
+                          <div className="col-md-4">
+                            <p className="">No of units</p>
+                            <input name="units" type="number" className="form-control input-unit"
+                                   placeholder={'1 to '+(this.state.farmDetails.total_units - this.state.farmDetails.sold_out)} value={this.state.totalUnitsInput} min="1"  max={this.state.farmDetails.total_units - this.state.farmDetails.sold_out} onChange={this.handleChange}/>
+                          </div>
+                          <div className="col-md-4">
+                            <p className="">Unit Price</p>
+                            <p className="ptag">&#8358;{this.state.farmDetails.price_per_unit}</p>
+                          </div>
+                          <div className="col-md-4">
+                            <p className="">Return & duration</p>
+                            <p className="ptag">{this.state.farmDetails.roi}% in {this.calculateMonth( new Date(this.state.farmDetails.funding_starts),new Date(this.state.farmDetails.funding_ends))} month(s)</p>
+                          </div>
+                        </div>
+                        <div className="row text-center">
+                          <div className="col-md-4">
+                            <p className="">Total Price</p>
+                            <p className="ptag">&#8358;{this.state.calcTotalPrice}</p>
 
+                          </div>
+                          <div className="col-md-4">
+                            <p className="">Total Return</p>
+                            <p className="ptag">&#8358;{this.state.calcTotalReturns}</p>
+                          </div>
+                          <div className="col-md-4">
+                            <p className="">Total Payout</p>
+                            <p className="ptag">&#8358;{this.state.calcTotalPayOut}</p>
+                          </div>
+                        </div>
+                        <div className=" but row">
+                          <div className="text-center">
+                            <button type="button" onClick={this.fundNow} disabled={this.state.isEnabled?"":"disabled"} className="button">Fund Now</button>
+                          </div>
+                        </div>
                     </div>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+
+
+        </div>
+
       </DashBoardLayOut>
     )
   }

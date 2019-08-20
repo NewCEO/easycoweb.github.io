@@ -1,6 +1,7 @@
 import React from 'react';
-import DashBoardLayOut from '../../layouts/AdminDashboardLayout';
-import AllFarmActivities from '../../components/allFarmActivities'
+import DashBoardLayOut from '../../layouts/DashboardLayout';
+import AllFarmActivities from '../../components/allFarmActivitiesUser'
+import InfiniteScroll from "../../components/allUserFarms";
 
 
 class createFarm extends React.Component{
@@ -17,18 +18,16 @@ class createFarm extends React.Component{
     return(
       <DashBoardLayOut>
 
-        <hr/>
+        <div className="card ground">
+          <div className="card-header">
+            <h4>Farm Updates</h4>
+          </div>
+          <div className="card-body" style={{background:"white"}}>
+            <AllFarmActivities farmId={this.props.farmId}  />
 
+          </div>
+        </div>
 
-        <h2 id="form-head">All Activities</h2>
-        <br/>
-
-
-        <AllFarmActivities farmId={this.props.farmId}  />
-
-
-        <br/>
-        <br/>
       </DashBoardLayOut>
     )
   }

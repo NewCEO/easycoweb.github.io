@@ -7,7 +7,7 @@ module.exports = function admin(){
       if (Object.keys(result).length > 0 && (result[0].user_type === userType.admin || result[0].user_type === userType.superAdmin)){
         next();
       }else{
-        res.end(200).json({status:200,message:'Permission Denied'});
+        res.withClientError(400).reply();
       }
     })
   }

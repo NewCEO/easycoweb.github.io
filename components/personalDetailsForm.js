@@ -41,80 +41,90 @@ class createFarmFormComponent extends React.Component{
 
   render() {
     return(
-      <div>
-        {          this.state.notification.state?<HelpBlock type={this.state.notification.error} text={this.state.notification.text} />:''}
-        <form id="rootwizard-2" method="post" onSubmit={this.handleSubmit} className="form-wizard validate">
-
-          <div id="collapseOne-2" className="panel-collapse collapse">
-            <div className="panel-body">
-              <div className="tab-content">
-                <div className="row">
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label className="control-label" htmlFor="name">Full Name</label>
-                      <input className="form-control" onChange={this.handleChange} name="name" value={this.state.formValues.name} id="name" data-validate="required"
-                             placeholder="Your full name"/>
-                    </div>
-                  </div>
-
-
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label className="control-label" htmlFor="address">Address</label>
-                      <input className="form-control" onChange={this.handleChange} value={this.state.formValues.address} name="address" id="address_line_2"
-                             placeholder="(Optional) Address"/>
-                    </div>
-                  </div>
-
-                  <div className="col-md-6">
-                    <div className="form-group">
-                      <label className="control-label" htmlFor="number">Phone No.</label>
-                      <input className="form-control" onChange={this.handleChange} name="phone_number" value={this.state.formValues.phone_number} id="Phone No." placeholder="Phone No."/>
-                    </div>
-                  </div>
-
-
-                  {/*<div className="col-md-6">*/}
-                  {/*<div className="form-group">*/}
-                  {/*<label className="control-label">Old Password</label>*/}
-
-                  {/*<div className="input-group">*/}
-                  {/*<div className="input-group-addon">*/}
-                  {/*<i className="entypo-key"></i>*/}
-                  {/*</div>*/}
-
-                  {/*<input type="password" className="form-control" name="password" id="password"*/}
-                  {/*data-validate="required" placeholder="Enter strong password"/>*/}
-                  {/*</div>*/}
-                  {/*</div>*/}
-                  {/*</div>*/}
-
-                  {/*<div className="col-md-6">*/}
-                  {/*<div className="form-group">*/}
-                  {/*<label className="control-label">New Password</label>*/}
-
-                  {/*<div className="input-group">*/}
-                  {/*<div className="input-group-addon">*/}
-                  {/*<i className="entypo-cw"></i>*/}
-                  {/*</div>*/}
-
-                  {/*<input type="password" className="form-control" name="password" id="password"*/}
-                  {/*data-validate="required,equalTo[#password]"*/}
-                  {/*data-message-equal-to="Passwords doesn't match." placeholder="Confirm password"/>*/}
-                  {/*</div>*/}
-                  {/*</div>*/}
-                  {/*</div>*/}
-                </div>
-                <div className="col-sm-4 form-group">
-                  <button style={{"font-family": "dosis"}} type="submit" className="btn btn-primary">Save</button>
-                </div>
-              </div>
+      <div className="modal fade" id="profile" tabIndex="-1" role="dialog" aria-labelledby="smallmodalLabel"
+           aria-hidden="true">
+        <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="smallmodalLabel">Personal Details</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          </div>
-        </form>
-      </div>
+            <form id="rootwizard-2" onSubmit={this.handleSubmit} method="post" action="" className="form-wizard validate">
 
-  )
+            <div className="modal-body">
+              {  this.state.notification.state?<HelpBlock type={this.state.notification.error} text={this.state.notification.text} />:''}
+                <div className="panel-body">
+                  <div className="tab-content">
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="control-label" htmlFor="name">Full Name</label>
+                          <input className="form-control" onChange={this.handleChange} name="name" value={this.state.formValues.name} id="name" data-validate="required" placeholder="Your full name"/>
+                        </div>
+                      </div>
+
+
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="control-label" htmlFor="address">Address</label>
+                          <input className="form-control" onChange={this.handleChange} value={this.state.formValues.address} name="address" id="address_line_2" placeholder="(Optional) Address"/>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="control-label" htmlFor="number">Phone No.</label>
+                          <input className="form-control" onChange={this.handleChange} name="phone_number" value={this.state.formValues.phone_number} id="Phone No." placeholder="Phone No."/>
+
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="control-label">Old Password</label>
+
+                          <div className="input-group">
+                            <div className="input-group-addon">
+                              <i className="entypo-key"></i>
+                            </div>
+
+                            <input type="password" className="form-control" name="password" id="password"
+                                   data-validate="required" placeholder="Enter strong password"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6">
+                        <div className="form-group">
+                          <label className="control-label">New Password</label>
+
+                          <div className="input-group">
+                            <div className="input-group-addon">
+                              <i className="entypo-cw"></i>
+                            </div>
+
+                            <input type="password" className="form-control" name="password" id="password"
+                                   data-validate="required,equalTo[#password]"
+                                   data-message-equal-to="Passwords doesn't match." placeholder="Confirm password"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div className="modal-footer">
+              <button type="button" className=" button btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="submit" className=" button btn btn-primary">Confirm</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    )
   }
 
 

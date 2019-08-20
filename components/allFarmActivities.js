@@ -118,7 +118,7 @@ class allFarmTableComponent extends React.Component{
         </thead>
         <tbody>
 
-        {this.state.allActivitiesObj}
+          {this.state.allActivitiesObj}
         </tbody>
         <tfoot>
         <tr>

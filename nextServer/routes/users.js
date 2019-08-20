@@ -31,6 +31,10 @@ module.exports.users =  function (app,nextApp) {
     nextApp.render(req, res, '/user/profile', {host:req.headers.host,farmId:req.params.farmId});
   });
 
+  router.get('/farm/:farmId/activities',(req,res)=> {
+    nextApp.render(req, res, '/user/all-activities', {host:req.headers.host,farmId:req.params.farmId});
+  });
+
 
   app.use("/user",router);
 
