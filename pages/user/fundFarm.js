@@ -30,7 +30,7 @@ class fundFarm extends React.Component{
       type = "follow";
     }
     let data = new FormData();
-    httpHelper.httpReq("http://localhost:3009/api/v1/farms/relationship/"+this.state.farmDetails.slug+"/"+type,"","POST").then((response)=>{
+    httpHelper.httpReq("farms/relationship/"+this.state.farmDetails.slug+"/"+type,"","POST").then((response)=>{
       if (response.success){
         let state = this.state.followed === "true"?"false":"true";
         this.setState({followed:state});
@@ -76,7 +76,7 @@ class fundFarm extends React.Component{
     data.append("farmId",this.props.farmId);
     data.append("units",this.state.totalUnitsInput);
     data.append("paystack_cb","http://www-dev.easycow.com:3000/user/farm/invoice/pay");
-    httpHelper.httpReq(`http://localhost:3009/api/v1/farms/invoice/create`,data,"POST").then(function (data) {
+    httpHelper.httpReq(`farms/invoice/create`,data,"POST").then(function (data) {
       if (data.success.data){
         console.log(data.success.data.authorization_url)
         window.location = data.success.data.authorization_url;
@@ -85,7 +85,7 @@ class fundFarm extends React.Component{
   }
 
   componentDidMount() {
-    httpHelper.serverReq("http://localhost:3009/api/v1/farms/"+this.props.farmId).then( (data)=> {
+    httpHelper.serverReq("farms/"+this.props.farmId).then( (data)=> {
       if (data.success && data.success.data){
 
         this.setState({farmDetails:data.success.data,totalUnitsInput:1,isEnabled:true});

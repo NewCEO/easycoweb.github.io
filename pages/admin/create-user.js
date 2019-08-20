@@ -82,7 +82,7 @@ class createFarm extends React.Component{
 
 
 
-    httpHelper.httpReq('http://localhost:3009/api/v1/user/admin/create',formData,'POST')
+    httpHelper.httpReq('user/admin/create',formData,'POST')
       .then((response)=>{
         if (response.success){
           this.setState({ helpBlock:{
@@ -110,7 +110,7 @@ class createFarm extends React.Component{
   validateEmail(email){
     if (email !== 'undefined'){
       return new Promise( (resolve,reject)=> {
-        httpHelper.httpReq('http://localhost:3009/api/v1/email/exists?email='+email,'','GET')
+        httpHelper.httpReq('email/exists?email='+email,'','GET')
           .then((result)=>{
             // console.log(JSON.stringify(result),'does email exist');
             if (result.success.data === "true"){
@@ -176,7 +176,7 @@ class createFarm extends React.Component{
   }
 
   getAdminTypes(){
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/all').then( (response)=> {
+    httpHelper.serverReq('farms/all').then( (response)=> {
       if (response.success){
         this.setState({userTypes:response.success.data});
       }
@@ -184,7 +184,7 @@ class createFarm extends React.Component{
     }
 
     getUseTypes(){
-      httpHelper.httpReq("http://localhost:3009/api/v1/users/types").then( (response)=> {
+      httpHelper.httpReq("users/types").then( (response)=> {
         if (response.success){
 
           this.setState({userTypes:response.success.data});

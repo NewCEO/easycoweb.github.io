@@ -51,7 +51,7 @@ class LogInFormComp extends React.Component{
     formData.append('email',this.state.email);
 
 
-    HttpHelper.httpReq('http://localhost:3009/api/v1/login',formData,'POST')
+    HttpHelper.httpReq('login',formData,'POST')
       .then((result)=>{
         if(result.success){
 

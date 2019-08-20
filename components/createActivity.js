@@ -72,7 +72,7 @@ class createFarmActivityComponent extends React.Component{
 
   getLocations(){
     let htmlLocations = [];
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/activities/create/'+this.state.farmId).then( (locations)=> {
+    httpHelper.serverReq('farms/activities/create/'+this.state.farmId).then( (locations)=> {
       locations.success.data.forEach((location)=>{
         htmlLocations.push( <option value={location.id} >{location.name}</option>);
       });
@@ -82,7 +82,7 @@ class createFarmActivityComponent extends React.Component{
 
   getCategories(){
     let htmlCategories = [];
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/categories').then( (categories)=> {
+    httpHelper.serverReq('farms/categories').then( (categories)=> {
       categories.success.data.forEach((category)=>{
         htmlCategories.push( <option value={category.id} >{category.name}</option>);
       });
@@ -106,7 +106,7 @@ class createFarmActivityComponent extends React.Component{
     }
     this.setState({btnDisabled:false});
 
-    let url = 'http://localhost:3009/api/v1/farms/activities/create/'+this.state.farmId
+    let url = 'farms/activities/create/'+this.state.farmId
 
     httpHelper.serverReq(url,formData,'POST').then( (result)=> {
       if (result.success){

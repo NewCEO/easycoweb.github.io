@@ -27,7 +27,7 @@ class singleFarm extends React.Component{
       type = "follow";
     }
     let data = new FormData();
-    httpHelper.httpReq("http://localhost:3009/api/v1/farms/relationship/"+this.state.details.slug+"/"+type,"","POST").then((response)=>{
+    httpHelper.httpReq("farms/relationship/"+this.state.details.slug+"/"+type,"","POST").then((response)=>{
       if (response.success){
         let state = this.state.followed === "true"?"false":"true";
         this.setState({followed:state});

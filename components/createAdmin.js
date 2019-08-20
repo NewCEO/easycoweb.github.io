@@ -71,7 +71,7 @@ class createAdmin extends React.Component{
 
 
 
-    HttpHelper.httpReq('http://localhost:3009/api/v1/user/admin/create',formData,'POST')
+    HttpHelper.httpReq('user/admin/create',formData,'POST')
       .then((response)=>{
         if (response.success){
           this.setState({ helpBlock:{
@@ -99,7 +99,7 @@ class createAdmin extends React.Component{
   validateEmail(email){
     if (email !== 'undefined'){
       return new Promise( (resolve,reject)=> {
-        HttpHelper.httpReq('http://localhost:3009/api/v1/email/exists?email='+email,'','GET')
+        HttpHelper.httpReq('email/exists?email='+email,'','GET')
           .then((result)=>{
             console.log(result,'result');
             // console.log(JSON.stringify(result),'does email exist');
@@ -155,7 +155,7 @@ class createAdmin extends React.Component{
   }
 
   getAdminTypes(){
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/all').then( (response)=> {
+    httpHelper.serverReq('farms/all').then( (response)=> {
       if (response.success){
         this.setState({userTypes:response.success.data});
       }

@@ -43,7 +43,7 @@ class investments extends React.Component{
   }
 
   componentDidMount() {
-    httpHelper.serverReq("http://localhost:3009/api/v1/user").then((response)=>{
+    httpHelper.serverReq("user").then((response)=>{
       if (response.success){
         let bank_acct_number  = response.success.data.bank_acct_number;
        let parsed             = this.parseAcctNumber(bank_acct_number);

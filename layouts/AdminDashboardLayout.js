@@ -20,7 +20,7 @@ class DashboardLayOut extends React.Component {
   }
 
   userDetails(){
-    HttpHelper.serverReq('http://localhost:3009/api/v1/user','','GET').then( (userDet)=> {
+    HttpHelper.serverReq('user','','GET').then( (userDet)=> {
       if(userDet.success.data){
         this.setState({userDetails:userDet.success.data});
       }

@@ -27,7 +27,7 @@ class allFarmTableComponent extends React.Component{
        return true;
      }
    });
-      httpHelper.serverReq("http://localhost:3009/api/v1/farms/activities/"+id+"/delete","","POST").then( (result)=> {
+      httpHelper.serverReq("farms/activities/"+id+"/delete","","POST").then( (result)=> {
         if (result.success){
           console.log("this was called")
           delete this.farmData[matchIndex];
@@ -53,7 +53,7 @@ class allFarmTableComponent extends React.Component{
   }
 
   getFarmActivitiesData(){
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/activities/all?farm_id[eql]='+this.state.farmId.toString()).then( (response)=> {
+    httpHelper.serverReq('farms/activities/all?farm_id[eql]='+this.state.farmId.toString()).then( (response)=> {
       if (response.success){
         this.farmData = response.success.data.activities;
         this.setState({activities:this.farmData});

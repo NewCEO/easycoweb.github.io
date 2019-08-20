@@ -28,7 +28,7 @@ class followBtn extends React.Component{
     }else{
       type = 'activate'
     }
-    httpHelper.httpReq("http://localhost:3009/api/v1/user/"+this.props.user.id+"/status/"+type).then( (user)=> {
+    httpHelper.httpReq("user/"+this.props.user.id+"/status/"+type).then( (user)=> {
       if (this.state.btnStatus){
         this.setState({btnStatus:false})
       }else{

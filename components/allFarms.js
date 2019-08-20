@@ -66,7 +66,7 @@ class allFarmTableComponent extends React.Component{
     });
   }
   getFarmsData(){
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/all').then( (data)=> {
+    httpHelper.serverReq('farms/all').then( (data)=> {
       console.log(data);
       if (data.success){
         let farms = data.success.data.farms;

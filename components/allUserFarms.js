@@ -16,7 +16,7 @@ class allFarmTableComponent extends React.Component{
 
   handleFollowedTab(e){
 
-    httpHelper.serverReq(`http://localhost:3009/api/v1/farms/user/followed?paginate=true${this.state.followedHasMore?"&page="+this.state.followedNextPage:""}`).then( (data)=> {
+    httpHelper.serverReq(`farms/user/followed?paginate=true${this.state.followedHasMore?"&page="+this.state.followedNextPage:""}`).then( (data)=> {
       if(data.success){
         if (data.success.data.followedNextPage){
 
@@ -43,7 +43,7 @@ class allFarmTableComponent extends React.Component{
 
   loadMoreFarms(){
 
-    httpHelper.serverReq(`http://localhost:3009/api/v1/farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}`).then( (data)=> {
+    httpHelper.serverReq(`farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}`).then( (data)=> {
       if(data.success){
         if (data.success.data.nextPage){
 

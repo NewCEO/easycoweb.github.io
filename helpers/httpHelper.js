@@ -1,4 +1,5 @@
-import serverFetch from 'node-fetch';
+import serverFetch    from 'node-fetch';
+import {backend_v1}       from '../config/api_url';
 
 class HttpHelper {
   static httpReq(url = '', data,method) {
@@ -13,11 +14,10 @@ class HttpHelper {
         delete parameters.body;
       }
 
-      console.log(parameters,'login data');
 
 
       // Default options are marked with *
-      return fetch(url, parameters )
+      return fetch(backend_v1+url, parameters )
         .then( (response)=> {
           return response.json()
           // switch (response.status) {
@@ -44,7 +44,7 @@ class HttpHelper {
 
 
     // Default options are marked with *
-    return serverFetch(url, parameters )
+    return serverFetch(backend_v1+url, parameters )
       .then( (response)=> {
         return response.json()
         // switch (response.status) {

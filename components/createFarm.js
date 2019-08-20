@@ -31,7 +31,7 @@ class createFarmFormComponent extends React.Component{
     this.getLocations();
     this.getCategories();
     if (this.editFarmId){
-      httpHelper.serverReq('http://localhost:3009/api/v1/farms/'+this.editFarmId).then( (data)=>{
+      httpHelper.serverReq('farms/'+this.editFarmId).then( (data)=>{
         if (data.success){
           let formValues = {};
           for (var key in data.success.data){
@@ -64,7 +64,7 @@ class createFarmFormComponent extends React.Component{
 
   getLocations(){
     let htmlLocations = [];
-    httpHelper.serverReq('http://localhost:3009/api/v1/locations').then( (locations)=> {
+    httpHelper.serverReq('locations').then( (locations)=> {
       locations.success.data.forEach((location)=>{
         htmlLocations.push( <option value={location.id} >{location.name}</option>);
       });
@@ -74,7 +74,7 @@ class createFarmFormComponent extends React.Component{
 
   getCategories(){
     let htmlCategories = [];
-    httpHelper.serverReq('http://localhost:3009/api/v1/farms/categories').then( (categories)=> {
+    httpHelper.serverReq('farms/categories').then( (categories)=> {
       categories.success.data.forEach((category)=>{
         htmlCategories.push( <option value={category.id} >{category.name}</option>);
       });
@@ -93,9 +93,9 @@ class createFarmFormComponent extends React.Component{
     this.setState({btnDisabled:false});
     let url;
     if (this.props.farmId){
-      url = 'http://localhost:3009/api/v1/farms/update/'+this.props.farmId;
+      url = 'farms/update/'+this.props.farmId;
     }else{
-      url = 'http://localhost:3009/api/v1/farms/create'
+      url = 'farms/create'
     }
     httpHelper.serverReq(url,formData,'Post').then( (result)=> {
       if (result.success){

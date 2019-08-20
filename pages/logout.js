@@ -11,7 +11,7 @@ class AboutUs extends React.Component{
   }
 
   componentDidMount() {
-    httpHelper.httpReq("http://localhost:3009/api/v1/logout","","POST").then(function () {
+    httpHelper.httpReq("logout","","POST").then(function () {
       Router.push('/');
     })
   }

@@ -29,7 +29,7 @@ class investments extends React.Component{
   }
 
   getTableData(){
-    httpHelper.serverReq("http://localhost:3009/api/v1/user/investments").then((response)=>{
+    httpHelper.serverReq("user/investments").then((response)=>{
       if (response.success){
        let rows =  response.success.data.map((investment)=>{
          let interest = (investment.invested_amount * investment.roi)/100

@@ -28,7 +28,7 @@ class bankDetailsForm extends React.Component{
   }
 
   getBanks(){
-    httpHelper.serverReq("http://localhost:3009/api/v1/banks").then( (response)=> {
+    httpHelper.serverReq("banks").then( (response)=> {
       if (response.success){
         this.setState({apiBanks:response.success.data});
        let dom = response.success.data.map(function (bank) {
@@ -67,7 +67,7 @@ class bankDetailsForm extends React.Component{
       formData.append(key,values[key])
     }
 
-    httpHelper.serverReq("http://localhost:3009/api/v1/user/update",formData,'Post').then( (result)=> {
+    httpHelper.serverReq("user/update",formData,'Post').then( (result)=> {
       if (result.success){
         this.handleInnerChanges(this.state.formValues);
         this.setState({ notification:{

@@ -52,7 +52,7 @@ class allFarmTableComponent extends React.Component{
     this.setState({dom:userDom});
   }
   usersData(){
-    httpHelper.httpReq("http://localhost:3009/api/v1/users").then( (response) =>{
+    httpHelper.httpReq("users").then( (response) =>{
       if (response.success){
         this.setState({users:response.success.data.users});
         this.updateRow();

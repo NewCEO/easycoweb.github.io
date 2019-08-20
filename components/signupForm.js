@@ -122,7 +122,7 @@ import HelpBlock from "../components/HelpBlock";
    validateEmail(email){
      if (email !== 'undefined'){
        return new Promise( (resolve,reject)=> {
-         HttpHelper.httpReq('http://localhost:3009/api/v1/email/exists?email='+email,'','GET')
+         HttpHelper.httpReq('email/exists?email='+email,'','GET')
            .then((result)=>{
              console.log(result,'result');
              // console.log(JSON.stringify(result),'does email exist');
@@ -200,7 +200,7 @@ import HelpBlock from "../components/HelpBlock";
          formData.append('email',this.state.email);
 
 
-         HttpHelper.httpReq('http://localhost:3009/api/v1/sign-up',formData,'POST')
+         HttpHelper.httpReq('sign-up',formData,'POST')
            .then((result)=>{
              if(result.success){
 

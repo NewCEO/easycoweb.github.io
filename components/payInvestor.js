@@ -33,7 +33,7 @@ class payInvestor extends React.Component{
     e.preventDefault();
     let formData = new FormData();
     formData.append("password",this.state.formValues.password);
-    httpHelper.httpReq("http://localhost:3009/api/v1/farms/investment/"+this.props.investmentId+"/pay",formData,"POST").then( (response)=> {
+    httpHelper.httpReq("farms/investment/"+this.props.investmentId+"/pay",formData,"POST").then( (response)=> {
       if (response.success){
         this.props.onPaySuccess(this.props.investmentId);
       }

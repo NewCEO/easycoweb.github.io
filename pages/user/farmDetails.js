@@ -28,7 +28,7 @@ class allFarms extends React.Component{
   }
 
   componentDidMount() {
-   httpHelper.serverReq("http://localhost:3009/api/v1/farms/"+this.props.farmId).then( (data)=> {
+   httpHelper.serverReq("farms/"+this.props.farmId).then( (data)=> {
      if (data.success && data.success.data){
 
        this.setState({farmDetails:data.success.data});

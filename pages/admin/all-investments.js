@@ -97,7 +97,7 @@ class allInvestments extends React.Component{
 
 
   getInvestors(){
-    httpHelper.serverReq("http://localhost:3009/api/v1/farms/"+this.props.farmId+"/investments").then( (response)=> {
+    httpHelper.serverReq("farms/"+this.props.farmId+"/investments").then( (response)=> {
       if (response.success){
         this.setState({farmDet:response.success.data.farm,investments:response.success.data.investments});
         this.updateRow();

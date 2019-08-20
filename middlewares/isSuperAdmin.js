@@ -5,7 +5,7 @@ import Router from "next/dist/client/router";
 let isSuperAdmin =  function(res){
 
 
-  http.httpReq('http://localhost:3009/api/v1/user').then(function (data) {
+  http.httpReq('user').then(function (data) {
     if (data.success.data.user_type === userType.superAdmin ){
 
       return true

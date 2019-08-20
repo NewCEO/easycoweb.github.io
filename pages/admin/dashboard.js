@@ -64,7 +64,7 @@ class Dashboard extends React.Component{
   }
 
   getSummary(){
-    httpHelper.httpReq("http://localhost:3009/api/v1/user/summary").then((response)=>{
+    httpHelper.httpReq("user/summary").then((response)=>{
       if (response.success){
         let summary = response.success.data;
         this.setState({farms:summary.farms,activeFarms:summary.active_farms,soldOut:summary.soldout_farms,users:summary.users})

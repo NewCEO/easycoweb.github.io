@@ -24,7 +24,7 @@ class allFarms extends React.Component{
   componentDidMount() {
    let formData = new FormData();
    formData.append("reference",this.props.reference);
-    httpHelper.httpReq("http://localhost:3009/api/v1/farms/invoice/pay",formData,"POST").then( (response)=> {
+    httpHelper.httpReq("farms/invoice/pay",formData,"POST").then( (response)=> {
       if (response.success){
         this.setState({paymentState:"Congratulations your investment was successful "})
       }else{

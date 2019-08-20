@@ -30,7 +30,7 @@ class farmsTableRow extends React.Component{
        url = "/activate";
     }
 
-    httpHelper.serverReq(`http://localhost:3009/api/v1/farms/status/${this.farmDet.id}${url}`).then((result)=>{
+    httpHelper.serverReq(`farms/status/${this.farmDet.id}${url}`).then((result)=>{
       if (result.success){
         if (this.state.farmState === 1) {
           this.setState({farmState:2,farmStateName:'in-active'})
