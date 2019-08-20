@@ -131,57 +131,8 @@ class investments extends React.Component{
 
 
 
-            <div className="modal" id="bank" tabIndex="-1" role="dialog" aria-labelledby="mediumModalLabel"
-                 aria-hidden="true">
-              <div className="modal-dialog modal-lg" role="document">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="mediumModalLabel">Bank Details</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div className="modal-body">
+            <BankDetailsForm handleChanges = {this.handleBankDetailsChange} />
 
-                    <form id="rootwizard-2" method="post" action="" className="form-wizard validate">
-
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label className="control-label" htmlFor="full_name">Bank Name</label>
-                            <input className="form-control" name="full_name" id="full_name" data-validate="required"
-                                   placeholder="Bank name"/>
-                          </div>
-                        </div>
-
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label className="control-label" htmlFor="full_name">Bank Account Name</label>
-                            <input className="form-control" name="full_name" id="bank-full-name"
-                                   data-validate="required" placeholder="Bank account full name"/>
-                          </div>
-                        </div>
-
-
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label className="control-label" htmlFor="number">Bank Account Number</label>
-                            <input className="form-control" name="Phone No." id="Phone No." data-validate="required"
-                                   placeholder="Account Number"/>
-                          </div>
-                        </div>
-                        <br/>
-                          <div className="modal-footer">
-                            <button type="button" className="button btn btn-secondary" data-dismiss="modal">Cancel
-                            </button>
-                            <button type="button" className="button btn btn-primary">Confirm</button>
-                          </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </DashBoardLayOut>

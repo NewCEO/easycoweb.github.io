@@ -94,7 +94,7 @@ class bankDetailsForm extends React.Component{
             </div>
             <div className="modal-body">
 
-              <form id="rootwizard-2" method="post" action="" className="form-wizard validate">
+              <form id="rootwizard-2" onSubmit={this.handleSubmit} method="post" action="" className="form-wizard validate">
 
                 <div className="row">
                   <div className="col-md-6">
@@ -122,12 +122,13 @@ class bankDetailsForm extends React.Component{
 
                     </div>
                   </div>
-                  <br/>
-                  <div className="modal-footer">
-                    <button type="button" className="button btn btn-secondary" data-dismiss="modal">Cancel
-                    </button>
-                    <button type="button" className="button btn btn-primary">Confirm</button>
-                  </div>
+
+
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="button btn btn-secondary" data-dismiss="modal">Cancel
+                  </button>
+                  <button type="submit" className="button btn btn-primary">Confirm</button>
                 </div>
               </form>
             </div>
