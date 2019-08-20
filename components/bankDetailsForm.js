@@ -30,6 +30,7 @@ class bankDetailsForm extends React.Component{
   getBanks(){
     httpHelper.serverReq("http://localhost:3009/api/v1/banks").then( (response)=> {
       if (response.success){
+        this.setState({apiBanks:response.success.data});
        let dom = response.success.data.map(function (bank) {
          return <option value={bank.id}>{bank.name}</option>
        })
@@ -43,6 +44,13 @@ class bankDetailsForm extends React.Component{
     const name = target.name;
     let values;
     this.state.formValues?values = this.state.formValues:values={};
+    if (name === 'bank'){
+      this.state.apiBanks.forEach(function (bank) {
+        if (bank.id == value){
+          values['bank_name'] =  bank.name
+        }
+      })
+    }
     values[name] = value;
     this.setState({
       formValues: values
@@ -100,7 +108,7 @@ class bankDetailsForm extends React.Component{
                   <div className="col-md-6">
                     <div className="form-group">
                       <label className="control-label" htmlFor="name">Bank Name</label>
-                      <select onChange={this.handleChange} name="bank" value={this.state.formValues.bank_name} className="form-control">
+                      <select onChange={this.handleChange} name="bank" value={this.state.formValues.bank} className="form-control">
                         {this.state.banksDom}
                       </select>
                     </div>

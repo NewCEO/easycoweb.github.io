@@ -25,11 +25,21 @@ class investments extends React.Component{
   }
 
   handlePersonalDetailsChange(data){
-    this.setState({userName:data.name});
+
+    let userDetails = this.state.userDetails;
+
+    data.name? this.setState({userName:data.name}):"";
+    data.phone_number?userDetails['phone_number'] = data.phone_number:"";
+    data.address?userDetails['address']  = data.address:"";
+
+    this.setState({userDetails:userDetails});
   }
 
   handleBankDetailsChange(data){
-    this.setState({bank_acct_name:data.bank_acct_name,bank_acct_number:this.parseAcctNumber(data.bank_acct_number),bank_name:data.bank_name})
+
+    data.bank_acct_name?this.setState({bank_acct_name:data.bank_acct_name}):"";
+    data.bank_acct_number?this.setState({bank_acct_number:this.parseAcctNumber(data.bank_acct_number)}):"";
+    data.bank_name?this.setState({bank:data.bank_name}):"";
   }
 
   componentDidMount() {
@@ -53,7 +63,7 @@ class investments extends React.Component{
   render() {
     return(
       <DashBoardLayOut>
-        <h4 className="text-center bare">PROFILE - USER FULLNAME</h4>
+        <h4 className="text-center bare" style={{"text-transform":"uppercase"}}>PROFILE - USER {this.state.userName}</h4>
         <div className="content mt-3">
           <div className="animated fadeIn">
             <div className="row">

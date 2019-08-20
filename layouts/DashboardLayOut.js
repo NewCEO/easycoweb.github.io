@@ -60,25 +60,23 @@ class DashboardLayOut extends React.Component {
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
               <i className="fa fa-bars"></i>
             </button>
-            <a className="navbar-brand" href="./"><img src="/images/2.png" alt="Logo"/></a>
-            <a className="navbar-brand hidden" href="./"><img src="/images/1%20(1).png" alt="Logo"/></a>
+            <a className="navbar-brand" href="/"><img src="/images/2.png" alt="Logo"/></a>
+            <a className="navbar-brand hidden" href="/"><img src="/images/1%20(1).png" alt="Logo"/></a>
           </div>
 
           <div id="main-menu" className="main-menu collapse navbar-collapse mine">
             <ul className="nav navbar-nav">
               <li className="active">
-                <a href="index.user.html"> <i className="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                <a href="/user/dashboard"> <i className="menu-icon fa fa-dashboard"></i>Dashboard </a>
               </li>
-              <hr/>
-                <li><a href="index.user.html"><i className="menu-icon fa fa-home"></i>Home</a>
+
+
+                <li><a href="/user/farms"><i className="menu-icon fa fa-flag"></i>All Farms </a></li>
+                <li><a href="/user/investments"><i className="menu-icon fa fa-money"></i>Transactions</a>
                 </li>
-                <li><a href="all-farms.html"><i className="menu-icon fa fa-flag"></i>All Farms </a></li>
-                <li><a href="transaction.html"><i className="menu-icon fa fa-money"></i>Transactions</a>
+                <li><a href="/user/profile"><i className="menu-icon fa fa-user"></i>Profile</a>
                 </li>
-                <li><a href="profile.html"><i className="menu-icon fa fa-user"></i>Profile</a>
-                </li>
-                <li><a href="history.html"><i className="menu-icon  fa fa-sort-alpha-desc"></i>History</a>
-                </li>
+
             </ul>
           </div>
         </nav>

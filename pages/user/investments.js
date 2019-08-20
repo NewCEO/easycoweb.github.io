@@ -17,40 +17,10 @@ class investments extends React.Component{
   }
 
   initDataTable(){
-    jQuery(document).ready(function($) {
-      var $table3 = jQuery("#table-3");
-
-      var table3 = $table3.DataTable({
-        "aLengthMenu": [
-          [10, 25, 50, -1],
-          [10, 25, 50, "All"]
-        ]
-      });
-
-      // Initalize Select Dropdown after DataTables is created
-      $table3.closest('.dataTables_wrapper').find('select').select2({
-        minimumResultsForSearch: -1
-      });
-
-      // Setup - add a text input to each footer cell
-      $('#table-3 tfoot th').each(function() {
-        var title = $('#table-3 thead th').eq($(this).index()).text();
-        $(this).html('<input type="text" class="form-control" placeholder="Search ' + title + '" />');
-      });
-
-      // Apply the search
-      table3.columns().every(function() {
-        var that = this;
-
-        $('input', this.footer()).on('keyup change', function() {
-          if (that.search() !== this.value) {
-            that
-              .search(this.value)
-              .draw();
-          }
-        });
-      });
-    });
+    jQuery('#bootstrap-data-table-export').DataTable({
+      lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+      buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+    })
   }
 
   componentDidMount() {
@@ -103,42 +73,37 @@ class investments extends React.Component{
   render() {
     return(
       <DashBoardLayOut>
-        <h2 className="text-center" id="form-head">Investments</h2>
-        <br/>
-        <table className="table table-bordered datatable" id="table-3">
-          <thead>
-          <tr className="replace-inputs">
-            <th>Farm Name</th>
-            <th>Investment Date</th>
-            <th>Invested Amount</th>
 
-            <th>ROI</th>
-            <th>Investment Duration</th>
-            <th>Cashout Date</th>
-            <th>Interest</th>
-            <th>Amount Payable</th>
-            <th>Investment Status</th>
+        <div className="card ground">
+          <div className="card-header">
+            <h4>My Investments</h4>
+          </div>
+          <div className="card-body" style={{background:"white"}}>
+            <table  id="bootstrap-data-table-export" className="table table-striped table-bordered" >
+              <thead >
+              <tr  className="text-center Col">
+                <th>Farm Name</th>
+                <th>Investment Date</th>
+                <th>Invested Amount</th>
 
-          </tr>
-          </thead>
-          <tbody>
-          {this.state.investmentsRows}
-          </tbody>
-          <tfoot>
-          <tr>
-            <th>Farm Name</th>
-            <th>Investment Date</th>
-            <th>Invested Amount</th>
-            <th>ROI</th>
-            <th>Investment Duration</th>
-            <th>Cashout Date</th>
-            <th>Interest</th>
-            <th>Amount Payable</th>
-            <th>Investment Status</th>
+                <th>ROI</th>
+                <th>Investment Duration</th>
+                <th>Cashout Date</th>
+                <th>Interest</th>
+                <th>Amount Payable</th>
+                <th>Investment Status</th>
 
-          </tr>
-          </tfoot>
-        </table>
+              </tr>
+              </thead>
+              <tbody>
+              {this.state.investmentsRows}
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+
       </DashBoardLayOut>
     )
   }
