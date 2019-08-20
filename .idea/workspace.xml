@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45cecc1-2397-4820-83ce-9a50361e11a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/allFarmActivitiesUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/user/all-activities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/middlewares/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/middlewares/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/routes/api.v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allFarmActivities.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarmActivities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/personalDetailsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/personalDetailsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/DashboardLayOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DashboardLayOut.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextServer/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/nextServer/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/farmDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/farmDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/fundFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/fundFarm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/bankDetailsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/bankDetailsForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/user/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/profile.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -37,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/user/fundFarm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1206">
-              <caret line="198" column="13" lean-forward="true" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
+            <state relative-caret-position="3281">
+              <caret line="200" column="13" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -49,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/user/farmDetails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+            <state relative-caret-position="816">
+              <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -61,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+            <state relative-caret-position="663">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -71,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/apiServer/config/paystack.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,27 +70,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/user/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="137" column="48" lean-forward="true" selection-start-line="137" selection-start-column="48" selection-end-line="137" selection-end-column="48" />
+            <state relative-caret-position="2142">
+              <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="182" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#2200#2923#0" />
+                <element signature="e#5204#7740#0" />
+                <element signature="e#5326#5662#0" />
+                <element signature="e#5681#7696#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/personalDetailsForm.js">
+        <entry file="file://$PROJECT_DIR$/components/bankDetailsForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+            <state relative-caret-position="17">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#1625#4883#0" />
-                <element signature="e#1642#5049#0" />
-                <element signature="e#3778#4455#0" />
-                <element signature="e#4200#4974#0" />
               </folding>
             </state>
           </provider>
@@ -108,8 +97,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="209" lean-forward="true" selection-start-line="208" selection-start-column="85" selection-end-line="209" />
+            <state relative-caret-position="7888">
+              <caret line="464" column="44" selection-start-line="464" selection-start-column="44" selection-end-line="466" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/personalDetailsForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sidebar-menu-inner</find>
       <find>isLastpage</find>
       <find>&lt;hr</find>
       <find>exam</find>
@@ -155,6 +155,7 @@
       <find>&lt;P</find>
       <find>&lt;/P</find>
       <find>person</find>
+      <find>handleInnerChanges</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;p&gt;</replace>
@@ -175,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apiServer/validators/farms.js" />
         <option value="$PROJECT_DIR$/components/farmsTableRow.js" />
         <option value="$PROJECT_DIR$/components/payInvestor.js" />
         <option value="$PROJECT_DIR$/apiServer/helpers/slugger.js" />
@@ -223,15 +223,16 @@
         <option value="$PROJECT_DIR$/pages/user/all-activities.js" />
         <option value="$PROJECT_DIR$/components/allFarmActivitiesUser.js" />
         <option value="$PROJECT_DIR$/pages/user/fundFarm.js" />
+        <option value="$PROJECT_DIR$/components/personalDetailsForm.js" />
         <option value="$PROJECT_DIR$/pages/user/profile.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-        <option value="$PROJECT_DIR$/components/personalDetailsForm.js" />
+        <option value="$PROJECT_DIR$/components/bankDetailsForm.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="18" />
+    <option name="x" value="114" />
+    <option name="y" value="4" />
     <option name="width" value="1260" />
     <option name="height" value="720" />
   </component>
@@ -282,16 +283,16 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\easycow\.next\server\bootstrap" />
+      <recent name="C:\xampp\htdocs\easycow\server\helpers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\easycow\components" />
       <recent name="C:\xampp\htdocs\easycow\pages\user" />
       <recent name="C:\xampp\htdocs\easycow\static" />
       <recent name="C:\xampp\htdocs\easycow\middlewares" />
       <recent name="C:\xampp\htdocs\easycow\pages" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\easycow\.next\server\bootstrap" />
-      <recent name="C:\xampp\htdocs\easycow\server\helpers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -384,11 +385,12 @@
       <workItem from="1565665097946" duration="74000" />
       <workItem from="1566057389896" duration="1510000" />
       <workItem from="1566072602487" duration="58000" />
+      <workItem from="1566275319859" duration="787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="835997000" />
+    <option name="totallyTimeSpent" value="837285000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -403,7 +405,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13086233" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13020833" />
       <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
@@ -423,6 +425,27 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.15625" />
+      <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.3993559" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
+      <window_info active="true" anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" visible="true" weight="0.33977455" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -448,20 +471,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/pages/user/farmDetails.js</url>
           <line>55</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiServer/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/user/investments.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -806,74 +821,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/config/paystack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/fundFarm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="198" column="13" lean-forward="true" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apiServer/helpers/fileUploader.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/apiServer/helpers/db.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/farmDetails.js">
+    <entry file="file://$PROJECT_DIR$/pages/user/fundFarm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
+        <state relative-caret-position="3281">
+          <caret line="200" column="13" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/profile.js">
+    <entry file="file://$PROJECT_DIR$/pages/user/farmDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="137" column="48" lean-forward="true" selection-start-line="137" selection-start-column="48" selection-end-line="137" selection-end-column="48" />
+        <state relative-caret-position="816">
+          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#2200#2923#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/config/paystack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="182" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#5204#7740#0" />
+            <element signature="e#5326#5662#0" />
+            <element signature="e#5681#7696#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="209" lean-forward="true" selection-start-line="208" selection-start-column="85" selection-end-line="209" />
+        <state relative-caret-position="7888">
+          <caret line="464" column="44" selection-start-line="464" selection-start-column="44" selection-end-line="466" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/personalDetailsForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
+        <state relative-caret-position="153">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#1625#4883#0" />
-            <element signature="e#1642#5049#0" />
-            <element signature="e#3778#4455#0" />
-            <element signature="e#4200#4974#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bankDetailsForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

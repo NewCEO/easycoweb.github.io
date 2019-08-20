@@ -93,7 +93,7 @@ class investments extends React.Component{
               </div>
             </div>
           </div>
-          <PersonalDetailsForm/>
+          <PersonalDetailsForm handleChanges = {this.handlePersonalDetailsChange} />
 
           <div className="col-lg-12">
             <div className="animated fadeIn">
