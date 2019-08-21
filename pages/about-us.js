@@ -11,7 +11,7 @@ class AboutUs extends React.Component{
     return(
       <StaticLayout>
 
-<section class="page-title centred" style={{"background-image": "url(images/background/page-title.jpg);"}}>
+<section class="page-title centred" style={{"background-image": "url(images/main-slider/slider-Image-1.jpg)"}}>
 		<div class="container">
 			<div class="content-box">
 				<div class="title">About Us</div>
@@ -25,7 +25,7 @@ class AboutUs extends React.Component{
 	
 	<section class="about-style-two sec-pad">
 		<div class="container">
-			<div class="sec-title centred">We give you <span>a chance to<br />Live  A Wealthier Live</span></div>
+		<div class="sec-title centred">We give you <span>a chance to<br />Live  A Wealthier Live</span></div>
 			<div class="row">
 				<div class="col-lg-6 col-md-12 col-sm-12 about-column">
 					<div class="about-content">

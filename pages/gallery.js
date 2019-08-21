@@ -10,7 +10,7 @@ class gallery extends React.Component{
         return(
           <StaticLayout>
 
-<section class="page-title centred" style={{"background-image": "url(images/background/page-title.jpg);"}}>
+<section class="page-title centred" style={{"background-image": "url(images/main-slider/slider-Image-1.jpg)"}}>
         <div class="container">
             <div class="content-box">
                 <div class="title">Our Gallery</div>
@@ -29,7 +29,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-1.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/1.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -41,7 +41,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-2.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/22.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -53,7 +53,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-3.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/2.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -65,7 +65,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-4.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/4.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -77,7 +77,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-5.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/3.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -89,7 +89,7 @@ class gallery extends React.Component{
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="images/resource/team-6.jpg" alt=""/></figure>
+                                <figure><img src="images/resource/12.jpg" alt=""/></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>

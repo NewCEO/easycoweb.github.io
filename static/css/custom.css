@@ -23,3 +23,16 @@ margin-top: 20px;
 .col{
 	color: #77b112;
 }
+
+.font{
+	font-family: 'Work Sans';
+	color: #77b112;
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+
+.channels{
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}

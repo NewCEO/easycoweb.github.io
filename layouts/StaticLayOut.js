@@ -270,13 +270,13 @@ class StaticLayout extends React.Component {
 
 		<div class="header-upper">
 			<div class="container clearfix">
-				<figure class="logo-box"><a href="index-2.html"><img src="images/logo-white.png" alt=""/></a></figure>
+				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
 				<div class="upper-right clearfix">
 					<div class="upper-column info-box">
 						<div class="icon-box"><i class="flaticon-phone-call"></i></div>
 						<ul>
 							<li>
-								<strong>880 1723801729</strong>info@cowfunding.com.ng
+								<strong>880 1723801729</strong>hello@cowfunding.com.ng
 							</li>
 						</ul>
 					</div>
@@ -284,7 +284,7 @@ class StaticLayout extends React.Component {
 						<div class="icon-box"><i class="flaticon-placeholder"></i></div>
 						<ul>
 							<li>
-								<strong>Goldsmith Hall,</strong> Bulls Stadium, California
+							<strong> Oloba Village,</strong>Osun State.
 							</li>
 						</ul>
 					</div>
@@ -306,14 +306,14 @@ class StaticLayout extends React.Component {
 								</div>
 								<div class="navbar-collapse collapse clearfix">
 									<ul class="navigation clearfix">
-										<li><a href="index-7.html">Home</a>
+										<li><a href="index.html">Home</a>
 										</li>
 										<li><a href="about.html">About Us</a></li>
-										<li><a href="causes-grid.html">Our Farms</a>
+										<li><a href="causes-grid.html">Our Ranch</a>
 										</li>
 										<li><a href="team.html">Our Gallery</a>
 										</li>
-										<li><a href="#">Our Thoughts</a>
+										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
 										<li><a href="contact.html">Contact Us</a></li>
 									</ul>
@@ -335,7 +335,7 @@ class StaticLayout extends React.Component {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12 column">
-						<figure class="logo-box"><a href="index-7.html"><img src="" alt=""/>CowFunding</a></figure>
+						<figure class="logo-box"><a href="index.html"><img src="" alt=""/>CowFunding</a></figure>
 					</div>
 					<div class="col-lg-8 col-md-12 col-sm-12 menu-column">
 						<div class="menu-area">
@@ -354,7 +354,7 @@ class StaticLayout extends React.Component {
 										<li><a href="about.html">About Us</a></li>
 										<li><a href="causes-grid.html">Our Ranch</a>
 										</li>
-										<li><a href="team.html">Our Team</a>
+										<li><a href="team.html">Our Gallery</a>
 										</li>
 										<li><a href="#">Our Thoughts</a>
 										</li>
@@ -375,14 +375,13 @@ class StaticLayout extends React.Component {
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
-							<figure class="logo-box"><a href="index-6.html"><img src="images/footer-logo.png" alt=""/></a></figure>
+							<figure class="logo-box"><a href="index-6.html"><img src="images/logo.png" alt=""/></a></figure>
 							<div class="text">
 								<p>Lorem ipsum dolor amet consectetur adi pisicing elit sed eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam quis.nostrud exercita.laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
 							</div>
 							<ul class="footer-social">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
@@ -394,9 +393,9 @@ class StaticLayout extends React.Component {
 								<li><a href="index-7.html">Home</a>
 								</li>
 								<li><a href="about.html">About Us</a></li>
-								<li><a href="causes-grid.html">Our Farms</a>
+								<li><a href="causes-grid.html">Our Ranch</a>
 								</li>
-								<li><a href="team.html">Our Team</a>
+								<li><a href="team.html">Our Gallery</a>
 								</li>
 								<li><a href="#">Our Thoughts</a>
 								</li>
@@ -408,9 +407,9 @@ class StaticLayout extends React.Component {
 						<div class="contact-widget footer-widget">
 							<div class="footer-title">Contacts</div>
 							<div class="text">
-								<p>Flat 20, Reynolds Neck, North Helenaville, FV77</p>
+								<p> Oloba Village,Osun State.</p>
 								<p>+2(305) 587-3407</p>
-								<p>info@example.com</p>
+								<p>hello@cowfunding.com.ng</p>
 							</div>
 						</div>
 					</div>

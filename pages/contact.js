@@ -9,12 +9,12 @@ class contact extends React.Component{
     render() {
         return(
           <StaticLayout>
-<section class="page-title centred" style={{"backgroundImage": "url(/images/background/page-title.jpg)"}}>
+<section class="page-title centred" style={{"backgroundImage": "url(images/main-slider/slider-Image-1.jpg)"}}>
         <div class="container">
             <div class="content-box">
                 <div class="title">Contact Us</div>
                 <ul class="bread-crumb">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li>Contact</li>
                 </ul>
             </div>
@@ -81,25 +81,13 @@ class contact extends React.Component{
         </div>
     </section>
    
-                <section class="google-map-section">
-        <div class="google-map-area">
-            <div 
-                class="google-map" 
-                id="contact-google-map" 
-                data-map-lat="40.652493" 
-                data-map-lng="-73.791421" 
-                data-icon-path="images/resource/map-marker.png"  
-                data-map-title="Brooklyn, New York, United Kingdom" 
-                data-map-zoom="12" 
-                data-markers='{
-                    "marker-1": [40.652493, -73.791421, "<h4>Branch Office</h4><p>77/99 London UK</p>","images/resource/map-marker.png"]
-                }'>
+             
+        <section class="subscribe-section"><section class="google-map-section">
+		<div class="google-map-area">
+			<iframe class="mymap col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3420011999806!2d3.3779788147711503!3d6.604353795223965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x806114ce7c540123!2sSelema+Farms!5e0!3m2!1sen!2sng!4v1563968220850!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</section>
 
-            </div>
-        </div>
-    </section>
-    
-        <section class="subscribe-section">
         <div class="container">
             <div class="subscribe-content">
                 <div class="row">

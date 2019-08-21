@@ -10,7 +10,7 @@ class shop extends React.Component{
         return(
           <StaticLayout>
 
-<section class="page-title centred" style={{"backgroundImage": "url(/images/background/page-title.jpg)"}}>
+<section class="page-title centred" style={{"backgroundImage": "url(images/main-slider/slider-Image-1.jpg)"}}>
 		<div class="container">
 			<div class="content-box">
 				<div class="title">Our Ranch</div>

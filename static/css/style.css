@@ -145,14 +145,14 @@
  	line-height: 26px;
  	font-weight: 400;
  	cursor: pointer;
- 	color: #848484;
+ 	color: #77b112;
  	transition: all 500ms ease;
  }
 
  a:hover {
  	text-decoration: none;
  	outline: none;
- 	color: #77b112;
+ 	color: black;
  }
 
  input,
@@ -256,7 +256,7 @@
 
  h3 a:hover,
  h4 a:hover {
- 	color: #ff5e14;
+ 	color: #77b112;
  }
 
  .centred {
@@ -896,7 +896,7 @@
  	border-radius: 30px;
  	cursor: pointer;
  	transition: all 300ms ease;
- 	border: 1px solid #77b112;
+ 	border: 1px solid white;
  }
 
  .main-header .header-bottom .nav-right .donate-box button:hover {
@@ -1188,7 +1188,7 @@
  	margin-bottom: 100px;
  	background: #f2f2f2;
  	padding: 57px;
- 	border: 3px solid #ff5e14;
+ 	border: 3px solid #77b112;
  }
 
  .donate-form-area h2 {
@@ -1864,7 +1864,7 @@
 
  .single-cause-content .progress-box .progress-bar {
  	position: relative;
- 	background-color: #ff5e14;
+ 	background-color: #77B112;
  	box-shadow: none;
  	-webkit-transition: all 3s ease 0s;
  	-moz-transition: all 3s ease 0s;
@@ -1880,10 +1880,10 @@
  	font-family: 'Work Sans', sans-serif;
  	bottom: 15px;
  	right: -20px;
- 	color: #ff5e14;
+ 	color: #77B112;
  	line-height: 18px;
  	font-weight: 700;
- 	border: 2px solid #ffae89;
+ 	border: 2px solid #77B112;
  	border-radius: 3px;
  	font-size: 12px;
  	padding: 3px 4px 2px 4px;
@@ -2196,7 +2196,7 @@
  .testimonial-section .top-content .sec-title {
  	line-height: 50px;
  	margin-bottom: 15px;
- 	color: #ffffff;
+ 	color: #77b112;
  }
 
  .testimonial-section .top-content .title-text {
@@ -2264,7 +2264,7 @@
  }
 
  .testimonial-content .content-box .content .author-info .title {
- 	color: #ff5e14;
+ 	color: #77b112;
  }
 
  .brand-content .img-box {
@@ -2338,7 +2338,7 @@
 
  .subscribe-section .subscribe-content .subscribe-form button.theme-btn:hover {
  	background: #ffffff;
- 	color: #ff5e14;
+ 	color: #77b112;
  }
 
  .subscribe-section ::-webkit-input-placeholder {
@@ -2764,7 +2764,7 @@
  	position: relative;
  	font-size: 24px;
  	line-height: 24px;
- 	color: #ff5e14;
+ 	color: #77b112;
  	margin-bottom: 0px;
  }
 
@@ -3747,7 +3747,7 @@
  }
 
  .header-style-four .header-upper .upper-column .icon-box {
- 	border: 2px solid #777573;
+ 	border: 2px solid white;
  }
 
  .header-style-four .header-upper .upper-column:hover .icon-box {
@@ -3759,7 +3759,7 @@
  }
 
  .header-style-four .header-upper .upper-column ul li {
- 	color: #c9c9c9;
+ 	color: white;
  }
 
  .header-style-four .header-bottom .nav-outer .main-menu .navigation > li > a {
@@ -3773,7 +3773,7 @@
  }
 
  .header-style-four .header-bottom .nav-outer .main-menu .navigation > li > a:before {
- 	background: #77b112;
+ 	background: white;
  	bottom: 23px;
  }
 
@@ -3792,7 +3792,7 @@
  }
 
  .header-style-four .header-bottom .nav-outer {
- 	background: #ffffff8a;
+ 	background: #77b11296;
  }
 
  .header-style-four .header-bottom .nav-right {
@@ -6538,12 +6538,12 @@
  }
 
  .contact-section .contact-info .single-info:hover {
- 	border: 1px solid #ff5e14;
+ 	border: 1px solid #77b112;
  }
 
  .contact-section .contact-info .single-info .icon-box i:before {
  	font-size: 35px;
- 	color: #ff5e14;
+ 	color: #77b112;
  	margin: 0px;
  	transition: all 500ms ease;
  }
@@ -6611,7 +6611,7 @@
 
  .contact-section .contact-form-area .form-group input:focus,
  .contact-section .contact-form-area .form-group textarea:focus {
- 	border: 1px solid #ff5e14;
+ 	border: 1px solid #77b112;
  }
 
  .contact-section .contact-form-area .contact-title {
