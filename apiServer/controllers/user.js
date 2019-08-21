@@ -179,6 +179,7 @@ module.exports = class  user {
       res.withServerError(500).reply();
     })
   }
+
   static all(req,res){
     let values  = [];
     let query   = `SELECT users.*,status.name as user_status_name,user_types.name as user_type_name FROM users
@@ -256,7 +257,7 @@ module.exports = class  user {
       return db.query(query,values);
     }).then((data)=>{
       users = data.length;
-      let query = "SELECt id FROM farms WHERE status = ?";
+      let query = "SELECT id FROM farms WHERE status = ?";
       let values = [statuses.soldout];
       return db.query(query,values);
     }).then((data)=>{
@@ -273,6 +274,62 @@ module.exports = class  user {
       res.withServerError(500).reply();
     })
 
+  }
+
+  static investorSummary(req,res){
+    let summary = {}
+    let query = `SELECT count(purchased_farms.id) as opened_investments 
+                 FROM purchased_farms
+                 INNER JOIN farms on farms.id = purchased_farms.farm_id
+                 INNER JOIN status on status.id = purchased_farms.status
+                 WHERE purchased_farms.user_id = ?    
+                 AND purchased_farms.status = ?
+                 `;
+
+    let values = [req.session.userId,statuses.invested];
+
+    db.query(query,values).then( (data)=> {
+
+      Object.assign(summary,data[0])
+
+      let query = `SELECT purchased_farms.date as next_due_date, SUM ((((farms.roi/100 )*farms.price_per_unit) + farms.price_per_unit) * purchased_farms.quantity) as next_due_payment
+                   FROM purchased_farms
+                   INNER JOIN farms on farms.id = purchased_farms.farm_id
+                   INNER JOIN status on status.id = purchased_farms.status
+                   WHERE purchased_farms.user_id = ? 
+                   AND purchased_farms.date = (
+                    SELECT MIN(purchased_farms.date) FROM purchased_farms
+                    WHERE purchased_farms.status = ?
+                   )
+                   GROUP BY purchased_farms.date   
+                  
+                 `;
+
+      let values = [req.session.userId,statuses.invested];
+
+      return db.query(query,values)
+
+    }).then((data)=>{
+
+      Object.assign(summary,data[0]);
+
+      let query = `SELECT count(farms.id) as followed_farms
+                   FROM farms
+                   INNER JOIN followed_farms on farms.id = followed_farms.farm_id
+                   WHERE followed_farms.user_id = ?
+                 
+                  
+                 `;
+
+      let values = [req.session.userId,];
+      return db.query(query,values)
+    }).then((data)=>{
+      Object.assign(summary,data[0]);
+      res.withSuccess(200).withData(summary).reply();
+    }).catch((error)=>{
+      console.log(error);
+      res.withServerError(500).reply();
+    })
   }
 
 }

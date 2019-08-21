@@ -2,39 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45cecc1-2397-4820-83ce-9a50361e11a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/api_url.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allFarmActivities.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarmActivities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allFarmActivitiesUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarmActivitiesUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allFarms.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allUserFarms.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allUserFarms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/bankDetailsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/bankDetailsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/createActivity.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/createActivity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/createAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/createAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/createFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/createFarm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/farmsTableRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/farmsTableRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/payInvestor.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/payInvestor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/personalDetailsForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/personalDetailsForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/signupForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/signupForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/singleFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/singleFarm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/userStatusButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/userStatusButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/httpHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/httpHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/AdminDashboardLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/AdminDashboardLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/isAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/isSuperAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isSuperAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/isUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiServer/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/controllers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiServer/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/routes/api.v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/DashboardLayOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DashboardLayOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/all-investments.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/all-investments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/create-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/create-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/admin/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/farmDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/farmDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/fundFarm.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/fundFarm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/investments.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/investments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user/verifyInvoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/verifyInvoice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/css/custom.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -56,76 +31,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nextServer/routes/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/user/investments.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layouts/AdminDashboardLayout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/user/all-activities.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="28" column="14" selection-start-line="27" selection-start-column="10" selection-end-line="28" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/allFarmActivitiesUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/bankDetailsForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/layouts/DashboardLayOut.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+            <state relative-caret-position="237">
+              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -133,20 +42,51 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="164">
+              <caret line="294" column="68" selection-start-line="294" selection-start-column="68" selection-end-line="294" selection-end-column="68" />
+              <folding>
+                <element signature="e#5576#6191#0" />
+                <element signature="e#6222#7184#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/api_url.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiServer/helpers/smooch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state>
+              <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/helpers/date.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiServer/routes/api.v1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiServer/controllers/farms.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="259" column="6" selection-start-line="259" selection-start-column="6" selection-end-line="259" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -154,10 +94,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers/httpHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="765">
               <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/user/dashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="134" column="12" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/allFarms.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="29" lean-forward="true" selection-start-column="7" selection-end-line="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="n#!!block;n#initDataTable#0;n#allFarmTableComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/singleFarm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-end-line="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,8 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;/P&gt;</find>
-      <find>conso</find>
       <find>userId</find>
       <find>email</find>
       <find>validateEmail</find>
@@ -204,6 +179,8 @@
       <find>console</find>
       <find>Link</find>
       <find>http://localhost:3009/api/v1/</find>
+      <find>count</find>
+      <find>group</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;p&gt;</replace>
@@ -242,14 +219,12 @@
         <option value="$PROJECT_DIR$/layouts/AdminDashboardLayout.js" />
         <option value="$PROJECT_DIR$/pages/admin/all-investments.js" />
         <option value="$PROJECT_DIR$/apiServer/package.json" />
-        <option value="$PROJECT_DIR$/pages/user/dashboard.js" />
         <option value="$PROJECT_DIR$/apiServer/helpers/investment.js" />
         <option value="$PROJECT_DIR$/apiServer/validators/users.js" />
         <option value="$PROJECT_DIR$/components/signupForm.js" />
         <option value="$PROJECT_DIR$/apiServer/config/status.js" />
         <option value="$PROJECT_DIR$/config/status.js" />
         <option value="$PROJECT_DIR$/pages/admin/dashboard.js" />
-        <option value="$PROJECT_DIR$/apiServer/controllers/user.js" />
         <option value="$PROJECT_DIR$/pages/logout.js" />
         <option value="$PROJECT_DIR$/nextServer/bootstrap/server.js" />
         <option value="$PROJECT_DIR$/middlewares/isUser.js" />
@@ -261,7 +236,6 @@
         <option value="$PROJECT_DIR$/components/allFarmActivities.js" />
         <option value="$PROJECT_DIR$/pages/user/farmDetails.js" />
         <option value="$PROJECT_DIR$/nextServer/routes/users.js" />
-        <option value="$PROJECT_DIR$/apiServer/routes/api.v1.js" />
         <option value="$PROJECT_DIR$/apiServer/middlewares/admin.js" />
         <option value="$PROJECT_DIR$/components/allUserFarms.js" />
         <option value="$PROJECT_DIR$/pages/user/all-activities.js" />
@@ -271,12 +245,15 @@
         <option value="$PROJECT_DIR$/components/bankDetailsForm.js" />
         <option value="$PROJECT_DIR$/pages/user/profile.js" />
         <option value="$PROJECT_DIR$/pages/user/investments.js" />
-        <option value="$PROJECT_DIR$/layouts/DashboardLayOut.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/api.js" />
         <option value="$PROJECT_DIR$/helpers/httpHelper.js" />
         <option value="$PROJECT_DIR$/components/allFarmActivitiesUser.js" />
         <option value="$PROJECT_DIR$/config/api_url.js" />
+        <option value="$PROJECT_DIR$/layouts/DashboardLayOut.js" />
+        <option value="$PROJECT_DIR$/apiServer/routes/api.v1.js" />
+        <option value="$PROJECT_DIR$/pages/user/dashboard.js" />
+        <option value="$PROJECT_DIR$/apiServer/controllers/user.js" />
       </list>
     </option>
   </component>
@@ -292,13 +269,33 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
               <item name="easycow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easycow" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easycow" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easycow" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easycow" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
@@ -313,6 +310,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,11 +429,14 @@
       <workItem from="1566057389896" duration="1510000" />
       <workItem from="1566072602487" duration="58000" />
       <workItem from="1566275319859" duration="787000" />
+      <workItem from="1566308559906" duration="6536000" />
+      <workItem from="1566380948313" duration="5115000" />
+      <workItem from="1566410244248" duration="12011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="845707000" />
+    <option name="totallyTimeSpent" value="869369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,7 +449,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13020833" />
+      <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50446427" side_tool="true" weight="0.294686" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
+      <window_info active="true" anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.4955357" visible="true" weight="0.294686" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13020833" />
       <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
@@ -464,28 +487,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.3993559" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
-      <window_info anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" visible="true" weight="0.294686" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.15625" />
-      <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
-      <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
-      <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32850242" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5029762" side_tool="true" weight="0.3993559" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
-      <window_info active="true" anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" visible="true" weight="0.33977455" />
+      <window_info anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.49702382" weight="0.294686" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
@@ -531,39 +533,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/createFarm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1380">
-          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#4308#4689#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/signupForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="227" column="8" lean-forward="true" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#256#288#0" expanded="true" />
-            <element signature="n#!!block;n#validateEmail#0;n#SignUpFormComp#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/layouts/StaticLayOut.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -594,13 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -699,20 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/routes/api.v1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="66" column="128" lean-forward="true" selection-start-line="66" selection-start-column="128" selection-end-line="66" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/controllers/farms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apiServer/middlewares/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -734,17 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/allFarms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-609">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#initDataTable#0;n#allFarmTableComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/user/allFarms.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -756,16 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
           <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/singleFarm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-end-line="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -813,13 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="153" column="65" selection-start-line="153" selection-start-column="65" selection-end-line="153" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/user/fundFarm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
@@ -861,27 +781,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bankDetailsForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nextServer/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/all-activities.js">
+    <entry file="file://$PROJECT_DIR$/pages/user/investments.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="28" column="14" selection-start-line="27" selection-start-column="10" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="1615">
+          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -895,22 +805,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/user/investments.js">
+    <entry file="file://$PROJECT_DIR$/pages/user/all-activities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+        <state relative-caret-position="425">
+          <caret line="28" column="14" selection-start-line="27" selection-start-column="10" selection-end-line="28" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/layouts/DashboardLayOut.js">
+    <entry file="file://$PROJECT_DIR$/components/allFarmActivitiesUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+        <state relative-caret-position="901">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bankDetailsForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -922,9 +842,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/api_url.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/js/countme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="3" selection-end-line="97" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/httpHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="765">
           <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -932,20 +866,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/allFarmActivitiesUser.js">
+    <entry file="file://$PROJECT_DIR$/helpers/date.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/DashboardLayOut.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/singleFarm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="13" column="58" lean-forward="true" selection-start-line="13" selection-end-line="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/api_url.js">
+    <entry file="file://$PROJECT_DIR$/apiServer/controllers/farms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="356">
+          <caret line="259" column="6" selection-start-line="259" selection-start-column="6" selection-end-line="259" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/helpers/smooch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/allFarms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="29" lean-forward="true" selection-start-column="7" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!block;n#initDataTable#0;n#allFarmTableComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/routes/api.v1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="57" column="70" selection-start-line="57" selection-start-column="70" selection-end-line="57" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/user/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="134" column="12" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/controllers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="294" column="68" selection-start-line="294" selection-start-column="68" selection-end-line="294" selection-end-column="68" />
+          <folding>
+            <element signature="e#5576#6191#0" />
+            <element signature="e#6222#7184#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -55,6 +55,7 @@ module.exports.apiV1 =  function (app) {
   router.get('/user/investments',isLoggedIn(), cors(corsOptions), (req,res)=> {user.investments(req,res)});
   router.post('/user/admin/create',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {user.createAdmin(req,res)});
   router.get('/user/summary',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.summary(req,res)});
+  router.get('/user/investor/summary',isLoggedIn(), cors(corsOptions),(req,res)=> {user.investorSummary(req,res)});
 
 
 
