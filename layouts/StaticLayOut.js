@@ -6,254 +6,298 @@ class StaticLayout extends React.Component {
     super()
     this.prop = prop
   }
-  static async getInitialProps({ req }) {
-    return { };
-  }
 
+
+	componentDidMount(){
+
+
+	//Search Box Toggle
+	if($('.search-toggle').length){
+	   //Dropdown Button
+	   $('.search-toggle').on('click', function() {
+	    $(this).toggleClass('active');
+	    $(this).next('.search-box').toggleClass('now-visible');
+	    });
+	}
+
+	//Custom Seclect Box
+		if($('.custom-select-box').length){
+			$('.custom-select-box').selectmenu().selectmenu('menuWidget').addClass('overflow');
+		}
+
+
+	}
+
+
+	
   render() {
     return(
-      <html>
-      <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+       <html>
+
       <Head>
-        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1"/>
-        <base/>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <meta name="generator" content="Joomla! - Open Source Content Management"/>
-        <title>EasyCowFunding | Home</title>
-        <link href="indexc0d0.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0"/>
-        <link href="index7b17.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0"/>
-        <link href="templates/theme3489/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
-        <link
-          href="index.php/component/search/indexd6e7.html?layout=theme3489:category&amp;id=8&amp;Itemid=101&amp;format=opensearch"
-          rel="search" title="Search Agriculture" type="application/opensearchdescription+xml"/>
-        <link href="media/jui/css/chosen3467.css?454a96ddb3b4e077fcfb532ca7c3d5eb" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/template.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <link
-          href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
-          rel="stylesheet" type="text/css"/>
-        <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet"
-              type="text/css"/>
-        <link href="templates/theme3489/css/komento.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/color_schemes/color_scheme_1.css" rel="stylesheet" type="text/css"
-              id="color_scheme"/>
-        <link href="components/com_virtuemart/assets/css/facebox48de.css?vmver=3b73dab7" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_tm_product_tabs/assets/responsive-tabs.css" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_tm_parallax/css/rd-parallax.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/swiper.css" rel="stylesheet" type="text/css"/>
-        <link href="modules/mod_swiper/css/animate.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/html/mod_icemegamenu/css/navbar.css" rel="stylesheet" type="text/css"/>
-        <link href="templates/theme3489/css/color_schemes/mine.css" rel="stylesheet" type="text/css"/>
-        <script src="media/jui/js/jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb" type="text/javascript"></script>
-        <script src="media/jui/js/jquery-noconflict3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
-                type="text/javascript"></script>
-        <script src="media/jui/js/jquery-migrate.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
-                type="text/javascript"></script>
-        <script src="plugins/system/bootstrap_3/assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="media/jui/js/chosen.jquery.min3467.js?454a96ddb3b4e077fcfb532ca7c3d5eb"
-                type="text/javascript"></script>
-        <script src="templates/theme3489/js/scripts.js" type="text/javascript"></script>
-        <script src="modules/mod_slogin/media/slogin.min3860.js?v=1" type="text/javascript"></script>
-        <script src="media/system/js/core55a3.js?v=1543272676" type="text/javascript"></script>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-      </Head>
-      <body className="body__home option-com_content view-category task- itemid-101 option-com_virtuemart">
+	<title>CowFunding By Selema Farms</title>
+  <script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/wow.js"></script>
+	<script src="/js/validation.js"></script>
+	<script src="/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="/js/SmoothScroll.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZQiiFTOGpm2qHVZmZY1s-aEnmHDhqKgk"></script>
+	<script src="/js/html5lightbox/html5lightbox.js"></script>
+	<script src="/js/gmaps.js"></script>
+	<script src="/js/map-helper.js"></script>
+	<script src="/js/isotope.js"></script>
+	<script src="/js/jquery-ui.js"></script>
+	<script src="/js/jquery.appear.js"></script>
+	<script src="/js/jquery.countTo.js"></script>
+	<script src="/js/script.js"></script>
+	<link href="/css/style.css" rel="stylesheet"/>
+	<link href="/css/custom.css" rel="stylesheet"/>
+	<link href="/css/responsive.css" rel="stylesheet"/>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link href="/css/font-awesome.css" rel="stylesheet"/>
+
+</Head>
+
+
+<body class="boxed_wrapper">
+	<div class="preloader"></div>
+	<header class="main-header header-style-three header-style-four">
+
+		<div class="header-upper">
+			<div class="container clearfix">
+				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
+				<div class="upper-right clearfix">
+					<div class="upper-column info-box">
+						<div class="icon-box"><i class="flaticon-phone-call"></i></div>
+						<ul>
+							<li>
+								<strong>880 1723801729</strong>hello@cowfunding.com.ng
+							</li>
+						</ul>
+					</div>
+					<div class="upper-column info-box">
+						<div class="icon-box"><i class="flaticon-placeholder"></i></div>
+						<ul>
+							<li>
+							<strong> Oloba Village,</strong>Osun State.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="menu-box">
+				<div class="container">
+					<div class="nav-outer clearfix">
+						<div class="menu-area pull-left">
+							<nav class="main-menu navbar-expand-lg">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+								</div>
+								<div class="navbar-collapse collapse clearfix">
+									<ul class="navigation clearfix">
+										<li><a href="index.html">Home</a>
+										</li>
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="causes-grid.html">Our Ranch</a>
+										</li>
+										<li><a href="team.html">Our Gallery</a>
+										</li>
+										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
+										</li>
+										<li><a href="contact.html">Contact Us</a></li>
+									</ul>
+								</div>
+							</nav>
+						</div>
+						<ul class="nav-right pull-right">
+							<div class="upper-column info-box donate-box">
+								<button class="donate-box-btn theme-btn">Login</button>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="sticky-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12 column">
+						<figure class="logo-box"><a href="index.html"><img src="" alt=""/>CowFunding</a></figure>
+					</div>
+					<div class="col-lg-8 col-md-12 col-sm-12 menu-column">
+						<div class="menu-area">
+							<nav class="main-menu navbar-expand-lg">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+								</div>
+								<div class="navbar-collapse collapse clearfix">
+									<ul class="navigation clearfix">
+										<li><a href="index-7.html">Home</a>
+										</li>
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="causes-grid.html">Our Ranch</a>
+										</li>
+										<li><a href="team.html">Our Gallery</a>
+										</li>
+										<li><a href="#">Our Thoughts</a>
+										</li>
+										<li><a href="contact.html">Contact Us</a></li>
+									</ul>
+								</div>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
       {this.prop.children}
-      <div id="footer-wrapper">
-        <div className="footer-wrapper-inner">
-          <div id="footer" className="stuck_position">
-            <div className="container">
-              <div className="row">
-                <div className="moduletable   col-sm-6">
-                  <div className="module_container">
-                    <header className='page_header'>
-                      <h4 className="moduleTitle "><span
-                        className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Newsletter</span>
-                      </h4>
-                      <div className="item_introtext">
-                        <p>FUND A FARM TODAY</p>
-                      </div>
-                    </header>
-                    <div className="acymailing_module" id="acymailing_module_formAcymailing50541">
-                      <div className="acymailing_fulldiv" id="acymailing_fulldiv_formAcymailing50541">
+      <footer class="main-footer">
+				<div class="container">
+			<div class="footer-content">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+						<div class="logo-widget footer-widget">
+							<figure class="logo-box"><a href="index-6.html"><img src="images/logo.png" alt=""/></a></figure>
+							<div class="text">
+								<p>Lorem ipsum dolor amet consectetur adi pisicing elit sed eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam quis.nostrud exercita.laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
+							</div>
+							<ul class="footer-social">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+						<div class="service-widget footer-widget">
+							<div class="footer-title">Links</div>
+							<ul class="list">
+								<li><a href="index-7.html">Home</a>
+								</li>
+								<li><a href="about.html">About Us</a></li>
+								<li><a href="causes-grid.html">Our Ranch</a>
+								</li>
+								<li><a href="team.html">Our Gallery</a>
+								</li>
+								<li><a href="#">Our Thoughts</a>
+								</li>
+								<li><a href="contact.html">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+						<div class="contact-widget footer-widget">
+							<div class="footer-title">Contacts</div>
+							<div class="text">
+								<p> Oloba Village,Osun State.</p>
+								<p>+2(305) 587-3407</p>
+								<p>hello@cowfunding.com.ng</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			</footer>
+  		<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 column">
+					<div class="copyright"><a href="#">CowFunding By Selema Farms</a> &copy;2019 All Right Reserved</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 column">
+					<ul class="footer-nav">
+						<li><a href="#">Terms of Service</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="moduletable   col-sm-12">
-                  <div className="module_container">
-                    <header className='page_header'>
-                      <h4 className="moduleTitle "><span
-                        className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Contact</span>
-                        <span
-                          className="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">us</span>
-                      </h4>
-                    </header>
-                    <div className="mod-menu">
-                      <ul className="menu ">
-                        <li className="item-610">
-                          <span className="separator">Farmer Street 101, NY 10036, US</span></li>
-                        <li className="item-611">
-                          <a href="mailto:example@demolink.org">example@demolink.org</a>
-                        </li>
-                        <li className="item-612">
-                          <span className="separator">Call Us: 1-800-123-1234</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="moduletable   col-sm-12">
-                  <div className="module_container">
-                    <header className='page_header'>
-                      <h4 className="moduleTitle "><span
-                        className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Follow</span>
-                        <span
-                          className="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">us</span>
-                      </h4>
-                    </header>
-                    <div className="mod-menu mod-menu__social">
-                      <ul className="nav menu social">
-                        <li className="item-148" id="limy"><a className="fa fa-facebook" href="#" title="Facebook"></a>
-                        </li>
-                        <li className="item-150" id="limy"><a className="fa fa-twitter" href="#" title="Twitter"></a>
-                        </li>
-                        <li className="item-149" id="limy"><a className="fa fa-google-plus" href="#" title="Google+"></a>
-                        </li>
-                        <li className="item-151" id="limy"><a className="fa fa-pinterest-p" href="#" title="Pinterest"></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="copyright" role="contentinfo">
-            <div className="container">
-              <div className="row">
+  			<div id="donate-popup" class="donate-popup">
+		<div class="close-donate"><span class="fa fa-close"></span></div>
+		<div class="popup-inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="donate-form-area">
+							<h2>Login</h2>
+							<h4 class="text-center">Fill this form to login</h4>
+							<form action="#" class="donate-form default-form me">
+								<div class="form-bg">
+									<div class="row clearfix">
+										<div class="col-lg-12 col-md-6 col-sm-12">
+											<div class="form-group">
+												<p>Your Name*</p>
+												<input type="text" name="name" placeholder=""/>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-6 col-sm-12">
+											<div class="form-group">
+												<p>Email*</p>
+												<input type="text" name="email" placeholder=""/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="center text-center me"><button class="theme-btn" type="submit">Login</button></div>
+							</form>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="donate-form-area">
+							<h2>Register</h2>
+							<h4 class="text-center">Fill this form to Register</h4>
+							<form action="#" class="donate-form default-form me">
+								<div class="form-bg">
+									<div class="row clearfix">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<p>Your Name*</p>
+												<input type="text" name="name" placeholder=""/>
+											</div>
+										</div>
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<p>Email*</p>
+												<input type="text" name="email" placeholder=""/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="center text-center me"><button class="theme-btn" type="submit">Register</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
 
-                <div className="copyright col-sm-12">
-                  <span className="copy">&copy; </span><span className="year">2019 <span><a href="selemafarms.com">Selema Farms</a></span></span><span
-                  className="copy"> All Rights Reserved. </span> <span className="terms_link">
-                                <a href="index.php/privacy-policy.html">
-                                    Terms of Use                                </a>
-                                </span>
-                  <span className="privacy_link">
-                                <a rel="license" href="index.php/privacy-policy.html">
-                                    Privacy Policy                                </a>
-                                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="back-top">
-        <a href="#"><span></span></a>
-      </div>
-      <div className="container">
-        <div id="modal" className="modal fade fade loginPopup" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <button type="button" className="close modalClose" data-dismiss="modal">×</button>
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="moduletable ">
-                <div className="modal-header">
-                  <header className='page_header'>
-                    <h3 className="moduleTitle "><span
-                      className="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Search</span>
-                      <span
-                        className="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">Form</span>
-                    </h3>
-                  </header>
-                </div>
-                <div className="modal-body">
-                  <div role="search" className="mod-search mod-search__">
-                    <form action="https://livedemo00-joomla.template-help.com/joomla_prod-8983_v1/index.php" method="post"
-                          className="navbar-form">
-                      <label htmlFor="searchword-225" className="element-invisible">Search ...</label>
-                      <input id="searchword-225" name="searchword" maxLength="200" className="inputbox mod-search_searchword"
-                             type="text" size="0" placeholder="Search ..." required />
-                      <button className="button btn btn-primary" onClick="this.form.searchword.focus();">Search</button>
-                      <input type="hidden" name="task" value="search" />
-                      <input type="hidden" name="option" value="com_search" />
-                      <input type="hidden" name="Itemid" value="101" />
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="fixed-sidebar-right">
-        <div className="moduletable login login_shell" id="module_211"><i className="fa fa-user"></i>
-          <div className="mod_login_wrapper">
-            <noindex>
-              <div className="jlslogin">
-
-                <div className="slogin-clear"></div>
-                <form action="https://livedemo00-joomla.template-help.com/joomla_prod-8983_v1/index.php" method="post"
-                      id="login-form">
-                  <fieldset className="userdata">
-                    <div id="form-login-username">
-                      <label htmlFor="modlgn-username">Username</label>
-                      <input id="modlgn-username" type="text" name="username" className="inputbox" size="18"
-                             placeholder="Username"/>
-                    </div>
-                    <div id="form-login-password">
-                      <label htmlFor="modlgn-passwd">Password</label>
-                      <input id="modlgn-passwd" type="password" name="password" className="inputbox" size="18"
-                             placeholder="Password"/>
-                    </div>
-                    <div id="form-login-remember">
-                      <label htmlFor="modlgn-remember">
-                        <input id="modlgn-remember" type="checkbox" name="remember" className="inputbox" value="yes"/>
-                        Remember Me </label>
-                    </div>
-                    <div className="slogin-clear"></div>
-                    <input type="submit" name="Submit" className="btn button" value="Log in"/>
-                    <input type="hidden" name="option" value="com_users"/>
-                    <input type="hidden" name="task" value="user.login"/>
-                    <input type="hidden" name="return"
-                           value="aHR0cHM6Ly9saXZlZGVtbzAwLWpvb21sYS50ZW1wbGF0ZS1oZWxwLmNvbS9qb29tbGFfcHJvZC04OTgzX3YxLw=="/>
-                    <input type="hidden" name="d973bf354ec2c5486215bc66c284e081" value="1"/></fieldset>
-                  <ul className="ul-jlslogin">
-                    <li>
-                      <a rel="nofollow" href="index.php/password-reset.html">
-                        Forgot your password?</a>
-                    </li>
-                    <li>
-                      <a rel="nofollow" href="index.php/username-reminder-request.html">
-                        Forgot your username?</a>
-                    </li>
-                    <li>
-                      <a rel="nofollow" href="index.php/user-registration.html">
-                        Create an account</a>
-                    </li>
-                  </ul>
-                </form>
-                <div id="slogin-buttons" className="slogin-buttons slogin-default">
-
-                  <a rel="nofollow" className="btn linkfacebookslogin" title="Facebook" href="#"><span
-                    className="facebookslogin slogin-ico"></span><span className="text-socbtn">Facebook</span></a>
-                  <a rel="nofollow" className="btn linkgoogleslogin" title="Google" href=""><span
-                    className="googleslogin slogin-ico"></span><span className="text-socbtn">Google</span></a>
-
-                </div>
-
-              </div>
-            </noindex>
-          </div>
-
-        </div>
-      </div>
-
-      <div className="modalTmbox"></div>
+			</div>
+		</div>
+	</div>
       </body>
-      </html>
-    );
+      </html> 
+    )
   }
 
 

@@ -123,6 +123,7 @@ class LogInFormComp extends React.Component{
               <li className="item-148"><a className="" href="#" title="Facebook"><img
                 src="../images/fb-button.png" alt="fb-button" height="500" width="200" /></a>
               </li>
+              
               <li className="item-149"><a className="" href="#" title="Google"><img
                 src="../images/google_signin_buttons/web/2x/btn_google_signin_light_focus_web@2x.png"
                 alt="g-button" height="200" width="200" /></a>

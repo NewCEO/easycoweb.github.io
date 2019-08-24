@@ -317,8 +317,7 @@ module.exports = class  user {
                    FROM farms
                    INNER JOIN followed_farms on farms.id = followed_farms.farm_id
                    WHERE followed_farms.user_id = ?
-                 
-                  
+                              
                  `;
 
       let values = [req.session.userId,];

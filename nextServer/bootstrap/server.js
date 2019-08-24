@@ -30,6 +30,23 @@ module.exports = class server{
       nextApp.render(req,res,'/logout',req.query);
     })
 
+   app.get('/about-us', (req,res)=> {
+    nextApp.render(req,res,'/about-us',req.query);
+  })
+
+  app.get('/shop', (req,res)=> {
+    nextApp.render(req,res,'/shop',req.query);
+  })
+
+  app.get('/gallery', (req,res)=> {
+    nextApp.render(req,res,'/gallery',req.query);
+  })
+
+  app.get('/contact', (req,res)=> {
+    nextApp.render(req,res,'/contact',req.query);
+  })
+
+
     app.listen(this.port,(err)=>{
       console.log('> server started on port '+this.port);
     });

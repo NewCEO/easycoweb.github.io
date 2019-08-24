@@ -111,14 +111,16 @@ module.exports = class farms {
 
     let values  = [];
     let body = req.query;
-    let followFarmJoin = (req.session.userId?`followed_farms.user_id = ${req.session.userId} AND `:"")+"followed_farms.farm_id = farms.id";
 
-    let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,
+
+    let followFarmJoin =  `followed_farms.farm_id = ${req.session.userId?this.sessoin.userId:"null"} AND followed_farms.farm_id = farms.id`;
+
+    let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,followed_farms.user_id,
       IF (ISNULL(followed_farms.user_id ),"false","true") AS followed, 
      (SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out 
       FROM farms 
       INNER JOIN status ON status.id = farms.status 
-      INNER JOIN states on states.id = farms.location 
+      INNER JOIN states on states.id = farms.location
       ${req.params.follow === "followed"?"INNER":"LEFT"} JOIN followed_farms ON  ( ${followFarmJoin})  
       ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
 

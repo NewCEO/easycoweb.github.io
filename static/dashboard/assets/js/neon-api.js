@@ -24,13 +24,12 @@ jQuery.extend(public_vars, {
 
 function show_sidebar_menu(with_animation)
 {
-	// if(isxs())
-	// 	return;
+	if(isxs())
+		return;
 
-	console.log('somethis is not right wrong')
 	if( ! with_animation)
 	{
-		$('.page-container').removeClass(public_vars.sidebarCollapseClass);
+		public_vars.$pageContainer.removeClass(public_vars.sidebarCollapseClass);
 	}
 	else
 	{
@@ -38,7 +37,7 @@ function show_sidebar_menu(with_animation)
 			return;
 
 		// Check
-		$('.page-container').removeClass(public_vars.sidebarCollapseClass);
+		public_vars.$pageContainer.removeClass(public_vars.sidebarCollapseClass);
 
 		var duration		 = public_vars.sidebarTransitionTime,
 			expanded_width   = public_vars.$sidebarMenu.width(),
@@ -118,19 +117,18 @@ function show_sidebar_menu(with_animation)
 
 function hide_sidebar_menu(with_animation)
 {
-	// if(isxs())
-	// 	return;
+	if(isxs())
+		return;
 
 	if( ! with_animation)
 	{
-		$('.page-container').addClass(public_vars.sidebarCollapseClass);
+		public_vars.$pageContainer.addClass(public_vars.sidebarCollapseClass);
 		public_vars.$mainMenu.find('.has-sub > ul').attr('style', '');
 	}
 	else
 	{
-		// if(public_vars.$mainMenu.data('is-busy') || public_vars.$pageContainer.hasClass(public_vars.sidebarCollapseClass))
-		// 	return;
-		console.log("hide side bar")
+		if(public_vars.$mainMenu.data('is-busy') || public_vars.$pageContainer.hasClass(public_vars.sidebarCollapseClass))
+			return;
 
 		// Check
 		public_vars.$pageContainer.addClass(public_vars.sidebarCollapseClass);
@@ -149,7 +147,6 @@ function hide_sidebar_menu(with_animation)
 			$sidebar_ulink	 = public_vars.$sidebarUser.find('span, strong'),
 
 			logo_env_padding = parseInt($logo_env.css('padding'), 10);
-		console.log(duration,'duration')
 
 		// Return to normal state
 		public_vars.$pageContainer.removeClass(public_vars.sidebarCollapseClass);
@@ -212,8 +209,8 @@ function hide_sidebar_menu(with_animation)
 
 function toggle_sidebar_menu(with_animation)
 {
+	var open = public_vars.$pageContainer.hasClass(public_vars.sidebarCollapseClass);
 
-	var open = $('.page-container').hasClass(public_vars.sidebarCollapseClass);
 	if(open)
 	{
 		show_sidebar_menu(with_animation);
