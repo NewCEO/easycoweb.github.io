@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import LogInFormComp from "../components/loginForm";
 
 class StaticLayout extends React.Component {
   constructor(prop){
@@ -260,26 +261,10 @@ class StaticLayout extends React.Component {
 						<div class="donate-form-area">
 							<h2>Login</h2>
 							<h4 class="text-center">Fill this form to login</h4>
-							<form action="#" class="donate-form default-form me">
-								<div class="form-bg">
-									<div class="row clearfix">
-										<div class="col-lg-12 col-md-6 col-sm-12">
-											<div class="form-group">
-												<p>Your Name*</p>
-												<input type="text" name="name" placeholder=""/>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-6 col-sm-12">
-											<div class="form-group">
-												<p>Email*</p>
-												<input type="text" name="email" placeholder=""/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="center text-center me"><button class="theme-btn" type="submit">Login</button></div>
-							</form>
-						</div>
+
+              <LogInFormComp />
+
+            </div>
 					</div>
 					<div class="col-sm-6">
 						<div class="donate-form-area">

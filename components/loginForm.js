@@ -81,57 +81,34 @@ class LogInFormComp extends React.Component{
   render() {
 
     return (
-      <form id="member-registration" onSubmit={this.handleSubmit} className="form-horizontal">
+
+      <form action="#"  onSubmit={this.handleSubmit} className="donate-form default-form me">
         {
 
           this.state.loginHelpBlock.state?<HelpBlock type={this.state.loginHelpBlock.error} text={this.state.loginHelpBlock.text} />:''
         }
-        <fieldset>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_email1-lbl" htmlFor="jform_email1" className="hasPopover required"
-                     title="Email Address" data-content="Enter your email address.">
-                Email Address<span className="star">&#160;*</span></label>
+        <div className="form-bg">
+          <div className="row clearfix">
+            <div className="col-lg-12 col-md-6 col-sm-12">
+              <div className="form-group">
+                <p>Email*</p>
+                <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
+                       id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
+                       aria-required="true"/>
+              </div>
             </div>
-            <div className="controls">
-              <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
-                     id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
-                     aria-required="true"/>
+            <div className="col-lg-12 col-md-6 col-sm-12">
+              <div className="form-group">
+                <p>Password*</p>
+                <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
+                       autoComplete="off" className="validate-password required" size="30"
+                       value={this.state.password} required aria-required="true"/></div>
+              </div>
+              <div className="col-lg-12">
+                <button className="btn btn-primary block">Submit</button>
+              </div>
             </div>
-
           </div>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_password1-lbl" htmlFor="jform_password1"
-                     className="hasPopover required" title="Password"
-                     data-content="Enter your desired password.">
-                Password<span className="star">&#160;*</span></label>
-            </div>
-            <div className="controls">
-              <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
-                     autoComplete="off" className="validate-password required" size="30"
-                     value={this.state.password} required aria-required="true"/></div>
-
-          </div>
-        </fieldset>
-        <div className="controls col-sm-12">
-          <button type="submit" className="btn btn-primary">Login</button>
-
-          <p>Don't have an account?<br /></p>
-          <div className="mod-menu mod-menu__social">
-            <ul className="nav menu social">
-              <li className="item-148"><a className="" href="#" title="Facebook"><img
-                src="../images/fb-button.png" alt="fb-button" height="500" width="200" /></a>
-              </li>
-              
-              <li className="item-149"><a className="" href="#" title="Google"><img
-                src="../images/google_signin_buttons/web/2x/btn_google_signin_light_focus_web@2x.png"
-                alt="g-button" height="200" width="200" /></a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
       </form>
 
     );
