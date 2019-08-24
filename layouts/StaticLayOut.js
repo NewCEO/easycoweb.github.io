@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import LogInFormComp from "../components/loginForm";
+import SignUpFormComp from "../components/signupForm";
 
 class StaticLayout extends React.Component {
   constructor(prop){
@@ -270,25 +271,8 @@ class StaticLayout extends React.Component {
 						<div class="donate-form-area">
 							<h2>Register</h2>
 							<h4 class="text-center">Fill this form to Register</h4>
-							<form action="#" class="donate-form default-form me">
-								<div class="form-bg">
-									<div class="row clearfix">
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<p>Your Name*</p>
-												<input type="text" name="name" placeholder=""/>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<p>Email*</p>
-												<input type="text" name="email" placeholder=""/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="center text-center me"><button class="theme-btn" type="submit">Register</button></div>
-							</form>
+
+              <SignUpFormComp/>
 						</div>
 					</div>
 				</div>

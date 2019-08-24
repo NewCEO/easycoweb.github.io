@@ -113,7 +113,7 @@ module.exports = class farms {
     let body = req.query;
 
 
-    let followFarmJoin =  `followed_farms.farm_id = ${req.session.userId?this.sessoin.userId:"null"} AND followed_farms.farm_id = farms.id`;
+    let followFarmJoin =  `followed_farms.farm_id = ${req.session.userId?req.session.userId:"null"} AND followed_farms.farm_id = farms.id`;
 
     let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,followed_farms.user_id,
       IF (ISNULL(followed_farms.user_id ),"false","true") AS followed, 
