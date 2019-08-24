@@ -25,8 +25,24 @@ class StaticLayout extends React.Component {
 			$('.custom-select-box').selectmenu().selectmenu('menuWidget').addClass('overflow');
 		}
 
+		this.initPopUp();
 
 	}
+
+	initPopUp(){
+    if($('#donate-popup').length){
+
+      //Show Popup
+      $('.donate-box-btn').on('click', function() {
+        $('#donate-popup').addClass('popup-visible');
+      });
+
+      //Hide Popup
+      $('.close-donate').on('click', function() {
+        $('#donate-popup').removeClass('popup-visible');
+      });
+    }
+  }
 
 
 	
