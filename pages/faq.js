@@ -126,6 +126,64 @@ class faq extends React.Component{
 							<hr class="col-sm-10"/>
 					</div>
 
+					<div class="panel single-accordion">
+						<h4>
+							<a role="button" aria-expanded="true" aria-controls="collapseeight" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseeight"> When do I get my money back? Capital and Interest?
+
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+						</h4>
+						<div id="collapseeight" class="accordion-content collapse">
+							<p>Investment tenure ends at 8 months</p>
+						</div>
+							<hr class="col-sm-10"/>
+					</div>
+
+					<div class="panel single-accordion">
+						<h4>
+							<a role="button" aria-expanded="true" aria-controls="collapseeight" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsenine"> What would happen to the cow(s) I invest in?
+
+
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+						</h4>
+						<div id="collapsenine" class="accordion-content collapse">
+							<p>We currently have a thriving relationship with Abbattiors in the South Western part of the country. We also have a number of retail partners with stores across the country.</p>
+						</div>
+							<hr class="col-sm-10"/>
+					</div>
+
+					<div class="panel single-accordion">
+						<h4>
+							<a role="button" aria-expanded="true" aria-controls="collapseeight" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseten"> What methods of payment are available on Cowfunding by Selema Farms? 
+
+
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+						</h4>
+						<div id="collapseten" class="accordion-content collapse">
+							<p>You can have a bank transfer made directly into the Selema Farms bank account OR simply make payments through Paystack on the payment page.</p>
+						</div>
+							<hr class="col-sm-10"/>
+					</div>
+
+					<div class="panel single-accordion">
+						<h4>
+							<a role="button" aria-expanded="true" aria-controls="collapseeight" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseeleven">Where is Selema Farms Located?
+
+
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+						</h4>
+						<div id="collapseeleven" class="accordion-content collapse">
+							<p>Iwo Town, Osun State, Nigeria</p>
+						</div>
+							<hr class="col-sm-10"/>
+					</div>
+
+
+
+
 				</div>
 			</div>
 		</div>
