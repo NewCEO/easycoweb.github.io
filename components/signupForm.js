@@ -233,112 +233,66 @@ import HelpBlock from "../components/HelpBlock";
 
    render() {
     return (
-      <form id="member-registration" onSubmit={this.handleSubmit} ref={this.form} className="form-horizontal">
+
+      <form action="#" className="donate-form default-form me" onSubmit={this.handleSubmit} ref={this.form} >
         {
 
           this.state.signUpHelpBlock.state?<HelpBlock type={this.state.signUpHelpBlock.error} text={this.state.signUpHelpBlock.text} />:''
         }
-        <fieldset>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_name-lbl" htmlFor="jform_name" className="hasPopover required"
-                     title="Name" data-content="Enter your full name.">
-                Name<span className="star">&#160;*</span></label>
+        <div className="form-bg">
+          <div className="row clearfix">
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <div className="form-group">
+                <p>Your Name*</p>
+                <input type="text"  name="name" id="jform_name"  className="required"
+                       size="30" required aria-required="true" value={this.state.name} onChange={this.handleChange} />
+
+                {
+
+                  this.state.nameHelpText.state?<FormHelpText type={this.state.nameHelpText.error} text={this.state.nameHelpText.text} />:''
+                }
+              </div>
             </div>
-            <div className="controls">
-              <input type="text"  name="name" id="jform_name"  className="required"
-                     size="30" required aria-required="true" value={this.state.name} onChange={this.handleChange} />
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <div className="form-group">
+                <p>Email*</p>
+                <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
+                       id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
+                       aria-required="true"/></div>
+              {
+                this.state.emailHelpText.state?<FormHelpText type={this.state.emailHelpText.error} text={this.state.emailHelpText.text} />:''
+              }
+              </div>
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <div className="form-group">
+                <p>Password*</p>
+                <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
+                       autoComplete="off" className="validate-password required" size="30"
+                       value={this.state.password} required aria-required="true"/></div>
+              {
 
-                     {
-
-                       this.state.nameHelpText.state?<FormHelpText type={this.state.nameHelpText.error} text={this.state.nameHelpText.text} />:''
-                     }
-
+                this.state.passwordHelpText.state?<FormHelpText type={this.state.passwordHelpText.error} text={this.state.passwordHelpText.text} />:''
+              }
             </div>
-          </div>
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <div className="form-group">
+                <p>Confirm Password*</p>
+                <input type="password" name="confirmPassword" onChange={this.handleChange} id="jform_password2"
+                       autoComplete="off" className="validate-password required" size="30"
+                       value={this.state.password2} required aria-required="true"/></div>
+              {
 
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_password1-lbl" htmlFor="jform_password1"
-                     className="hasPopover required" title="Password"
-                     data-content="Enter your desired password.">
-                Password<span className="star">&#160;*</span></label>
+                this.state.confirmPasswordHelpText.state?<FormHelpText type={this.state.confirmPasswordHelpText.error} text={this.state.confirmPasswordHelpText.text} />:''
+              }
             </div>
-            <div className="controls">
-              <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
-                     autoComplete="off" className="validate-password required" size="30"
-                     value={this.state.password} required aria-required="true"/></div>
-            {
-
-              this.state.passwordHelpText.state?<FormHelpText type={this.state.passwordHelpText.error} text={this.state.passwordHelpText.text} />:''
-            }
-          </div>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_password2-lbl" htmlFor="jform_password2"
-                     className="hasPopover required" title="Confirm Password"
-                     data-content="Confirm your password.">
-                Confirm Password<span className="star">&#160;*</span></label>
-            </div>
-            <div className="controls">
-              <input type="password" name="confirmPassword" onChange={this.handleChange} id="jform_password2"
-                     autoComplete="off" className="validate-password required" size="30"
-                     value={this.state.password2} required aria-required="true"/></div>
-            {
-
-              this.state.confirmPasswordHelpText.state?<FormHelpText type={this.state.confirmPasswordHelpText.error} text={this.state.confirmPasswordHelpText.text} />:''
-            }
-          </div>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_email1-lbl" htmlFor="jform_email1" className="hasPopover required"
-                     title="Email Address" data-content="Enter your email address.">
-                Email Address<span className="star">&#160;*</span></label>
-            </div>
-            <div className="controls">
-              <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
-                     id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
-                     aria-required="true"/></div>
-            {
-              this.state.emailHelpText.state?<FormHelpText type={this.state.emailHelpText.error} text={this.state.emailHelpText.text} />:''
-            }
-          </div>
-
-        </fieldset>
-        <fieldset>
-          <div className="control-group">
-            <div className="control-label">
-              <label id="jform_profile_tos-lbl" htmlFor="jform_profile_tos"
-                     className="hasPopover required" title="Terms of Service"
-                     data-content="Please read the Terms of Service. You will not be able to register if you do not agree with them.">Terms
-                of Service<span className="star">&#160;*</span></label></div>
-            <div className="controls">
-              <fieldset id="jform_profile_tos" className="radio" required aria-required="true">
-                <input type="radio" id="jform_profile_tos0" name="jform[profile][tos]" value="1"
-                       required aria-required="true"/> <label htmlFor="jform_profile_tos0">
-                Agree </label>
-
-              </fieldset>
             </div>
           </div>
-        </fieldset>
-        <div className="controls col-sm-12">
-          <button type="submit" className="btn btn-primary">Register</button>
-          <p>Don't have an account?<br /></p>
-          <div className="mod-menu mod-menu__social">
-            <ul className="nav menu social">
-              <li className="item-148"><a className="" href="#" title="Facebook"><img
-                src="../images/fb-button.png" alt="fb-button" height="500" width="200" /></a>
-              </li>
-              <li className="item-149"><a className="" href="#" title="Google"><img
-                src="../images/google_signin_buttons/web/2x/btn_google_signin_light_focus_web@2x.png"
-                alt="g-button" height="200" width="200" /></a>
-              </li>
 
-            </ul>
-          </div>
+        <div className="center text-center me">
+          <button className="theme-btn" type="submit">Register</button>
         </div>
       </form>
+
 
     );
    }
