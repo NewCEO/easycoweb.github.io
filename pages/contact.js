@@ -84,7 +84,8 @@ class contact extends React.Component{
              
         <section class="subscribe-section"><section class="google-map-section">
 		<div class="google-map-area">
-			<iframe class="mymap col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3420011999806!2d3.3779788147711503!3d6.604353795223965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x806114ce7c540123!2sSelema+Farms!5e0!3m2!1sen!2sng!4v1563968220850!5m2!1sen!2sng" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe class="mymap col-sm-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3420011999806!2d3.3779788147711503!3d6.604353795223965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x806114ce7c540123!2sSelema+Farms!5e0!3m2!1sen!2sng!4v1563968220850!5m2!1sen!2sng" width="600" height="450" frameborder="0" style={{border:'0'}}
+         allowfullscreen></iframe>
 		</div>
 	</section>
 

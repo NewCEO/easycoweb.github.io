@@ -46,6 +46,10 @@ module.exports = class server{
     nextApp.render(req,res,'/contact',req.query);
   })
 
+  app.get('/contact', (req,res)=> {
+    nextApp.render(req,res,'/faq',req.query);
+  })
+
 
     app.listen(this.port,(err)=>{
       console.log('> server started on port '+this.port);
