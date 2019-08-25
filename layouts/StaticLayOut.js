@@ -220,6 +220,7 @@ class StaticLayout extends React.Component {
 								<li><a href="#">Our Thoughts</a>
 								</li>
 								<li><a href="contact.html">Contact Us</a></li>
+								<li><a href="contact.html">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
@@ -253,7 +254,7 @@ class StaticLayout extends React.Component {
 		</div>
 	</div>
 
-  			<div id="donate-popup" class="donate-popup">
+  	<div id="donate-popup" class="donate-popup">
 		<div class="close-donate"><span class="fa fa-close"></span></div>
 		<div class="popup-inner">
 			<div class="container">
@@ -276,10 +277,9 @@ class StaticLayout extends React.Component {
 						</div>
 					</div>
 				</div>
-
 			</div>
-		</div>
-	</div>
+			</div>
+			</div>
       </body>
       </html> 
     )
