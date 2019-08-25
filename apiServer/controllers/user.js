@@ -27,22 +27,37 @@ module.exports = class  user {
       return db.query(query, values)
     }).then((result)=>{
       res.withSuccess(201,"creation").reply();
-      // let mail = new mailer();
+      let mail = new mailer();
       //   //TODO change url from hardcoded to soft coded
-      // return mail.recipient(req.body.email)
-      //             .html(`<!DOCTYPE html>
-      //                    <html>
-      //                       <body>Registration Successful.
-      //                           <a href="http://localhost:3000/account/activate?email=${req.body.email}&key=${validationKey}">click here to              verify
-      //                           </a>
-      //                       </body>
-      //                     </html>`)
-      //             .send(undefined,3)
+      return mail.recipient(req.body.email)
+                  .html(`<!DOCTYPE html>
+                         <html>
+                            <body>Registration Successful.
+                                <a href="http://localhost:3000/user/verify?email=${req.body.email}&key=${validationKey}">click here to              verify
+                                </a>
+                            </body>
+                          </html>`)
+                  .send(undefined,3)
     }).catch(function (data) {
       console.log(data);
       return res.withServerError(500).reply();
     })
 
+  }
+
+  static verify(req,res){
+    let query = `UPDATE users SET users.status = ? AND users.reset_key = ? WHERE email = ? AND reset_key = ?`;
+    let values = [statuses.active,"null",req.body.email,req.body.validation_key];
+
+    db.query(query,values).then((result)=>{
+      if (result.affectedRows > 0){
+        res.withSuccess(200).withData({verification:'true'}).reply();
+      }else{
+        res.withClientError(400).reply();
+      }
+    }).catch(()=>{
+      res.withServerError(500).reply();
+    })
   }
   
   static login(req,res){

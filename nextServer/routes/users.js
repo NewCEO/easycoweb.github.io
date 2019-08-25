@@ -35,7 +35,9 @@ module.exports.users =  function (app,nextApp) {
     nextApp.render(req, res, '/user/all-activities', {host:req.headers.host,farmId:req.params.farmId});
   });
 
-
+  router.get('/verify',(req,res)=> {
+    nextApp.render(req, res, '/verify-user', {host:req.headers.host,farmId:req.params.farmId});
+  });
   app.use("/user",router);
 
 };
