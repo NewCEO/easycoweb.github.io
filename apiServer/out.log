@@ -1,0 +1,195 @@
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+> server started on port 3000
+[ wait ]  compiling ...
+[ event ] build page: /next/dist/pages/_error
+[ wait ]  compiling ...
+[ event ] client pings, but there's no entry for page: /_error
+> server started on port 3009
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+[ event ] disposing inactive page(s): /next/dist/pages/_error
+[ event ] build page: /next/dist/pages/_error
+[ wait ]  compiling ...
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+[ event ] disposing inactive page(s): /next/dist/pages/_error
+> server started on port 3009
+Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1054:14)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3306,
+  fatal: true
+}
+Error: Cannot enqueue Query after fatal error.
+    at Protocol._validateEnqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:200:16)
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:138:13)
+    at Connection.query (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:200:25)
+    at C:\xampp\htdocs\easycow\apiServer\helpers\db.js:9:18
+    at new Promise (<anonymous>)
+    at Function.query (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:8:12)
+    at Function.all (C:\xampp\htdocs\easycow\apiServer\controllers\farms.js:127:15)
+    at C:\xampp\htdocs\easycow\apiServer\routes\api.v1.js:67:95
+    at Layer.handle [as handle_request] (C:\xampp\htdocs\easycow\apiServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\xampp\htdocs\easycow\apiServer\node_modules\express\lib\router\route.js:137:13) {
+  code: 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR',
+  fatal: false
+}
+Error: Cannot enqueue Query after fatal error.
+    at Protocol._validateEnqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:200:16)
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:138:13)
+    at Connection.query (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:200:25)
+    at C:\xampp\htdocs\easycow\apiServer\helpers\db.js:9:18
+    at new Promise (<anonymous>)
+    at Function.query (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:8:12)
+    at Function.all (C:\xampp\htdocs\easycow\apiServer\controllers\farms.js:127:15)
+    at C:\xampp\htdocs\easycow\apiServer\routes\api.v1.js:67:95
+    at Layer.handle [as handle_request] (C:\xampp\htdocs\easycow\apiServer\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\xampp\htdocs\easycow\apiServer\node_modules\express\lib\router\route.js:137:13) {
+  code: 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR',
+  fatal: false
+} error
+> server started on port 3009
+> server started on port 3009
+> server started on port 3009
+> server started on port 3009
+> server started on port 3009
+> server started on port 3009
+> server started on port 3009
+Error: connect ETIMEDOUT
+    at Connection._handleConnectTimeout (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:411:13)
+    at Object.onceWrapper (events.js:284:20)
+    at Socket.emit (events.js:196:13)
+    at Socket._onTimeout (net.js:432:8)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+    --------------------
+    at Protocol._enqueue (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at Connection.connect (C:\xampp\htdocs\easycow\apiServer\node_modules\mysql\lib\Connection.js:118:18)
+    at new Database (C:\xampp\htdocs\easycow\apiServer\config\database.js:15:16)
+    at Object.<anonymous> (C:\xampp\htdocs\easycow\apiServer\helpers\db.js:2:24)
+    at Module._compile (internal/modules/cjs/loader.js:759:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)
+    at Module.load (internal/modules/cjs/loader.js:628:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:555:12)
+    at Module.require (internal/modules/cjs/loader.js:666:19) {
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  fatal: true
+}
+> server started on port 3009

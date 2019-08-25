@@ -1,5 +1,5 @@
 module.exports = {
-  active      : 1,
+  active      : '1',
   deactivate  : 2,
   invested:3,
   unpaid:4,

@@ -1,0 +1,11 @@
+[{
+  "uid": "app",
+  "append": true,
+  "watch": true,
+  "script": "app.js",
+  "sourceDir": "/xampp/htdocs/easycow/apiServer",
+  "logFile": "/xampp/htdocs/easycow/apiServer/forever.log",
+  "outFile": "/xampp/htdocs/easycow/apiServer/out.log",
+  "errFile": "/xampp/htdocs/easycow/apiServer/error.log"
+}
+]
