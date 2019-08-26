@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45cecc1-2397-4820-83ce-9a50361e11a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apiServer/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apiServer/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nextServer/env.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/cli-options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/env-options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/fs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/bootstrap/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/bootstrap/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/config/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/config/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/config/mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/config/mail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/config/paystack.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/config/paystack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apiServer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apiServer/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/helpers/mailer.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/helpers/mailer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/allFarmsHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarmsHomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/loginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/loginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/api_url.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/api_url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/paystack.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/paystack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/httpHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/httpHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextServer/bootstrap/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/nextServer/bootstrap/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/autodll-webpack-plugin/development_instance_0_543b18d8e1f86bd4be03433a6855379b/stats.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/autodll-webpack-plugin/package.json.hash" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/autodll-webpack-plugin/package.json.hash" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextServer/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/nextServer/env.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -257,7 +228,7 @@
       <workItem from="1566734874013" duration="2590000" />
       <workItem from="1566786181108" duration="189000" />
       <workItem from="1566800047787" duration="7964000" />
-      <workItem from="1566831778464" duration="572000" />
+      <workItem from="1566831778464" duration="1465000" />
     </task>
     <servers />
   </component>

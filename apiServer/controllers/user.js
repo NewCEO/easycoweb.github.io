@@ -8,6 +8,8 @@ let mailer                        = require('../helpers/mailer');
 const randomKey                   = require('../helpers/randomizer');
 let update                        = require("../helpers/qUpdater")();
 let slugger                       = require("../helpers/slugger");
+const mysql           = require('mysql');
+const dotenv = require('dotenv');
 
 module.exports = class  user {
 
@@ -33,7 +35,7 @@ module.exports = class  user {
                   .html(`<!DOCTYPE html>
                          <html>
                             <body>Registration Successful.
-                                <a href="http://localhost:3000/user/verify?email=${req.body.email}&key=${validationKey}">click here to              verify
+                                <a href="${process.env.APP_URL}:${process.env.APP_PORT}/user/verify?email=${req.body.email}&key=${validationKey}">click here to              verify
                                 </a>
                             </body>
                           </html>`)
