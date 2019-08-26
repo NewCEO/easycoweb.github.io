@@ -1,5 +1,5 @@
 import React from 'react';
-import DashBoardLayOut from '../../layouts/AdminDashboardLayout';
+import DashBoardLayOut from '../../layouts/AdminDashboardLayOut';
 import AllUsers from '../../components/allUsers';
 import isSuperAdmin from '../../middlewares/isSuperAdmin'
 

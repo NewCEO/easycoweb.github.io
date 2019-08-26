@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e45cecc1-2397-4820-83ce-9a50361e11a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apiServer/bootstrap/forever/production.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/verify-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/controllers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/controllers/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apiServer/routes/api.v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/routes/api.v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/status.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextServer/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/nextServer/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/createAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/createAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/all-activities.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/all-activities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/all-farms.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/all-farms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/all-investments.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/all-investments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/all-users.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/all-users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/create-activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/create-activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/create-farm.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/create-farm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/create-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/create-user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/admin/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/admin/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/user/all-activities.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user/all-activities.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/apiServer/bootstrap/forever/production.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -53,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apiServer/out.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="82" column="1" lean-forward="true" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+            <state relative-caret-position="19">
+              <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -132,7 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.</find>
       <find>.paid</find>
       <find>paid</find>
       <find>&lt;p&gt;</find>
@@ -162,6 +162,7 @@
       <find>upda</find>
       <find>upd</find>
       <find>donate-popup</find>
+      <find>DashboardLayout</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;p&gt;</replace>
@@ -169,13 +170,14 @@
       <replace>&lt;/p</replace>
       <replace>a</replace>
       <replace />
+      <replace>DashboardLayOut</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\xampp\htdocs\easycow</dir>
       <dir>C:\xampp\htdocs\easycow\apiServer\controllers</dir>
       <dir>C:\xampp\htdocs\easycow\apiServer\middlewares</dir>
       <dir>C:\xampp\htdocs\easycow\components</dir>
       <dir>C:\xampp\htdocs\easycow\pages</dir>
+      <dir>C:\xampp\htdocs\easycow</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -250,18 +252,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
               <item name="easycow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="easycow" type="462c0819:PsiDirectoryNode" />
-              <item name="apiServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easycow" type="b2602c69:ProjectViewProjectNode" />
@@ -276,6 +272,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,11 +401,12 @@
       <workItem from="1566674804979" duration="9326000" />
       <workItem from="1566688013893" duration="1385000" />
       <workItem from="1566734874013" duration="2590000" />
+      <workItem from="1566835357567" duration="604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="891205000" />
+    <option name="totallyTimeSpent" value="891809000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,14 +419,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13020833" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49880096" visible="true" weight="0.13020833" />
       <window_info id="Structure" order="1" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="npm" order="2" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info id="Favorites" order="3" sideWeight="0.50119907" side_tool="true" weight="0.19419643" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32850242" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -438,7 +435,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32850242" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50446427" side_tool="true" weight="0.294686" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4985119" weight="0.33977455" />
-      <window_info anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.4955357" visible="true" weight="0.294686" />
+      <window_info anchor="bottom" x="11" y="235" width="1344" height="267" id="Run Dashboard" order="11" sideWeight="0.4955357" weight="0.294686" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
@@ -825,6 +822,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/bootstrap/forever/production.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/error.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/forever.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nextServer/core/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiServer/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/dashboardHome.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -865,33 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nextServer/core/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/bootstrap/forever/production.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/error.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiServer/forever.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/apiServer/out.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="82" column="1" lean-forward="true" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+        <state relative-caret-position="19">
+          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
         </state>
       </provider>
     </entry>
