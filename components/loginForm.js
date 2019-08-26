@@ -104,11 +104,12 @@ class LogInFormComp extends React.Component{
                        autoComplete="off" className="validate-password required" size="30"
                        value={this.state.password} required aria-required="true"/></div>
               </div>
-              <div className="col-lg-12">
-                <button className="btn btn-primary block">Submit</button>
-              </div>
+
             </div>
           </div>
+        <div className="center text-center me">
+          <button className="theme-btn" type="submit">Register</button>
+        </div>
       </form>
 
     );
