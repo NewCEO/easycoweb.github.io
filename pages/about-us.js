@@ -16,7 +16,7 @@ class AboutUs extends React.Component{
 			<div class="content-box">
 				<div class="title">About Us</div>
 				<ul class="bread-crumb">
-					<li><a href="index-2.html">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li>About</li>
 				</ul>
 			</div>
@@ -30,13 +30,13 @@ class AboutUs extends React.Component{
 				<div class="col-lg-6 col-md-12 col-sm-12 about-column">
 					<div class="about-content">
 						<div class="top-content">
-							<div class="title">Raise Your Helping Hand</div>
-							<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiu smod tempor incidunt enim ad minim veniam quis nostrud exerc tation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</div>
+							<div class="title"></div>
+							<div class="text">Cow funding was created to bring nigerians together,so as to help each other grow through crowdfunding.<br />With all our investments insured by our partner leadway insurance there is no safer place to invest.<br />we provide other services like: </div>
 							<ul class="list">
-								<li>Convallis ligula ligula gravida tristique.</li>
-								<li>Lobortis massa fringilla odio.</li>
+								<li>Cattle purchases during festive periods.</li>
+								<li>Meat sales from our sanitory abattoir</li>
 							</ul>
-							<div class="link"><a href="#" class="theme-btn">Get Started</a></div>
+							<div class="link"><a href="#" class="theme-btn">Invest Now</a></div>
 						</div>
 						<div class="lower-content">
 							<div class="row">
@@ -44,21 +44,21 @@ class AboutUs extends React.Component{
 									<div class="single-item">
 										<div class="number">01</div>
 										<h4><a href="#">Our Story</a></h4>
-										<div class="text">Retro tattooed tousled, disrupt portland synth slow-carb</div>
+										<div class="text">Cow Funding is a subsidiary initiative of <a href="http://selemafarms.com.ng/about.html">selema farms</a></div>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-12 column">
 									<div class="single-item">
 										<div class="number">02</div>
 										<h4><a href="#">Our Mission</a></h4>
-										<div class="text">Retro tattooed tousled, disrupt portland synth slow-carb</div>
+										<div class="text">TO ENABLE NIGERIANS CULTIVATE HEALTHY MEAT EATING HABIT</div>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-12 column">
 									<div class="single-item">
 										<div class="number">03</div>
 										<h4><a href="#">Our Vision</a></h4>
-										<div class="text">Retro tattooed tousled, disrupt portland synth slow-carb</div>
+										<div class="text">TO BECOME ONE OF AFRICA'S LIVESTOCK PRODUCTION HOUSE, WITH AN EYE ON EXPORTATION TO FOREIGN MARKETS.</div>
 									</div>
 								</div>
 							</div>
@@ -66,7 +66,7 @@ class AboutUs extends React.Component{
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-12 col-sm-12 img-column">
-					<figure class="img-box"><img src="images/resource/2.jpg" alt=""/></figure>
+					<figure class="img-box"><img src="images/main-slider/IMG-20190711-WA0010.jpg" alt=""/></figure>
 				</div>
 			</div>
 		</div>

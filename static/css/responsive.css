@@ -199,7 +199,7 @@
 @media only screen and (max-width: 991px){
 	
   .bg-box .top-right:before{
-    display: none;
+    display: contents
   }
 	.header-top .top-right .right-content li{
     margin-left: 15px;
@@ -208,7 +208,8 @@
     display: none;
   }
   .main-header .header-bottom .nav-right{
-    display: none;
+    display: unset;
+    margin-top: -48px;
   }
   .main-menu .navigation > li > a:before{
     display: none;
@@ -815,7 +816,7 @@
     padding:0px 0px 0px;
     border:none;
     margin:0px;
-    max-height: 320px;
+    max-height: 340px;
     -ms-border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;

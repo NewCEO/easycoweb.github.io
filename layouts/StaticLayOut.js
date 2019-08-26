@@ -78,7 +78,7 @@ class StaticLayout extends React.Component {
 	<link href="/css/style.css" rel="stylesheet"/>
 	<link href="/css/custom.css" rel="stylesheet"/>
 	<link href="/css/responsive.css" rel="stylesheet"/>
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
 	<link href="/css/font-awesome.css" rel="stylesheet"/>
 
 </Head>
@@ -137,11 +137,11 @@ class StaticLayout extends React.Component {
 										</li>
 										<li><a href="contact.html">Contact Us</a></li>
 									</ul>
-								</div>
+							</div>
 							</nav>
 						</div>
 						<ul class="nav-right pull-right">
-							<div class="upper-column info-box donate-box">
+							<div class="upper-column info-box donate-box pull-right">
 								<button class="donate-box-btn theme-btn">Login</button>
 							</div>
 						</ul>
@@ -179,7 +179,8 @@ class StaticLayout extends React.Component {
 										<li><a href="#">Our Thoughts</a>
 										</li>
 										<li><a href="contact.html">Contact Us</a></li>
-									</ul>
+									</ul>	
+							
 								</div>
 							</nav>
 						</div>
@@ -197,7 +198,7 @@ class StaticLayout extends React.Component {
 						<div class="logo-widget footer-widget">
 							<figure class="logo-box"><a href="index-6.html"><img src="images/logo.png" alt=""/></a></figure>
 							<div class="text">
-								<p>Lorem ipsum dolor amet consectetur adi pisicing elit sed eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam quis.nostrud exercita.laboris nisi ut aliquip ea commodo conse quatuis aute irure.</p>
+								<p>Healthy Livestock farming for consumption and investment for Nigerians.</p>
 							</div>
 							<ul class="footer-social">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -210,7 +211,7 @@ class StaticLayout extends React.Component {
 						<div class="service-widget footer-widget">
 							<div class="footer-title">Links</div>
 							<ul class="list">
-								<li><a href="index-7.html">Home</a>
+								<li><a href="index.html">Home</a>
 								</li>
 								<li><a href="about.html">About Us</a></li>
 								<li><a href="causes-grid.html">Our Ranch</a>

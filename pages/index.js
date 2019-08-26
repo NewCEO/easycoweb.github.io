@@ -40,8 +40,8 @@ class Index extends React.Component{
 			<div class="slide" style={{"background-image":"url(images/main-slider/IMG-20190711-WA0010.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Help Senior<br />Citizens</h1>
-						<div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div>
+						<h1>We prove that health and wealth<br />are not far apart</h1>
+						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
@@ -50,8 +50,8 @@ class Index extends React.Component{
 			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6725-min.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Help Senior<br />Citizens</h1>
-						<div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div>
+						<h1>Grow your investment<br />portfolio</h1>
+						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
@@ -122,6 +122,7 @@ class Index extends React.Component{
 						</div>
 					</div>
 					<div class="col-lg-7 col-md-12 col-sm-12 brand-column">
+					 <div class="title-text text-center">As Featured In</div> 
 						<div class="brand-content">
 						<div class="brand-carousel">
 								<figure class="img-box"><a href="#"><img src="images/brand/vanguardlogo.png" alt=""/></a></figure>
