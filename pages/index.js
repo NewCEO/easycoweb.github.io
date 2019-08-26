@@ -210,6 +210,7 @@ class Index extends React.Component{
 						</div>
 					</div>
 					<div class="col-lg-7 col-md-12 col-sm-12 brand-column">
+					 <div class="title-text text-center">As Featured In</div> 
 						<div class="brand-content">
 						<div class="brand-carousel">
 								<figure class="img-box"><a href="#"><img src="images/brand/vanguardlogo.png" alt=""/></a></figure>
