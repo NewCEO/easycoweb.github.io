@@ -422,7 +422,7 @@
     padding: 52px 15px 53px 15px;
   }
   .testimonial-section .brand-content{
-    display: none;
+    display: unset;
   }
   .testimonial-section .top-content{
     padding: 90px 0px 90px 60px;
