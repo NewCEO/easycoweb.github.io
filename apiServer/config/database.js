@@ -1,14 +1,19 @@
 const mysql           = require('mysql');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = class Database{
 
   constructor(){
 
+    //use different user name depending on the enviroment
+
+
     this.settings =  {
       host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'easy_cow'
+      user:process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME
     };
 
     let connection = mysql.createConnection(this.settings);

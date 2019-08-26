@@ -1,3 +1,5 @@
+//Set user configuration based on user env
+
 module.exports = {
-  backend_v1: "http://localhost:3009/api/v1/"
+  backend_v1: `${process.env.API_URL}:${process.env.API_PORT}/api/v1/`
 }
