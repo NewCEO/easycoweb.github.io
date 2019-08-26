@@ -126,16 +126,16 @@ class StaticLayout extends React.Component {
 								</div>
 								<div class="navbar-collapse collapse clearfix">
 									<ul class="navigation clearfix">
-										<li><a href="index.html">Home</a>
+										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="causes-grid.html">Our Ranch</a>
+										<li><a href="/about-us">About Us</a></li>
+										<li><a href="/shop">Our Ranch</a>
 										</li>
-										<li><a href="team.html">Our Gallery</a>
+										<li><a href="/gallery">Our Gallery</a>
 										</li>
 										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
-										<li><a href="contact.html">Contact Us</a></li>
+										<li><a href="/contact">Contact Us</a></li>
 									</ul>
 							</div>
 							</nav>
@@ -169,16 +169,16 @@ class StaticLayout extends React.Component {
 								</div>
 								<div class="navbar-collapse collapse clearfix">
 									<ul class="navigation clearfix">
-										<li><a href="index-7.html">Home</a>
+										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="causes-grid.html">Our Ranch</a>
+										<li><a href="/about-us">About Us</a></li>
+										<li><a href="/shop">Our Ranch</a>
 										</li>
-										<li><a href="team.html">Our Gallery</a>
+										<li><a href="/gallery">Our Gallery</a>
 										</li>
-										<li><a href="#">Our Thoughts</a>
+										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
-										<li><a href="contact.html">Contact Us</a></li>
+										<li><a href="/contact">Contact Us</a></li>
 									</ul>	
 							
 								</div>
