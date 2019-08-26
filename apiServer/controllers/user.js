@@ -43,7 +43,7 @@ module.exports = class  user {
     }).catch(function (data) {
       console.log(data);
       return res.withServerError(500).reply();
-    })https://github.com/NewCEO/easycoweb.github.io.git
+    })
 
   }
 

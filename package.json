@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node nextServer/core/app.js",
     "build": "next build",
-    "start": "NODE_ENV=production node nextServer/core/app.js"
+    "start": "NODE_ENV=production pm2 nextServer/core/app.js"
   },
   "keywords": [],
   "author": "",
