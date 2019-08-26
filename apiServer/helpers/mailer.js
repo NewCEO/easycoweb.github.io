@@ -26,7 +26,7 @@ module.exports = class mailer {
     return this;
   }
   subject(subject){
-    typeof subject === 'string'?this.subject = subject:this.subject = "Easycow Email";
+    this.subject = subject||"Easycow Email";
     return this;
   }
 
