@@ -1,15 +1,18 @@
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.MAIL_USERNAME,'mail user')
 module.exports = {
   connection:{
     pool: true,
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // use TLS
+    host:process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    secure: process.env.MAIL_SECURE, // use TLS
     auth: {
-      user: "chiemeke.ifeanyi@gmail.com",
-      pass: "mychioma1234"
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD
     }
   },
   message:{
-    from:"chiemeke.ifeanyi@gmail.com"
+    from:process.env.MAIL_USERNAME
   }
 }

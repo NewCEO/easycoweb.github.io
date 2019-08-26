@@ -29,7 +29,7 @@ module.exports = class  user {
       res.withSuccess(201,"creation").reply();
       let mail = new mailer();
       //   //TODO change url from hardcoded to soft coded
-      return mail.recipient(req.body.email)
+      return mail.recipient(req.body.email).subject('EasyCow Email Verification')
                   .html(`<!DOCTYPE html>
                          <html>
                             <body>Registration Successful.
