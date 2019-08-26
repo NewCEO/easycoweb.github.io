@@ -48,7 +48,7 @@ module.exports = class  user {
   }
 
   static verify(req,res){
-    let query = `UPDATE users SET users.status = ? AND users.reset_key = ? WHERE email = ? AND reset_key = ?`;
+    let query = `UPDATE users SET users.status = ?, users.reset_key = ? WHERE email = ? AND reset_key = ?`;
     let values = [statuses.active,"null",req.body.email,req.body.validation_key];
 
     db.query(query,values).then((result)=>{
