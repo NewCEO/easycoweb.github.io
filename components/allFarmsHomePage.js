@@ -219,7 +219,7 @@ class allFarmTableComponent extends React.Component{
   }
 
   getFarms(){
-    httpHelper.serverReq(`farms/all?paginate=true&page=1`).then( (response)=> {
+    httpHelper.httpReq(`farms/all?paginate=true&page=1`).then( (response)=> {
       if (response.success){
 
 

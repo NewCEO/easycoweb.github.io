@@ -190,66 +190,7 @@ class Index extends React.Component{
     <span class="fa fa-long-arrow-up"></span>
 </button>
 
-<div id="donate-popup" class="donate-popup">
-		<div class="close-donate"><span class="fa fa-close"></span></div>
-		<div class="popup-inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="donate-form-area">
-							<h2>Login</h2>
-							<h4 class="text-center">Fill this form to login</h4>
-							<form action="#" class="donate-form default-form me">
-								<div class="form-bg">
-									<div class="row clearfix">
-										<div class="col-lg-12 col-md-6 col-sm-12">
-											<div class="form-group">
-												<p>Your Name*</p>
-												<input type="text" name="name" placeholder=""/>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-6 col-sm-12">
-											<div class="form-group">
-												<p>Email*</p>
-												<input type="text" name="email" placeholder=""/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="center text-center me"><button class="theme-btn" type="submit">Login</button></div>
-							</form>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="donate-form-area">
-							<h2>Register</h2>
-							<h4 class="text-center">Fill this form to Register</h4>
-							<form action="#" class="donate-form default-form me">
-								<div class="form-bg">
-									<div class="row clearfix">
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<p>Your Name*</p>
-												<input type="text" name="name" placeholder=""/>
-											</div>
-										</div>
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<p>Email*</p>
-												<input type="text" name="email" placeholder=""/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="center text-center me"><button class="theme-btn" type="submit">Register</button></div>
-							</form>
-						</div>
-					</div>
-				</div>
 
-			</div>
-		</div>
-	</div>
       </StaticLayout>
 
     )

@@ -1,5 +1,6 @@
 import serverFetch    from 'node-fetch';
 import {backend_v1}       from '../config/api_url';
+let env                 = require('../nextServer/env');
 
 class HttpHelper {
   static httpReq(url = '', data,method) {

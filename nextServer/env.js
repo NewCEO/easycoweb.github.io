@@ -1,5 +1,5 @@
-module.exports = function () {
-    process.env.APP_PORT = 3002;
-    process.env.API_URL  =  'http://localhost';
-    process.env.API_PORT = 3009;
+module.exports =  {
+    APP_PORT :3002,
+    API_URL  : 'http://localhost',
+    API_PORT : 3009
 }

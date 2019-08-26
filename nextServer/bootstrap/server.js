@@ -2,7 +2,7 @@ const express      	= require('express');
 const app           = express();
 let {users} 		    = require('../routes/users');
 let {admin} 		    = require('../routes/admin');
-let env                 = require('../env')();
+let env                 = require('../env');
 
 
 
@@ -52,8 +52,8 @@ module.exports = class server{
   })
 
 
-    app.listen(process.env.APP_PORT,(err)=>{
-      console.log('> server started on port '+process.env.APP_PORT);
+    app.listen(env.APP_PORT,(err)=>{
+      console.log('> server started on port '+env.APP_PORT);
     });
 
     app.get('*', (req, res) => {
