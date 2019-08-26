@@ -6,14 +6,13 @@
   "scripts": {
     "dev": "node nextServer/core/app.js",
     "build": "next build",
-    "start": "NODE_ENV = production node nextServer/core/app.js"
+    "start": "NODE_ENV=production node nextServer/core/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cron-job": "^1.0.3",
-    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "fs": "0.0.1-security",

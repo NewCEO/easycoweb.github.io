@@ -1,5 +1,5 @@
 import React            from 'react';
-import DashBoardLayOut  from '../../layouts/AdminDashboardLayout';
+import DashBoardLayOut  from '../../layouts/AdminDashboardLayOut';
 import httpHelper       from "../../helpers/httpHelper";
 import PayInvestor      from "../../components/payInvestor"
 import status           from "../../config/status";

@@ -1,5 +1,5 @@
 import React from 'react';
-import DashBoardLayOut from '../layouts/AdminDashboardLayout';
+import DashBoardLayOut from '../layouts/AdminDashboardLayOut';
 import CreateFarmForm from '../components/createFarm';
 import isAdmin from  '../middlewares/isAdmin';
 import $ from 'jquery';

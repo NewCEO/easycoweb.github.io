@@ -1,5 +1,5 @@
 import React from 'react';
-import DashBoardLayOut from '../../layouts/DashboardLayout';
+import DashBoardLayOut from '../../layouts/DashboardLayOut';
 import AllFarmActivities from '../../components/allFarmActivitiesUser'
 import InfiniteScroll from "../../components/allUserFarms";
 

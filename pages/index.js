@@ -191,10 +191,7 @@ class Index extends React.Component{
     <span class="fa fa-long-arrow-up"></span>
 </button>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> release-1.01
       </StaticLayout>
 
     )
