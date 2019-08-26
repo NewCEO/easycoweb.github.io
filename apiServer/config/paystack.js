@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 module.exports = {
-  sk:'sk_test_88df071bd4a3bae05a08237b18ca57075783c0b0'
+  bk:process.env.PAYSTACK_BK
 }
