@@ -2,16 +2,41 @@ import Head from 'next/head';
 import React from 'react';
 import LogInFormComp from "../components/loginForm";
 import SignUpFormComp from "../components/signupForm";
+import  httpHelper from "../helpers/httpHelper";
+import Link from 'next/link';
+import userTypes from '../config/userTypes'
 
 class StaticLayout extends React.Component {
   constructor(prop){
-    super()
-    this.prop = prop
+    super(prop);
+
+    this.state = {
+
+		userType:false
+	};
+
+	this.state = {
+		userIn:false,
+	};
+
+	  this.prop = prop;
+
   }
 
+   getLoggedInUserDetails(){
+  	httpHelper.httpReq('user','',"GET").then((response)=>{
+		if (response.success){
+			this.setState({userType:response.success.data.user_type,userIn:true})
+		}else{
+			this.setState({userIn:false})
+
+		}
+	})
+   }
 
 	componentDidMount(){
 
+  	this.getLoggedInUserDetails();
 
 	//Search Box Toggle
 	if($('.search-toggle').length){
@@ -87,7 +112,6 @@ class StaticLayout extends React.Component {
 <body class="boxed_wrapper">
 	<div class="preloader"></div>
 	<header class="main-header header-style-three header-style-four">
-
 		<div class="header-upper">
 			<div class="container clearfix">
 				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
@@ -140,9 +164,13 @@ class StaticLayout extends React.Component {
 							</div>
 							</nav>
 						</div>
+
 						<ul class="nav-right pull-right">
 							<div class="upper-column info-box donate-box pull-right">
-								<button class="donate-box-btn theme-btn">Login</button>
+								{
+									this.state.userIn?<Link href={this.userType == userTypes.customer?"/user/dashboard":"/admin/dashboard"}><button className="donate-box-btn theme-btn">Dashboard</button></Link>:
+									<button className="donate-box-btn theme-btn">Login</button>
+								}
 							</div>
 						</ul>
 					</div>
