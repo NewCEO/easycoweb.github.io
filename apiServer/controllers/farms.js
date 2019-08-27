@@ -68,11 +68,14 @@ module.exports = class farms {
     body.status? values.push(body.status):'';
     let query = `UPDATE farms SET ${body.title ? "title = ?" : ""},${body.category ? "category=?" : ""} ,${body.total_units ? "total_units=?" : ""} ,${body.funding_starts ? "funding_starts=?" : ""},${body.funding_ends ? "funding_ends=?" : ""},${body.farm_starts ? "farm_starts=?" : ""},${body.farm_ends ? "farm_ends=?" : ""},${body.roi ? "roi=?" : ""},${body.location ? "location=?" : ""},${body.description ? "description=?" : ""},${body.status ? "status=?" : ""}${ req.files.length > 0 ? ",images=?" : ""} WHERE farms.slug = ?`;
     if (req.files.length > 0){
+
+      //Upload the image to the desired destination
       new fileUploader(req.files.farmThumbNail)
-        .saveTo('static/somepath')
+        .saveTo('static/farm-images')
         .upload()
         .then((path)=>{
           filePath = path;
+          //add the path to an array incase later in future releases there is need for multiple images
           values.push(JSON.stringify([filePath]));
           values.push(req.params.farmId);
           return db.query(query, values)
@@ -112,8 +115,8 @@ module.exports = class farms {
     let values  = [];
     let body = req.query;
 
-
-    let followFarmJoin =  `followed_farms.farm_id = ${req.session.userId?req.session.userId:"null"} AND followed_farms.farm_id = farms.id`;
+    //Logic changes based on the type of user i.e logged in user or not logged in user
+    let followFarmJoin =  `followed_farms.user_id = ${req.session.userId?req.session.userId:"null"} AND followed_farms.farm_id = farms.id`;
 
     let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,followed_farms.user_id,
       IF (ISNULL(followed_farms.user_id ),"false","true") AS followed, 

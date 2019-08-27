@@ -28,10 +28,10 @@ class Index extends React.Component{
     formData.append('validation_key',this.props.validation_key);
     httpHelper.httpReq('user/verify',formData,"POST").then((response)=>{
       if (response.success){
-        this.setState({status:<HelpBlock  type="true" text={ <a href="/">Congratulations your account was successfully activated  Login</a>} />})
+        this.setState({status:<HelpBlock  type="fasle" text={ <a href="/">Congratulations your account was successfully activated  Login</a>} />})
 
       } else{
-        this.setState({status:<HelpBlock  type="false" text="We could't verify your account at this time" />})
+        this.setState({status:<HelpBlock  type="true" text="We could't verify your account at this time" />})
 
       }
     })
