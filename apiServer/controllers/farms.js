@@ -27,14 +27,17 @@ module.exports = class farms {
       req.body.description,
       req.body.status
     ];
+    console.log(req.body.status,'status')
     let query = "INSERT INTO farms (title,category,total_units,price_per_unit,funding_starts,funding_ends,farm_starts,farm_ends,roi,location,description,status,images,slug) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
+    //save file and return its location
     new fileUploader(req.files.farmThumbNail)
-      .saveTo('static/somepath')
+      .saveTo('static/farms')
       .upload()
       .then((path)=>{
       filePath = path;
       values.push(JSON.stringify([filePath]));
+      //create slug for the farm
       return anonymous.slugOn('farms','slug')
     }).then((slug)=>{
        farmSlug = slug;
