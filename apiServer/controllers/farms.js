@@ -136,7 +136,7 @@ module.exports = class farms {
         let parsedImages = [];
         if ( Array.isArray( JSON.parse(farm.images))){
           JSON.parse(farm.images).forEach( (image)=> {
-            parsedImages.push(`${req.protocol}\:\/\/${req.hostname}\:${process.env.__port}\/${image}`);
+            parsedImages.push(`${process.env.API_URL}\/${image}`);
           });
           farm.images = JSON.stringify(parsedImages);;
         }

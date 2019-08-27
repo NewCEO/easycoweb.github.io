@@ -35,7 +35,7 @@ module.exports = class  user {
                   .html(`<!DOCTYPE html>
                          <html>
                             <body>Registration Successful.
-                                <a href="${process.env.APP_URL}/user/verify?email=${req.body.email}&key=${validationKey}">click here to              verify
+                                <a href="${process.env.APP_URL}/user/verify?email=${req.body.email}&key=${validationKey}">click here to verify
                                 </a>
                             </body>
                           </html>`)

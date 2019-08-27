@@ -114,6 +114,7 @@ class createFarmFormComponent extends React.Component{
             text:`Farm ${this.props.farmId?'edited':'created'} successfully`
           }});
       }
+      this.form.current.reset();
     })
   }
 
