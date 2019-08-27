@@ -32,7 +32,7 @@ module.exports = class farms {
 
     //save file and return its location
     new fileUploader(req.files.farmThumbNail)
-      .saveTo('static/farms')
+      .saveTo('farms-banner')
       .upload()
       .then((path)=>{
       filePath = path;
