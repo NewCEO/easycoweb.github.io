@@ -1,7 +1,8 @@
 import React from 'react';
 import httpHelper from '../helpers/httpHelper';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import SingleFarm from "../components/singleFarm"
+import SingleFarm from "../components/singleFarm";
+import status from  "../config/status";
 
 
 class allFarmTableComponent extends React.Component{
@@ -16,7 +17,7 @@ class allFarmTableComponent extends React.Component{
 
   handleFollowedTab(e){
 
-    httpHelper.serverReq(`farms/user/followed?paginate=true${this.state.followedHasMore?"&page="+this.state.followedNextPage:""}`).then( (data)=> {
+    httpHelper.serverReq(`farms/user/followed?paginate=true${this.state.followedHasMore?"&page="+this.state.followedNextPage:""}&status[eql]=${status.active}`).then( (data)=> {
       if(data.success){
         if (data.success.data.followedNextPage){
 
@@ -43,7 +44,7 @@ class allFarmTableComponent extends React.Component{
 
   loadMoreFarms(){
 
-    httpHelper.serverReq(`farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}`).then( (data)=> {
+    httpHelper.serverReq(`farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}&status=${status.active}`).then( (data)=> {
       if(data.success){
         if (data.success.data.nextPage){
 

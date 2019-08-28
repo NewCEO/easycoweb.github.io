@@ -4,7 +4,7 @@ import LogInFormComp from "../components/loginForm";
 import SignUpFormComp from "../components/signupForm";
 import  httpHelper from "../helpers/httpHelper";
 import Link from 'next/link';
-import userTypes from '../config/userTypes'
+import userTypes from '../config/userTypes';
 
 class StaticLayout extends React.Component {
   constructor(prop){
@@ -100,7 +100,9 @@ class StaticLayout extends React.Component {
 	<script src="/js/jquery.appear.js"></script>
 	<script src="/js/jquery.countTo.js"></script>
 	<script src="/js/script.js"></script>
-	<link href="/css/style.css" rel="stylesheet"/>
+		  <script src="/assets/js/countme.js"></script>
+
+		  <link href="/css/style.css" rel="stylesheet"/>
 	<link href="/css/custom.css" rel="stylesheet"/>
 	<link href="/css/responsive.css" rel="stylesheet"/>
 	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
@@ -168,7 +170,7 @@ class StaticLayout extends React.Component {
 						<ul class="nav-right pull-right">
 							<div class="upper-column info-box donate-box pull-right">
 								{
-									this.state.userIn?<Link href={this.userType == userTypes.customer?"/user/dashboard":"/admin/dashboard"}><button className="donate-box-btn theme-btn">Dashboard</button></Link>:
+									this.state.userIn?<a className="donate-box-btn theme-btn" href={this.state.userType == userTypes.regular?"/user/dashboard":"/admin/dashboard"}>Dashboard</a>:
 									<button className="donate-box-btn theme-btn">Login</button>
 								}
 							</div>

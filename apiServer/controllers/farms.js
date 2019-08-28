@@ -128,7 +128,7 @@ module.exports = class farms {
       INNER JOIN status ON status.id = farms.status 
       INNER JOIN states on states.id = farms.location
       ${req.params.follow === "followed"?"INNER":"LEFT"} JOIN followed_farms ON  ( ${followFarmJoin})  
-      ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
+      ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status','farms.status').done()} ${req.paginate(20)}`;
 
     return db.query(query,values,req).then( (farms)=> {
       let data = {};

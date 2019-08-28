@@ -3,7 +3,6 @@ import httpHelper from '../helpers/httpHelper';
 import HelpBlock from '../components/HelpBlock';
 import isAdmin from "../middlewares/isAdmin";
 import FarmTR  from "../components/farmsTableRow";
-import Link from 'next/link';
 
 
 class allFarmTableComponent extends React.Component{
