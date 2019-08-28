@@ -57,10 +57,9 @@ class StaticLayout extends React.Component {
 	}
 
 	initPopUp(){
-    if($('#donate-popup').length){
 
       //Show Popup
-      $('.donate-box-btn').on('click', function() {
+      $(document).on('click','.donate-box-btn', function() {
         $('#donate-popup').addClass('popup-visible');
       });
 
@@ -68,7 +67,7 @@ class StaticLayout extends React.Component {
       $('.close-donate').on('click', function() {
         $('#donate-popup').removeClass('popup-visible');
       });
-    }
+
   }
 
 
@@ -97,7 +96,8 @@ class StaticLayout extends React.Component {
 	<script src="/js/map-helper.js"></script>
 	<script src="/js/isotope.js"></script>
 	<script src="/js/jquery-ui.js"></script>
-	<script src="/js/jquery.appear.js"></script>
+	<script src="/js/jquery.appear.js">
+</script>
 	<script src="/js/jquery.countTo.js"></script>
 	<script src="/js/script.js"></script>
 		  <script src="/assets/js/countme.js"></script>
@@ -221,7 +221,8 @@ class StaticLayout extends React.Component {
 	</header>
       {this.prop.children}
       <footer class="main-footer">
-				<div class="container">
+
+		  <div class="container">
 			<div class="footer-content">
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">

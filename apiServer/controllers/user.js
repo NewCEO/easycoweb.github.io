@@ -114,7 +114,7 @@ module.exports = class  user {
   }
 
   static getUser(req,res){
-
+    console.log('this is here')
     let query   = "SELECT users.*,status.name as status_name,status.id as status_id,banks.name as bank FROM users INNER JOIN status ON status.id = users.status LEFT JOIN banks ON banks.id = users.bank WHERE users.email = ? AND users.status = ?";
     let values  = [req.session.email,statuses.active];
     db.query(query, values).then((userResult)=>{

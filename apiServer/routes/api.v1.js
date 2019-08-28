@@ -46,7 +46,7 @@ module.exports.apiV1 =  function (app) {
   router.post('/sign-up',cors(corsOptions),  (req,res)=> {user.create(req,res)});
   router.post('/login', cors(corsOptions), (req,res)=> {user.login(req,res)});
   router.post('/logout', cors(corsOptions), (req,res)=> {user.logout(req,res)});
-  router.get('/user', isLoggedIn(),cors(corsOptions), (req,res)=> {user.getUser(req,res)});
+  router.get('/user',cors(corsOptions), (req,res)=> {user.getUser(req,res)});
   router.get('/user/:userId/status/:userStatus', isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.status(req,res)});
 
   router.get('/users',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.all(req,res)});

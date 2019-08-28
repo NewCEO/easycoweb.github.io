@@ -3,7 +3,7 @@ import {duration} from '../helpers/date';
 import FollowBtn from "../components/followBtn";
 import httpHelper from '../helpers/httpHelper';
 import Link from 'next/link';
-
+import status from '../config/status';
 
 
 class singleFarm extends React.Component{
@@ -37,15 +37,15 @@ class singleFarm extends React.Component{
     let button;
     if(this.isLoggedIn){
       //if farm is active show the invest now button else don't show any button for the user
-      if ((this.state.details.status === status.active)){
+      if ((this.state.details.status === status.active || this.state.details.status === status.soldout)){
         button = <Link href={"/user/farm/"+this.state.details.slug+"/fund"}>
-          <button className="donate-box-btn theme-btn-two">Invest Now</button>
+          <button className="theme-btn-two">Invest Now</button>
         </Link>;
       }
     }else{
       //if the user is not logged in show the invest button just that when the user clicks on it it pops out the login or sign up button
 
-      button = 	<button className="donate-box-btn  theme-btn">Invest Now</button>;
+      button = 	<button className="donate-box-btn  theme-btn-two">Invest Now</button>;
 
 
     }

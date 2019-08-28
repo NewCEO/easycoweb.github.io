@@ -247,7 +247,7 @@ class allFarmTableComponent extends React.Component{
   }
 
   getLoggedInUserDetails(){
-    httpHelper.httpReq('user','',"GET").then((response)=>{
+    httpHelper.httpReq('user').then((response)=>{
       //Check if the user is logged in before getting the farms to determine how to display the "invest now button"
       this.getFarms();
       if (response.success){
@@ -257,6 +257,8 @@ class allFarmTableComponent extends React.Component{
         this.setState({userIn:false})
 
       }
+    }).catch(()=>{
+      this.setState({userIn:false})
     })
   }
 
