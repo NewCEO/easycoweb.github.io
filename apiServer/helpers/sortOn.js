@@ -8,7 +8,9 @@ module.exports = class sortOn {
 
   on(query,alias){
 
-    this.query[query]?this.string.push(alias?this.query[query].replace(query,alias):this.query[query]):"";
+
+
+    this.query[query]?this.string.push(alias?this.query[query].replace(new RegExp(query,'gi'),alias):this.query[query]):"";
    return this;
   }
   onParam(query,alias){

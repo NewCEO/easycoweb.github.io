@@ -4,6 +4,7 @@ let fileUploader                  = require('../helpers/fileUploader');
 let anonymous                     = require('../controllers/anonymous');
 let status                        = require('../config/status');
 let paystackConf                  = require('../config/paystack');
+console.log(paystackConf.sk,'pay conf')
 let paystack                      = require('paystack')(paystackConf.sk);
 let passwordHelper                = require("../helpers/passwordHelper");
 let Mailer                        = require("../helpers/mailer");
@@ -27,14 +28,17 @@ module.exports = class farms {
       req.body.description,
       req.body.status
     ];
+    console.log(req.body.status,'status')
     let query = "INSERT INTO farms (title,category,total_units,price_per_unit,funding_starts,funding_ends,farm_starts,farm_ends,roi,location,description,status,images,slug) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
+    //save file and return its location
     new fileUploader(req.files.farmThumbNail)
-      .saveTo('static/somepath')
+      .saveTo('farms-banner')
       .upload()
       .then((path)=>{
       filePath = path;
       values.push(JSON.stringify([filePath]));
+      //create slug for the farm
       return anonymous.slugOn('farms','slug')
     }).then((slug)=>{
        farmSlug = slug;
@@ -68,11 +72,14 @@ module.exports = class farms {
     body.status? values.push(body.status):'';
     let query = `UPDATE farms SET ${body.title ? "title = ?" : ""},${body.category ? "category=?" : ""} ,${body.total_units ? "total_units=?" : ""} ,${body.funding_starts ? "funding_starts=?" : ""},${body.funding_ends ? "funding_ends=?" : ""},${body.farm_starts ? "farm_starts=?" : ""},${body.farm_ends ? "farm_ends=?" : ""},${body.roi ? "roi=?" : ""},${body.location ? "location=?" : ""},${body.description ? "description=?" : ""},${body.status ? "status=?" : ""}${ req.files.length > 0 ? ",images=?" : ""} WHERE farms.slug = ?`;
     if (req.files.length > 0){
+
+      //Upload the image to the desired destination
       new fileUploader(req.files.farmThumbNail)
-        .saveTo('static/somepath')
+        .saveTo('static/farm-images')
         .upload()
         .then((path)=>{
           filePath = path;
+          //add the path to an array incase later in future releases there is need for multiple images
           values.push(JSON.stringify([filePath]));
           values.push(req.params.farmId);
           return db.query(query, values)
@@ -112,8 +119,8 @@ module.exports = class farms {
     let values  = [];
     let body = req.query;
 
-
-    let followFarmJoin =  `followed_farms.farm_id = ${req.session.userId?req.session.userId:"null"} AND followed_farms.farm_id = farms.id`;
+    //Logic changes based on the type of user i.e logged in user or not logged in user
+    let followFarmJoin =  `followed_farms.user_id = ${req.session.userId?req.session.userId:"null"} AND followed_farms.farm_id = farms.id`;
 
     let query   = `SELECT farms.*,farms.id as farm_id,status.name as status_name,states.name as location_name,followed_farms.user_id,
       IF (ISNULL(followed_farms.user_id ),"false","true") AS followed, 
@@ -122,7 +129,7 @@ module.exports = class farms {
       INNER JOIN status ON status.id = farms.status 
       INNER JOIN states on states.id = farms.location
       ${req.params.follow === "followed"?"INNER":"LEFT"} JOIN followed_farms ON  ( ${followFarmJoin})  
-      ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status').done()} ${req.paginate(20)}`;
+      ${operate(req).on('title').on('category').on('total_units').on('price_per_units').on('funding_starts').on('funding_ends').on('farm_starts').on('farm_ends').on('roi').on('location').on('status','farms.status').done()} ${req.paginate(20)}`;
 
     return db.query(query,values,req).then( (farms)=> {
       let data = {};
@@ -130,7 +137,7 @@ module.exports = class farms {
         let parsedImages = [];
         if ( Array.isArray( JSON.parse(farm.images))){
           JSON.parse(farm.images).forEach( (image)=> {
-            parsedImages.push(`${req.protocol}\:\/\/${req.hostname}\:${process.env.__port}\/${image}`);
+            parsedImages.push(`${process.env.API_URL}\/${image}`);
           });
           farm.images = JSON.stringify(parsedImages);;
         }
@@ -323,8 +330,8 @@ module.exports = class farms {
         anonymous.slugOn("purchased_farms","slug").then(function (slug) {
           genSlug = slug;
           let date = new Date(Date.now()).toISOString();
-          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid,date];
-          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status,date) VALUES (?,?,?,?,?,?)";
+          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
+          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
           return db.query(query,values);
         }).then((result)=>{
           let amount = singleFarm.price_per_unit * req.body.units *100;
@@ -336,11 +343,12 @@ module.exports = class farms {
             callback_url:req.body.paystack_cb
           });
         }).then(function (payStackResp) {
+          console.log(payStackResp,'paystack resp')
           //add farm slug to the paystack response
           payStackResp.data['farmId'] = req.body.farmId;
           res.withSuccess(200).withData(payStackResp.data).reply();
         }).catch(function (error) {
-
+          console.log(error);
           res.withServerError(500).reply();
         })
       }else{

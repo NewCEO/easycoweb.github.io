@@ -114,6 +114,7 @@ class createFarmFormComponent extends React.Component{
             text:`Farm ${this.props.farmId?'edited':'created'} successfully`
           }});
       }
+      this.form.current.reset();
     })
   }
 
@@ -260,17 +261,20 @@ class createFarmFormComponent extends React.Component{
           </div>
         </div>
         <div className="form-group">
-          <label className="col-sm-3 control-label">Activate</label>
+          <label className="col-sm-3 control-label">Status</label>
 
           <div className="col-sm-5">
             <div className="input-group">
-              <input type="checkbox" value="1" name="active"  onChange={this.handleChange} required="required" className="form-control" />
+              <select name="status" onChange={this.handleChange} required="required" className="form-control" >
+                <option value="1" selected="selected">Activate</option>
+                <option value="2">De-Activate</option>
+              </select>
             </div>
           </div>
         </div>
         <div className="form-group">
           <div className="col-sm-5">
-            <button type="sumbit" disabled={ this.state.btnDisabled ?"disabled":'' } className="btn btn-primary">Submit</button>
+            <button type="submit" disabled={ this.state.btnDisabled ?"disabled":'' } className="btn btn-primary">Submit</button>
 
           </div>
         </div>

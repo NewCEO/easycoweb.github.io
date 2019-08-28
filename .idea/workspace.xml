@@ -7,6 +7,10 @@
       <change beforePath="$PROJECT_DIR$/apiServer/controllers/farms.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/controllers/farms.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apiServer/helpers/qSorta.js" beforeDir="false" afterPath="$PROJECT_DIR$/apiServer/helpers/qSorta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/allFarms.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allFarms.js" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/components/allUserFarms.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/allUserFarms.js" afterDir="false" />
+>>>>>>> hotfix-1.0.4
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +198,11 @@
       <workItem from="1566976103528" duration="234000" />
       <workItem from="1566976365694" duration="3692000" />
       <workItem from="1566987041433" duration="26860000" />
+<<<<<<< HEAD
       <workItem from="1567020558276" duration="2749000" />
+=======
+      <workItem from="1567020558276" duration="2489000" />
+>>>>>>> hotfix-1.0.4
     </task>
     <servers />
   </component>

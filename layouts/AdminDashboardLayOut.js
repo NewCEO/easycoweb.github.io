@@ -103,7 +103,7 @@ class DashboardLayOut extends React.Component {
               </div>
 
               <div className="logo">
-                <a href="index.user.html">
+                <a href="/">
                   <img className="myimg" src="/dashboard/assets/images/logo.png" width="120" alt=""/>
                 </a>
               </div>

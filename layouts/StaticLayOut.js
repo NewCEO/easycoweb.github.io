@@ -2,16 +2,41 @@ import Head from 'next/head';
 import React from 'react';
 import LogInFormComp from "../components/loginForm";
 import SignUpFormComp from "../components/signupForm";
+import  httpHelper from "../helpers/httpHelper";
+import Link from 'next/link';
+import userTypes from '../config/userTypes';
 
 class StaticLayout extends React.Component {
   constructor(prop){
-    super()
-    this.prop = prop
+    super(prop);
+
+    this.state = {
+
+		userType:false
+	};
+
+	this.state = {
+		userIn:false,
+	};
+
+	  this.prop = prop;
+
   }
 
+   getLoggedInUserDetails(){
+  	httpHelper.httpReq('user','',"GET").then((response)=>{
+		if (response.success){
+			this.setState({userType:response.success.data.user_type,userIn:true})
+		}else{
+			this.setState({userIn:false})
+
+		}
+	})
+   }
 
 	componentDidMount(){
 
+  	this.getLoggedInUserDetails();
 
 	//Search Box Toggle
 	if($('.search-toggle').length){
@@ -32,10 +57,9 @@ class StaticLayout extends React.Component {
 	}
 
 	initPopUp(){
-    if($('#donate-popup').length){
 
       //Show Popup
-      $('.donate-box-btn').on('click', function() {
+      $(document).on('click','.donate-box-btn', function() {
         $('#donate-popup').addClass('popup-visible');
       });
 
@@ -43,7 +67,7 @@ class StaticLayout extends React.Component {
       $('.close-donate').on('click', function() {
         $('#donate-popup').removeClass('popup-visible');
       });
-    }
+
   }
 
 
@@ -72,10 +96,13 @@ class StaticLayout extends React.Component {
 	<script src="/js/map-helper.js"></script>
 	<script src="/js/isotope.js"></script>
 	<script src="/js/jquery-ui.js"></script>
-	<script src="/js/jquery.appear.js"></script>
+	<script src="/js/jquery.appear.js">
+</script>
 	<script src="/js/jquery.countTo.js"></script>
 	<script src="/js/script.js"></script>
-	<link href="/css/style.css" rel="stylesheet"/>
+		  <script src="/assets/js/countme.js"></script>
+
+		  <link href="/css/style.css" rel="stylesheet"/>
 	<link href="/css/custom.css" rel="stylesheet"/>
 	<link href="/css/responsive.css" rel="stylesheet"/>
 	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
@@ -87,7 +114,6 @@ class StaticLayout extends React.Component {
 <body class="boxed_wrapper">
 	<div class="preloader"></div>
 	<header class="main-header header-style-three header-style-four">
-
 		<div class="header-upper">
 			<div class="container clearfix">
 				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
@@ -140,9 +166,13 @@ class StaticLayout extends React.Component {
 							</div>
 							</nav>
 						</div>
+
 						<ul class="nav-right pull-right">
 							<div class="upper-column info-box donate-box pull-right">
-								<button class="donate-box-btn theme-btn">Login</button>
+								{
+									this.state.userIn?<a className="donate-box-btn theme-btn" href={this.state.userType == userTypes.regular?"/user/dashboard":"/admin/dashboard"}>Dashboard</a>:
+									<button className="donate-box-btn theme-btn">Login</button>
+								}
 							</div>
 						</ul>
 					</div>
@@ -191,7 +221,8 @@ class StaticLayout extends React.Component {
 	</header>
       {this.prop.children}
       <footer class="main-footer">
-				<div class="container">
+
+		  <div class="container">
 			<div class="footer-content">
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">

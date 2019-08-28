@@ -1,6 +1,7 @@
 import React from 'react';
 import httpHelper from "../helpers/httpHelper";
-import SingleFarm from "../components/singleFarmHomePage"
+import SingleFarm from "../components/singleFarmHomePage";
+import status from '../config/status';
 
 
 class allFarmTableComponent extends React.Component{
@@ -10,6 +11,15 @@ class allFarmTableComponent extends React.Component{
     this.state = {
       farms:"Loading..."
     }
+
+    this.state = {
+
+      userType:false
+    };
+
+    this.state = {
+      userIn:false,
+    };
   }
 
   initWowSlider(){
@@ -168,6 +178,8 @@ class allFarmTableComponent extends React.Component{
       });
     }
 
+
+
     //Main Slider Carousel
     if ($('.main-slider-carousel').length) {
       $('.main-slider-carousel').owlCarousel({
@@ -219,12 +231,12 @@ class allFarmTableComponent extends React.Component{
   }
 
   getFarms(){
-    httpHelper.httpReq(`farms/all?paginate=true&page=1`).then( (response)=> {
+    httpHelper.httpReq(`farms/all?paginate=true&page=1&status[eql]=${status.active}&status[eql]=${status.soldout}`).then( (response)=> {
       if (response.success){
 
 
         let ui =   response.success.data.farms.map( (farm)=> {
-          return <SingleFarm key={farm.farm_id} details={farm}/>
+          return <SingleFarm key={farm.farm_id} details={farm} isLoggedIn={this.state.userIn}/>
         });
 
         this.setState({farms:ui});
@@ -233,8 +245,25 @@ class allFarmTableComponent extends React.Component{
       }
     })
   }
+
+  getLoggedInUserDetails(){
+    httpHelper.httpReq('user').then((response)=>{
+      //Check if the user is logged in before getting the farms to determine how to display the "invest now button"
+      this.getFarms();
+      if (response.success){
+        this.setState({userType:response.success.data.user_type,userIn:true});
+
+      }else{
+        this.setState({userIn:false})
+
+      }
+    }).catch(()=>{
+      this.setState({userIn:false})
+    })
+  }
+
   componentDidMount() {
-    this.getFarms();
+    this.getLoggedInUserDetails();
   }
 
   render() {

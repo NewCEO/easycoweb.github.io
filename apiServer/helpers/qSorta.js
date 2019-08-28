@@ -23,14 +23,16 @@ module.exports = function(){
             queryObj = req.query[query];
 
           }
+
+
           //run through all elements in the array
           for (var element in queryObj){
+              //Check through the validators and make sure it is accepted
             if (acceptedOperators.indexOf(element) > -1){
-              constructedString += (constructedString !== ''?"OR ":'') +  `${query} ${this.translate(queryObj,element)}`;
+
+              constructedString += (constructedString !== ''?"OR ":'') +  `${this.translate(queryObj,element,query)}`;
             }
           }
-
-
 
           //reconstructed Query
           req.query[query] =  constructedString !== ''?`(${constructedString})`:undefined ;
@@ -39,32 +41,33 @@ module.exports = function(){
       }
 
     },
-    translate:    function (query,queryOperator) {
-
+    translate:    function (query,queryOperator,sortType) {
+        //mysql.escape converts the arrays to a string e.g [2,3] is converted to '1','2'
      switch (queryOperator) {
        case 'eql':
-         return ` = ${ this.build(mysql.escape(query[queryOperator]))}`;
+
+         return ` ${ this.build(mysql.escape(query[queryOperator]),"=",sortType)}`;
          break;
        case 'gte':
-         return ` >  ${this.build( mysql.escape(query[queryOperator]))}`;
+         return `${this.build( mysql.escape(query[queryOperator]),">",sortType)}`;
         break;
 
        case 'lte':
-         return ` < ${this.build(mysql.escape(query[queryOperator]))} `;
+         return ` ${this.build(mysql.escape(query[queryOperator]),"<",sortType)} `;
          break;
 
        case 'gteOReqlTo':
-         return `>= ${this.build(mysql.escape(query[queryOperator]))}`;
+         return ` ${this.build(mysql.escape(query[queryOperator]),">=",sortType)}`;
         break;
 
        case 'lteOReqlTo':
-         return `<= ${this.build(mysql.escape(query[queryOperator]))}`;
+         return ` ${this.build(mysql.escape(query[queryOperator]),"<=",sortType)}`;
           break;
 
        case 'like':
-         return `LIKE ${this.build(mysql.escape(query[queryOperator]))}`;
+         return `${this.build(mysql.escape(query[queryOperator]),"LIKE",sortType)}`;
          break;
-
+        //There is not need to call the build function in the btw because it is taken care of here already
        case  'btw':
          let string = query[queryOperator].split("|",2);
          if(string.length === 2){
@@ -74,7 +77,7 @@ module.exports = function(){
          break;
 
        case 'notEqlTo':
-         return `!= ${this.build(mysql.escape(query[queryOperator]))}`;
+         return ` ${this.build(mysql.escape(query[queryOperator]),"!=")}`;
          break;
      }
 
@@ -82,9 +85,14 @@ module.exports = function(){
     operate:      function (req) {
       return new sortOn(req);
     },
-    build:        function (string) {
-      let arrayedString = string.replace(',','OR');
-      return arrayedString;
+    build:        function (string,operateType,sortType) {
+       let arrayString = string.split(",");
+       let reconstructedString = "";
+        arrayString.forEach((element)=>{
+
+           reconstructedString += `${reconstructedString!==""?" OR ":""}`+ sortType + " "+ operateType + " "+element;
+       });
+      return reconstructedString;
     }
   }
 
