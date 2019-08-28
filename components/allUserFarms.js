@@ -44,7 +44,7 @@ class allFarmTableComponent extends React.Component{
 
   loadMoreFarms(){
 
-    httpHelper.serverReq(`farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}&status=${status.active}`).then( (data)=> {
+    httpHelper.serverReq(`farms/all?paginate=true${this.state.hasMore?"&page="+this.state.nextPage:""}&status[eql]=${status.active}&status[eql]=${status.soldout}`).then( (data)=> {
       if(data.success){
         if (data.success.data.nextPage){
 

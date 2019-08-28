@@ -4,6 +4,7 @@ let fileUploader                  = require('../helpers/fileUploader');
 let anonymous                     = require('../controllers/anonymous');
 let status                        = require('../config/status');
 let paystackConf                  = require('../config/paystack');
+console.log(paystackConf.sk,'pay conf')
 let paystack                      = require('paystack')(paystackConf.sk);
 let passwordHelper                = require("../helpers/passwordHelper");
 let Mailer                        = require("../helpers/mailer");
@@ -329,8 +330,8 @@ module.exports = class farms {
         anonymous.slugOn("purchased_farms","slug").then(function (slug) {
           genSlug = slug;
           let date = new Date(Date.now()).toISOString();
-          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid,date];
-          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status,date) VALUES (?,?,?,?,?,?)";
+          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
+          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
           return db.query(query,values);
         }).then((result)=>{
           let amount = singleFarm.price_per_unit * req.body.units *100;
@@ -342,11 +343,12 @@ module.exports = class farms {
             callback_url:req.body.paystack_cb
           });
         }).then(function (payStackResp) {
+          console.log(payStackResp,'paystack resp')
           //add farm slug to the paystack response
           payStackResp.data['farmId'] = req.body.farmId;
           res.withSuccess(200).withData(payStackResp.data).reply();
         }).catch(function (error) {
-
+          console.log(error);
           res.withServerError(500).reply();
         })
       }else{

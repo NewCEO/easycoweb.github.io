@@ -2,6 +2,7 @@ import React from 'react';
 import httpHelper from '../helpers/httpHelper';
 import HelpBlock from '../components/HelpBlock';
 import isAdmin from "../middlewares/isAdmin";
+import status from "../config/status";
 import FarmTR  from "../components/farmsTableRow";
 
 
@@ -65,8 +66,7 @@ class allFarmTableComponent extends React.Component{
     });
   }
   getFarmsData(){
-    httpHelper.serverReq('farms/all').then( (data)=> {
-      console.log(data);
+    httpHelper.serverReq(`farms/all?status[eql]=${status.active}&status[eql]=${status.soldout}`).then( (data)=> {
       if (data.success){
         let farms = data.success.data.farms;
         let editedFarms =  farms.map(farm=>

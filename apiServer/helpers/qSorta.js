@@ -24,7 +24,6 @@ module.exports = function(){
 
           }
 
-          console.log(queryObj,'query object')
 
           //run through all elements in the array
           for (var element in queryObj){
