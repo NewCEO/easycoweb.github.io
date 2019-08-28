@@ -7,6 +7,192 @@ class Index extends React.Component{
     return { };
   }
 
+	initWowSlider(){
+
+		if($('.wow').length){
+			var wow = new WOW({
+				mobile:       false
+			});
+			wow.init();
+		}
+
+		//three-column-carousel
+		if ($('.three-column-carousel').length) {
+			$('.three-column-carousel').owlCarousel({
+				loop:true,
+				margin:30,
+				nav:true,
+				smartSpeed: 3000,
+				autoplay: 4000,
+				navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					480:{
+						items:1
+					},
+					600:{
+						items:1
+					},
+					800:{
+						items:2
+					},
+					1024:{
+						items:3
+					}
+				}
+			});
+		}
+
+		//three-column-carousel
+		if ($('.related-event-carousel').length) {
+			$('.related-event-carousel').owlCarousel({
+				loop:true,
+				margin:20,
+				nav:true,
+				smartSpeed: 3000,
+				autoplay: 4000,
+				navText: [ '<span class="flaticon-back"></span>', '<span class="flaticon-right-arrow-angle"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					480:{
+						items:1
+					},
+					600:{
+						items:2
+					},
+					800:{
+						items:2
+					},
+					1024:{
+						items:3
+					}
+				}
+			});
+		}
+
+
+		// single-item-carousel
+		if ($('.single-item-carousel').length) {
+			$('.single-item-carousel').owlCarousel({
+				loop:true,
+				margin:30,
+				nav:true,
+				smartSpeed: 3000,
+				autoplay: 4000,
+				navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					400:{
+						items:1
+					},
+					600:{
+						items:1
+					},
+					800:{
+						items:1
+					},
+					1200:{
+						items:1
+					}
+				}
+			});
+		}
+
+		// brand-carousel
+		if ($('.brand-carousel').length) {
+			$('.brand-carousel').owlCarousel({
+				loop:true,
+				margin:30,
+				nav:true,
+				smartSpeed: 3000,
+				autoplay: 4000,
+				navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					400:{
+						items:2
+					},
+					600:{
+						items:3
+					},
+					800:{
+						items:4
+					},
+					1200:{
+						items:4
+					}
+				}
+			});
+		}
+
+
+		// brand-carousel
+		if ($('.five-item-carousel').length) {
+			$('.five-item-carousel').owlCarousel({
+				loop:true,
+				margin:30,
+				nav:true,
+				smartSpeed: 3000,
+				autoplay: 4000,
+				navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					400:{
+						items:2
+					},
+					600:{
+						items:3
+					},
+					800:{
+						items:4
+					},
+					1200:{
+						items:5
+					}
+				}
+			});
+		}
+
+
+
+		//Main Slider Carousel
+		if ($('.main-slider-carousel').length) {
+			$('.main-slider-carousel').owlCarousel({
+				loop:true,
+				margin:0,
+				nav:true,
+				animateOut: 'slideOutDown',
+				animateIn: 'fadeIn',
+				active: true,
+				smartSpeed: 1000,
+				autoplay: 5000,
+				navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:1
+					},
+					1200:{
+						items:1
+					}
+				}
+			});
+		}
+
+	}
+
   constructor(props){
     super(props);
     this.state = {
@@ -17,9 +203,11 @@ class Index extends React.Component{
 
 
 
+componentDidMount() {
+  	this.initWowSlider();
+}
 
-
-  render() {
+	render() {
     return(
       <StaticLayout>
 
@@ -104,7 +292,7 @@ class Index extends React.Component{
 		<div class="cause-bottom-content overlay-style-one">
 			<div class="container">
 				<div class="cause-content">
-          <AllFarms/>
+          {/*<AllFarms/>*/}
 				</div>
 			</div>
 		</div>

@@ -22,8 +22,18 @@ class Dashboard extends React.Component{
   }
 
   initTile(){
-    $(".tile-stats").each(function(i, el)
+    // Element Attribute Helper
+    function attrDefault($el, data_var, default_val)
     {
+      if(typeof $el.data(data_var) != 'undefined')
+      {
+        return $el.data(data_var);
+      }
+
+      return default_val;
+    }
+
+    $(".tile-stats").each(function(i, el){
       var $this = $(el),
         $num = $this.find('.num'),
 

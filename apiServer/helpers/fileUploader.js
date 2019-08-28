@@ -41,7 +41,8 @@ module.exports = class fileUploader {
     this.saveToPath = path.normalize(saveToPath);
     let fileName = this.fileName||this.makeId();
     let joinedPath = path.join(saveToPath,fileName+this.fileExtension);
-    let reg = /^static\\/;
+    //remove the static keyword from the url
+    let reg = /^static\\|static\//;
 
 
     return new Promise((resolve,reject)=>{
