@@ -292,7 +292,7 @@ componentDidMount() {
 		<div class="cause-bottom-content overlay-style-one">
 			<div class="container">
 				<div class="cause-content">
-          {/*<AllFarms/>*/}
+          <AllFarms/>
 				</div>
 			</div>
 		</div>
