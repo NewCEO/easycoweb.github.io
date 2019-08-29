@@ -1,7 +1,7 @@
 .next
 node_modules/.cache
 .env
-forever/production.json
+#forever/production.json
 env.js
 package.json
 /static
