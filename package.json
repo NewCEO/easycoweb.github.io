@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node nextServer/core/app.js",
+    "dev": " node nextServer/core/app.js",
     "build": "next build",
     "start": "NODE_ENV=production pm2 restart nextServer/core/app.js --name dev_app_server"
   },
