@@ -6,7 +6,7 @@
   "scripts": {
     "dev": " pm2-dev start app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production pm2 start app.js"
+    "start": "NODE_ENV=production pm2 restart app.js --name pro_api_server"
   },
   "author": "Chiemeke Ifeanyi",
   "license": "ISC",
