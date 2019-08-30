@@ -238,7 +238,7 @@ componentDidMount() {
 			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6725-min.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Grow your investment<br />portfolio</h1>
+						<h1>Grow your asset<br />portfolio</h1>
 						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
