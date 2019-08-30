@@ -125,8 +125,7 @@ class DashboardLayOut extends React.Component {
 
                 <div className="col-sm-2">
                   <div className="user-area float-right">
-                    <a href="/logout" className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">Logout</a>
+                    <a href="/logout">Logout</a>
                   </div>
                 </div>
               </div>
