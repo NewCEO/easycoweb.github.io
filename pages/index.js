@@ -1,15 +1,35 @@
 import React from 'react';
 import StaticLayout from '../layouts/StaticLayOut';
 import AllFarms from '../components/allFarmsHomePage';
+import jq from 'jquery';
 class Index extends React.Component{
 
   static async getInitialProps({ req }) {
     return { };
   }
 
+  constructor(props){
+  	super(props);
+	  this.state = {
+		  farms:"Loading.....",
+		  farmsUI:[]
+	  }
+  	this.handleLoadedDom = this.handleLoadedDom.bind(this);
+  }
+
+	handleLoadedDom(){
+		this.initWowSlider();
+	}
+
+	componentDidMount() {
+		window.addEventListener('load', this.handleLoadedDom);
+
+	}
+
+
 	initWowSlider(){
 
-		if($('.wow').length){
+		if(jq('.wow').length){
 			var wow = new WOW({
 				mobile:       false
 			});
@@ -193,19 +213,7 @@ class Index extends React.Component{
 
 	}
 
-  constructor(props){
-    super(props);
-    this.state = {
-      farms:"Loading.....",
-      farmsUI:[]
-    }
-  }
 
-
-
-componentDidMount() {
-  	this.initWowSlider();
-}
 
 	render() {
     return(

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import React from 'react';
-import {appStatic} from '../helpers/static';
 import HttpHelper from '../helpers/httpHelper';
 import userTypes from "../config/userTypes";
 import Link from 'next/link';
+import $ from 'jquery';
 
 import ContentLoader from "react-content-loader";
 
@@ -62,7 +62,8 @@ class DashboardLayOut extends React.Component {
 
 
         <link rel="stylesheet" href="/dashboard/assets/js/jvectormap/jquery-jvectormap-1.2.2.css" />
-        <link rel="stylesheet" href="/dashboard/assets/js/rickshaw/rickshaw.min.css"/>
+        <link rel="stylesheet" href="/dashboard/assets/js/rickshaw/rickshaw.min.css"/>import $ from 'jquery';
+
         <link rel="stylesheet" href="/dashboard/assets/js/datatables/datatables.css" />
           <link rel="stylesheet" href="/dashboard/assets/js/select2/select2-bootstrap.css" />
             <link rel="stylesheet" href="/dashboard/assets/js/select2/select2.css" />
@@ -83,6 +84,8 @@ class DashboardLayOut extends React.Component {
         <script src="/dashboard/assets/js/neon-demo.js"></script>
         <script src="/dashboard/assets/js/datatables/datatables.js"></script>
         <script src="/dashboard/assets/js/select2/select2.min.js"></script>
+        <script src="/js/jquery.js"></script>
+
 
 
       </Head>

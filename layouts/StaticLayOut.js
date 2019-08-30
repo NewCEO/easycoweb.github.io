@@ -3,8 +3,8 @@ import React from 'react';
 import LogInFormComp from "../components/loginForm";
 import SignUpFormComp from "../components/signupForm";
 import  httpHelper from "../helpers/httpHelper";
-import Link from 'next/link';
 import userTypes from '../config/userTypes';
+import $ from 'jquery';
 
 class StaticLayout extends React.Component {
   constructor(prop){
@@ -20,6 +20,7 @@ class StaticLayout extends React.Component {
 	};
 
 	  this.prop = prop;
+	  this.handleLoadedDom = this.handleLoadedDom.bind(this);
 
   }
 
@@ -31,30 +32,21 @@ class StaticLayout extends React.Component {
 			this.setState({userIn:false})
 
 		}
-	})
+	});
    }
 
-	componentDidMount(){
-
-  	this.getLoggedInUserDetails();
-
-	//Search Box Toggle
-	if($('.search-toggle').length){
-	   //Dropdown Button
-	   $('.search-toggle').on('click', function() {
-	    $(this).toggleClass('active');
-	    $(this).next('.search-box').toggleClass('now-visible');
-	    });
-	}
-
-	//Custom Seclect Box
-		if($('.custom-select-box').length){
-			$('.custom-select-box').selectmenu().selectmenu('menuWidget').addClass('overflow');
-		}
-
+	handleLoadedDom(){
 		this.initPopUp();
+		this.getLoggedInUserDetails();
+	}
+
+	componentDidMount() {
+
+		window.addEventListener('load', this.handleLoadedDom);
 
 	}
+
+
 
 	initPopUp(){
 
