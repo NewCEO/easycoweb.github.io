@@ -261,7 +261,7 @@ class StaticLayout extends React.Component {
 							<div class="footer-title">Contacts</div>
 							<div class="text">
 								<p> Oloba Village,Osun State.</p>
-								<p>+2(305) 587-3407</p>
+								<p>+234(0) 815 030 5555</p>
 								<p>hello@cowfunding.com.ng</p>
 							</div>
 						</div>
