@@ -9,7 +9,7 @@
     "start": "pm2 start nextServer/core/app.js --name dev_app_server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cow Funding Tech",
   "license": "ISC",
   "dependencies": {
     "cron-job": "^1.0.3",
