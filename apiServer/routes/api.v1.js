@@ -57,6 +57,7 @@ module.exports.apiV1 =  function (app) {
   router.get('/user/summary',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.summary(req,res)});
   router.get('/user/investor/summary',isLoggedIn(), cors(corsOptions),(req,res)=> {user.investorSummary(req,res)});
   router.post('/user/verify', cors(corsOptions),(req,res)=> {user.verify(req,res)});
+  router.post('/user/re-verify', cors(corsOptions),(req,res)=> {user.reVerify(req,res)});
 
 
 

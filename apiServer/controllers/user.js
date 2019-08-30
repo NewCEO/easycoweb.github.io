@@ -8,11 +8,9 @@ let mailer                        = require('../helpers/mailer');
 const randomKey                   = require('../helpers/randomizer');
 let update                        = require("../helpers/qUpdater")();
 let slugger                       = require("../helpers/slugger");
-const mysql           = require('mysql');
-const dotenv = require('dotenv');
+let error                         = require('../config/errorMessages');
 
 module.exports = class  user {
-
   static create(req,res) {
     let validationKey;
     let hashedPassword;
@@ -24,14 +22,13 @@ module.exports = class  user {
       validationKey   = key;
       hashedPassword  = passwordHelper.hash(req.body.password);
 
-      let query = "INSERT INTO users (name,email,password,reset_key) VALUES (?,?,?,?)";
-      let values = [req.body.name, req.body.email, hashedPassword,validationKey];
+      let query = "INSERT INTO users (name,email,password,reset_key,status) VALUES (?,?,?,?,?)";
+      let values = [req.body.name, req.body.email, hashedPassword,validationKey,statuses.unverified];
       return db.query(query, values)
     }).then((result)=>{
-      res.withSuccess(201,"creation").reply();
       let mail = new mailer();
       //   //TODO change url from hardcoded to soft coded
-      return mail.recipient(req.body.email).subject('EasyCow Email Verification')
+      mail.recipient(req.body.email).subject('EasyCow Email Verification')
                   .html(`<!DOCTYPE html>
                          <html>
                             <body>Registration Successful.
@@ -39,14 +36,43 @@ module.exports = class  user {
                                 </a>
                             </body>
                           </html>`)
-                  .send(undefined,3)
+                  .send(undefined,4);
+      res.withSuccess(201,"creation").reply();
     }).catch(function (data) {
       console.log(data);
       return res.withServerError(500).reply();
     })
 
   }
+  //Send the verification email again in case it didn't get through and account is still unverified
+  static reVerify(req,res){
+    let validationKey;
+    //Regenerate Random key
+     randomKey(15).then((key)=>{
+       validationKey = key;
+      //Update users reset key only if he has and unverified status
+      let query = "UPDATE users SET reset_key = ? WHERE users.email = ? AND users.status = ?";
+      let values = [key,req.body.email,statuses.unverified];
+      return db.query(query,values)
+    }).then((response)=>{
 
+      let mail = new mailer();
+       mail.recipient(req.body.email).subject('EasyCow Email Verification')
+      //use pug templating engine
+          .html(`<!DOCTYPE html>
+                         <html>
+                            <body>Registration Successful.
+                                <a href="${process.env.APP_URL}/user/verify?email=${req.body.email}&key=${validationKey}">click here to verify
+                                </a>
+                            </body>
+                          </html>`)
+          .send(undefined,4)
+       return res.withSuccess(200).reply();
+     }).catch((e)=>{
+      console.log(e,'error');
+      res.withServerError(500).reply();
+    })
+  }
   static verify(req,res){
     let query = `UPDATE users SET users.status = ?, users.reset_key = ? WHERE email = ? AND reset_key = ?`;
     let values = [statuses.active,"null",req.body.email,req.body.validation_key];
@@ -64,8 +90,8 @@ module.exports = class  user {
   
   static login(req,res){
 
-    let query   = "SELECT users.*,users.id as userId,status.name as status_name,status.id as status_id FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ? AND users.status = ?";
-      let values  = [req.body.email,statuses.active];
+    let query   = "SELECT users.*,users.id as userId,status.name as status_name,status.id as status_id FROM users INNER JOIN status ON status.id = users.status WHERE users.email = ?";
+      let values  = [req.body.email];
       let userDet;
       
       db.query(query, values).then((userResult)=>{
@@ -79,7 +105,7 @@ module.exports = class  user {
         console.log(result,'login result');
         //if they match
 
-        if (result){
+        if (result && (userDet.status === statuses.active)){
 
           delete userDet.password;
           delete userDet.reset_key;
@@ -90,10 +116,16 @@ module.exports = class  user {
 
           res.withSuccess(200).withData({validation:true,userDet}).reply();
 
-        }else{
-          res.withClientError(404).reply();
+        }else if(result && ( userDet.status === statuses.unverified)){
+          res.withClientError(403).withErrorData(error.unverified).reply();
 
+        }else if (result && ( userDet.status === statuses.deactivate)){
+          res.withClientError(403).withErrorData(error.blocked).reply();
+
+        }else{
+          res.withClientError(404).reply()
         }
+
       }).catch(function (error) {
         console.log(error);
         res.withServerError(500).reply();
