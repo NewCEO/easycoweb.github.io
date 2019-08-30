@@ -43,7 +43,7 @@ module.exports = class  user {
 	<![endif]-->
 
 	<title>CowFunding | Verify</title>
-
+chiemeke.ifeanyi@gmail.com
 	<style type="text/css">
 		body {
 			width: 100%;
@@ -268,7 +268,7 @@ module.exports = class  user {
 
 										<p style="line-height: 24px; margin-bottom:15px;">
 
-											Firstname, ${req.body.name}
+											Hello, ${req.body.name}
 
 										</p>
 										<p style="line-height: 24px;margin-bottom:15px;">
@@ -740,8 +740,7 @@ module.exports = class  user {
 
 										<p style="line-height: 24px; margin-bottom:15px;">
 
-											Firstname,
-
+Hello, ${req.body.name}
 										</p>
 										<p style="line-height: 24px;margin-bottom:15px;">
 											Congratulations,you are one click away from being able to invest on <span style="color:#77b112"> CowFunding.</span>
