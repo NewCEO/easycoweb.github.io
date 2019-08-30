@@ -75,9 +75,9 @@ class StaticLayout extends React.Component {
   render() {
     return(
 
-       <html>
+       <div>
 
-      <Head>
+      		<Head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -110,8 +110,7 @@ class StaticLayout extends React.Component {
 
 </Head>
 
-
-<body class="boxed_wrapper">
+			<div class="boxed_wrapper">
 	<div class="preloader"></div>
 	<header class="main-header header-style-three header-style-four">
 		<div class="header-upper">
@@ -242,17 +241,17 @@ class StaticLayout extends React.Component {
 						<div class="service-widget footer-widget">
 							<div class="footer-title">Links</div>
 							<ul class="list">
-								<li><a href="index.html">Home</a>
+								<li><a href="/index">Home</a>
 								</li>
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="causes-grid.html">Our Ranch</a>
+								<li><a href="/about-us">About Us</a></li>
+								<li><a href="/shop">Our Ranch</a>
 								</li>
-								<li><a href="team.html">Our Gallery</a>
+								<li><a href="/gallery">Our Gallery</a>
 								</li>
-								<li><a href="#">Our Thoughts</a>
+								<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 								</li>
-								<li><a href="contact.html">Contact Us</a></li>
-								<li><a href="contact.html">FAQs</a></li>
+								<li><a href="/contact">Contact Us</a></li>
+								<li><a href="/faq">FAQs</a></li>
 							</ul>
 						</div>
 					</div>
@@ -261,7 +260,7 @@ class StaticLayout extends React.Component {
 							<div class="footer-title">Contacts</div>
 							<div class="text">
 								<p> Oloba Village,Osun State.</p>
-								<p>+2(305) 587-3407</p>
+								<p>+234(0) 815 030 5555</p>
 								<p>hello@cowfunding.com.ng</p>
 							</div>
 						</div>
@@ -312,8 +311,8 @@ class StaticLayout extends React.Component {
 			</div>
 			</div>
 			</div>
-      </body>
-      </html> 
+      </div>
+      </div>
     )
   }
 

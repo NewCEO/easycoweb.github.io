@@ -62,8 +62,8 @@ class DashboardLayOut extends React.Component {
 
       <aside id="left-panel" className="left-panel">
         <nav className="navbar navbar-expand-sm navbar-default">
-
           <div className="navbar-header">
+          <a className="navbar-brand onelogo" href=""><h3 id="one" style={{"color":"#77b112"}}>COWFUNDING</h3></a>        
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
               <i className="fa fa-bars"></i>

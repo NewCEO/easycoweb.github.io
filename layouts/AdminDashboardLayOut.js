@@ -185,7 +185,7 @@ class DashboardLayOut extends React.Component {
                 <li className="sep"></li>
                 `
                 <li>`
-                  <a href="extra-login.html">
+                  <a href="/logout">
                     Log Out <i className="entypo-logout right"></i>
                   </a>
                 </li>
