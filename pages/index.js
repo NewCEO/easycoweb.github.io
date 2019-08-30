@@ -218,32 +218,35 @@ componentDidMount() {
 			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6769-min.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Funding One Farm <br />Funds Multiple Lifes</h1>
+						<h1>Funding one farm<br />funds multiple lifes<br /><br /></h1>
 						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="slide" style={{"background-image":"url(images/main-slider/IMG-20190711-WA0010.jpg)"}}>
+			<div class="slide" style={{"background-image":"url(images/main-slider/goat.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>We prove that health and wealth<br />are not far apart</h1>
-						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
+						<h1>Let your money<br/>work for you<br /><br /></h1>
+						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6725-min.jpg)"}}>
+			<div class="slide" style={{"background-image":"url(images/main-slider/farm.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Grow your asset<br />portfolio</h1>
-						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
+						<h1>We prove that<br/>health and wealth are not so far apart</h1>
+						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
+
+		
+
 		</div>
 	</section>
 

@@ -98,6 +98,102 @@ class gallery extends React.Component{
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/broch.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/1564580678579.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/13.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/1564989171849.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/1564837023908.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/dance.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/BADT.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/HKN_6604-min.JPG" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
