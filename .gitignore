@@ -1,3 +1,11 @@
 .next
 node_modules/.cache
+<<<<<<< Updated upstream
 .env
+=======
+.env
+#forever/production.json
+env.js
+#package.json
+/apiServer/static
+>>>>>>> Stashed changes
