@@ -268,7 +268,7 @@ module.exports = class  user {
 
 										<p style="line-height: 24px; margin-bottom:15px;">
 
-											Firstname,
+											Firstname, ${req.body.name}
 
 										</p>
 										<p style="line-height: 24px;margin-bottom:15px;">
