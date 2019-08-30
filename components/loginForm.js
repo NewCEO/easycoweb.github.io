@@ -2,6 +2,7 @@ import React from 'react';
 import HttpHelper from '../helpers/httpHelper';
 import userTypes     from "../config/userTypes";
 import HelpBlock  from '../components/HelpBlock';
+import error from '../config/errorMessages';
 
 import Router from 'next/router'
 
@@ -10,8 +11,10 @@ class LogInFormComp extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReVerification = this.handleReVerification.bind(this);
     this.state = {
       email:'',
+      password:'',
       redirect:false,
       loginHelpBlock:{
         state:false,
@@ -26,6 +29,35 @@ class LogInFormComp extends React.Component{
 
   }
 
+  handleReVerification(e){
+    e.preventDefault();
+    let formData = new FormData();
+    formData.append('email',this.unverifiedMail);
+    this.setState({ loginHelpBlock:{
+        state:true,
+        error:false,
+        text:`Verifying...`
+      }});
+    HttpHelper.httpReq('user/re-verify',formData,"POST").then((response)=>{
+      if (response.success){
+        this.setState({ loginHelpBlock:{
+            state:true,
+            error:false,
+            text:` ${ this.unverifiedMail} has just been sent a verification link.`
+          }});
+        this.setState({
+          email:"",
+          password:""
+        })
+      }else{
+        this.setState({ loginHelpBlock:{
+            state:true,
+            error:true,
+            text:<div> {this.unverifiedMail} re-verification failed. Please try again <a href='#' onClick={this.handleReVerification}>Re-verify</a></div>
+          }});
+      }
+    })
+  }
 
   handleChange(e){
 
@@ -49,10 +81,12 @@ class LogInFormComp extends React.Component{
     let formData = new FormData();
     formData.append('password',this.state.password);
     formData.append('email',this.state.email);
+    let text = '';
 
 
     HttpHelper.httpReq('login',formData,'POST')
       .then((result)=>{
+
         if(result.success){
 
           this.setState({ loginHelpBlock:{
@@ -67,12 +101,24 @@ class LogInFormComp extends React.Component{
           }
 
         }else{
+          if (result.error.data && (result.error.data.errId === error.blocked.errId)){
+
+            text = "Your account has been blocked";
+          }else if(result.error.data && (result.error.data.errId === error.unverified.errId)) {
+            this.unverifiedMail = this.state.email;
+            text = <div>Your account has not been verified click <a  onClick={this.handleReVerification} href="#" >here</a> to verify your account now</div>
+          }else {
+            text = "The Email  or Password is Incorrect";
+          }
+
           this.setState({ loginHelpBlock:{
               state:true,
               error:true,
-              text:'The Email  or Password is Incorrect'
+              text:text
             }});
         }
+
+
       }).catch((error)=>{console.log(error)});
 
   }
@@ -82,7 +128,7 @@ class LogInFormComp extends React.Component{
 
     return (
 
-      <form action="#"  onSubmit={this.handleSubmit} className="donate-form default-form me">
+      <form action="#"  onSubmit={this.handleSubmit}  className="donate-form default-form me">
         {
 
           this.state.loginHelpBlock.state?<HelpBlock type={this.state.loginHelpBlock.error} text={this.state.loginHelpBlock.text} />:''

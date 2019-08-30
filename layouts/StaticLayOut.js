@@ -75,9 +75,9 @@ class StaticLayout extends React.Component {
   render() {
     return(
 
-       <html>
+       <div>
 
-      <Head>
+      		<Head>
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -110,8 +110,7 @@ class StaticLayout extends React.Component {
 
 </Head>
 
-
-<body class="boxed_wrapper">
+			<div class="boxed_wrapper">
 	<div class="preloader"></div>
 	<header class="main-header header-style-three header-style-four">
 		<div class="header-upper">
@@ -312,8 +311,8 @@ class StaticLayout extends React.Component {
 			</div>
 			</div>
 			</div>
-      </body>
-      </html> 
+      </div>
+      </div>
     )
   }
 
