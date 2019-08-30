@@ -740,7 +740,7 @@ chiemeke.ifeanyi@gmail.com
 
 										<p style="line-height: 24px; margin-bottom:15px;">
 
-Hello, ${req.body.name}
+Hello
 										</p>
 										<p style="line-height: 24px;margin-bottom:15px;">
 											Congratulations,you are one click away from being able to invest on <span style="color:#77b112"> CowFunding.</span>
