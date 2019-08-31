@@ -15,9 +15,9 @@ module.exports = class server{
   }
 
   start(nextApp){
-    const handle = nextApp.getRequestHandler()
     //middlewares
     app.use(express.static('static'));
+    const handle = nextApp.getRequestHandler()
 
 
     //routes
