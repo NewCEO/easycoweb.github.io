@@ -161,7 +161,7 @@ class StaticLayout extends React.Component {
 						<ul class="nav-right pull-right">
 							<div class="upper-column info-box donate-box pull-right">
 								{
-									this.state.userIn?<a className="donate-box-btn theme-btn" href={this.state.userType == userTypes.regular?"/user/dashboard":"/admin/dashboard"}>Dashboard</a>:
+									this.state.userIn?<a className="theme-btn" href={this.state.userType == userTypes.regular?"/user/dashboard":"/admin/dashboard"}>Dashboard</a>:
 									<button className="donate-box-btn theme-btn">Login</button>
 								}
 							</div>
