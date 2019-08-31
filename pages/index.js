@@ -13,11 +13,13 @@ class Index extends React.Component{
 	  this.state = {
 		  farms:"Loading.....",
 		  farmsUI:[]
-	  }
+	  };
   	this.handleLoadedDom = this.handleLoadedDom.bind(this);
   }
 
 	handleLoadedDom(){
+		this.initWowSlider();
+		this.initCounter();
 		this.initWowSlider();
 	}
 
@@ -29,9 +31,9 @@ class Index extends React.Component{
 
 	initWowSlider(){
 
-		if(jq('.wow').length){
+		if($('.wow').length){
 			var wow = new WOW({
-				mobile:       false
+				mobile:       true
 			});
 			wow.init();
 		}
@@ -39,7 +41,7 @@ class Index extends React.Component{
 		//three-column-carousel
 		if ($('.three-column-carousel').length) {
 			$('.three-column-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -68,7 +70,7 @@ class Index extends React.Component{
 		//three-column-carousel
 		if ($('.related-event-carousel').length) {
 			$('.related-event-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:20,
 				nav:true,
 				smartSpeed: 3000,
@@ -98,7 +100,7 @@ class Index extends React.Component{
 		// single-item-carousel
 		if ($('.single-item-carousel').length) {
 			$('.single-item-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -127,7 +129,7 @@ class Index extends React.Component{
 		// brand-carousel
 		if ($('.brand-carousel').length) {
 			$('.brand-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -157,7 +159,7 @@ class Index extends React.Component{
 		// brand-carousel
 		if ($('.five-item-carousel').length) {
 			$('.five-item-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -188,7 +190,7 @@ class Index extends React.Component{
 		//Main Slider Carousel
 		if ($('.main-slider-carousel').length) {
 			$('.main-slider-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:0,
 				nav:true,
 				animateOut: 'slideOutDown',
@@ -213,7 +215,27 @@ class Index extends React.Component{
 
 	}
 
+	initCounter(){
+		var progressBar = $('.progress');
+		if(progressBar.length) {
+			progressBar.each(function () {
+				var Self = $(this);
+				Self.appear(function () {
+					var progressValue = Self.data('value');
 
+					Self.find('.progress-bar').animate({
+						width:progressValue+'%'
+					}, 100);
+
+					Self.find('span.value').countTo({
+						from: 0,
+						to: progressValue,
+						speed: 100
+					});
+				});
+			})
+		}
+	}
 
 	render() {
     return(
@@ -303,7 +325,7 @@ class Index extends React.Component{
 		<div class="cause-bottom-content overlay-style-one">
 			<div class="container">
 				<div class="cause-content">
-          <AllFarms/>
+          <AllFarms loadSlider={this.handleLoadedDom}/>
 				</div>
 			</div>
 		</div>
