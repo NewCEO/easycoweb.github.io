@@ -401,7 +401,7 @@ module.exports = class farms {
                                         <p><b>Investment Duration:</b>${duration(details.farm_starts,details.farm_ends)} Months</p>
                                         <p><b>Payback Date:</b>${payBackDate(details.invested_date,duration(details.farm_starts,details.farm_ends))}</p>
                                         <p><b>Amount PayAble:</b>N${interest(details.roi,details.invested_amount) + details.invested_amount }</p>
-                                        <a href="www-dev.easycow.com:3000/user/farms" >click here to view your investments</a>
+                                        <a href=${process.env.APP_URL}"/user/farms" >click here to view your investments</a>
                                      </html>
                         `).subject("Farm Investments - Easy Cow")
                           .recipient(details.investor_email)

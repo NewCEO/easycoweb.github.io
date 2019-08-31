@@ -1102,7 +1102,7 @@ Hello
         let slug    = slugger(userType.admin);
         let password = passwordHelper.hash(slug);
         let mail = new mailer();
-        mail.html(`<!DOCTYPE html><html><h4>Account Creation</h4><p>An admin account has been created with this details:</p><p><b>Email:</b>${req.body.email}</p><p><b>Password:</b>${slug}</p><a href="www-dev.easycow.com/login" >click here to login</a></html>`).subject("New Account Creation").recipient(req.body.email).send("",3);
+        mail.html(`<!DOCTYPE html><html><h4>Account Creation</h4><p>An admin account has been created with this details:</p><p><b>Email:</b>${req.body.email}</p><p><b>Password:</b>${slug}</p><a href=${process.env.APP_URL} >click here to login</a></html>`).subject("New Account Creation").recipient(req.body.email).send("",3);
         let values  = [req.body.name,req.body.email,password,req.body.user_type,statuses.active];
         return db.query(query,values);
       }
