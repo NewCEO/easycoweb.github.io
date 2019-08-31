@@ -75,7 +75,7 @@ module.exports = class farms {
 
       //Upload the image to the desired destination
       new fileUploader(req.files.farmThumbNail)
-        .saveTo('static/farm-images')
+        .saveTo('farm-images')
         .upload()
         .then((path)=>{
           filePath = path;
