@@ -1,17 +1,39 @@
 import React from 'react';
 import StaticLayout from '../layouts/StaticLayOut';
 import AllFarms from '../components/allFarmsHomePage';
+import jq from 'jquery';
 class Index extends React.Component{
 
   static async getInitialProps({ req }) {
     return { };
   }
 
+  constructor(props){
+  	super(props);
+	  this.state = {
+		  farms:"Loading.....",
+		  farmsUI:[]
+	  };
+  	this.handleLoadedDom = this.handleLoadedDom.bind(this);
+  }
+
+	handleLoadedDom(){
+		this.initWowSlider();
+		this.initCounter();
+		this.initWowSlider();
+	}
+
+	componentDidMount() {
+		window.addEventListener('load', this.handleLoadedDom);
+
+	}
+
+
 	initWowSlider(){
 
 		if($('.wow').length){
 			var wow = new WOW({
-				mobile:       false
+				mobile:       true
 			});
 			wow.init();
 		}
@@ -19,7 +41,7 @@ class Index extends React.Component{
 		//three-column-carousel
 		if ($('.three-column-carousel').length) {
 			$('.three-column-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -48,7 +70,7 @@ class Index extends React.Component{
 		//three-column-carousel
 		if ($('.related-event-carousel').length) {
 			$('.related-event-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:20,
 				nav:true,
 				smartSpeed: 3000,
@@ -78,7 +100,7 @@ class Index extends React.Component{
 		// single-item-carousel
 		if ($('.single-item-carousel').length) {
 			$('.single-item-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -107,7 +129,7 @@ class Index extends React.Component{
 		// brand-carousel
 		if ($('.brand-carousel').length) {
 			$('.brand-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -137,7 +159,7 @@ class Index extends React.Component{
 		// brand-carousel
 		if ($('.five-item-carousel').length) {
 			$('.five-item-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:30,
 				nav:true,
 				smartSpeed: 3000,
@@ -168,7 +190,7 @@ class Index extends React.Component{
 		//Main Slider Carousel
 		if ($('.main-slider-carousel').length) {
 			$('.main-slider-carousel').owlCarousel({
-				loop:true,
+				loop:false,
 				margin:0,
 				nav:true,
 				animateOut: 'slideOutDown',
@@ -193,19 +215,27 @@ class Index extends React.Component{
 
 	}
 
-  constructor(props){
-    super(props);
-    this.state = {
-      farms:"Loading.....",
-      farmsUI:[]
-    }
-  }
+	initCounter(){
+		var progressBar = $('.progress');
+		if(progressBar.length) {
+			progressBar.each(function () {
+				var Self = $(this);
+				Self.appear(function () {
+					var progressValue = Self.data('value');
 
+					Self.find('.progress-bar').animate({
+						width:progressValue+'%'
+					}, 100);
 
-
-componentDidMount() {
-  	this.initWowSlider();
-}
+					Self.find('span.value').countTo({
+						from: 0,
+						to: progressValue,
+						speed: 100
+					});
+				});
+			})
+		}
+	}
 
 	render() {
     return(
@@ -218,32 +248,35 @@ componentDidMount() {
 			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6769-min.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Funding One Farm <br />Funds Multiple Lifes</h1>
+						<h1>Funding one farm<br />funds multiple lifes<br /><br /></h1>
 						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="slide" style={{"background-image":"url(images/main-slider/IMG-20190711-WA0010.jpg)"}}>
+			<div class="slide" style={{"background-image":"url(images/main-slider/goat.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>We prove that health and wealth<br />are not far apart</h1>
-						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
+						<h1>Let your money<br/>work for you<br /><br /></h1>
+						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
 
-			<div class="slide" style={{"background-image":"url(images/main-slider/HKN_6725-min.jpg)"}}>
+			<div class="slide" style={{"background-image":"url(images/main-slider/farm.jpg)"}}>
 				<div class="container">
 					<div class="content con">
-						<h1>Grow your asset<br />portfolio</h1>
-						{/* <div class="text">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br />qui officia deserunt mollit anim id est laborum. </div> */}
+						<h1>We prove that<br/>health and wealth are not so far apart</h1>
+						<div class="text"> </div>
 						<div class="donate-box"><button class="donate-box-btn theme-btn">Invest Now</button></div>
 					</div>
 				</div>
 			</div>
+
+		
+
 		</div>
 	</section>
 
@@ -292,7 +325,7 @@ componentDidMount() {
 		<div class="cause-bottom-content overlay-style-one">
 			<div class="container">
 				<div class="cause-content">
-          <AllFarms/>
+          <AllFarms loadSlider={this.handleLoadedDom}/>
 				</div>
 			</div>
 		</div>

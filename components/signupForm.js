@@ -21,6 +21,9 @@ import HelpBlock from "../components/HelpBlock";
 
      this.state = {
         name:'',
+        email:'',
+        password:'',
+         confirmPassword:'',
         redirect:false,
         emailHelpText :{
           state:false,
@@ -106,7 +109,7 @@ import HelpBlock from "../components/HelpBlock";
            text:'Passwords do not match'
          }
        })
-       return false;
+         return false;
      }else{
        this.setState({
          confirmPasswordHelpText:{
@@ -126,7 +129,7 @@ import HelpBlock from "../components/HelpBlock";
            .then((result)=>{
              console.log(result,'result');
              // console.log(JSON.stringify(result),'does email exist');
-             if (result.message === true){
+             if (result.success.data === 'true'){
                this.setState({
                  emailHelpText:{
                    state:true,
@@ -203,13 +206,33 @@ import HelpBlock from "../components/HelpBlock";
          HttpHelper.httpReq('sign-up',formData,'POST')
            .then((result)=>{
              if(result.success){
+                 //Reset Help Texts
+                 this.setState({
 
+                     passwordHelpText:{
+                         state:false,
+                         error:false,
+                         text:''
+                     }
+                 })
+                 this.setState({
+                     confirmPasswordHelpText:{
+                         state:false,
+                         error:false,
+                         text:''
+                     }
+                 })
               this.setState({signUpHelpBlock:{
                   state:true,
                   error:false,
                   text:'Registration Successful. You would receive a link in your email to activate your Account'
-                }});
-               this.form.current.reset(); ;
+                },
+                  name:"",
+                  email:"",
+                  password:"",
+                  confirmPassword:""
+              });
+               this.form.current.reset();
                return   true
              }
              this.setState({signUpHelpBlock:{
@@ -245,7 +268,7 @@ import HelpBlock from "../components/HelpBlock";
               <div className="form-group">
                 <p>Your Name*</p>
                 <input type="text"  name="name" id="jform_name"  className="required"
-                       size="30" required aria-required="true" value={this.state.name} onChange={this.handleChange} />
+                       size="30" required aria-required="true" value={this.state.name} onChange={this.handleChange} autoComplete="off" />
 
                 {
 
@@ -257,8 +280,8 @@ import HelpBlock from "../components/HelpBlock";
               <div className="form-group">
                 <p>Email*</p>
                 <input type="email" name="email" onChange={this.handleChange} className="validate-email required"
-                       id="jform_email1"  size="30" value={this.state.email} autoComplete="email" required
-                       aria-required="true"/></div>
+                       id="jform_email1"  size="30" value={this.state.email}  required
+                       aria-required="true" autoComplete="off"/></div>
               {
                 this.state.emailHelpText.state?<FormHelpText type={this.state.emailHelpText.error} text={this.state.emailHelpText.text} />:''
               }
@@ -279,7 +302,7 @@ import HelpBlock from "../components/HelpBlock";
                 <p>Confirm Password*</p>
                 <input type="password" name="confirmPassword" onChange={this.handleChange} id="jform_password2"
                        autoComplete="off" className="validate-password required" size="30"
-                       value={this.state.password2} required aria-required="true"/></div>
+                       value={this.state.confirmPassword} required aria-required="true"/></div>
               {
 
                 this.state.confirmPasswordHelpText.state?<FormHelpText type={this.state.confirmPasswordHelpText.error} text={this.state.confirmPasswordHelpText.text} />:''

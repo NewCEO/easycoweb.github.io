@@ -18,7 +18,7 @@ let smooch = function (options) {
           case 401:
             message.error = {
               code:401,
-              message:"Permission Denied. You must log in"
+              message:"Permisstatuses.activesion Denied. You must log in"
             };
             break;
           case 403:
@@ -73,6 +73,10 @@ let smooch = function (options) {
       },
       withData:function (data) {
         message.success.data = data;
+        return this;
+      },
+      withErrorData:function (data) {
+        message.error.data = data;
         return this;
       },
       reply:function () {

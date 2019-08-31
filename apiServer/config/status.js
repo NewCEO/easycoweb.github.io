@@ -6,5 +6,6 @@ module.exports = {
   deleted:5,
   ripe:6,
   reimbursed:7,
-  soldout:8
+  soldout:8,
+  unverified: 9
 };

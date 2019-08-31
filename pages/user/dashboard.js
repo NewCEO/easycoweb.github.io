@@ -161,7 +161,7 @@ class Dashboard extends React.Component{
             <div className="col">
               <div className="counter">
                 <i className="fa fa-clock-o fa-2x"></i>
-                <h2 className="timer count-title count-number" data-to={days} data-speed="1500"></h2>
+                <h2 className="timer count-title count-number" data-to={days?days:0} data-speed="1500"></h2>
                 <p className="count-text ">Payment Due (days)</p>
               </div>
             </div>

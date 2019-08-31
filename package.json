@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "node nextServer/core/app.js",
     "build": "next build",
-    "start": "pm2 start nextServer/core/app.js --name dev_app_server"
+    "start": "NODE_ENV=production pm2 start nextServer/core/app.js --name dev_app_server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cow Funding Tech",
   "license": "ISC",
   "dependencies": {
     "cron-job": "^1.0.3",
@@ -31,3 +31,4 @@
     "react-router-dom": "^5.0.1"
   }
 }
+
