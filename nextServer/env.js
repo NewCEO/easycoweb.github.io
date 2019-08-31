@@ -1,7 +1,7 @@
 module.exports =  {
-    APP_PORT :3000,
+    APP_PORT :3001,
     API_URL  : 'http://cowfunding.com.ng',
-    API_PORT : 3009
+    API_PORT : 3010
 }
 
 
