@@ -1265,4 +1265,20 @@ Hello
     })
   }
 
+  static  getInvoiceSummary(res,req){
+
+    let query = `SELECT * FROM purchased_farms 
+                  INNER JOIN users ON users.id = purchased_farms.user_id
+                  WHERE purchased_farms.slug = ?                  
+                 `;
+
+    let values = [req.param.slug];
+
+    return db.query(query,values).then((result)=>{
+      res.withSuccess(200).withData(result).reply();
+    }).catch(()=>{
+      res.withServerError(500).reply();
+    })
+  }
+
 }

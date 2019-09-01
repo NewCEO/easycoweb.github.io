@@ -159,6 +159,34 @@ module.exports = class farms {
     let query   = `SELECT *,(SELECT SUM (quantity) FROM purchased_farms WHERE purchased_farms.farm_id = farms.id ) as sold_out FROM farms WHERE slug = ?`;
     return db.query(query,values)
   }
+  static offlineInvoice(req,res){
+    this.getSingleFarm(req.body.farmId).then((result)=>{
+      let singleFarm = result[0];
+      //check if farm is open,check if the farm is sold out
+      if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
+        //create Invoice
+        this.createInvoice(req,res,slug,singleFarm).then((result)=>{
+          let slug = result;
+          let amount = singleFarm.price_per_unit * req.body.units *100;
+          //Offline payment Invoice
+          let data = {
+            amount:amount,
+            farm:singleFarm,
+            invoice_id:slug
+          };
+          res.withSuccess(201).withData(data).reply();
+        }).catch(function (error) {
+          console.log(error);
+          res.withServerError(500).reply();
+        })
+      }else{
+        res.withClientError(400).reply();
+      }
+    }).catch(function (err) {
+      console.log(err,)
+      res.withServerError(500).reply();
+    })
+  }
   static singleFarm(req,res){
    this.getSingleFarm(req.params.farmId)
     .then(function (result) {
@@ -229,7 +257,6 @@ module.exports = class farms {
 
 
   }
-
   static updateActivity(req,res){
 
     let body = req.body;
@@ -254,7 +281,6 @@ module.exports = class farms {
       res.withServerError(500).reply();
     })
   }
-
   static allActivity(req,res){
 
     let values  = [];
@@ -286,7 +312,6 @@ module.exports = class farms {
     })
 
   }
-
   static  status(req,res){
     let status;
     switch (req.params.farmStatus) {
@@ -321,19 +346,29 @@ module.exports = class farms {
         res.withServerError(500).reply();
       })
   }
-  static  createInvoice(req,res){
+  static createInvoice(req,res,slug,singleFarm){
+    return new Promise((resolve,reject)=>{
+      anonymous.slugOn("purchased_farms","slug").then(function (slug) {
+        let date = new Date(Date.now()).toISOString();
+        let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
+        let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
+        return db.query(query,values).then((result)=>{
+          resolve(slug);
+        })
+      })
+    })
+
+  }
+  static payStackInit(req,res){
     let genSlug;
     this.getSingleFarm(req.body.farmId).then((result)=>{
       let singleFarm = result[0];
       //check if farm is open,check if the farm is sold out
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
-        anonymous.slugOn("purchased_farms","slug").then(function (slug) {
-          genSlug = slug;
-          let date = new Date(Date.now()).toISOString();
-          let values = [slug,singleFarm.id,req.body.units,req.session.userId,status.unpaid];
-          let query = "INSERT INTO purchased_farms (slug,farm_id,quantity,user_id,status) VALUES (?,?,?,?,?)";
-          return db.query(query,values);
-        }).then((result)=>{
+        //create Invoice
+
+       this.createInvoice(req,res,slug,singleFarm).then((result)=>{
+          let genslug = result;
           let amount = singleFarm.price_per_unit * req.body.units *100;
           //paystack stuff going on here
           return paystack.transaction.initialize({
@@ -359,19 +394,14 @@ module.exports = class farms {
       res.withServerError(500).reply();
     })
   }
+  static updateUserPayment(req,res,userId){
+    let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ?";
+    let values = [status.invested,req.body.reference,userId];
+    db.query(query,values).then((result)=>{
+      let resData;
+      if (result.affectedRows > 0) {
 
-  static payInvoice(req,res){
-
-    paystack.transaction.verify(req.body.reference).then((result)=>{
-
-      if (result.data.status === "success"){
-        let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ?";
-        let values = [status.invested,req.body.reference,req.session.userId];
-         db.query(query,values).then((result)=>{
-          let resData;
-          if (result.affectedRows > 0) {
-
-            let query = `SELECT farms.*,
+        let query = `SELECT farms.*,
                  purchased_farms.date as invested_date,
                  users.email as investor_email,
                  users.name as investor_name,
@@ -385,11 +415,11 @@ module.exports = class farms {
                  INNER JOIN users ON users.id = purchased_farms.user_id 
                  WHERE purchased_farms.slug = ? AND purchased_farms.user_id = ?
                  `;
-            let values  = [req.body.reference,req.session.userId];
-             db.query(query, values).then( (result)=> {
-              let details = result[0];
-              let mail = new Mailer();
-              mail.html(`<!DOCTYPE html>
+        let values  = [req.body.reference,userId];
+        db.query(query, values).then( (result)=> {
+          let details = result[0];
+          let mail = new Mailer();
+          mail.html(`<!DOCTYPE html>
                                     <html>
                                         <h4>Investment Successful</h4>
                                         <p><b>Hi, ${details.investor_name}</b></p>
@@ -403,33 +433,37 @@ module.exports = class farms {
                                         <p><b>Amount PayAble:</b>N${interest(details.roi,details.invested_amount) + details.invested_amount }</p>
                                         <a href=${process.env.APP_URL}"/user/farms" >click here to view your investments</a>
                                      </html>
-                        `).subject("Farm Investments - Easy Cow")
-                          .recipient(details.investor_email)
-                          .send("",3);
+                        `).subject("Farm Investments -Cow Funding")
+              .recipient(details.investor_email)
+              .send("",3);
 
-            })
+        });
 
-
-
-
-             resData = {
-              slug: req.body.reference,
-              invoice: {
-                status: "paid"
-              }
-            }
-          }else{
-             resData = {
-              slug: req.body.reference,
-              invoice: {
-                status: "unpaid"
-              }
-            }
+        resData = {
+          slug: req.body.reference,
+          invoice: {
+            status: "paid"
           }
-          res.withSuccess(200).withData(resData).reply();
-        }).catch(function (error) {
-          res.withServerError(500).reply();
-        })
+        }
+      }else{
+        resData = {
+          slug: req.body.reference,
+          invoice: {
+            status: "unpaid"
+          }
+        }
+      }
+      res.withSuccess(200).withData(resData).reply();
+    }).catch(function (error) {
+      res.withServerError(500).reply();
+    })
+  }
+  static payInvoice(req,res){
+
+    paystack.transaction.verify(req.body.reference).then((result)=>{
+
+      if (result.data.status === "success"){
+        this.updateUserPayment(req,res,req.session.userId);
       }else{
         res.withServerError(500).reply();
       }
@@ -437,7 +471,6 @@ module.exports = class farms {
       res.withServerError(500).reply();
     })
   }
-
   static follow(req,res){
     let query;
     switch (req.params.relType) {
@@ -461,7 +494,6 @@ module.exports = class farms {
       res.withServerError(500).reply();
     }
   }
-
   static investments(req,res){
     let query     = `SELECT *, investor.name as investor_name, purchased_farms.date as invested_date,investor.id as investor_id ,
                      purchased_farms.slug as id,investment_status.name as investment_status,investment_status.id as investment_status_id
@@ -515,5 +547,8 @@ module.exports = class farms {
       res.withServerError(500).reply();
     })
   }
+  static offlineInvestment(req,res){
+    this.updateUserPayment(req,res,req.body.investor_id);
+  }
 
-}
+};

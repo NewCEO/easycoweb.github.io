@@ -58,6 +58,9 @@ module.exports.apiV1 =  function (app) {
   router.get('/user/investor/summary',isLoggedIn(), cors(corsOptions),(req,res)=> {user.investorSummary(req,res)});
   router.post('/user/verify', cors(corsOptions),(req,res)=> {user.verify(req,res)});
   router.post('/user/re-verify', cors(corsOptions),(req,res)=> {user.reVerify(req,res)});
+  router.get('/user/summary',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.summary(req,res)});
+  router.get('/user/invoice/summary/:slugId',isLoggedIn(),admin(),cors(corsOptions), (req,res)=> {user.getInvoiceSummary(req,res)});
+
 
 
 
@@ -75,16 +78,18 @@ module.exports.apiV1 =  function (app) {
   router.get('/farms/categories', cors(corsOptions), (req,res)=> {farm.categories(req,res)});
   router.get('/farms/status/:farmId/:farmStatus',[isLoggedIn(),admin(),cors(corsOptions)], (req,res)=> {farm.status(req,res)});
   router.get('/farms/:farmId',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.singleFarm(req,res)});
-  router.post('/farms/invoice/create',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.createInvoice(req,res)});
+  router.post('/farms/invoice/create',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.payStackInit(req,res)});
+  router.post('/farms/invoice/offline/create',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.offlineInvoice(req,res)});
   router.post('/farms/invoice/pay',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.payInvoice(req,res)});
   router.post('/farms/relationship/:farmSlug/:relType',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.follow(req,res)});
   router.get('/farms/user/:follow',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.all(req,res)});
   router.post('/farms/investment/:investmentId/pay',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {farm.payInvestment(req,res)});
+  router.post('/farms/investment/offline/invoice/pay',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {farm.offlineInvestment(req,res)});
 
 
   //Anonymous api Calls
   router.get('/locations',  cors(corsOptions),(req,res)=> {anonymous.locations(req,res)});
-  router.get('/banks',  cors(corsOptions),(req,res)=> {anonymous.banks(req,res)});
+  router.get('/banks',cors(corsOptions),(req,res)=> {anonymous.banks(req,res)});
 
 
 
