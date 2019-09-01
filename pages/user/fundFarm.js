@@ -184,7 +184,7 @@ class fundFarm extends React.Component{
                         </div>
                         <div className=" but row">
                           <div className="text-center">
-                            <button type="button" onClick={this.fundNow} disabled={this.state.isEnabled?"":"disabled"} className="button">Fund Now</button>
+                            <button type="button" onClick={this.fundNow} disabled={this.state.isEnabled?"":"disabled"} className="button"  data-toggle="modal" data-target="#profile">Fund Now</button>
                           </div>
                         </div>
                     </div>
@@ -194,9 +194,49 @@ class fundFarm extends React.Component{
               </div>
             </div>
           </div>
-
-
         </div>
+
+        <div class="modal fade" id="fund" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 style={{"color":"#77b112"}} class="modal-title" id="smallmodalLabel">Fund Options</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+				</div>
+				<div class="modal-body text-center">
+					<button type="button" class=" button btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#bankinfo"><i class="fa fa-bank" style={{"color":"#77b112"}}></i> BANK TRANSFER</button>
+					<button type="button" class=" button btn btn-primary"><i class="fa fa-globe" style={{"color":"#77b112"}}></i>  PAYSTACK</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class=" button btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="bankinfo" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 style={{"color":"#77b112"}} class="modal-title" id="smallmodalLabel">Fund Option - Bank transfer</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+				</div>
+				<div class="modal-body">
+					<h5>To fund a farm through bank transfer <br/><br/>1. Transfer funds to Access Bank account <br/> Acc No. - 0691128726 <br/> Acc Name - Selema farms Ltd 	</h5> <br/>
+					<h5>2. send evidence of payment i.e A screenshot of successful payment <br/> and include payment invoice that will be issued to you from us to info@cowfunding.com.ng</h5> <br/>
+					<h5>3. Confirmation of your investment will be issued in 24 hrs</h5>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class=" button btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
       </DashBoardLayOut>
     )
