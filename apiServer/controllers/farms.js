@@ -153,6 +153,7 @@ module.exports = class farms {
     })
 
   }
+
   static getSingleFarm(slug){
     let values  = [slug];
 
@@ -165,7 +166,7 @@ module.exports = class farms {
       //check if farm is open,check if the farm is sold out
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
         //create Invoice
-        this.createInvoice(req,res,slug,singleFarm).then((result)=>{
+        this.createInvoice(req,res,singleFarm).then((result)=>{
           let slug = result;
           let amount = singleFarm.price_per_unit * req.body.units *100;
           //Offline payment Invoice
@@ -346,7 +347,7 @@ module.exports = class farms {
         res.withServerError(500).reply();
       })
   }
-  static createInvoice(req,res,slug,singleFarm){
+  static createInvoice(req,res,singleFarm){
     return new Promise((resolve,reject)=>{
       anonymous.slugOn("purchased_farms","slug").then(function (slug) {
         let date = new Date(Date.now()).toISOString();
@@ -367,8 +368,8 @@ module.exports = class farms {
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
         //create Invoice
 
-       this.createInvoice(req,res,slug,singleFarm).then((result)=>{
-          let genslug = result;
+       this.createInvoice(req,res,singleFarm).then((result)=>{
+          let genSlug = result;
           let amount = singleFarm.price_per_unit * req.body.units *100;
           //paystack stuff going on here
           return paystack.transaction.initialize({
