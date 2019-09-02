@@ -11,6 +11,7 @@ let session     = require('../middlewares/session');
 let admin       = require('../middlewares/admin');
 let superAdmin  = require('../middlewares/superAdmin');
 let fileUpload  = require('../middlewares/fileUploader');
+let passwordConf = require('../middlewares/passWordConf');
 let isLoggedIn                                     = require('../middlewares/isLoggedIn');
 let acceptedHeader                                 = require('../middlewares/acceptedHeader');
 let validationHandler                              = require('../middlewares/errorHandler');
@@ -84,7 +85,7 @@ module.exports.apiV1 =  function (app) {
   router.post('/farms/relationship/:farmSlug/:relType',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.follow(req,res)});
   router.get('/farms/user/:follow',[isLoggedIn(),cors(corsOptions)], (req,res)=> {farm.all(req,res)});
   router.post('/farms/investment/:investmentId/pay',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {farm.payInvestment(req,res)});
-  router.post('/farms/investment/offline/invoice/pay',[isLoggedIn(),superAdmin(),cors(corsOptions)], (req,res)=> {farm.offlineInvestment(req,res)});
+  router.post('/farms/investment/offline/invoice/pay',[isLoggedIn(),superAdmin(),cors(corsOptions),passwordConf()], (req,res)=> {farm.offlineInvestment(req,res)});
 
 
   //Anonymous api Calls
