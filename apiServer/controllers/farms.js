@@ -396,8 +396,8 @@ module.exports = class farms {
     })
   }
   static updateUserPayment(req,res,userId){
-    let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ?";
-    let values = [status.invested,req.body.reference,userId];
+    let query = "UPDATE purchased_farms SET status = ? WHERE slug = ? AND user_id = ? AND status = ?";
+    let values = [status.invested,req.body.reference,userId,status.unpaid];
     db.query(query,values).then((result)=>{
       let resData;
       if (result.affectedRows > 0) {
@@ -414,7 +414,9 @@ module.exports = class farms {
                  INNER JOIN farms ON farms.id = purchased_farms.farm_id
                  INNER JOIN status ON status.id = purchased_farms.status 
                  INNER JOIN users ON users.id = purchased_farms.user_id 
-                 WHERE purchased_farms.slug = ? AND purchased_farms.user_id = ?
+                 WHERE purchased_farms.slug = ? 
+                 AND purchased_farms.user_id = ? 
+                
                  `;
         let values  = [req.body.reference,userId];
         db.query(query, values).then( (result)=> {
@@ -446,15 +448,13 @@ module.exports = class farms {
             status: "paid"
           }
         }
+        res.withSuccess(200).withData(resData).reply();
       }else{
-        resData = {
-          slug: req.body.reference,
-          invoice: {
-            status: "unpaid"
-          }
-        }
+
+
+        res.withClientError(400).withErrorData(resData).reply();
       }
-      res.withSuccess(200).withData(resData).reply();
+
     }).catch(function (error) {
       res.withServerError(500).reply();
     })

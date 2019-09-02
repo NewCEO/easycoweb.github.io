@@ -15,7 +15,7 @@ class createFarm extends React.Component{
   constructor(props){
       super(props)
       this.state = {formValues:{status:'1'},
-          farmNotification:{
+          HelpBlock:{
               state:false,
               error:false,
               text:''
@@ -50,6 +50,35 @@ class createFarm extends React.Component{
         });
     }
 
+
+    updateInvestment(e){
+      e.preventDefault();
+      let formData = new FormData();
+      formData.append("password",this.state.formValues.password)
+        formData.append("reference",this.state.formValues.invoiceId)
+      httpHelper.httpReq('farms/investment/offline/invoice/pay',formData,"POST").then((response)=>{
+            if (response.success){
+                this.setState({ HelpBlock:{
+                        state:true,
+                        error:false,
+                        text:"Transaction Successful"
+                    }});
+            }else{
+                this.setState({ HelpBlock:{
+                        state:true,
+                        error:true,
+                        text:"Transaction failed"
+                    }});
+            }
+      }).catch(()=>{
+          this.setState({ HelpBlock:{
+                  state:true,
+                  error:true,
+                  text:"Transaction failed"
+              }});
+      })
+    }
+
     handleSubmit(e){
       e.preventDefault();
         httpHelper.httpReq("user/invoice/summary/"+this.state.formValues.invoiceId,"","GET").then((response)=>{
@@ -79,7 +108,7 @@ class createFarm extends React.Component{
                   <form role="form" id="farmForm" ref={this.form} onSubmit={this.handleSubmit} className="form-horizontal  form-groups-bordered">
                       {
 
-                          this.state.farmNotification.state?<HelpBlock type={this.state.farmNotification.error} text={this.state.farmNotification.text} />:''
+                          this.state.HelpBlock.state?<HelpBlock type={this.state.HelpBlock.error} text={this.state.HelpBlock.text} />:''
                       }
 
 
@@ -120,11 +149,15 @@ class createFarm extends React.Component{
                                           Password<span className="star">&#160;*</span></label>
                                   </div>
                                   <div className="controls">
-                                      <input type="password" name="password" id="jform_password1" onChange={this.handleChange}
-                                             autoComplete="off" className="validate-password required" size="30"
+                                      <input type="password"  name="password" id="jform_password1" onChange={this.handleChange}
+                                             autoComplete="off" className="validate-password required" required="required" size="30"
                                              value={this.state.formValues.password} required aria-required="true"/></div>
 
                               </div>
+                              {
+
+                                  this.state.HelpBlock.state?<HelpBlock type={this.state.HelpBlock.error} text={this.state.HelpBlock.text} />:''
+                              }
                           </div>
                           <div className="modal-footer">
                               <button type="button" className="button btn btn-secondary" data-dismiss="modal">Cancel
@@ -138,11 +171,6 @@ class createFarm extends React.Component{
           </div>
         </div>
 
-
-
-
-
-farm
 
 
       </DashBoardLayOut>
