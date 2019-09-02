@@ -31,9 +31,9 @@ module.exports = class anonymous{
 
   static slugOn (table,column){
       var result           = '';
-      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890=.';
+      var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
       var charactersLength = characters.length;
-      for ( var i = 0; i < 20; i++ ) {
+      for ( var i = 0; i < 10; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
       }
 

@@ -26,7 +26,7 @@ class allFarmTableComponent extends React.Component{
 
 
   getFarms(){
-    httpHelper.httpReq(`farms/all?paginate=true&page=1&status[eql]=${status.active}&status[eql]=${status.soldout}`).then( (response)=> {
+    httpHelper.httpReq(this.props.url).then( (response)=> {
       if (response.success){
 
 

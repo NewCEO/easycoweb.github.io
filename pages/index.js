@@ -1,6 +1,7 @@
 import React from 'react';
 import StaticLayout from '../layouts/StaticLayOut';
 import AllFarms from '../components/allFarmsHomePage';
+import status from '../config/status';
 import jq from 'jquery';
 class Index extends React.Component{
 
@@ -325,7 +326,7 @@ class Index extends React.Component{
 		<div class="cause-bottom-content overlay-style-one">
 			<div class="container">
 				<div class="cause-content">
-          <AllFarms loadSlider={this.handleLoadedDom}/>
+          <AllFarms loadSlider={this.handleLoadedDom} url={`farms/all?paginate=true&page=1&status[eql]=${status.active}`}/>
 				</div>
 			</div>
 		</div>

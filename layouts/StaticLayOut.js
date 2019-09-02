@@ -113,7 +113,7 @@ class StaticLayout extends React.Component {
 						<div class="icon-box"><i class="flaticon-phone-call"></i></div>
 						<ul>
 							<li>
-								<strong>880 1723801729</strong>hello@cowfunding.com.ng
+								<strong>0815 030 5555</strong>hello@cowfunding.com.ng
 							</li>
 						</ul>
 					</div>
@@ -121,7 +121,7 @@ class StaticLayout extends React.Component {
 						<div class="icon-box"><i class="flaticon-placeholder"></i></div>
 						<ul>
 							<li>
-							<strong> Oloba Village,</strong>Osun State.
+							<strong>iwo,</strong>Osun State.
 							</li>
 						</ul>
 					</div>

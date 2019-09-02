@@ -22,7 +22,8 @@ class createFarmFormComponent extends React.Component{
         state:false,
         error:false,
         text:''
-      }
+      },
+      input:false
     }
 
   }
@@ -84,7 +85,7 @@ class createFarmFormComponent extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
-    this.setState({btnDisabled:true});
+    this.setState({btnDisabled:trueCKanPdXKaT});
     let values = this.state.formValues;
     let formData = new FormData();
     for (var key in values){

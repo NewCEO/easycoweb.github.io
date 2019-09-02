@@ -29,7 +29,7 @@ class DashboardLayOut extends React.Component {
 
   render() {
     return (
-      <html>
+      <div>
       <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
       <Head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -41,17 +41,17 @@ class DashboardLayOut extends React.Component {
 
         <link rel="icon" href="assets/images/favicon.ico"/>
 
-        <title>EasyCowFunding | Dashboard</title>
+        <title>CowFunding | Dashboard</title>
 
-        <link rel="stylesheet" href={'/dashboard/assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css'}/>
-        <link rel="stylesheet" href={"/dashboard/assets/css/font-icons/entypo/css/entypo.css"}/>
-        <link rel="stylesheet" href={"/dashboard/assets/css/font-icons/font-awesome/css/font-awesome.css"}/>
+        <link rel="stylesheet" href="/dashboard/assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css"/>
+        <link rel="stylesheet" href="/dashboard/assets/css/font-icons/entypo/css/entypo.css"/>
+        <link rel="stylesheet" href="/dashboard/assets/css/font-icons/font-awesome/css/font-awesome.css"/>
         <link
           href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
           rel="stylesheet" type="text/css"/>
         <link href="http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet"
               type="text/css"/>
-        <link rel="stylesheet" href={"/dashboard/assets/css/bootstrap.css"}/>
+        <link rel="stylesheet" href="/dashboard/assets/css/bootstrap.css"/>
         <link rel="stylesheet" href="/dashboard/assets/css/neon-core.css"/>
         <link rel="stylesheet" href="/dashboard/assets/css/neon-theme.css"/>
         <link rel="stylesheet" href="/dashboard/assets/css/neon-forms.css"/>
@@ -91,7 +91,7 @@ class DashboardLayOut extends React.Component {
       </Head>
 
 
-      <body className = "page-body skin-green" >
+      <div className = "page-body skin-green" >
       <div className="page-container">
         <div className="sidebar-menu">
 
@@ -142,6 +142,14 @@ class DashboardLayOut extends React.Component {
                 </a>
                </Link>
               </li>
+              <li className="opened active ">
+                <Link href="/admin/farm/payment/offline">
+                  <a>
+                    <i className="entypo-leaf"></i>
+                    <span className="title">Offline Payment</span>
+                  </a>
+                </Link>
+              </li>
               {
                 this.state.userDetails.user_type === userTypes.superAdmin?
                   <li className="opened active ">
@@ -169,6 +177,11 @@ class DashboardLayOut extends React.Component {
                   ""
 
               }
+<br />
+<br />
+<br />
+<br />
+<br />
 
             </ul>
           </div>
@@ -200,8 +213,9 @@ class DashboardLayOut extends React.Component {
           {this.props.children}
         </div>
       </div>
-      </body>
-      </html>
+      </div>
+
+      </div>
     )
   }
 }

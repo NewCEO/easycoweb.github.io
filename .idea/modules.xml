@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/easyco.iml" filepath="$PROJECT_DIR$/.idea/easyco.iml" />
+      <module fileurl="file:///media/darnyelx/C67A55537A5540FB/xampp/htdocs/tms/public/assets/global/scripts/.idea/scripts.iml" filepath="/media/darnyelx/C67A55537A5540FB/xampp/htdocs/tms/public/assets/global/scripts/.idea/scripts.iml" />
     </modules>
   </component>
 </project>
