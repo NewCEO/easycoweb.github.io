@@ -549,6 +549,7 @@ module.exports = class farms {
     })
   }
   static offlineInvestment(req,res){
+
     this.updateUserPayment(req,res,req.body.investor_id);
   }
 

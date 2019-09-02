@@ -1265,17 +1265,18 @@ Hello
     })
   }
 
-  static  getInvoiceSummary(res,req){
+  static  getInvoiceSummary(req,res){
 
-    let query = `SELECT * FROM purchased_farms 
+    let query = `SELECT purchased_farms.*,users.name as investor_name,farms.price_per_unit FROM purchased_farms 
                   INNER JOIN users ON users.id = purchased_farms.user_id
+                  INNER JOIN farms on farms.id = purchased_farms.farm_id
                   WHERE purchased_farms.slug = ?                  
                  `;
 
-    let values = [req.param.slug];
+    let values = [req.params.slugId];
 
     return db.query(query,values).then((result)=>{
-      res.withSuccess(200).withData(result).reply();
+      res.withSuccess(200).withData(result[0]).reply();
     }).catch(()=>{
       res.withServerError(500).reply();
     })
