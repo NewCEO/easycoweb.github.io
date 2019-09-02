@@ -71,7 +71,7 @@ class singleFarm extends React.Component{
             <div className="progress" data-value={(this.state.details.sold_out/this.state.details.total_units)*100} >
               <div className="progress-bar" role="progressbar" aria-valuenow={(this.state.details.sold_out/this.state.details.total_units)*100} aria-valuemin="0"
                    aria-valuemax="100">
-                <div className="value-holder"><span className="value"></span>%-SOLD OUT</div>
+                <div className="value-holder"><span className="value"></span>%</div>
               </div>
             </div>
           </div>
