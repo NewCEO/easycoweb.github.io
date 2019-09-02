@@ -163,11 +163,12 @@ module.exports = class farms {
   static offlineInvoice(req,res){
     this.getSingleFarm(req.body.farmId).then((result)=>{
       let singleFarm = result[0];
+      let slug;
       //check if farm is open,check if the farm is sold out
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
         //create Invoice
         this.createInvoice(req,res,singleFarm).then((result)=>{
-          let slug = result;
+          slug = result;
           let amount = singleFarm.price_per_unit * req.body.units *100;
           //Offline payment Invoice
           let data = {
@@ -175,6 +176,26 @@ module.exports = class farms {
             farm:singleFarm,
             invoice_id:slug
           };
+          let mail = new Mailer();
+
+          mail.html(`<!DOCTYPE html>
+                                    <html>
+                                        <h4>Investment Invoice</h4>
+                                        <p><b>Hi, ${req.session.email}</b></p>
+                                        <p>You are about to make a payment with the following details:</p>
+                                        <p><b>Invoice Id: </b> ${slug}</p>
+                                        <p><b>Farm Name: </b> ${singleFarm.title}</p>
+                                        <p><b>Price per Unit: </b>N${singleFarm.price_per_unit}</p>
+                                        <p><b>Units: </b> ${req.body.units}</p>
+                                        <p><b>Investment Value: </b>N${singleFarm.price_per_unit * req.body.units}</p>
+                                        <p><b>Investment Duration:</b>${duration(singleFarm.farm_starts,singleFarm.farm_ends)} Months</p>
+                                        
+                                        <p><b>Amount PayAble:</b>N${interest(singleFarm.roi,(singleFarm.price_per_unit * req.body.units)) + (singleFarm.price_per_unit * req.body.units) }</p>
+                                     
+                                     </html>
+                        `).subject("Farm Investments Invoice -Cow Funding")
+              .recipient(req.session.email)
+              .send("",3);
           res.withSuccess(201).withData(data).reply();
         }).catch(function (error) {
           console.log(error);
@@ -364,13 +385,15 @@ module.exports = class farms {
     let genSlug;
     this.getSingleFarm(req.body.farmId).then((result)=>{
       let singleFarm = result[0];
+      console.log(singleFarm,'single farm')
+
       //check if farm is open,check if the farm is sold out
       if (singleFarm.sold_out < singleFarm.total_units && singleFarm.status === status.active){
         //create Invoice
 
        this.createInvoice(req,res,singleFarm).then((result)=>{
-          let genSlug = result;
-          let amount = singleFarm.price_per_unit * req.body.units *100;
+         genSlug = result;
+          let amount = singleFarm.price_per_unit * req.body.units *100;singleFarm.price_per_unit * req.body.units *100;
           //paystack stuff going on here
           return paystack.transaction.initialize({
             amount:amount,
@@ -379,9 +402,33 @@ module.exports = class farms {
             callback_url:req.body.paystack_cb
           });
         }).then(function (payStackResp) {
-          console.log(payStackResp,'paystack resp')
+
           //add farm slug to the paystack response
-          payStackResp.data['farmId'] = req.body.farmId;
+          payStackResp.data.farmId = req.body.farmId;
+          //Send Invoice mail to user
+
+
+         let mail = new Mailer();
+
+         mail.html(`<!DOCTYPE html>
+                                    <html>
+                                        <h4>Investment Invoice</h4>
+                                        <p><b>Hi, ${req.session.email}</b></p>
+                                        <p>You are about to make an online payment with the following details:</p>
+                                        <p><b>Invoice Id: </b> ${genSlug}</p>
+                                        <p><b>Farm Name: </b> ${singleFarm.title}</p>
+                                        <p><b>Price per Unit: </b>₦${singleFarm.price_per_unit}</p>
+                                        <p><b>Units: </b> ${req.body.units}</p>
+                                        <p><b>Investment Value: </b>N${singleFarm.price_per_unit * req.body.units}</p>
+                                        <p><b>Investment Duration:</b> ${duration(singleFarm.farm_starts,singleFarm.farm_ends)}Months</p>
+                                        
+                                        <p><b>Return Value:</b>N${interest(singleFarm.roi,(singleFarm.price_per_unit * req.body.units)) + (singleFarm.price_per_unit * req.body.units) }</p>
+                                        <a href=${payStackResp.data.authorization_url} style="background:green;padding:10px;color:white;">Pay Now</a>
+                                     </html>
+                        `).subject("Farm Investments Invoice - Cow Funding")
+             .recipient(req.session.email)
+             .send("",3);
+
           res.withSuccess(200).withData(payStackResp.data).reply();
         }).catch(function (error) {
           console.log(error);
@@ -400,6 +447,7 @@ module.exports = class farms {
     let values = [status.invested,req.body.reference,userId,status.unpaid];
     db.query(query,values).then((result)=>{
       let resData;
+
       if (result.affectedRows > 0) {
 
         let query = `SELECT farms.*,
@@ -468,7 +516,7 @@ module.exports = class farms {
       }else{
         res.withServerError(500).reply();
       }
-    }).catch(function (error) {
+    }).caCOWFUNDINGtch(function (error) {
       res.withServerError(500).reply();
     })
   }
