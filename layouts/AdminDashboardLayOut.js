@@ -41,7 +41,7 @@ class DashboardLayOut extends React.Component {
 
         <link rel="icon" href="assets/images/favicon.ico"/>
 
-        <title>EasyCowFunding | Dashboard</title>
+        <title>CowFunding | Dashboard</title>
 
         <link rel="stylesheet" href={'/dashboard/assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css'}/>
         <link rel="stylesheet" href={"/dashboard/assets/css/font-icons/entypo/css/entypo.css"}/>
@@ -169,6 +169,11 @@ class DashboardLayOut extends React.Component {
                   ""
 
               }
+<br />
+<br />
+<br />
+<br />
+<br />
 
             </ul>
           </div>
