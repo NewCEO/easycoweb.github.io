@@ -2,6 +2,7 @@ import React from 'react';
 import DashBoardLayOut from '../../layouts/DashboardLayOut';
 import httpHelper from '../../helpers/httpHelper';
 import FollowBtn from "../../components/followBtn";
+import env      from '../../nextServer/env';
 import SingleFarm from '../../components/singleFarm';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
@@ -14,12 +15,26 @@ class fundFarm extends React.Component{
     this.state = {farmDetails:''};
     this.handleChange = this.handleChange.bind(this);
     this.fundNow      = this.fundNow.bind(this);
-    this.handleFollowBtn = this.handleFollowBtn.bind(this)
+    this.handleFollowBtn = this.handleFollowBtn.bind(this);
+    this.handleBankPaymentInit = this.handleBankPaymentInit.bind(this);
 
   }
 
   static async getInitialProps({ req }) {
     return {farmId:req.params.farmId};
+  }
+
+  handleBankPaymentInit(e){
+    let data = new FormData();
+    data.append("farmId",this.props.farmId);
+    data.append("units",this.state.totalUnitsInput);
+    httpHelper.httpReq('farms/invoice/offline/create',data,'POST').then((response)=>{
+      if (response.success){
+        this.setState({offlinePayment:response.success.data})
+      }else{
+        alert("Error creating Invoice");
+      }
+    })
   }
 
   handleFollowBtn(value){
@@ -75,7 +90,7 @@ class fundFarm extends React.Component{
     let data = new FormData();
     data.append("farmId",this.props.farmId);
     data.append("units",this.state.totalUnitsInput);
-    data.append("paystack_cb","http://www-dev.easycow.com:3000/user/farm/invoice/pay");
+    data.append("paystack_cb",`${env.APP_URL}/user/farm/invoice/pay`);
     httpHelper.httpReq(`farms/invoice/create`,data,"POST").then(function (data) {
       if (data.success.data){
         console.log(data.success.data.authorization_url)
@@ -184,7 +199,7 @@ class fundFarm extends React.Component{
                         </div>
                         <div className=" but row">
                           <div className="text-center">
-                            <button type="button" onClick={this.fundNow} disabled={this.state.isEnabled?"":"disabled"} className="button"  data-toggle="modal" data-target="#profile">Fund Now</button>
+                            <button type="button"  disabled={this.state.isEnabled?"":"disabled"} className="button"   data-toggle="modal" data-target="#fund">Fund Now</button>
                           </div>
                         </div>
                     </div>
@@ -206,8 +221,8 @@ class fundFarm extends React.Component{
                                 </button>
 				</div>
 				<div class="modal-body text-center">
-					<button type="button" class=" button btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#bankinfo"><i class="fa fa-bank" style={{"color":"#77b112"}}></i> BANK TRANSFER</button>
-					<button type="button" class=" button btn btn-primary"><i class="fa fa-globe" style={{"color":"#77b112"}}></i>  PAYSTACK</button>
+					<button type="button" class=" button btn btn-secondary" onClick={this.handleBankPaymentInit} data-dismiss="modal" data-toggle="modal" data-target="#bankinfo"><i class="fa fa-bank" style={{"color":"#77b112"}}></i> BANK TRANSFER</button>
+					<button type="button" class="  button btn btn-primary" onClick={this.fundNow}><i class="fa fa-globe" style={{"color":"#77b112"}}></i>  PAYSTACK</button>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class=" button btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -227,8 +242,10 @@ class fundFarm extends React.Component{
 				</div>
 				<div class="modal-body">
 					<h5>To fund a farm through bank transfer <br/><br/>1. Transfer funds to Access Bank account <br/> Acc No. - 0691128726 <br/> Acc Name - Selema farms Ltd 	</h5> <br/>
-					<h5>2. send evidence of payment i.e A screenshot of successful payment <br/> and include payment invoice that will be issued to you from us to info@cowfunding.com.ng</h5> <br/>
+					<h5>2. send evidence of payment i.e a screenshot of successful payment <br/> and include payment invoice that will be issued to you from us to info@cowfunding.com.ng</h5> <br/>
 					<h5>3. Confirmation of your investment will be issued in 24 hrs</h5>
+
+                  <h1 style={{color:"green"}}>Your Invoice ID : <b>{this.state.offlinePayment?this.state.offlinePayment.invoice_id:""}</b></h1>
 					
 				</div>
 				<div class="modal-footer">

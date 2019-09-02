@@ -33,6 +33,9 @@ let router      = express.Router();
    router.get('/create',(req,res)=> {
      nextApp.render(req, res, '/admin/create-user', {host:req.headers.host});
    });
+   router.get('/farm/payment/offline',(req,res)=> {
+         nextApp.render(req, res, '/admin/offline-payment', {host:req.headers.host});
+   });
    router.get('/users/manage',(req,res)=> {
      nextApp.render(req, res, '/admin/all-users', {host:req.headers.host,farmId:req.params.farmId});
    });
