@@ -223,9 +223,10 @@ class StaticLayout extends React.Component {
 								<p>Healthy Livestock farming for consumption and investment for Nigerians.</p>
 							</div>
 							<ul class="footer-social">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="http://selemafarms.com.ng/facebook.com/selema.farm"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/selemafarms?s=17"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/sola-omidiran-22748b100"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://www.instagram.com/selemafarmfresh_/?hl=en"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
