@@ -121,7 +121,7 @@ class StaticLayout extends React.Component {
 						<div class="icon-box"><i class="flaticon-placeholder"></i></div>
 						<ul>
 							<li>
-							<strong>iwo,</strong>Osun State.
+							<strong>Iwo,</strong>Osun State.
 							</li>
 						</ul>
 					</div>
@@ -252,7 +252,7 @@ class StaticLayout extends React.Component {
 						<div class="contact-widget footer-widget">
 							<div class="footer-title">Contacts</div>
 							<div class="text">
-								<p> Oloba Village,Osun State.</p>
+								<p> Iwo,Osun State.</p>
 								<p>+234(0) 815 030 5555</p>
 								<p>hello@cowfunding.com.ng</p>
 							</div>
