@@ -15,7 +15,7 @@ class gallery extends React.Component{
             <div class="content-box">
                 <div class="title">Our Gallery</div>
                 <ul class="bread-crumb">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li>Gallery</li>
                 </ul>
             </div>
@@ -26,6 +26,19 @@ class gallery extends React.Component{
         <div class="container">
             <div class="team-content">
                 <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                        <div class="single-team-content single-item">
+                            <div class="image img-box">
+                                <figure><img src="images/resource/osinbajo.jpg" alt=""/></figure>
+                                <div class="overlay">
+                                    <a class="link-btn" href="#">
+                                        <i class="fa fa-link"></i>
+                                    </a>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">

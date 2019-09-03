@@ -97,7 +97,7 @@ class StaticLayout extends React.Component {
 		  <link href="/css/style.css" rel="stylesheet"/>
 	<link href="/css/custom.css" rel="stylesheet"/>
 	<link href="/css/responsive.css" rel="stylesheet"/>
-	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
+	<link rel="icon" href="images/logo-big.png" type="image/x-icon"/>
 	<link href="/css/font-awesome.css" rel="stylesheet"/>
 
 </Head>
@@ -107,7 +107,7 @@ class StaticLayout extends React.Component {
 	<header class="main-header header-style-three header-style-four">
 		<div class="header-upper">
 			<div class="container clearfix">
-				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
+				<figure class="logo-box"><a href="index.html"><img className="logo-top" src="images/logo.png" alt=""/></a></figure>
 				<div class="upper-right clearfix">
 					<div class="upper-column info-box">
 						<div class="icon-box"><i class="flaticon-phone-call"></i></div>
@@ -218,7 +218,7 @@ class StaticLayout extends React.Component {
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
-							<figure class="logo-box"><a href="index-6.html"><img src="images/logo.png" alt=""/></a></figure>
+							<figure class="logo-box"><a href="index.html"><img className="logo-big" src="images/logo-big.png" alt=""/></a></figure>
 							<div class="text">
 								<p>Healthy Livestock farming for consumption and investment for Nigerians.</p>
 							</div>
