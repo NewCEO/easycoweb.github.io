@@ -42,7 +42,7 @@ class allFarms extends React.Component{
 
   render() {
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Farm"}>
         <div className="content mt-3">
           <div className="animated fadeIn">
             <div className="row">

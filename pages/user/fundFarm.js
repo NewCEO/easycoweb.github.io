@@ -116,7 +116,7 @@ class fundFarm extends React.Component{
 
   render() {
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Fund Farm"}>
         <div className="content mt-3">
           <div className="animated fadeIn">
 

@@ -13,7 +13,7 @@ class allFarms extends React.Component{
   render() {
 
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"All Farms"}>
         <Farms/>
       </DashBoardLayOut>
     )

@@ -72,7 +72,7 @@ class investments extends React.Component{
 
   render() {
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Investments"}>
 
         <div className="card ground">
           <div className="card-header">
