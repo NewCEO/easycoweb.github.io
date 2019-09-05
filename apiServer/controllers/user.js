@@ -1001,7 +1001,7 @@ Hello
 
           res.withSuccess(200).withData({validation:true,userDet}).reply();
 
-        }else if(result && ( userDet.status === statuses.unverified)){
+       }else if(result && ( userDet.status === statuses.unverified)){
           res.withClientError(403).withErrorData(error.unverified).reply();
 
         }else if (result && ( userDet.status === statuses.deactivate)){
@@ -1030,8 +1030,52 @@ Hello
     })
   }
 
+  static passwordResetInitializer(req,res){
+    let query = "SELECT * FROM users WHERE users.email = ?";
+    let values = [req.body.email];
+
+     db.query(query,values).then((result)=>{
+      if (Object.keys(result).length > 0){
+        return randomKey(15)
+      }
+    }).then((randomKey)=>{
+    let html = `<!DOCTYPE html>
+                    <html>
+                        <h4>Password Reset </h4><p>A password Reset was initiated on your account </p>><a href=${process.env.APP_URL+"/password/reset/"+req.body.email+"/"+randomKey} >click here to reset your password</a></html>`
+       let mail = new mailer();
+        mail.html(html).subject("Password Reset")
+                      .recipient(req.body.email).send("",3)
+    });
+
+    res.withSuccess(200).reply();
+
+  }
+
+  static passwordReset(req,res){
+    let hashedPassword  = passwordHelper.hash(req.body.password);
+    let query = "UPDATE users SET password = ?, users.reset_key = ? WHERE users.email = ? AND users.reset_key = ?";
+    let values = [hashedPassword,"null",req.body.email,req.body.reset_key];
+    let data;
+    return db.query(query,values).then((result)=>{
+      if (result.affectedRows > 0) {
+        data = {
+          message:"Password Reset Successful"
+        }
+        res.withSuccess(200).withData(result).reply();
+
+      }else{
+
+        res.withClientError(400).withErrorData(error.resetPass).reply();
+
+      }
+    }).catch(function (error) {
+      console.log(error);
+      res.withServerError(500).reply();
+    })
+  }
+
+
   static getUser(req,res){
-    console.log('this is here')
     let query   = "SELECT users.*,status.name as status_name,status.id as status_id,banks.name as bank FROM users INNER JOIN status ON status.id = users.status LEFT JOIN banks ON banks.id = users.bank WHERE users.email = ? AND users.status = ?";
     let values  = [req.session.email,statuses.active];
     db.query(query, values).then((userResult)=>{

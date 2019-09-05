@@ -62,7 +62,7 @@ class investments extends React.Component{
 
   render() {
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Profile"}>
         <h4 className="text-center bare" style={{"text-transform":"uppercase"}}>PROFILE - USER {this.state.userName}</h4>
         <div className="content mt-3">
           <div className="animated fadeIn">

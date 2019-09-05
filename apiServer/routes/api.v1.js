@@ -44,6 +44,8 @@ module.exports.apiV1 =  function (app) {
   router.use(cors(options));
   //user api
   router.get('/email/exists', cors(corsOptions), (req,res)=> {user.validateEmail(req,res)});
+  router.post('/password/reset/init', cors(corsOptions), (req,res)=> {user.passwordResetInitializer(req,res)});
+  router.post('/password/reset', cors(corsOptions), (req,res)=> {user.passwordReset(req,res)});
   router.post('/sign-up',cors(corsOptions),  (req,res)=> {user.create(req,res)});
   router.post('/login', cors(corsOptions), (req,res)=> {user.login(req,res)});
   router.post('/logout', cors(corsOptions), (req,res)=> {user.logout(req,res)});
