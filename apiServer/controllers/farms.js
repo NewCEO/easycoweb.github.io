@@ -70,8 +70,11 @@ module.exports = class farms {
     body.location? values.push(body.location):'';
     body.description? values.push(body.description):'';
     body.status? values.push(body.status):'';
-    let query = `UPDATE farms SET ${body.title ? "title = ?" : ""},${body.category ? "category=?" : ""} ,${body.total_units ? "total_units=?" : ""} ,${body.funding_starts ? "funding_starts=?" : ""},${body.funding_ends ? "funding_ends=?" : ""},${body.farm_starts ? "farm_starts=?" : ""},${body.farm_ends ? "farm_ends=?" : ""},${body.roi ? "roi=?" : ""},${body.location ? "location=?" : ""},${body.description ? "description=?" : ""},${body.status ? "status=?" : ""}${ req.files.length > 0 ? ",images=?" : ""} WHERE farms.slug = ?`;
-    if (req.files.length > 0){
+    let query = `UPDATE farms SET ${body.title ? "title = ?" : ""},${body.category ? "category=?" : ""} ,${body.total_units ? "total_units=?" : ""} ,${body.funding_starts ? "funding_starts=?" : ""},${body.funding_ends ? "funding_ends=?" : ""},${body.farm_starts ? "farm_starts=?" : ""},${body.farm_ends ? "farm_ends=?" : ""},${body.roi ? "roi=?" : ""},${body.location ? "location=?" : ""},${body.description ? "description=?" : ""},${body.status ? "status=?" : ""}${ req.files.farmThumbNail ? ",images=?" : ""} WHERE farms.slug = ?`;
+
+    //check if there was a request to reset the image
+    if (req.files.farmThumbNail){
+
 
       //Upload the image to the desired destination
       new fileUploader(req.files.farmThumbNail)
@@ -82,6 +85,7 @@ module.exports = class farms {
           //add the path to an array incase later in future releases there is need for multiple images
           values.push(JSON.stringify([filePath]));
           values.push(req.params.farmId);
+
           return db.query(query, values)
         }).then((result) => {
             res.withSuccess(201, "update").reply();
@@ -89,6 +93,8 @@ module.exports = class farms {
             res.withServerError(500).reply();
           })
     }else {
+      console.log('i am here no ','path')
+
       values.push(req.params.farmId);
       return db.query(query, values)
         .then((result) => {

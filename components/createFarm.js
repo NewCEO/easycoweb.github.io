@@ -85,7 +85,7 @@ class createFarmFormComponent extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
-    this.setState({btnDisabled:trueCKanPdXKaT});
+    this.setState({btnDisabled:true});
     let values = this.state.formValues;
     let formData = new FormData();
     for (var key in values){
@@ -258,7 +258,7 @@ class createFarmFormComponent extends React.Component{
           <label htmlFor="field-1" className="col-sm-3 control-label">Farm photo Thumbnail</label>
 
           <div className="col-sm-5">
-            <input type="file" className="form-control" multiple="multiple" ref={this.fileInput} onChange={this.handleFileUpload} name="farmThumbNail" id="field-file" placeholder="Placeholder" />
+            <input type="file" className="form-control"  ref={this.fileInput} onChange={this.handleFileUpload} name="farmThumbNail" id="field-file" placeholder="Placeholder" />
           </div>
         </div>
         <div className="form-group">

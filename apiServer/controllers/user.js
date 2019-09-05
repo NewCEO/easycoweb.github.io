@@ -992,7 +992,7 @@ Hello
 
         if (result && (userDet.status === statuses.active)){
 
-`          delete userDet.password;
+          delete userDet.password;
           delete userDet.reset_key;
 
             //set session cookie
@@ -1001,7 +1001,7 @@ Hello
 
           res.withSuccess(200).withData({validation:true,userDet}).reply();
 
-`        }else if(result && ( userDet.status === statuses.unverified)){
+       }else if(result && ( userDet.status === statuses.unverified)){
           res.withClientError(403).withErrorData(error.unverified).reply();
 
         }else if (result && ( userDet.status === statuses.deactivate)){
@@ -1053,7 +1053,7 @@ Hello
 
   static passwordReset(req,res){
     let hashedPassword  = passwordHelper.hash(req.body.password);
-    let query = "UPDATE users SET password = ?, users.reset_key WHERE users.email = ? AND users.reset_key = ?";
+    let query = "UPDATE users SET password = ?, users.reset_key = ? WHERE users.email = ? AND users.reset_key = ?";
     let values = [hashedPassword,"null",req.body.email,req.body.reset_key];
     let data;
     return db.query(query,values).then((result)=>{
@@ -1064,13 +1064,12 @@ Hello
         res.withSuccess(200).withData(result).reply();
 
       }else{
-         data = {
-           message:error.resetPass
-         };
-        res.withSuccess(200).withData(result).reply();
+
+        res.withClientError(400).withErrorData(error.resetPass).reply();
 
       }
     }).catch(function (error) {
+      console.log(error);
       res.withServerError(500).reply();
     })
   }

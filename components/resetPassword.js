@@ -121,7 +121,7 @@ class PasswordReset extends React.Component{
                   HelpBlock:{
                       state:true,
                       error:true,
-                      text:`An error occurred. Try again later`
+                      text:response.error.data.errMessage
                   }
               })
           }
@@ -145,9 +145,10 @@ class PasswordReset extends React.Component{
     return (
 
         <form action="#"  onSubmit={this.handleSubm}  className="donate-form default-form me">
+            { this.state.HelpBlock.state?<HelpBlock type={this.state.HelpBlock.error} text={this.state.HelpBlock.text} />:''}
+
             <div className="form-bg">
                 <div className="row clearfix">
-                    { this.state.HelpBlock.state?<HelpBlock type={this.state.HelpBlock.error} text={this.state.HelpBlock.text} />:''}
 
                     <div className="col-lg-12 col-md-6 col-sm-12">
                         <div className="form-group">

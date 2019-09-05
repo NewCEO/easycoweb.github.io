@@ -287,7 +287,7 @@ class StaticLayout extends React.Component {
 							<h2>Login</h2>
 							<h4 class="text-center">Fill this form to login</h4>
 
-              {/*<LogInFormComp />*/}
+              <LogInFormComp />
 
             </div>
 					</div>
@@ -296,7 +296,7 @@ class StaticLayout extends React.Component {
 							<h2>Register</h2>
 							<h4 class="text-center">Fill this form to Register</h4>
 
-              {/*<SignUpFormComp/>*/}
+              <SignUpFormComp/>
 						</div>
 					</div>
 				</div>
