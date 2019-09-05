@@ -145,12 +145,10 @@ class StaticLayout extends React.Component {
 									<ul class="navigation clearfix">
 										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="/about-us">About Us</a></li>
+										<li><a href="http://selemafarms.com.ng/about.html">About Us</a></li>
 										<li><a href="/shop">Our Ranch</a>
 										</li>
 										<li><a href="/gallery">Our Gallery</a>
-										</li>
-										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
 										<li><a href="/contact">Contact Us</a></li>
 									</ul>
@@ -176,7 +174,7 @@ class StaticLayout extends React.Component {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12 column">
-						<figure class="logo-box"><a href="index.html"><img src="" alt=""/>CowFunding</a></figure>
+						<figure class="logo-box"><a href="/index"><img src="" alt=""/>CowFunding</a></figure>
 					</div>
 					<div class="col-lg-8 col-md-12 col-sm-12 menu-column">
 						<div class="menu-area">
@@ -192,12 +190,10 @@ class StaticLayout extends React.Component {
 									<ul class="navigation clearfix">
 										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="/about-us">About Us</a></li>
+										<li><a href="http://selemafarms.com.ng/about.html">About Us</a></li>
 										<li><a href="/shop">Our Ranch</a>
 										</li>
 										<li><a href="/gallery">Our Gallery</a>
-										</li>
-										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
 										<li><a href="/contact">Contact Us</a></li>
 									</ul>	
