@@ -5,6 +5,7 @@ import HelpBlock  from '../components/HelpBlock';
 import error from '../config/errorMessages';
 
 import Router from 'next/router'
+import {Link} from "react-router-dom";
 
 class LogInFormComp extends React.Component{
   constructor(props){
@@ -150,10 +151,15 @@ class LogInFormComp extends React.Component{
                        autoComplete="off" className="validate-password required" size="30"
                        value={this.state.password} required aria-required="true"/></div>
               </div>
+
             </div>
           </div>
-          <div className="center text-center me">
+          <a href="/password/reset">Forgot your password click here</a>
+
+        <div className="center text-center me">
           <button className="theme-btn" type="submit">Login</button>
+
+          <a ></a>
 
         </div>
       </form>

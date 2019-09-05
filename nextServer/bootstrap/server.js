@@ -50,7 +50,12 @@ module.exports = class server{
   app.get('/contact', (req,res)=> {
     nextApp.render(req,res,'/faq',req.query);
   })
-
+    app.get('/password/reset', (req,res)=> {
+    nextApp.render(req,res,'/password-reset',req.query);
+  })
+    app.get('/password/reset/new/:email/:key', (req,res)=> {
+      nextApp.render(req,res,'/new-password',{host:req.headers.host});
+    })
 
     app.listen(env.APP_PORT,(err)=>{
       console.log('> server started on port '+env.APP_PORT);

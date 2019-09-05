@@ -6,5 +6,9 @@ module.exports = {
   blocked:{
     errId:"E419",
     errMessage:"Resource blocked"
+  },
+  resetPass:{
+    errId:"E440",
+    errMessage:"Password could not be reset"
   }
 };

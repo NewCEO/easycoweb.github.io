@@ -82,9 +82,10 @@ class DashboardLayOut extends React.Component {
 
 
         <script src="/dashboard/assets/js/neon-demo.js"></script>
+        <script src="/js/jquery.js"></script>
+
         <script src="/dashboard/assets/js/datatables/datatables.js"></script>
         <script src="/dashboard/assets/js/select2/select2.min.js"></script>
-        <script src="/js/jquery.js"></script>
 
 
 
