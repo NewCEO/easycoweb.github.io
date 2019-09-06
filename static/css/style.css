@@ -420,6 +420,7 @@
  	top: 0px;
  	height: 100%;
  	width: 100%;
+	 display:none;
  	z-index: 999999;
  	background-color: #ffffff;
  	background-position: center center;
