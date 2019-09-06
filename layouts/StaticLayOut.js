@@ -214,7 +214,7 @@ class StaticLayout extends React.Component {
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
-							<figure class="logo-box"><a href="index.html"><img className="logo-big" src="images/logo-big.png" alt=""/></a></figure>
+							<figure class="logo-box"><a href="index.html"><img className="logo-big" src="/images/logo-big.png" alt=""/></a></figure>
 							<div class="text">
 								<p>Healthy Livestock farming for consumption and investment for Nigerians.</p>
 							</div>
