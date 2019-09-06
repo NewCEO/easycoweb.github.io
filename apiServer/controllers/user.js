@@ -1041,7 +1041,7 @@ Hello
     }).then((randomKey)=>{
     let html = `<!DOCTYPE html>
                     <html>
-                        <h4>Password Reset </h4><p>A password Reset was initiated on your account </p>><a href=${process.env.APP_URL+"/password/reset/new/"+req.body.email+"/"+randomKey} >click here to reset your password</a></html>`
+                        <h4>Password Reset </h4><p>A password Reset was initiated on your account </p>><a href=${process.env.APP_URL+"/password/reset/new/"+req.body.email+"/"+randomKey}> click here to reset your password</a></html>`
        let mail = new mailer();
         mail.html(html).subject("Password Reset")
                       .recipient(req.body.email).send("",3)
