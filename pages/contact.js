@@ -27,23 +27,23 @@ class contact extends React.Component{
                     <div class="contact-info">
                         <div class="contact-title">Get In Touch</div>
                         <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
+                            <div class="col-lg-4 col-md-12 col-sm-12 column">
                                 <div class="left-column single-info centred">
                                     <div class="icon-box"><i class="flaticon-map"></i></div>
                                     <h5>Address</h5>
-                                    <div class="text">P6 12th Street, Olive Building Newyork, USA</div>
+                                    <div class="text">Iwo,Osun State</div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 column">
+                            <div class="col-lg-8 col-md-12 col-sm-12 column">
                                 <div class="right-column single-info">
                                     <div class="icon-box"><i class="flaticon-mail"></i></div>
                                     <h5>Email</h5>
-                                    <div class="text">Mail@example.com</div>
+                                    <div class="text">hello@cowfunding.com.ng</div>
                                 </div>
                                 <div class="right-column single-info">
                                     <div class="icon-box"><i class="flaticon-phone-call-1"></i></div>
                                     <h5>Phone No</h5>
-                                    <div class="text">+12345 06 789</div>
+                                    <div class="text">+234(0) 815 030 5555</div>
                                 </div>
                             </div>
                         </div>
