@@ -56,10 +56,18 @@ class PasswordReset extends React.Component{
                   HelpBlock:{
                       state:true,
                       error:true,
-                      text:`An error occurred. Try again later`
+                      text:response.error.errMessage?response.error.errMessage:"An error occurred please retry again later"
                   }
               })
           }
+      }).catch(()=>{
+          this.setState({
+              HelpBlock:{
+                  state:true,
+                  error:true,
+                  text:"An error occurred please retry again later"
+              }
+          })
       })
 
   }

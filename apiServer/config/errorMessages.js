@@ -10,5 +10,9 @@ module.exports = {
   resetPass:{
     errId:"E440",
     errMessage:"Password could not be reset"
+  },
+  acctNotExisting:{
+    errId:"E441",
+    errMessage:"Account doesn't exist"
   }
 };
