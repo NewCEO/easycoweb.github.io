@@ -1064,7 +1064,7 @@ Hello
 
   static passwordReset(req,res){
     let hashedPassword  = passwordHelper.hash(req.body.password);
-    let query = "UPDATE users SET password = ?, users.reset_key = ? WHERE uses.email = ? AND users.reset_key = ?";
+    let query = "UPDATE users SET password = ?, users.reset_key = ? WHERE users.email = ? AND users.reset_key = ?";
     let values = [hashedPassword,"null",req.body.email,req.body.reset_key];
     let data;
     return db.query(query,values).then((result)=>{
