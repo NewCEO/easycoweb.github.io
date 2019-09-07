@@ -8,7 +8,7 @@ import HelpBlock from "../components/HelpBlock";
 class Index extends React.Component{
 
   static async getInitialProps({ req }) {
-	  return {email:req.params.email,key:req.params.key};
+	  return {email:req.params.email,resetKey:req.params.resetKey};
   }
 
 
@@ -39,7 +39,7 @@ class Index extends React.Component{
 
 
 
-					<ResetPassForm resetKey={this.props.key} email={this.props.email}/>
+					<ResetPassForm resetKey={this.props.resetKey} email={this.props.email}/>
 				</div>
 						</div>
 					</div>

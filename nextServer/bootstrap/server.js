@@ -54,7 +54,7 @@ module.exports = class server{
     app.get('/password/reset', (req,res)=> {
     nextApp.render(req,res,'/password-reset',req.query);
   })
-    app.get('/password/reset/new/:email/:key', (req,res)=> {
+    app.get('/password/reset/new/:email/:resetKey', (req,res)=> {
       nextApp.render(req,res,'/new-password',{host:req.headers.host});
     })
 
