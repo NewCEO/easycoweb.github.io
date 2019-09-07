@@ -38,7 +38,7 @@ class allFarms extends React.Component{
 
   render() {
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Verify Voice"}>
 
         <h4>{this.state.paymentState} </h4>
       </DashBoardLayOut>

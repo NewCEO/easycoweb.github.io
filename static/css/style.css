@@ -420,6 +420,7 @@
  	top: 0px;
  	height: 100%;
  	width: 100%;
+	 display:none;
  	z-index: 999999;
  	background-color: #ffffff;
  	background-position: center center;
@@ -6579,7 +6580,7 @@
 
  .contact-section .contact-info .right-column .icon-box {
  	position: absolute;
- 	left: 19px;
+ 	left: 15px;
  	top: 64px;
  }
 

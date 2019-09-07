@@ -97,7 +97,7 @@ class StaticLayout extends React.Component {
 		  <link href="/css/style.css" rel="stylesheet"/>
 	<link href="/css/custom.css" rel="stylesheet"/>
 	<link href="/css/responsive.css" rel="stylesheet"/>
-	<link rel="icon" href="images/logo.png" type="image/x-icon"/>
+	<link rel="icon" href="images/logo-big.png" type="image/x-icon"/>
 	<link href="/css/font-awesome.css" rel="stylesheet"/>
 
 </Head>
@@ -107,7 +107,7 @@ class StaticLayout extends React.Component {
 	<header class="main-header header-style-three header-style-four">
 		<div class="header-upper">
 			<div class="container clearfix">
-				<figure class="logo-box"><a href="index.html"><img src="images/logo.png" alt=""/></a></figure>
+				<figure class="logo-box"><a href="index.html"><img className="logo-top" src="images/logo.png" alt=""/></a></figure>
 				<div class="upper-right clearfix">
 					<div class="upper-column info-box">
 						<div class="icon-box"><i class="flaticon-phone-call"></i></div>
@@ -121,7 +121,7 @@ class StaticLayout extends React.Component {
 						<div class="icon-box"><i class="flaticon-placeholder"></i></div>
 						<ul>
 							<li>
-							<strong>iwo,</strong>Osun State.
+							<strong>Iwo,</strong>Osun State.
 							</li>
 						</ul>
 					</div>
@@ -145,12 +145,10 @@ class StaticLayout extends React.Component {
 									<ul class="navigation clearfix">
 										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="/about-us">About Us</a></li>
+										<li><a href="http://selemafarms.com.ng/about.html">About Us</a></li>
 										<li><a href="/shop">Our Ranch</a>
 										</li>
 										<li><a href="/gallery">Our Gallery</a>
-										</li>
-										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
 										<li><a href="/contact">Contact Us</a></li>
 									</ul>
@@ -176,7 +174,7 @@ class StaticLayout extends React.Component {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12 column">
-						<figure class="logo-box"><a href="index.html"><img src="" alt=""/>CowFunding</a></figure>
+						<figure class="logo-box"><a href="/index"><img src="" alt=""/>CowFunding</a></figure>
 					</div>
 					<div class="col-lg-8 col-md-12 col-sm-12 menu-column">
 						<div class="menu-area">
@@ -192,12 +190,10 @@ class StaticLayout extends React.Component {
 									<ul class="navigation clearfix">
 										<li><a href="/index">Home</a>
 										</li>
-										<li><a href="/about-us">About Us</a></li>
+										<li><a href="http://selemafarms.com.ng/about.html">About Us</a></li>
 										<li><a href="/shop">Our Ranch</a>
 										</li>
 										<li><a href="/gallery">Our Gallery</a>
-										</li>
-										<li><a href="https://medium.com/selemafarms">Our Thoughts</a>
 										</li>
 										<li><a href="/contact">Contact Us</a></li>
 									</ul>	
@@ -218,14 +214,15 @@ class StaticLayout extends React.Component {
 				<div class="row">
 					<div class="col-lg-4 col-md-6 col-sm-12 footer-column">
 						<div class="logo-widget footer-widget">
-							<figure class="logo-box"><a href="index-6.html"><img src="images/logo.png" alt=""/></a></figure>
+							<figure class="logo-box"><a href="index.html"><img className="logo-big" src="/images/logo-big.png" alt=""/></a></figure>
 							<div class="text">
 								<p>Healthy Livestock farming for consumption and investment for Nigerians.</p>
 							</div>
 							<ul class="footer-social">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="http://selemafarms.com.ng/facebook.com/selema.farm"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/selemafarms?s=17"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/sola-omidiran-22748b100"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://www.instagram.com/selemafarmfresh_/?hl=en"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -251,7 +248,7 @@ class StaticLayout extends React.Component {
 						<div class="contact-widget footer-widget">
 							<div class="footer-title">Contacts</div>
 							<div class="text">
-								<p> Oloba Village,Osun State.</p>
+								<p> Iwo,Osun State.</p>
 								<p>+234(0) 815 030 5555</p>
 								<p>hello@cowfunding.com.ng</p>
 							</div>

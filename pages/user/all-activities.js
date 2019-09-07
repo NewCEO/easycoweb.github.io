@@ -16,7 +16,7 @@ class createFarm extends React.Component{
   render() {
     console.log(this.props.farmId)
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"All Activities"}>
 
         <div className="card ground">
           <div className="card-header">

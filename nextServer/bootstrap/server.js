@@ -50,6 +50,7 @@ module.exports = class server{
   app.get('/contact', (req,res)=> {
     nextApp.render(req,res,'/faq',req.query);
   })
+
     app.get('/password/reset', (req,res)=> {
     nextApp.render(req,res,'/password-reset',req.query);
   })

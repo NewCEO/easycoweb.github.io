@@ -134,7 +134,7 @@ class Dashboard extends React.Component{
   render() {
     let days = moment(Date.now()).diff(moment(new Date(this.state.summary.next_due_date)),'days')
     return(
-      <DashBoardLayOut>
+      <DashBoardLayOut title={"Dashboard"}>
         <div className="content mt-3">
           <div className="row text-center count">
             <div className="col">

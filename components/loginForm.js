@@ -154,7 +154,7 @@ class LogInFormComp extends React.Component{
 
             </div>
           </div>
-          <a href="/password/reset">Forgot your password click here</a>
+          <a href="/password/reset">Forgot Password ? Click Here</a>
 
         <div className="center text-center me">
           <button className="theme-btn" type="submit">Login</button>

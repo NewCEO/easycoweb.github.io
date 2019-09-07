@@ -26,7 +26,7 @@ module.exports = class  user {
       let values = [req.body.name, req.body.email, hashedPassword,validationKey,statuses.unverified];
       return db.query(query, values)
     }).then((result)=>{
-      let mail = new mailer();
+      let mail = new mailer();https://cowfunding.com.ng/
       //   //TODO change url from hardcoded to soft coded
       mail.recipient(req.body.email).subject('EasyCow Email Verification')
                   .html(`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -1044,7 +1044,7 @@ Hello
 
           let html = `<!DOCTYPE html>
                       <html>
-                          <h4>Password Reset </h4><p>A password Reset was initiated on your account </p><a href=${process.env.APP_URL+"/password/reset/"+req.body.email+"/"+resetKey} > click here to reset your password</a></html>`
+                          <h4>Password Reset </h4><p>A password Reset was initiated on your account </p><a href=${process.env.APP_URL+"/password/reset/new/"+req.body.email+"/"+resetKey} > click here to reset your password</a></html>`
           let mail = new mailer();
           mail.html(html).subject("Password Reset")
               .recipient(req.body.email).send("",3);
@@ -1053,6 +1053,7 @@ Hello
       }else{
         res.withClientError(400).withErrorData(error.acctNotExisting).reply()
       }
+
     }).catch((e)=>{
       console.log(e)
       res.withServerError(500).reply();
