@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "cron-job": "^1.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-validator": "^6.1.1",
     "fs": "0.0.1-security",
     "jquery": "^3.4.1",
